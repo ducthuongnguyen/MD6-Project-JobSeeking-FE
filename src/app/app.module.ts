@@ -19,10 +19,6 @@ import { DashboardPostedSettingComponent } from './company/dashboard-posted-sett
     SidebarComponent,
     FooterComponent,
     HomeComponent,
-    DashboardMainComponent,
-    DashboardPostedJobComponent,
-    DashboardPostedApplicantComponent,
-    DashboardPostedSettingComponent
   ],
   imports: [
     BrowserModule,
