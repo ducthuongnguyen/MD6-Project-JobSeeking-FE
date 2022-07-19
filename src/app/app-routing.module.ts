@@ -8,31 +8,22 @@ import {DashboardPostedSettingComponent} from './company/dashboard-posted-settin
 
 
 const routes: Routes = [
+
+  {path: '', pathMatch: 'full',redirectTo: 'home'},
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'home',component: HomeComponent
   },
   {
     path: 'company',
-    children: [
-      {
-        path: 'main',
-        component: DashboardMainComponent
-      },
-      {
-        path: 'posterJob',
-        component: DashboardPostedJobComponent
-      },
-      {
-        path: 'postedApplicant',
-        component: DashboardPostedApplicantComponent
-      },
-      {
-        path: 'setting',
-        component: DashboardPostedSettingComponent
-      }
-    ]
-  }
+    // canActivate: [AuthGuard],
+    loadChildren: () => import('./company/company.module').then(module => module.CompanyModule)
+  },
+  // {
+  //   path: 'transaction',
+  //   // canActivate: [AuthGuard],
+  //   loadChildren: () => import('./transaction/transaction.module').then(module => module.TransactionModule)
+  // },
+
 ];
 
 @NgModule({
