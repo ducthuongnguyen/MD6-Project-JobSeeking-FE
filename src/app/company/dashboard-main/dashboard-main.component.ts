@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Company} from 'src/app/model/company';
+import {CompanyService} from 'src/app/service/company.service';
 
 @Component({
   selector: 'app-dashboard-main',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-main.component.css']
 })
 export class DashboardMainComponent implements OnInit {
+  companies: Company[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private companyService: CompanyService) {
   }
 
+  ngOnInit() {
+    this.findAll();
+  }
+
+  findAll() {
+    this.companyService.findAll().subscribe((result: Company[]) => {
+      this.companies = result;
+      console.log(result);
+    }, error => {
+      console.log(error);
+    })
+  }
 }

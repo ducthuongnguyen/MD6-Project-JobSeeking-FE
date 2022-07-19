@@ -98,7 +98,7 @@
           <table class="table table-striped">
             <thead>
             <tr>
-              <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Name</th>
+              <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Tên công ty</th>
               <th scope="col" class="border-0 font-size-4 font-weight-normal">Applied as</th>
               <th scope="col" class="border-0 font-size-4 font-weight-normal">Applied on</th>
               <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
@@ -165,7 +165,7 @@
         </div>
         <div class="col-lg-6">
           <div class="d-flex flex-wrap align-items-center justify-content-lg-end">
-            <p class="font-size-4 mb-0 mr-6 py-2">Filter by Job:</p>
+            <p class="font-size-4 mb-0 mr-6 py-2">Lọc theo khu vực:</p>
             <div class="h-px-48">
               <select name="country" id="country" class="nice-select pl-7 h-100 arrow-3 arrow-3-black min-width-px-273 font-weight-semibold text-black-2">
                 <option value="" data-display="Product Designer">Full-Time</option>
@@ -180,114 +180,32 @@
           <table class="table table-striped">
             <thead>
             <tr>
-              <th scope="col" class="pl-0 border-0 font-size-4 font-weight-normal">Name</th>
-              <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">Job Type</th>
-              <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">City</th>
-              <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">Created on</th>
-              <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">Total Applicants</th>
+              <th scope="col" class="pl-0 border-0 font-size-4 font-weight-normal">Tên công ty</th>
+              <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">Địa chỉ</th>
+              <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">Giới thiệu</th>
               <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal"></th>
               <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal"></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="border border-color-2">
+            <tr class="border border-color-2" *ngFor="let c of companies; index as i">
               <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
                 <div class="">
-                  <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">Senior Project Manager</a>
+                  <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">
+                    {{c.name}}</a>
                 </div>
               </th>
               <td class="table-y-middle py-7 min-width-px-135">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">Full-Time</h3>
+                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{c.address}}</h3>
               </td>
               <td class="table-y-middle py-7 min-width-px-125">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">New York</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-155">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">12 July, 2020</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-205">
-                <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">47</h3>
+                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{c.introduction}}</h3>
               </td>
               <td class="table-y-middle py-7 min-width-px-80">
-                <a href="" class="font-size-3 font-weight-bold text-green text-uppercase">Edit</a>
+                <a href="" class="font-size-3 font-weight-bold text-green text-uppercase">Sửa</a>
               </td>
               <td class="table-y-middle py-7 min-width-px-100">
-                <a href="" class="font-size-3 font-weight-bold text-red-2 text-uppercase">Delete</a>
-              </td>
-            </tr>
-            <tr class="border border-color-2">
-              <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                <div class="">
-                  <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">UI Designer</a>
-                </div>
-              </th>
-              <td class="table-y-middle py-7 min-width-px-135">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">Full-Time</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-125">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">Remote</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-155">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">24 June, 2020</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-205">
-                <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">145</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-80">
-                <a href="" class="font-size-3 font-weight-bold text-green text-uppercase">Edit</a>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-100">
-                <a href="" class="font-size-3 font-weight-bold text-red-2 text-uppercase">Delete</a>
-              </td>
-            </tr>
-            <tr class="border border-color-2">
-              <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                <div class="">
-                  <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">Head of Marketing</a>
-                </div>
-              </th>
-              <td class="table-y-middle py-7 min-width-px-135">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">Full-Time</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-125">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">London</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-155">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">15 June, 2020</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-205">
-                <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">62</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-80">
-                <a href="" class="font-size-3 font-weight-bold text-green text-uppercase">Edit</a>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-100">
-                <a href="" class="font-size-3 font-weight-bold text-red-2 text-uppercase">Delete</a>
-              </td>
-            </tr>
-            <tr class="border border-color-2">
-              <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                <div class="">
-                  <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">Full-Stack Developer</a>
-                </div>
-              </th>
-              <td class="table-y-middle py-7 min-width-px-135">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">Part-Time</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-125">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">California</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-155">
-                <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">29 May, 2020</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-205">
-                <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">184</h3>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-80">
-                <a href="" class="font-size-3 font-weight-bold text-green text-uppercase">Edit</a>
-              </td>
-              <td class="table-y-middle py-7 min-width-px-100">
-                <a href="" class="font-size-3 font-weight-bold text-red-2 text-uppercase">Delete</a>
+                <a href="" class="font-size-3 font-weight-bold text-red-2 text-uppercase">Xóa</a>
               </td>
             </tr>
             </tbody>

@@ -12,6 +12,7 @@ import { DashboardPostedJobComponent } from './company/dashboard-posted-job/dash
 import { DashboardPostedApplicantComponent } from './company/dashboard-posted-applicant/dashboard-posted-applicant.component';
 import { DashboardPostedSettingComponent } from './company/dashboard-posted-setting/dashboard-posted-setting.component';
 import { ListJobComponent } from './recruitment/list-job/list-job.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListJobComponent } from './recruitment/list-job/list-job.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
