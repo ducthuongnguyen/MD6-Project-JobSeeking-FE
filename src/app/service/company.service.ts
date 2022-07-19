@@ -7,6 +7,6 @@ import {HttpClient} from "@angular/common/http";
 export class CompanyService {
 
   constructor(private httpClient: HttpClient) {
-    
+
   }
 }
