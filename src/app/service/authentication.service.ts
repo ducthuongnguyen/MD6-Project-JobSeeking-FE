@@ -26,13 +26,13 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(API_URL + '/signin-company', {username, password})
-      .pipe(map(user => {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
+  login(email: string, password: string) {
+    return this.http.post<any>(API_URL + '/signin-company', {email, password})
+      .pipe(map(company => {
+        localStorage.setItem('currentUser', JSON.stringify(company));
+        this.currentUserSubject.next(company);
         // this.update.emit('login');
-        return user;
+        return company;
       }));
   }
 
