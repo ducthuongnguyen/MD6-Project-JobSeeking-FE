@@ -11,6 +11,7 @@ import { DashboardMainComponent } from './company/dashboard-main/dashboard-main.
 import { DashboardPostedJobComponent } from './company/dashboard-posted-job/dashboard-posted-job.component';
 import { DashboardPostedApplicantComponent } from './company/dashboard-posted-applicant/dashboard-posted-applicant.component';
 import { DashboardPostedSettingComponent } from './company/dashboard-posted-setting/dashboard-posted-setting.component';
+import { ListJobComponent } from './recruitment/list-job/list-job.component';
 
 @NgModule({
   declarations: [

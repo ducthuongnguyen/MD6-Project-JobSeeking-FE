@@ -8,21 +8,24 @@ import {DashboardPostedSettingComponent} from './company/dashboard-posted-settin
 
 
 const routes: Routes = [
-
-  {path: '', pathMatch: 'full',redirectTo: 'home'},
   {
-    path: 'home',component: HomeComponent
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'},
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'company',
     // canActivate: [AuthGuard],
     loadChildren: () => import('./company/company.module').then(module => module.CompanyModule)
   },
-  // {
-  //   path: 'transaction',
-  //   // canActivate: [AuthGuard],
-  //   loadChildren: () => import('./transaction/transaction.module').then(module => module.TransactionModule)
-  // },
+  {
+    path: 'recruitment',
+    // canActivate: [AuthGuard],
+    loadChildren: () => import('./recruitment/recruitment.module').then(module => module.RecruitmentModule)
+  },
 
 ];
 
