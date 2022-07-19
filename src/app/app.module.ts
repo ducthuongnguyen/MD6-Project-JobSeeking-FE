@@ -12,6 +12,11 @@ import { DashboardPostedJobComponent } from './company/dashboard-posted-job/dash
 import { DashboardPostedApplicantComponent } from './company/dashboard-posted-applicant/dashboard-posted-applicant.component';
 import { DashboardPostedSettingComponent } from './company/dashboard-posted-setting/dashboard-posted-setting.component';
 import { ListJobComponent } from './recruitment/list-job/list-job.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -23,7 +28,10 @@ import { ListJobComponent } from './recruitment/list-job/list-job.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
