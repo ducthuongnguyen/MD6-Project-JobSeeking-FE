@@ -105,7 +105,7 @@ export class NavbarComponent implements OnInit {
           if (data.roles[0].authority == "COMPANY") {
             this.messageLogin();
             document.getElementById("login").click();
-            this.router.navigate(['/company/company/main']);
+            this.router.navigate(['/company/company/list']);
             location.reload();
           }
           if (data.roles[0].authority == "ADMIN") {
