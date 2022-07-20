@@ -6,16 +6,19 @@ import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashbo
 import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
 import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
-import {DashboardMainComponent} from "./company/dashboard-main-test/dashboard-main.component";
+import {CompanyListComponent} from './company/company-list/company-list.component';
+import { UpdateStatusComponent } from './company/update-status/update-status.component';
+
 
 
 @NgModule({
   declarations: [
-    DashboardMainComponent,
     DashboardPostedJobComponent,
     DashboardPostedSettingComponent,
     DashboardPostedApplicantComponent,
     ListJobComponent,
+    CompanyListComponent,
+    UpdateStatusComponent,
   ],
   imports: [
     CommonModule,

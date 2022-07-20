@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DashboardMainComponent} from "./company/dashboard-main-test/dashboard-main.component";
 import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
 import {
   DashboardPostedApplicantComponent
 } from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
 import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
+import {CompanyListComponent} from './company/company-list/company-list.component';
+import {UpdateStatusComponent} from './company/update-status/update-status.component';
+
 
 
 
@@ -16,7 +18,11 @@ const routes: Routes = [
     children: [
       {
         path: 'main',
-        component: DashboardMainComponent
+        component: CompanyListComponent
+      },
+      {
+        path: 'update-status/:id',
+        component: UpdateStatusComponent
       },
       {
         path: 'posterJob',
