@@ -5,10 +5,10 @@
     <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
   </div>
   <ul class="list-unstyled dashboard-layout-sidebar">
-    <li class="active"><a routerLink="/company/main" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fa-solid fa-table mr-7" style="font-size: 20px"></i> Danh sách công ty</a></li>
-    <li class=""><a routerLink="/company/posterJob" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>Danh sách tin tuyển dụng</a></li>
-    <li class=""><a routerLink="/company/postedApplicant" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>Danh sách ứng tuyển <span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
-    <li class=""><a routerLink="/company/setting" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>Chỉnh sửa thông tin</a></li>
+    <li class="active"><a routerLink="/company/company/main" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fa-solid fa-table mr-7" style="font-size: 20px"></i> Danh sách công ty</a></li>
+    <li class=""><a routerLink="/company/company/posterJob" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>Danh sách tin tuyển dụng</a></li>
+    <li class=""><a routerLink="/company/company/postedApplicant" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>Danh sách ứng tuyển <span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
+    <li class=""><a routerLink="/company/company/update" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>Chỉnh sửa thông tin</a></li>
   </ul>
 </div>
 <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
@@ -19,25 +19,8 @@
     <div class="mb-15 mb-lg-23">
       <div class="row">
         <div class="col-xxxl-9 px-lg-13 px-6">
-          <h5 class="font-size-6 font-weight-semibold mb-11">Chỉnh sửa thông tin doanh nghiệp</h5>
+          <h2 style="text-align: center" class="font-size-8 font-weight-semibold mb-11">Chỉnh sửa thông tin</h2>
           <div class="contact-form bg-white shadow-8 rounded-4 pl-sm-10 pl-4 pr-sm-11 pr-4 pt-15 pb-13">
-<!--            <div class="upload-file mb-16 text-center">-->
-              <!--                                Note-->
-              <!--              <div id="userActions" class="square-144 m-auto px-6 mb-7">-->
-              <!--                <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Browse or Drag and Drop</label>-->
-              <!--                <input type="file" id="fileUpload" class="sr-only" />-->
-              <!--              </div>-->
-
-<!--              <div class="wrapper">-->
-<!--                <div class="file-upload">-->
-<!--                  <input type="file" />-->
-<!--                  <i class="fa fa-arrow-up"></i>-->
-<!--                </div>-->
-<!--              </div>-->
-
-              <!-- <img id="imgPrime" src="" alt="uploaded image placeholder" /> -->
-              <!-- <input type="file" id="upfile"> -->
-<!--            </div>-->
             <form [formGroup]="editForm" (ngSubmit)="update()">
               <fieldset>
                 <div class="row mb-xl-1 mb-9">
