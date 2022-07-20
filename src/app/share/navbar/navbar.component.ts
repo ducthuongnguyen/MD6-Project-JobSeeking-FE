@@ -13,6 +13,8 @@ import {$} from "protractor";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  checkRole;
+
 
   // noEmail = {
   //   message: "email_existed"
@@ -36,12 +38,16 @@ export class NavbarComponent implements OnInit {
     password: new FormControl(),
   })
 
-  constructor(private companyService: AuthenticationService,
+  constructor(private authenticationService: AuthenticationService,
               private router: Router,
-              private activatedRoute: ActivatedRoute,) {
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    const role = localStorage.getItem('ROLE');
+    if (role==null){
+      this.checkRole = true;
+    } else this.checkRole = false;
   }
 
   register() {
@@ -49,7 +55,7 @@ export class NavbarComponent implements OnInit {
 
 
     console.log(company)
-    this.companyService.register(company).subscribe((data) => {
+    this.authenticationService.register(company).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
     }, error => {
@@ -71,7 +77,7 @@ export class NavbarComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    this.companyService.login(email, password)
+    this.authenticationService.login(email, password)
       .pipe(first())
       .subscribe(
         data => {
@@ -80,14 +86,14 @@ export class NavbarComponent implements OnInit {
             document.getElementById("status").innerHTML = 'Login Failed! Please try again!'
             return
           }
-          localStorage.setItem('ACCESS_TOKEN', data.accessToken);
+          localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);
           localStorage.setItem('EMAIL', data.email);
           localStorage.setItem('COMPANYID', data.id);
           if (data.roles[0].authority == "COMPANY") {
             this.messageLogin();
             document.getElementById("login").click();
-            this.router.navigate(['/company/main']);
+            this.router.navigate(['/company/company/update']);
           }
 
         },
@@ -105,4 +111,10 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/home']);
+  }
+
 }
