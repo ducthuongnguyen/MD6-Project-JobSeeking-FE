@@ -47,12 +47,12 @@ export class NavbarComponent implements OnInit {
     console.log(company)
     this.companyService.register(company).subscribe((data) => {
       document.getElementById("signupForCompany").click();
-     this.openA();
+     this.messageRegister();
     }, error => {
       alert('Lỗi');
     }) ;
   }
-  openA() {
+  messageRegister() {
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -79,10 +79,10 @@ export class NavbarComponent implements OnInit {
           localStorage.setItem('EMAIL', data.email);
           localStorage.setItem('COMPANYID', data.id);
           if (data.roles[0].authority == "COMPANY") {
-            this.openLogin();
+            this.messageLogin();
             document.getElementById("login").click();
             // $('#login').modal('hide');
-            this.router.navigate(['/']);
+            this.router.navigate(['/company/main']);
           }
 
         },
@@ -90,7 +90,7 @@ export class NavbarComponent implements OnInit {
           alert("Tài khoản của bạn sai mật khẩu!");
         });
   }
-  openLogin() {
+  messageLogin() {
     Swal.fire({
       position: 'center',
       icon: 'success',
