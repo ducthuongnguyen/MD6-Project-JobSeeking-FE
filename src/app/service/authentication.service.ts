@@ -27,7 +27,7 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<any>(API_URL + '/signin-company', {email, password})
+    return this.http.post<any>(API_URL + '/sign-in-company', {email, password})
       .pipe(map(company => {
         localStorage.setItem('currentUser', JSON.stringify(company));
         this.currentUserSubject.next(company);
@@ -45,6 +45,6 @@ export class AuthenticationService {
   }
 
   register(company: any): Observable<Company> {
-    return this.http.post<User>("http://localhost:8080/signup-company", company);
+    return this.http.post<User>("http://localhost:8080/sign-up-company", company);
   }
 }
