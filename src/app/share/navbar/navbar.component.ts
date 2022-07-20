@@ -48,16 +48,16 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     const role = localStorage.getItem('ROLE');
-    if (role==null){
+    if (role == null) {
       this.checkRole = true;
     }
-    if (role == "COMPANY"){
+    if (role == "COMPANY") {
       this.checkRoleCompany = true;
     }
-    if (role == "ADMIN"){
+    if (role == "ADMIN") {
       this.checkRoleAdmin = true;
     }
-    if (role == "USER"){
+    if (role == "USER") {
       this.checkRoleUser = true;
     }
   }

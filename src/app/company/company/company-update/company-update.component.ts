@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {authenticationService} from "../../../service/company.service";
 import Swal from 'sweetalert2';
@@ -19,7 +19,9 @@ export class CompanyUpdateComponent implements OnInit {
     phoneNumber: new FormControl(),
     introduction: new FormControl(),
   });
-  constructor(private authenticationService: authenticationService) { }
+
+  constructor(private authenticationService: authenticationService) {
+  }
 
   ngOnInit() {
 
@@ -39,6 +41,7 @@ export class CompanyUpdateComponent implements OnInit {
       });
     });
   }
+
   update() {
     const id = localStorage.getItem('COMPANYID');
     const company = this.editForm.value
@@ -49,6 +52,7 @@ export class CompanyUpdateComponent implements OnInit {
       console.log(e);
     });
   }
+
   messageUpdate() {
     Swal.fire({
       position: 'center',
