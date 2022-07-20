@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {authenticationService} from "../../../service/company.service";
 import Swal from 'sweetalert2';
+import {AuthenticationService} from "../../../service/authentication.service";
+import {CompanyService} from "../../../service/company.service";
 
 @Component({
   selector: 'app-company-update',
@@ -20,7 +21,8 @@ export class CompanyUpdateComponent implements OnInit {
     introduction: new FormControl(),
   });
 
-  constructor(private authenticationService: authenticationService) {
+  constructor(private authenticationService: AuthenticationService,
+              private companyService: CompanyService) {
   }
 
   ngOnInit() {
@@ -31,7 +33,7 @@ export class CompanyUpdateComponent implements OnInit {
 
   getCompany() {
     const id = localStorage.getItem('COMPANYID');
-    return this.authenticationService.getById(id).subscribe(company => {
+    return this.companyService.getById(id).subscribe(company => {
       this.editForm = new FormGroup({
         name: new FormControl(company.name),
         address: new FormControl(company.address),
@@ -45,7 +47,7 @@ export class CompanyUpdateComponent implements OnInit {
   update() {
     const id = localStorage.getItem('COMPANYID');
     const company = this.editForm.value
-    this.authenticationService.update(id, company).subscribe(() => {
+    this.companyService.update(id, company).subscribe(() => {
       // this.router.navigate(['/student']);
       this.messageUpdate();
     }, e => {
