@@ -22,47 +22,14 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" routerLink="/home">Trang chủ</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/guest/company">Doanh nghiệp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/guest/recruitment">Tin tuyển dụng</a>
+            </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Công ty <i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
-              <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
-                <li class="drop-menu-item">
-                  <a routerLink="admin/company/main">
-                    Danh sách công ty
-                  </a>
-                </li>
-                <li class="drop-menu-item">
-                  <a routerLink="admin/company/posterJob">
-                  Danh sách tin tuyển dụng
-                  </a>
-                </li>
-                <li class="drop-menu-item">
-                  <a routerLink="/company/postedApplicant">
-                   Danh sách ứng viên
-                  </a>
-                </li>
-                <li class="drop-menu-item">
-                  <a routerLink="/company/setting">
-                    Chỉnh sửa thông tin
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Việc làm<i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
-              <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
-                <li class="drop-menu-item">
-                  <a routerLink="/recruitment">
-                    Tìm việc làm theo bảng
-                  </a>
-                </li>
-                <li class="drop-menu-item">
-                  <a routerLink="/company/posterJob">
-                    Việc làm đã ứng tuyển
-                  </a>
-                </li>
-              </ul>
-            </li>
+
           </ul>
         </div>
         <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
@@ -144,6 +111,11 @@
                   </a>
                 </li>
                 <li class="drop-menu-item">
+                  <a routerLink="/company/company/posterJob">
+                    Danh sách khóa
+                  </a>
+                </li>
+                <li class="drop-menu-item">
                   <a routerLink="/company/company/postedApplicant">
                     Danh sách ứng viên
                   </a>
@@ -160,12 +132,7 @@
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/recruitment">
-                    Tìm việc làm theo bảng
-                  </a>
-                </li>
-                <li class="drop-menu-item">
-                  <a routerLink="/company/posterJob">
-                    Việc làm đã ứng tuyển
+                    Danh sách tin tuyển dụng
                   </a>
                 </li>
               </ul>
@@ -241,26 +208,21 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Công ty <i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/company/main">
-                    Danh sách công ty
+                    Danh sách đang hoạt động
                   </a>
                 </li>
                 <li class="drop-menu-item">
                   <a routerLink="/company/posterJob">
-                    Danh sách tin tuyển dụng
+                    Danh sách chờ duyệt
                   </a>
                 </li>
                 <li class="drop-menu-item">
                   <a routerLink="/company/postedApplicant">
-                    Danh sách ứng viên
-                  </a>
-                </li>
-                <li class="drop-menu-item">
-                  <a routerLink="/company/setting">
-                    Chỉnh sửa thông tin
+                    Danh sách bị khóa
                   </a>
                 </li>
               </ul>
@@ -270,12 +232,12 @@
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/recruitment">
-                    Tìm việc làm theo bảng
+                    Danh sách tin tuyển dụng
                   </a>
                 </li>
                 <li class="drop-menu-item">
                   <a routerLink="/company/posterJob">
-                    Việc làm đã ứng tuyển
+                    Danh sách khóa
                   </a>
                 </li>
               </ul>

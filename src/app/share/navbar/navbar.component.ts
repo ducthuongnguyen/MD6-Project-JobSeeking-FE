@@ -106,6 +106,19 @@ export class NavbarComponent implements OnInit {
             this.messageLogin();
             document.getElementById("login").click();
             this.router.navigate(['/company/company/main']);
+            location.reload();
+          }
+          if (data.roles[0].authority == "ADMIN") {
+            this.messageLogin();
+            document.getElementById("login").click();
+            this.router.navigate(['/admin/company/main']);
+            location.reload();
+          }
+          if (data.roles[0].authority == "USER") {
+            this.messageLogin();
+            document.getElementById("login").click();
+            this.router.navigate(['/user/company/main']);
+            location.reload();
           }
 
         },
@@ -172,6 +185,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/home']);
+    location.reload();
   }
 
 }
