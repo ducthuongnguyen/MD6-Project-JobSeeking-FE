@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CompanyRoutingModule } from './company-routing.module';
-import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.component";
+import { AdminRoutingModule } from './admin-routing.module';
 import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
 import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
 import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
+import {DashboardMainComponent} from "./company/dashboard-main-test/dashboard-main.component";
 
 
 @NgModule({
@@ -15,11 +15,11 @@ import {ListJobComponent} from "./recruitment/list-job/list-job.component";
     DashboardPostedJobComponent,
     DashboardPostedSettingComponent,
     DashboardPostedApplicantComponent,
-    ListJobComponent
+    ListJobComponent,
   ],
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    AdminRoutingModule
   ]
 })
-export class CompanyModule { }
+export class AdminModule { }

@@ -1,3 +1,5 @@
+import {Role} from "./role";
+
 export interface Company {
   id?: String;
   name?: String;
@@ -9,5 +11,5 @@ export interface Company {
   introduction?: String;
   status?: String;
   proposed?: String;
-  roles?: String;
+  roles?: [Role];
 }

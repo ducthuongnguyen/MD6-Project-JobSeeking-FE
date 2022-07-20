@@ -86,7 +86,7 @@
             </li>
             <li>
               <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#signupForCompany">
-                CÔNG TY
+                DOANH NGHIỆP
               </a>
             </li>
           </ul>
@@ -143,29 +143,19 @@
         </div>
         <div class="col-lg-7 col-md-6">
           <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-            <div class="row">
-              <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with LinkedIn</span></a>
-              </div>
-              <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Google</span></a>
-              </div>
-              <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Facebook</span></a>
-              </div>
-            </div>
+
             <div class="or-devider">
-              <span class="font-size-3 line-height-reset ">Or</span>
+              <span class="font-size-3 line-height-reset "><h4>Đăng nhập</h4></span>
             </div>
-            <form action="/">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
               <div class="form-group">
                 <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                <input formControlName="email" type="email" class="form-control" placeholder="example@gmail.com" id="email">
               </div>
               <div class="form-group">
                 <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password" placeholder="Enter password">
+                  <input formControlName="password" type="password" class="form-control" id="password" placeholder="Enter password">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                 </div>
               </div>
@@ -178,7 +168,7 @@
                 <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
               </div>
               <div class="form-group mb-8">
-                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
+                <button data-dismiss="login" class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
               </div>
               <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
             </form>
@@ -252,7 +242,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
+                <label for="password234" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
                 <div class="position-relative">
                   <input type="password" class="form-control" id="password234" placeholder="Enter password">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password234"></a>
@@ -314,42 +304,55 @@
         </div>
         <div class="col-lg-7 col-md-6">
           <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-            <div class="row">
-              <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from LinkedIn</span></a>
-              </div>
-              <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Google</span></a>
-              </div>
-              <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Facebook</span></a>
-              </div>
-            </div>
             <div class="or-devider">
-              <span class="font-size-3 line-height-reset">Or</span>
+              <span class="font-size-3 line-height-reset"><h4 style="color: green">Tài khoản</h4></span>
             </div>
-            <form action="/">
+            <form [formGroup]="companyForm" (ngSubmit)="register()">
               <div class="form-group">
-                <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                <label for="email5" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
+                <input formControlName="email" type="email" class="form-control" placeholder="Nhập mail" id="email5">
               </div>
               <div class="form-group">
-                <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
+                <label for="password5" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Mật khẩu</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password2" placeholder="Enter password">
+                  <input formControlName="password" type="password" class="form-control" id="password5" placeholder="Nhập mật khẩu">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
               <div class="form-group">
-                <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
+                <label for="password231" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nhập lại mật khẩu</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password23" placeholder="Enter password">
+                  <input type="password" class="form-control" id="password231" placeholder="Nhập mật khẩu">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
                 </div>
               </div>
+              <div class="or-devider">
+                <span class="font-size-3 line-height-reset"><h4 style="color: green">Thông tin doanh nghiệp</h4></span>
+              </div>
+              <div class="form-group">
+                <label for="name" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Tên doanh nghiệp</label>
+                <input formControlName="name" type="text" class="form-control" placeholder="Nhập tên" id="name">
+              </div>
+                <div class="form-group">
+
+                  <label for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</label>
+                  <input formControlName="avatar" type="text" class="form-control" placeholder="Nhập ảnh đại diện" id="avatar">
+                </div>
+              <div class="form-group">
+                <label for="address" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
+                <input formControlName="address" type="text" class="form-control" placeholder="Nhập địa chỉ" id="address">
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Số điện thoại</label>
+                <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Nhập số điện thoại" id="phoneNumber">
+              </div>
+              <div class="form-group">
+                <label for="introduction" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Thông tin</label>
+                <input formControlName="introduction" type="text" class="form-control" placeholder="Nhập thông tin" id="introduction">
+              </div>
               <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                <label for="terms-check2" class="gr-check-input d-flex  mr-3">
-                  <input class="d-none" type="checkbox" id="terms-check2">
+                <label for="terms-check21" class="gr-check-input d-flex  mr-3">
+                  <input class="d-none" type="checkbox" id="terms-check21">
                   <span class="checkbox mr-5"></span>
                   <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="" class="text-primary">Terms & Conditions</a></span>
                 </label>

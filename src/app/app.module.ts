@@ -7,11 +7,15 @@ import { NavbarComponent } from './share/navbar/navbar.component';
 import { SidebarComponent } from './share/sidebar/sidebar.component';
 import { FooterComponent } from './share/footer/footer.component';
 import { HomeComponent } from './share/home/home.component';
-import { DashboardMainComponent } from './company/dashboard-main/dashboard-main.component';
-import { DashboardPostedJobComponent } from './company/dashboard-posted-job/dashboard-posted-job.component';
-import { DashboardPostedApplicantComponent } from './company/dashboard-posted-applicant/dashboard-posted-applicant.component';
-import { DashboardPostedSettingComponent } from './company/dashboard-posted-setting/dashboard-posted-setting.component';
-import { ListJobComponent } from './recruitment/list-job/list-job.component';
+import { DashboardMainComponent } from './company/company/dashboard-main/dashboard-main.component';
+import { DashboardPostedJobComponent } from './company/company/dashboard-posted-job/dashboard-posted-job.component';
+import { DashboardPostedApplicantComponent } from './company/company/dashboard-posted-applicant/dashboard-posted-applicant.component';
+import { DashboardPostedSettingComponent } from './company/company/dashboard-posted-setting/dashboard-posted-setting.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import { ListJobComponent } from './recruitment/list-job/list-job.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

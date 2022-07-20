@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CompanyRoutingModule } from './company-routing.module';
+import { UserRoutingModule } from './user-routing.module';
 import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.component";
 import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
 import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
@@ -9,6 +9,7 @@ import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-appl
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
 
 
+// @ts-ignore
 @NgModule({
   declarations: [
     DashboardMainComponent,
@@ -16,10 +17,11 @@ import {ListJobComponent} from "./recruitment/list-job/list-job.component";
     DashboardPostedSettingComponent,
     DashboardPostedApplicantComponent,
     ListJobComponent
+
   ],
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    UserRoutingModule
   ]
 })
-export class CompanyModule { }
+export class UserModule { }
