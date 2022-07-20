@@ -106,7 +106,7 @@ export class NavbarComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'error',
-      title: 'Tài khoản của bạn sai mật khẩu!',
+      title: 'Tài khoản của bạn sai email hoặc mật khẩu!',
       showConfirmButton: false,
       timer: 3000
     })
