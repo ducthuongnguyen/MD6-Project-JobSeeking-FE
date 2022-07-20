@@ -76,7 +76,6 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
-            // @ts-ignore
             document.getElementById("status").innerHTML = 'Login Failed! Please try again!'
             return
           }
