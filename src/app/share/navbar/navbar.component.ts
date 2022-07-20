@@ -95,8 +95,7 @@ export class NavbarComponent implements OnInit {
         data => {
           if (data.status == 202) {
             // @ts-ignore
-            document.getElementById("status").innerHTML = 'Login Failed! Please try again!'
-            return
+            this.messageLoginFail();
           }
           localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);
@@ -129,4 +128,13 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  messageLoginFail() {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Tài khoản của bạn sai mật khẩu!',
+      showConfirmButton: false,
+      timer: 3000
+    })
+  }
 }
