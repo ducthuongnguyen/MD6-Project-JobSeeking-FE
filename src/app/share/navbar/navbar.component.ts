@@ -14,6 +14,9 @@ import {$} from "protractor";
 })
 export class NavbarComponent implements OnInit {
   checkRole;
+  checkRoleAdmin;
+  checkRoleUser;
+  checkRoleCompany;
 
 
   // noEmail = {
@@ -47,7 +50,16 @@ export class NavbarComponent implements OnInit {
     const role = localStorage.getItem('ROLE');
     if (role==null){
       this.checkRole = true;
-    } else this.checkRole = false;
+    }
+    if (role == "COMPANY"){
+      this.checkRoleCompany = true;
+    }
+    if (role == "ADMIN"){
+      this.checkRoleAdmin = true;
+    }
+    if (role == "USER"){
+      this.checkRoleUser = true;
+    }
   }
 
   register() {
@@ -93,7 +105,7 @@ export class NavbarComponent implements OnInit {
           if (data.roles[0].authority == "COMPANY") {
             this.messageLogin();
             document.getElementById("login").click();
-            this.router.navigate(['/company/company/update']);
+            this.router.navigate(['/company/company/main']);
           }
 
         },
