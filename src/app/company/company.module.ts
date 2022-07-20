@@ -4,22 +4,26 @@ import { CommonModule } from '@angular/common';
 import { CompanyRoutingModule } from './company-routing.module';
 import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.component";
 import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
-import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
 import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
+import { CompanyUpdateComponent } from './company/company-update/company-update.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     DashboardMainComponent,
     DashboardPostedJobComponent,
-    DashboardPostedSettingComponent,
     DashboardPostedApplicantComponent,
-    ListJobComponent
+    ListJobComponent,
+    CompanyUpdateComponent,
+
   ],
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    CompanyRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class CompanyModule { }

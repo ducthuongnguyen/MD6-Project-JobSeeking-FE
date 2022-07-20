@@ -12,16 +12,6 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  // {
-  //   path: 'company',
-  //   // canActivate: [AuthGuard],
-  //   loadChildren: () => import('./company/company.module').then(module => module.CompanyModule)
-  // },
-  // {
-  //   path: 'recruitment',
-  //   // canActivate: [AuthGuard],
-  //   loadChildren: () => import('./recruitment/recruitment.module').then(module => module.RecruitmentModule)
-  // },
   {
     path: 'company',
     // canActivate: [AuthGuard],

@@ -13,6 +13,11 @@ import {$} from "protractor";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  checkRole;
+  checkRoleAdmin;
+  checkRoleUser;
+  checkRoleCompany;
+
 
   // noEmail = {
   //   message: "email_existed"
@@ -37,18 +42,33 @@ export class NavbarComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   })
 
-  constructor(private companyService: AuthenticationService,
+  constructor(private authenticationService: AuthenticationService,
               private router: Router,
-              private activatedRoute: ActivatedRoute,) {
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    const role = localStorage.getItem('ROLE');
+    if (role == null) {
+      this.checkRole = true;
+    }
+    if (role == "COMPANY") {
+      this.checkRoleCompany = true;
+    }
+    if (role == "ADMIN") {
+      this.checkRoleAdmin = true;
+    }
+    if (role == "USER") {
+      this.checkRoleUser = true;
+    }
   }
 
   register() {
     const company = this.companyForm.value;
 
-    this.companyService.register(company).subscribe((data) => {
+
+    console.log(company)
+    this.authenticationService.register(company).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
     }, error => {
@@ -70,21 +90,22 @@ export class NavbarComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    this.companyService.login(email, password)
+    this.authenticationService.login(email, password)
       .pipe(first())
       .subscribe(
         data => {
           if (data.status == 202) {
+            // @ts-ignore
             this.messageLoginFail();
           }
-          localStorage.setItem('ACCESS_TOKEN', data.accessToken);
+          localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);
           localStorage.setItem('EMAIL', data.email);
           localStorage.setItem('COMPANYID', data.id);
           if (data.roles[0].authority == "COMPANY") {
             this.messageLogin();
             document.getElementById("login").click();
-            this.router.navigate(['/company/main']);
+            this.router.navigate(['/company/company/main']);
           }
 
         },
@@ -147,4 +168,10 @@ export class NavbarComponent implements OnInit {
   get confirmPassword(){
     return this.companyForm.get('confirmPassword');
   }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/home']);
+  }
+
 }

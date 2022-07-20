@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.component";
 import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
 import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
-import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
+import {CompanyUpdateComponent} from "./company/company-update/company-update.component";
 
 
 const routes: Routes = [
@@ -23,8 +23,8 @@ const routes: Routes = [
         component: DashboardPostedApplicantComponent
       },
       {
-        path: 'setting',
-        component: DashboardPostedSettingComponent
+        path: 'update',
+        component: CompanyUpdateComponent
       }
     ]
   },

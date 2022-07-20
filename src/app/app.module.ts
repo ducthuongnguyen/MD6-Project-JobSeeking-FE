@@ -10,7 +10,6 @@ import { HomeComponent } from './share/home/home.component';
 import { DashboardMainComponent } from './company/company/dashboard-main/dashboard-main.component';
 import { DashboardPostedJobComponent } from './company/company/dashboard-posted-job/dashboard-posted-job.component';
 import { DashboardPostedApplicantComponent } from './company/company/dashboard-posted-applicant/dashboard-posted-applicant.component';
-import { DashboardPostedSettingComponent } from './company/company/dashboard-posted-setting/dashboard-posted-setting.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 // import {AngularFireStorageModule} from "@angular/fire/compat/storage";
