@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationService} from "../../service/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -14,12 +14,12 @@ import {$} from "protractor";
 })
 export class NavbarComponent implements OnInit {
 
-  noEmail = {
-    message: "email_existed"
-  }
-  createSuccess = {
-    message: "yes"
-  }
+  // noEmail = {
+  //   message: "email_existed"
+  // }
+  // createSuccess = {
+  //   message: "yes"
+  // }
 
   companyForm: FormGroup = new FormGroup({
     name: new FormControl(),
@@ -35,11 +35,15 @@ export class NavbarComponent implements OnInit {
     email: new FormControl(),
     password: new FormControl(),
   })
+
   constructor(private companyService: AuthenticationService,
               private router: Router,
-              private activatedRoute: ActivatedRoute,) { }
+              private activatedRoute: ActivatedRoute,) {
+  }
+
   ngOnInit(): void {
   }
+
   register() {
     const company = this.companyForm.value;
 
@@ -47,11 +51,12 @@ export class NavbarComponent implements OnInit {
     console.log(company)
     this.companyService.register(company).subscribe((data) => {
       document.getElementById("signupForCompany").click();
-     this.messageRegister();
+      this.messageRegister();
     }, error => {
       alert('Lỗi');
-    }) ;
+    });
   }
+
   messageRegister() {
     Swal.fire({
       position: 'center',
@@ -61,11 +66,12 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
-  login(){
+
+  login() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    this.companyService.login(email,password)
+    this.companyService.login(email, password)
       .pipe(first())
       .subscribe(
         data => {
@@ -81,7 +87,6 @@ export class NavbarComponent implements OnInit {
           if (data.roles[0].authority == "COMPANY") {
             this.messageLogin();
             document.getElementById("login").click();
-            // $('#login').modal('hide');
             this.router.navigate(['/company/main']);
           }
 
@@ -90,6 +95,7 @@ export class NavbarComponent implements OnInit {
           alert("Tài khoản của bạn sai mật khẩu!");
         });
   }
+
   messageLogin() {
     Swal.fire({
       position: 'center',
