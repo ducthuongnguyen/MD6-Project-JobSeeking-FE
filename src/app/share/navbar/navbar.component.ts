@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../service/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
 // @ts-ignore
@@ -22,18 +22,19 @@ export class NavbarComponent implements OnInit {
   // }
 
   companyForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    email: new FormControl(),
-    password: new FormControl(),
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('', [Validators.required]),
     avatar: new FormControl(),
-    address: new FormControl(),
-    phoneNumber: new FormControl(),
-    introduction: new FormControl(),
+    address: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
+    introduction: new FormControl('', [Validators.required]),
     roles: new FormControl(),
   });
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl(),
-    password: new FormControl(),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('', [Validators.required]),
   })
 
   constructor(private companyService: AuthenticationService,
@@ -47,8 +48,6 @@ export class NavbarComponent implements OnInit {
   register() {
     const company = this.companyForm.value;
 
-
-    console.log(company)
     this.companyService.register(company).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
@@ -103,5 +102,41 @@ export class NavbarComponent implements OnInit {
       showConfirmButton: false,
       timer: 3000
     })
+  }
+
+  get email() {
+    return this.companyForm.get('email');
+  }
+
+  get password() {
+    return this.companyForm.get('password');
+  }
+
+  get name() {
+    return this.companyForm.get('name');
+  }
+
+  get address(){
+    return this.companyForm.get('address');
+  }
+
+  get phoneNumber(){
+    return this.companyForm.get('phoneNumber');
+  }
+
+  get introduction(){
+    return this.companyForm.get('introduction');
+  }
+
+  get emailLogin(){
+    return this.loginForm.get('email');
+  }
+
+  get passwordLogin(){
+    return this.loginForm.get('password')
+  }
+
+  get confirmPassword(){
+    return this.companyForm.get('confirmPassword');
   }
 }
