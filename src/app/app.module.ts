@@ -13,8 +13,8 @@ import { DashboardPostedApplicantComponent } from './company/company/dashboard-p
 import { DashboardPostedSettingComponent } from './company/company/dashboard-posted-setting/dashboard-posted-setting.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AngularFireStorageModule} from "@angular/fire/compat/storage";
-import {AngularFireModule} from "@angular/fire/compat";
+// import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+// import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 
 @NgModule({
