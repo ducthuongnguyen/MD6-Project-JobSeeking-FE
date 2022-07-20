@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
-import {
-  DashboardPostedApplicantComponent
-} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
-import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
 import {CompanyListComponent} from './company/company-list/company-list.component';
 import {UpdateStatusComponent} from './company/update-status/update-status.component';
+import {PendingApprovalListComponent} from "./company/pending-approval-list/pending-approval-list.component";
+import {CompanyBlockComponent} from "./company/company-block/company-block.component";
+import {RecruitmentBlockComponent} from "./recruitment/recruitment-block/recruitment-block.component";
 
 
 
@@ -25,16 +23,12 @@ const routes: Routes = [
         component: UpdateStatusComponent
       },
       {
-        path: 'posterJob',
-        component: DashboardPostedJobComponent
+        path: 'pending',
+        component: PendingApprovalListComponent
       },
       {
-        path: 'postedApplicant',
-        component: DashboardPostedApplicantComponent
-      },
-      {
-        path: 'setting',
-        component: DashboardPostedSettingComponent
+        path: 'block',
+        component: CompanyBlockComponent
       }
     ]
   },
@@ -44,26 +38,13 @@ const routes: Routes = [
       {
         path: 'listJob',
         component: ListJobComponent
+      },
+      {
+        path: 'block',
+        component: RecruitmentBlockComponent
       }
     ]
   }
-
-  // {
-  //   path: 'main',
-  //   component: DashboardMainComponent
-  // },
-  // {
-  //   path: 'posterJob',
-  //   component: DashboardPostedJobComponent
-  // },
-  // {
-  //   path: 'postedApplicant',
-  //   component: DashboardPostedApplicantComponent
-  // },
-  // {
-  //   path: 'setting',
-  //   component: DashboardPostedSettingComponent
-  // }
 ];
 
 @NgModule({

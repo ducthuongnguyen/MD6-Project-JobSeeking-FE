@@ -1,22 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CompanyRoutingModule } from './company-routing.module';
-import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.component";
-import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
-import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
+import {CompanyRoutingModule} from './company-routing.module';
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
-import { CompanyUpdateComponent } from './company/company-update/company-update.component';
+import {CompanyUpdateComponent} from './company/company-update/company-update.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CompanyListComponent} from './company/company-list/company-list.component';
+import {OurListComponent} from './recruitment/our-list/our-list.component';
+import { BlockListComponent } from './recruitment/block-list/block-list.component';
 
 
 @NgModule({
   declarations: [
-    DashboardMainComponent,
-    DashboardPostedJobComponent,
-    DashboardPostedApplicantComponent,
     ListJobComponent,
     CompanyUpdateComponent,
+    CompanyListComponent,
+    OurListComponent,
+    BlockListComponent,
 
   ],
   imports: [

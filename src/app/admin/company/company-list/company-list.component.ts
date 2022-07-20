@@ -13,7 +13,10 @@ export class CompanyListComponent implements OnInit {
   companies: Company[] = [];
 
 
-  constructor(private companyService: CompanyService, private router: Router, private actRouter: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private companyService: CompanyService,
+              private router: Router,
+              private actRouter: ActivatedRoute,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
