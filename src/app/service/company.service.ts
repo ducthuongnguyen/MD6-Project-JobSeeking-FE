@@ -14,7 +14,7 @@ export class CompanyService {
 
   }
 
-  listCompany(): Observable<Company[]> {
+  findAll(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 

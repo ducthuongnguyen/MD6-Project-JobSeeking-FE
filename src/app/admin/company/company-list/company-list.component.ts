@@ -13,7 +13,7 @@ export class CompanyListComponent implements OnInit {
   companies: Company[] = [];
 
 
-  constructor(private companyService: CompanyService,private router: Router,private actRouter: ActivatedRoute,private fb: FormBuilder) {
+  constructor(private companyService: CompanyService, private router: Router, private actRouter: ActivatedRoute, private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -23,15 +23,16 @@ export class CompanyListComponent implements OnInit {
   }
 
   getListCompany() {
-    this.companyService.listCompany().subscribe(listCompany => {
+    this.companyService.findAll().subscribe((listCompany:Company[]) => {
       console.log(listCompany)
       this.companies = listCompany;
     }, error => {
       alert("loi")
     });
   }
-  findById(){
-    this.actRouter.paramMap.subscribe(comId=>{
+
+  findById() {
+    this.actRouter.paramMap.subscribe(comId => {
       const id = comId.get('id');
       this.companyService.findCompanyById(id).subscribe(result => {
         // @ts-ignore
@@ -39,8 +40,9 @@ export class CompanyListComponent implements OnInit {
       });
     })
   }
-  ngSubmit(){
+
+  ngSubmit() {
     // @ts-ignore
-    this.companyService.updateStatus(this.company.id,this.company);
+    this.companyService.updateStatus(this.company.id, this.company);
   }
 }
