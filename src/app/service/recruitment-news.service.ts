@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 import {RecruitmentNews} from '../model/recruitment-news';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
@@ -9,6 +9,7 @@ import {Observable} from 'rxjs';
 })
 export class RecruitmentNewsService {
   private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
+
   constructor(private httpClient: HttpClient) { }
 
 
@@ -21,5 +22,4 @@ export class RecruitmentNewsService {
     console.log(`${environment.apiUrl}/recruiment-news/findAllByCompanyId/${id}`);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/findAllByCompanyId/${id}`);
   }
-
 }
