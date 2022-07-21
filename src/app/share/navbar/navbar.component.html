@@ -105,11 +105,12 @@
                     Danh sách công ty
                   </a>
                 </li>
-<!--                <li class="drop-menu-item">-->
-<!--                  <a routerLink="/company/company/postedApplicant">-->
-<!--                    Danh sách ứng viên-->
-<!--                  </a>-->
-<!--                </li>-->
+
+                <li class="drop-menu-item">
+                  <a routerLink="/company/company/postedApplicant">
+                    Danh sách ứng viên
+                  </a>
+                </li>
                 <li class="drop-menu-item">
                   <a routerLink="/company/company/update">
                     Chỉnh sửa thông tin
@@ -126,7 +127,7 @@
                   </a>
                 </li>
                 <li class="drop-menu-item">
-                  <a [routerLink]="['/company/recruitment/our-list', idCompany]">
+                  <a routerLink="/company/recruitment/our-list">
                     Danh sách tin tuyển dụng của bạn
                   </a>
                 </li>
@@ -231,7 +232,7 @@
               <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
-                  <a routerLink="/admin/recruitment/list-job">
+                  <a routerLink="/admin/recruitment/listJob">
                     Danh sách tin tuyển dụng
                   </a>
                 </li>
@@ -423,57 +424,30 @@
             <div class="or-devider">
               <span class="font-size-3 line-height-reset "><h4>Đăng nhập</h4></span>
             </div>
-            <!--            Form Login -->
             <form [formGroup]="loginForm" (ngSubmit)="login()">
               <div class="form-group">
-                <label for="email"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                <input formControlName="email" type="email" class="form-control"
-                       placeholder="example@gmail.com"
-                       id="email">
-                <div *ngIf="!emailLogin.valid && emailLogin.touched">
-                  <div [hidden]="!emailLogin.errors.required">
-                    <p style="color: red">Vui lòng nhập địa chỉ email</p>
-                  </div>
-                  <div [hidden]="!emailLogin.errors.email">
-                    <p style="color: red">Email sai định dạng</p>
-                  </div>
-                </div>
-
+                <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
+                <input formControlName="email" type="email" class="form-control" placeholder="example@gmail.com">
               </div>
               <div class="form-group">
-                <label for="password"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Mật
-                  khẩu</label>
+                <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                 <div class="position-relative">
-                  <input formControlName="password" type="password" class="form-control" id="password"
-                         placeholder="Enter password">
-                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2"
-                     data-show-pass="password"></a>
-                  <div *ngIf="!passwordLogin.valid && passwordLogin.touched">
-                    <div [hidden]="!passwordLogin.errors.required">
-                      <p style="color: red">Vui lòng nhập nhập mật khẩu</p>
-                    </div>
-                  </div>
+                  <input formControlName="password" type="password" class="form-control" placeholder="Enter password">
+                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                 </div>
               </div>
               <div class="form-group d-flex flex-wrap justify-content-between">
-                <label for="terms-check" class="gr-check-input d-flex  mr-3">
-                  <input class="d-none" type="checkbox" id="terms-check">
+                <label class="gr-check-input d-flex  mr-3">
+                  <input class="d-none" type="checkbox">
                   <span class="checkbox mr-5"></span>
-                  <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Nhớ mật khẩu</span>
+                  <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Remember password</span>
                 </label>
-                <a href="" class="font-size-3 text-dodger line-height-reset">Quên mật khẩu?</a>
+                <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
               </div>
               <div class="form-group mb-8">
-                <button data-dismiss="login"
-                        class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase"
-                        [disabled]="loginForm.invalid">Đăng nhập
-                </button>
+                <button data-dismiss="login" class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
               </div>
-              <p class="font-size-4 text-center heading-default-color">Bạn chưa có tài khoản? <a href=""
-                                                                                                 class="text-primary">Tạo
-                tài khoản</a></p>
+              <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
             </form>
           </div>
         </div>
@@ -534,13 +508,13 @@
             </div>
             <form action="/">
               <div class="form-group">
-                <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
+                <input type="email" class="form-control" placeholder="example@gmail.com">
               </div>
               <div class="form-group">
-                <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
+                <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password2" placeholder="Enter password">
+                  <input type="password" class="form-control" placeholder="Enter password">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
@@ -552,8 +526,8 @@
                 </div>
               </div>
               <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                <label for="terms-check2" class="gr-check-input d-flex  mr-3">
-                  <input class="d-none" type="checkbox" id="terms-check2">
+                <label class="gr-check-input d-flex  mr-3">
+                  <input class="d-none" type="checkbox">
                   <span class="checkbox mr-5"></span>
                   <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="" class="text-primary">Terms & Conditions</a></span>
                 </label>
@@ -573,17 +547,17 @@
 <!-- Sign Up Modal For Company-->
 <div class="modal fade form-modal" id="signupForCompany" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10"
-            data-dismiss="modal"><i class="fas fa-times"></i></button>
+    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
     <div class="login-modal-main bg-white rounded-8 overflow-hidden">
       <div class="row no-gutters">
         <div class="col-lg-5 col-md-6">
           <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
             <div class="pb-9">
               <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
-                Đăng tin tuyển dụng và tìm ứng viên
+                Create a free account today
               </h3>
-              <p class="mb-0 font-size-4 text-white">Hãy tạo tài khoản ngay hôm nay</p>
+              <p class="mb-0 font-size-4 text-white">Create your account to continue
+                and explore new jobs.</p>
             </div>
             <div class="border-top border-default-color-2 mt-auto">
               <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -591,15 +565,15 @@
                   <h3 class="font-size-7 text-white">
                     295
                   </h3>
-                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">Công việc mới
-                    đăng</p>
+                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New jobs
+                    posted today</p>
                 </div>
                 <div class="pt-5 px-9">
                   <h3 class="font-size-7 text-white">
                     14
                   </h3>
-                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">Doanh nghiệp mới đăng
-                    ký</p>
+                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies
+                    registered</p>
                 </div>
               </div>
             </div>
@@ -610,143 +584,71 @@
             <div class="or-devider">
               <span class="font-size-3 line-height-reset"><h4 style="color: green">Tài khoản</h4></span>
             </div>
-            <form [formGroup]="companyForm" (ngSubmit)="register()" novalidate>
+            <form [formGroup]="companyForm" (ngSubmit)="register()">
               <div class="form-group">
-                <label for="email5"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                <input formControlName="email" type="email" class="form-control"
-                       placeholder="Nhập email" id="email5">
-              </div>
-              <div *ngIf="!email.valid && email.touched">
-                <div [hidden]="!email.errors.required">
-                  <p style="color: red">Vui lòng nhập email doanh nghiệp bạn</p>
-                </div>
-                <div [hidden]="!email.errors?.email">
-                  <p style="color: red"> Email không đúng định dạng</p>
-                </div>
+                <label for="email5" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
+                <input formControlName="email" type="email" class="form-control" placeholder="Nhập mail" id="email5">
               </div>
               <div class="form-group">
-                <label for="password5"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Mật
-                  khẩu</label>
+                <label for="password5" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Mật khẩu</label>
                 <div class="position-relative">
-                  <input formControlName="password" type="password" class="form-control"
-                         id="password5"
-                         placeholder="Nhập mật khẩu">
-                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2"
-                     data-show-pass="password2"></a>
-                </div>
-              </div>
-              <div *ngIf="!password.valid && password.touched">
-                <div [hidden]="!password.errors.required">
-                  <p style="color: red">Vui lòng nhập nhập mật khẩu</p>
-                </div>
-                <div [hidden]="!password.errors.minlength">
-                  <p style="color: red"> Mật khẩu phải có ít nhất 6 ký tự</p>
+                  <input formControlName="password" type="password" class="form-control" id="password5" placeholder="Nhập mật khẩu">
+                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
               <div class="form-group">
-                <label for="password231"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nhập
-                  lại mật khẩu</label>
+                <label for="password231" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nhập lại mật khẩu</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password231"
-                         pattern="{{password.value}}" placeholder="Nhập lại mật khẩu"
-                         formControlName="confirmPassword">
-                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2"
-                     data-show-pass="password23"></a>
-                </div>
-              </div>
-              <div *ngIf="!confirmPassword.valid && confirmPassword.touched">
-                <div [hidden]="!confirmPassword.errors.required">
-                  <p style="color: red">Vui lòng nhập nhập mật khẩu</p>
-                </div>
-                <div [hidden]="!confirmPassword.errors.pattern">
-                  <p style="color: red"> Nhập sai mật khẩu</p>
+                  <input type="password" class="form-control" id="password231" placeholder="Nhập mật khẩu">
+                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
                 </div>
               </div>
               <div class="or-devider">
                 <span class="font-size-3 line-height-reset"><h4 style="color: green">Thông tin doanh nghiệp</h4></span>
               </div>
               <div class="form-group">
-                <label for="name"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Tên doanh
-                  nghiệp</label>
-                <input formControlName="name" type="text" class="form-control" placeholder="Nhập tên"
-                       id="name">
+                <label for="name" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Tên doanh nghiệp</label>
+                <input formControlName="name" type="text" class="form-control" placeholder="Nhập tên" id="name">
               </div>
-              <div *ngIf="!name.valid && name.touched">
-                <div [hidden]="!name?.errors?.required">
-                  <p style="color: red">Vui lòng nhập tên doanh nghiệp bạn</p>
+                <div class="form-group">
+
+                  <p for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</p>
+                  <input formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"
+                  (change)="handleChangeImage($event)"
+                  >
                 </div>
-                <div [hidden]="!name.errors.minlength">
-                  <p style="color: red"> Mật khẩu phải có ít nhất 3 ký tự</p>
-                </div>
-                <div [hidden]="!name.errors.maxLength">
-                  <p style="color: red"> Mật khẩu phải có tối đa 50 ký tự</p>
-                </div>
+              <div class="form-group">
+<!--                <label>Địa chỉ</label>-->
+                <label for="address" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
+<!--                <input formControlName="address"  class="form-control"type="text"  placeholder="Nhập địa chỉ" id="address">-->
+
+                <select formControlName="address" id="address" class="form-control">
+                  <option value="-1" selected="selected">-Chọn địa chỉ-</option>
+                  <option *ngFor="let c of city" >{{c.name}}</option>
+                </select>
+              </div>
+              <br>
+
+              <div class="form-group">
+                <label for="phoneNumber" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Số điện thoại</label>
+                <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Nhập số điện thoại" id="phoneNumber">
               </div>
               <div class="form-group">
-                <label for="avatar"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại
-                  diện</label>
-                <input formControlName="avatar" type="text" class="form-control"
-                       placeholder="Nhập ảnh đại diện"
-                       id="avatar">
-              </div>
-              <div class="form-group">
-                <label for="address"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa
-                  chỉ</label>
-                <input formControlName="address" type="text" class="form-control"
-                       placeholder="Nhập địa chỉ"
-                       id="address">
-              </div>
-              <div *ngIf="!address.valid && address.touched">
-                <div [hidden]="!address.errors.required">
-                  <p style="color: red">Vui lòng nhập địa chỉ doanh nghiệp bạn</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="phoneNumber"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Số điện
-                  thoại</label>
-                <input formControlName="phoneNumber" type="text" class="form-control"
-                       placeholder="Nhập số điện thoại"
-                       id="phoneNumber">
-              </div>
-              <div *ngIf="!phoneNumber.valid && phoneNumber.touched">
-                <div [hidden]="!phoneNumber.errors?.required">
-                  <p style="color: red">Vui lòng nhập số điện thoại doanh nghiệp bạn</p>
-                </div>
-                <div [hidden]="!phoneNumber.errors.pattern">
-                  <p style="color: red">Nhập số điện thoại không đúng định dạng </p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="introduction"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Giới
-                  thiệu doanh nghiệp</label>
-                <input formControlName="introduction" type="text" class="form-control"
-                       placeholder="Nhập thông tin"
-                       id="introduction">
-              </div>
-              <div *ngIf="!introduction.valid && introduction?.touched">
-                <div [hidden]="!introduction.errors.required">
-                  <p style="color: red">Vui lòng nhập giới thiệu doanh nghiệp bạn</p>
-                </div>
+                <label for="introduction" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Thông tin</label>
+                <input formControlName="introduction" type="text" class="form-control" placeholder="Nhập thông tin" id="introduction">
               </div>
               <div class="form-group d-flex flex-wrap justify-content-between mb-1">
                 <label for="terms-check21" class="gr-check-input d-flex  mr-3">
                   <input class="d-none" type="checkbox" id="terms-check21">
+                  <span class="checkbox mr-5"></span>
+                  <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="" class="text-primary">Terms & Conditions</a></span>
                 </label>
-                <a href="" class="font-size-3 text-dodger line-height-reset">Quên mật khẩu?</a>
+                <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
               </div>
               <div class="form-group mb-8">
-                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase"
-                        [disabled]="companyForm.invalid">Đăng ký
-                </button>
+                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Sign Up </button>
               </div>
+              <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
             </form>
           </div>
         </div>

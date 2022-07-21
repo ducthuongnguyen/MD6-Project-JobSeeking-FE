@@ -31,7 +31,6 @@ export class AuthenticationService {
       .pipe(map(company => {
         localStorage.setItem('currentUser', JSON.stringify(company));
         this.currentUserSubject.next(company);
-        // this.update.emit('login');
         return company;
       }));
   }
@@ -41,10 +40,25 @@ export class AuthenticationService {
     localStorage.removeItem('USERNAME');
     localStorage.removeItem('ROLE');
     localStorage.removeItem('ACCESS_TOKEN');
-    // this.currentUserSubject.next(null);
   }
 
-  register(company: any): Observable<Company> {
-    return this.http.post<User>("http://localhost:8080/sign-up-company", company);
+  register(company: any, image: any): Observable<Company> {
+    const formData=new FormData();
+    formData.append(
+      "image",
+      new Blob([image], {type: image.type}),
+      image.name
+    );
+    formData.append(
+      "company",
+      new Blob([JSON.stringify(company)], {type:"application/json"})
+    );
+    console.log("form data", formData)
+    return this.http.post<any>("http://localhost:8080/sign-up-company", formData
+    );
+  }
+
+  findAllCity(): Observable<any> {
+    return this.http.get<any>('https://provinces.open-api.vn/api/');
   }
 }
