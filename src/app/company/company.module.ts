@@ -11,6 +11,7 @@ import {OurListComponent} from './recruitment/our-list/our-list.component';
 import { BlockListComponent } from './recruitment/block-list/block-list.component';
 import { AddRecruitmentComponent } from './recruitment/add-recruitment/add-recruitment.component';
 import { EditRecruitmentComponent } from './recruitment/edit-recruitment/edit-recruitment.component';
+import {HomeComponent} from "../share/home/home.component";
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { EditRecruitmentComponent } from './recruitment/edit-recruitment/edit-re
     OurListComponent,
     BlockListComponent,
     AddRecruitmentComponent,
-    EditRecruitmentComponent
+    EditRecruitmentComponent,
   ],
   imports: [
     CommonModule,
