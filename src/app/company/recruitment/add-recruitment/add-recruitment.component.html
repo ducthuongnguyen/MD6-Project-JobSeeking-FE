@@ -7,29 +7,109 @@
     <h3 style="text-align: center">Thêm mới tin tuyển dụng</h3>
     <!-- Wrapper container -->
     <div class="container py-4">
-      <!-- Name input -->
+      <!-- Title input -->
       <div class="mb-3">
-        <label class="form-label" for="name">Name</label>
-        <input class="form-control" id="name" type="text" placeholder="Name" />
+        <label class="form-label" for="name">Tiêu đề</label>
+        <input class="form-control" id="name" type="text" placeholder="Tiêu đề..."/>
       </div>
 
-      <!-- Email address input -->
+      <!-- vacancy input -->
       <div class="mb-3">
-        <label class="form-label" for="emailAddress">Email Address</label>
-        <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" />
+        <label class="form-label">Vị trí cần tuyển</label>
+        <br>
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px">
+          <option selected>Vui lòng chọn vị trí cần tuyển...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
       </div>
 
-      <!-- Message input -->
+      <!-- vacancy input -->
       <div class="mb-3">
-        <label class="form-label" for="message">Message</label>
-        <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;"></textarea>
+        <label class="form-label">Lĩnh vực</label>
+        <br>
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px">
+          <option selected>Vui lòng chọn lĩnh vực...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+
+      <!-- Working Type input -->
+      <div class="mb-3">
+        <label class="form-label">Hình thức làm việc</label>
+        <br>
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px">
+          <option selected>Vui lòng chọn hình thức làm việc...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+
+      <!-- salary input -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form6Example1">Mức lương từ</label>
+            <input type="number" id="form6Example1" class="form-control" placeholder="từ..."/>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form6Example2">đến</label>
+            <input type="number" id="form6Example2" class="form-control" placeholder="đến..."/>
+          </div>
+        </div>
+      </div>
+
+      <!-- expried date input -->
+      <div class="mb-3">
+        <label class="form-label" for="expriedDate">Ngày hết hạn</label>
+        <input class="form-control" id="expriedDate" type="datetime-local"/>
+      </div>
+
+      <!-- Employee Quantity input -->
+      <div class="mb-3">
+        <label class="form-label" for="employeeQuantity">Số lượng nhân viên</label>
+        <input class="form-control" id="employeeQuantity" type="number" placeholder="Vui lòng chọn số lượng nhân viên..."/>
+      </div>
+
+      <!-- Required Experience input -->
+      <div class="mb-3">
+        <label class="form-label" for="requiredExperience">Số năm kinh nghiệm</label>
+        <input class="form-control" id="requiredExperience" type="number" placeholder="Vui lòng chọn năm kinh nghiệm..."/>
+      </div>
+
+      <!-- Gender input -->
+      <div class="mb-3">
+        <label class="form-label">Giới tính</label> <br>
+        <input type="radio" class="mr-3" name="radio-choice" required>Admin
+        <input type="radio" class="mr-3" name="radio-choice" required>User
+        <input type="radio" class="mr-3" name="radio-choice" required>User
+        <input type="radio" class="mr-3" name="radio-choice" required>User
+      </div>
+
+      <!-- Working Place input -->
+      <div class="mb-3">
+        <label class="form-label" for="workingPalace">Nơi làm việc</label>
+        <input class="form-control" id="workingPalace" type="email" placeholder="Vui lòng chọn nơi làm việc..."/>
+      </div>
+
+      <!-- Description input -->
+      <div class="mb-3">
+        <label class="form-label" for="description">Miêu tả công việc</label>
+        <textarea class="form-control" id="description" type="text" placeholder="Miêu tả công việc..." style="height: 7rem;"></textarea>
       </div>
 
       <!-- Form submit button -->
       <div class="d-grid">
-        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+        <button class="btn btn-primary btn-lg mr-3" type="submit">Submit</button>
+        <button class="btn btn-primary btn-lg" type="reset">Reset</button>
       </div>
-
+      
     </div>
   </form>
 </div>
@@ -43,15 +123,19 @@
           <!-- cta-content start -->
           <div class="pb-xl-0 pb-9 text-xl-left text-center">
             <h2 class="text-white font-size-8 mb-4">Most comprehensive job portal</h2>
-            <p class="text-hit-gray font-size-5 mb-0">We must explain to you how all this mistaken idea of denouncing</p>
+            <p class="text-hit-gray font-size-5 mb-0">We must explain to you how all this mistaken idea of
+              denouncing</p>
           </div>
           <!-- cta-content end -->
         </div>
         <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
           <!-- cta-btns start -->
-          <div class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
-            <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#login">Log in</a>
-            <a class="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup">Register</a>
+          <div
+            class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
+            <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal"
+               data-target="#login">Log in</a>
+            <a class="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal"
+               data-target="#signup">Register</a>
           </div>
           <!-- cta-btns end -->
         </div>
@@ -76,10 +160,18 @@
         <!-- widget social icon start -->
         <div class="social-icons">
           <ul class="pl-0 list-unstyled d-flex align-items-end ">
-            <li class="d-flex flex-column justify-content-center px-3 mr-3 font-size-4 heading-default-color">Follow us on:</li>
-            <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><i class="fab fa-facebook-f font-size-3 pt-2"></i></a></li>
-            <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><i class="fab fa-twitter font-size-3 pt-2"></i></a></li>
-            <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><i class="fab fa-linkedin-in font-size-3 pt-2"></i></a></li>
+            <li class="d-flex flex-column justify-content-center px-3 mr-3 font-size-4 heading-default-color">Follow us
+              on:
+            </li>
+            <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#"
+                                                                               class="hover-color-primary heading-default-color"><i
+              class="fab fa-facebook-f font-size-3 pt-2"></i></a></li>
+            <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#"
+                                                                               class="hover-color-primary heading-default-color"><i
+              class="fab fa-twitter font-size-3 pt-2"></i></a></li>
+            <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#"
+                                                                               class="hover-color-primary heading-default-color"><i
+              class="fab fa-linkedin-in font-size-3 pt-2"></i></a></li>
           </ul>
         </div>
         <!-- widget social icon end -->
@@ -93,9 +185,12 @@
               <!-- footer widget title end -->
               <!-- widget social menu start -->
               <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">About us</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Contact us</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Careers</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">About us</a>
+                </li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Contact us</a>
+                </li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Careers</a>
+                </li>
                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Press</a></li>
               </ul>
               <!-- widget social menu end -->
@@ -108,11 +203,15 @@
               <!-- footer widget title end -->
               <!-- widget social menu start -->
               <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Features </a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Pricing</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Features </a>
+                </li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Pricing</a>
+                </li>
                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">News</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Help desk</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Support</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Help desk</a>
+                </li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Support</a>
+                </li>
               </ul>
               <!-- widget social menu end -->
             </div>
@@ -124,10 +223,14 @@
               <!-- footer widget title end -->
               <!-- widget social menu start -->
               <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Digital Marketing</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">SEO for Business</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Avasta Dash</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">UI Design</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Digital
+                  Marketing</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">SEO for
+                  Business</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Avasta Dash</a>
+                </li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">UI Design</a>
+                </li>
               </ul>
               <!-- widget social menu end -->
             </div>
@@ -138,9 +241,12 @@
               <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Legal</p>
               <!-- footer widget title end -->
               <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Privacy Policy</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Terms & Conditions</a></li>
-                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Return Policy</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Privacy
+                  Policy</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Terms &
+                  Conditions</a></li>
+                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Return
+                  Policy</a></li>
               </ul>
             </div>
           </div>
