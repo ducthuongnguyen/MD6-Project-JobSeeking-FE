@@ -14,10 +14,7 @@ export class PendingApprovalListComponent implements OnInit {
   id: number;
 
 
-  constructor(private companyService: CompanyService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private fb: FormBuilder) {
+  constructor(private companyService: CompanyService) {
 
   }
 
@@ -37,10 +34,8 @@ export class PendingApprovalListComponent implements OnInit {
   approveCompany(id: string) {
     // @ts-ignore
     this.companyService.approveCompany(id).subscribe(() => {
-      console.log("\\\\\\\\\\\\")
       this.listPendingCompany();
       alert("Duyệt thành công")
-      console.log("vao ham")
     }, error => {
       alert("Lỗi");
     })
