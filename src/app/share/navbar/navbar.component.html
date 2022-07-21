@@ -613,17 +613,15 @@
                 <div class="form-group">
 
                   <label for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</label>
-                  <input formControlName="avatar" type="text" class="form-control" placeholder="Nhập ảnh đại diện" id="avatar">
+                  <input formControlName="avatar" type="file" class="form-control" placeholder="Nhập ảnh đại diện" id="avatar">
                 </div>
               <div class="form-group">
-                <label for="address" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
-                <input formControlName="address" type="text" class="form-control" placeholder="Nhập địa chỉ" id="address">
-<!--                <select name="country" id="country" class="nice-select pl-13 h-100 arrow-3 font-size-4">-->
-<!--                  <option data-display="City, state, zip code or (Remote)">City</option>-->
-<!--                  <option value="">United States of America</option>-->
-<!--                  <option value="">United Arab Emirates</option>-->
-<!--                  <option value="">Bangladesh</option>-->
-<!--                  <option value="">Pakistan</option>-->
+<!--                <label>Địa chỉ</label>-->
+                <label  for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
+                <input formControlName="address"  class="form-control"type="text"  placeholder="Nhập địa chỉ" id="address">
+
+<!--                <select id="address" class="form-control" style="display: none !important;">-->
+<!--                  <option *ngFor="let c of city">{{c.name}}</option>-->
 <!--                </select>-->
               </div>
               <div class="form-group">

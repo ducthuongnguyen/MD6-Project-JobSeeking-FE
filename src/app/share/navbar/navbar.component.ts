@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required]),
     avatar: new FormControl(),
-    address: new FormControl('', [Validators.required]),
+    address: new FormControl( ),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
     introduction: new FormControl('', [Validators.required]),
     roles: new FormControl(),
@@ -41,6 +41,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.getAllCity();
     const role = localStorage.getItem('ROLE');
     if (role == null) {
@@ -59,9 +60,8 @@ export class NavbarComponent implements OnInit {
   }
   getAllCity() {
     this.authenticationService.findAllCity().subscribe(result => {
-
-      this.city = result;
-
+      this.city = result
+      document.getElementById('address').style.display = 'block';
     }, error => {
       console.log(error);
     });
@@ -69,9 +69,6 @@ export class NavbarComponent implements OnInit {
 
   register() {
     const company = this.companyForm.value;
-
-
-    console.log(company)
     this.authenticationService.register(company).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
