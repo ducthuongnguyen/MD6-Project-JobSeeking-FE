@@ -14,10 +14,10 @@
         <thead>
         <tr style="collapse: 0">
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Tên</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Địa CHỉ</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số Điện Thoại</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Giới Thiệu</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Trạng Thái</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Địa chỉ</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số điện thoại</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Giới thiệu</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Trạng thái</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
         </tr>
         </thead>
@@ -41,7 +41,7 @@
             <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{com.introduction}}</h3>
           </td>
           <td class="table-y-middle py-7 min-width-px-110 pr-0">
-            <button (click)="ngSubmit()" class=""><a href="contact.html" class="font-size-3 font-weight-bold text-green text-uppercase">Chờ Duyệt</a></button>
+            <button class=""><a class="font-size-3 font-weight-bold text-green text-uppercase" id="approve" (click)="approveCompany(com.id)">Chờ Duyệt</a></button>
           </td>
         </tr>
         </tbody>

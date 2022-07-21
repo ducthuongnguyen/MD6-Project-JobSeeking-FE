@@ -13,20 +13,18 @@ export class PendingApprovalListComponent implements OnInit {
   companies: Company[] = [];
 
 
-  constructor(private companyService: CompanyService,
-              private router: Router,
-              private actRouter: ActivatedRoute,
-              private fb: FormBuilder) {
+
+  constructor(private companyService: CompanyService) {
+
   }
 
   ngOnInit() {
     this.listPendingCompany();
-this.findById();
+
   }
 
   listPendingCompany() {
-    this.companyService.findAllPendingCompany().subscribe((listCompany:Company[]) => {
-      console.log(listCompany)
+    this.companyService.findAllPendingCompany().subscribe((listCompany: Company[]) => {
       this.companies = listCompany;
     }, error => {
       alert("loi")
@@ -42,9 +40,27 @@ this.findById();
     })
   }
 
+  approveCompany(id: string) {
+    // @ts-ignore
+    this.companyService.approveCompany(id).subscribe(() => {
+      this.listPendingCompany();
+      this.messageApprove();
+    }, error => {
+      alert("Lỗi");
+    })
+  }
   ngSubmit() {
     // @ts-ignore
     this.companyService.updateStatus(this.companies.id, this.companies);
   }
 
+  messageApprove() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Đã duyệt',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
 }

@@ -56,5 +56,10 @@ export class CompanyService {
   findAllRecruiment(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST);
   }
+
+  approveCompany(id: string): Observable<Company> {
+    // @ts-ignore
+    return this.httpClient.put<Company>(`${this.API_COMPANY + '/approve'}/${id}`)
+  }
 }
 
