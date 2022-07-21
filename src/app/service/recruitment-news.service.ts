@@ -10,7 +10,8 @@ import {Observable} from 'rxjs';
 export class RecruitmentNewsService {
   private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
 
   findAll(): Observable<RecruitmentNews[]> {
@@ -22,7 +23,12 @@ export class RecruitmentNewsService {
     console.log(`${environment.apiUrl}/recruiment-news/findAllByCompanyId/${id}`);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/findAllByCompanyId/${id}`);
   }
-  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]>{
+
+  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);
+  }
+
+  findAllProposedRecruitmentNews(): Observable<RecruitmentNews[]> {
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/proposal-news`);
   }
 }
