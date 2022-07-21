@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required]),
     avatar: new FormControl(),
-    address: new FormControl( ),
+    address: new FormControl('-1'),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
     introduction: new FormControl('', [Validators.required]),
     roles: new FormControl(),
@@ -76,6 +76,7 @@ export class NavbarComponent implements OnInit {
     this.authenticationService.register(company, this.image).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
+      this.companyForm.reset();
     }, error => {
       alert('Lỗi');
     });
@@ -104,6 +105,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
+            console.log(data.status)
             // @ts-ignore
             this.messageLoginFail();
           }
