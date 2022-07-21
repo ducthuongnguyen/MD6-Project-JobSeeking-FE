@@ -35,5 +35,8 @@ export class CompanyService {
   findCompanyById(id: string): Observable<Company> {
     return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`)
   }
+
+
+
 }
 

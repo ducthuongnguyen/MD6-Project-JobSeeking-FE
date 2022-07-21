@@ -17,14 +17,7 @@ export class NavbarComponent implements OnInit {
   checkRoleAdmin;
   checkRoleUser;
   checkRoleCompany;
-
-
-  // noEmail = {
-  //   message: "email_existed"
-  // }
-  // createSuccess = {
-  //   message: "yes"
-  // }
+  city: any[] = [];
 
   companyForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
@@ -38,7 +31,7 @@ export class NavbarComponent implements OnInit {
     roles: new FormControl(),
   });
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   })
 
@@ -47,7 +40,8 @@ export class NavbarComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getAllCity();
     const role = localStorage.getItem('ROLE');
     if (role == null) {
       this.checkRole = true;
@@ -61,6 +55,16 @@ export class NavbarComponent implements OnInit {
     if (role == "USER") {
       this.checkRoleUser = true;
     }
+
+  }
+  getAllCity() {
+    this.authenticationService.findAllCity().subscribe(result => {
+
+      this.city = result;
+
+    }, error => {
+      console.log(error);
+    });
   }
 
   register() {
@@ -136,6 +140,7 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
+
   messageLoginFail() {
     Swal.fire({
       position: 'center',
@@ -158,27 +163,27 @@ export class NavbarComponent implements OnInit {
     return this.companyForm.get('name');
   }
 
-  get address(){
+  get address() {
     return this.companyForm.get('address');
   }
 
-  get phoneNumber(){
+  get phoneNumber() {
     return this.companyForm.get('phoneNumber');
   }
 
-  get introduction(){
+  get introduction() {
     return this.companyForm.get('introduction');
   }
 
-  get emailLogin(){
+  get emailLogin() {
     return this.loginForm.get('email');
   }
 
-  get passwordLogin(){
+  get passwordLogin() {
     return this.loginForm.get('password')
   }
 
-  get confirmPassword(){
+  get confirmPassword() {
     return this.companyForm.get('confirmPassword');
   }
 

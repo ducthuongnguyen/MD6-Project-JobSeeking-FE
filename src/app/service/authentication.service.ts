@@ -47,4 +47,8 @@ export class AuthenticationService {
   register(company: any): Observable<Company> {
     return this.http.post<User>("http://localhost:8080/sign-up-company", company);
   }
+
+  findAllCity(): Observable<any> {
+    return this.http.get<any>('https://provinces.open-api.vn/api/');
+  }
 }
