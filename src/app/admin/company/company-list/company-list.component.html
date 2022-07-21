@@ -58,17 +58,14 @@
                   <p class="mb-7 font-size-4 text-gray">Giới Thiệu Công Ty: {{com.introduction}}</p>
                   <div  class="card-btn-group">
                     <span style="text-align: center" class="btn btn-green text-uppercase btn-medium rounded-3">Ứng Tuyển</span>
-                    <!--                    <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#">Trạng Thái: {{com.status}}</a>-->
+<!--                    <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#">Trạng Thái: {{com.status}}</a>-->
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-          <mat-paginator  [pageSizeOptions]="[5,10,15,100]" [length]="totalElements"
-                          (page)="nextPage($event)"
-                          aria-label="Select page">
-          </mat-paginator>
+          <mat-paginator [pageSizeOptions]="[5,10,15,20]" [length]="totalElements"
+                         (page)="nextPage($event)"></mat-paginator>
         </div>
         <!-- form end -->
       </div>
