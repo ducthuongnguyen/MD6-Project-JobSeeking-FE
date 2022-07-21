@@ -31,7 +31,6 @@ export class AuthenticationService {
       .pipe(map(company => {
         localStorage.setItem('currentUser', JSON.stringify(company));
         this.currentUserSubject.next(company);
-        // this.update.emit('login');
         return company;
       }));
   }
@@ -41,12 +40,9 @@ export class AuthenticationService {
     localStorage.removeItem('USERNAME');
     localStorage.removeItem('ROLE');
     localStorage.removeItem('ACCESS_TOKEN');
-    // this.currentUserSubject.next(null);
   }
 
   register(company: any, image: any): Observable<Company> {
-    // return this.http.post<User>("http://localhost:8080/sign-up-company", company);
-
     const formData=new FormData();
     formData.append(
       "image",
@@ -57,11 +53,9 @@ export class AuthenticationService {
       "company",
       new Blob([JSON.stringify(company)], {type:"application/json"})
     );
-    return this.http.post<User>("http://localhost:8080/sign-up-company", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      }
-    });
+    console.log("form data", formData)
+    return this.http.post<any>("http://localhost:8080/sign-up-company", formData
+    );
   }
 
   findAllCity(): Observable<any> {

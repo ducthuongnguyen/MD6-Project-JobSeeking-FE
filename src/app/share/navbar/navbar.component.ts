@@ -71,6 +71,8 @@ export class NavbarComponent implements OnInit {
 
   register() {
     const company = this.companyForm.value;
+
+    console.log("image: ", this.image)
     this.authenticationService.register(company, this.image).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
@@ -81,7 +83,6 @@ export class NavbarComponent implements OnInit {
 
   handleChangeImage(e){
     this.image= e.target.files[0];
-    console.log("image: ", this.image)
   }
 
   messageRegister() {
