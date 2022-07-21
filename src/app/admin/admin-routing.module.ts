@@ -6,6 +6,7 @@ import {UpdateStatusComponent} from './company/update-status/update-status.compo
 import {PendingApprovalListComponent} from "./company/pending-approval-list/pending-approval-list.component";
 import {CompanyBlockComponent} from "./company/company-block/company-block.component";
 import {RecruitmentBlockComponent} from "./recruitment/recruitment-block/recruitment-block.component";
+import {CompanyPageComponent} from "./company/company-page/company-page.component";
 
 
 
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'update-status/:id',
         component: UpdateStatusComponent
+      },
+      {
+        path: 'company-page',
+        component: CompanyPageComponent
       },
       {
         path: 'pending',

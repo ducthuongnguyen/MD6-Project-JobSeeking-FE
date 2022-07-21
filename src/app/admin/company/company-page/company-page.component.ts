@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {Company} from "../../../model/company";
 import {CompanyService} from "../../../service/company.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormBuilder} from "@angular/forms";
 import {PageEvent} from "@angular/material/paginator";
 
+
 @Component({
-  selector: 'app-company-list',
-  templateUrl: './company-list.component.html',
-  styleUrls: ['./company-list.component.css']
+  selector: 'app-company-page',
+  templateUrl: './company-page.component.html',
+  styleUrls: ['./company-page.component.css']
 })
-export class CompanyListComponent implements OnInit {
+export class CompanyPageComponent implements OnInit {
   companies: Company[] = [];
   totalElements: number = 0;
   loading: boolean;
@@ -50,6 +49,4 @@ export class CompanyListComponent implements OnInit {
     this.getListRequest(request);
 
   }
-
-
 }

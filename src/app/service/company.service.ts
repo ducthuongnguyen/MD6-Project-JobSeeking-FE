@@ -57,5 +57,11 @@ export class CompanyService {
   findAllRecruiment(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST);
   }
+  pageAdminCompany(nextPage){
+    const params = nextPage;
+    return this.httpClient.get(this.API_COMPANY,{params})
+
+    }
+
 }
 
