@@ -17,19 +17,19 @@ const idCompany = localStorage.getItem('COMPANYID');
 
 export class AddRecruitmentComponent implements OnInit {
   recruitmentForm: FormGroup = new FormGroup({
-    title:new FormControl(),
+    title: new FormControl(),
     company: new FormControl(),
-    vacancyId:new FormControl(),
-    fieldId:new FormControl(),
-    salaryForm:new FormControl(),
-    salaryTo:new FormControl(),
-    expiredDate:new FormControl(),
-    employeeQuantity:new FormControl(),
-    requiredExperience:new FormControl(),
-    gender:new FormControl(),
-    workingPlace:new FormControl(),
-    description:new FormControl(),
-    workingTypeId:new FormControl()
+    vacancyId: new FormControl(),
+    fieldId: new FormControl(),
+    salaryForm: new FormControl(),
+    salaryTo: new FormControl(),
+    expiredDate: new FormControl(),
+    employeeQuantity: new FormControl(),
+    requiredExperience: new FormControl(),
+    gender: new FormControl(),
+    workingPlace: new FormControl(),
+    description: new FormControl(),
+    workingTypeId: new FormControl()
   });
 
   obj: any;
@@ -44,11 +44,7 @@ export class AddRecruitmentComponent implements OnInit {
   ngOnInit() {
   }
 
-  getVacancy(){
-    this.vacancyService.
-  }
-
-  submit(){
+  submit() {
     this.obj = {
       title: this.recruitmentForm.value.title,
       company: {
@@ -73,13 +69,13 @@ export class AddRecruitmentComponent implements OnInit {
       }
     };
     this.recruimentNewsService.save(this.obj).subscribe(() => {
-      alert("Save recruitment successfully");
-    },error => {
-      console.log("Error: ", error);
+      alert('Save recruitment successfully');
+    }, error => {
+      console.log('Error: ', error);
     });
   }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['/company/recruitment/our-list/', idCompany]);
   }
 }
