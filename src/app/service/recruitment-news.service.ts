@@ -22,4 +22,9 @@ export class RecruitmentNewsService {
     console.log(`${environment.apiUrl}/recruiment-news/find-by-company/${id}`);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
+
+  save(recruitment: RecruitmentNews): Observable<RecruitmentNews> {
+    //@ts-ignore
+    return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST);
+  }
 }
