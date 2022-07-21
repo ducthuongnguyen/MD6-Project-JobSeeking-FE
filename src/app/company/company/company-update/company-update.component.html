@@ -30,17 +30,20 @@
                       <input formControlName="name" type="text" class="form-control h-px-48" id="namedash" >
                     </div>
                   </div>
+<!--                  <div class="col-lg-6">-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="namedash1" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Địa chỉ</label>-->
+<!--                      <input formControlName="address" type="text" class="form-control h-px-48" id="namedash1">-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="namedash1" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Địa chỉ</label>
-                      <input formControlName="address" type="text" class="form-control h-px-48" id="namedash1">
-                    </div>
+                  <div class="form-group">
+                    <label for="address"
+                           class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
+                    <select formControlName="address" id="address" class="form-control">
+                      <option *ngFor="let c of city" >{{c.name}}</option>
+                    </select>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="namedash2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Ảnh</label>
-                      <input formControlName="avatar" type="text" class="form-control h-px-48" id="namedash2" >
-                    </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -48,6 +51,18 @@
                       <input formControlName="phoneNumber" type="text" class="form-control h-px-48" id="namedash3">
                     </div>
                   </div>
+                  <div class="col-lg-6">
+<!--                    <div class="form-group">-->
+<!--                      <label for="namedash2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Ảnh</label>-->
+<!--                      <input formControlName="avatar" type="file" class="form-control h-px-48" id="namedash2" >-->
+<!--                    </div>-->
+                    <div class="form-group">
+                      <p for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</p>
+                      <input formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"
+                             (change)="handleChangeImage($event)">
+                    </div>
+                  </div>
+
                 </div>
                 <div class="row">
                   <div class="col-md-12">
