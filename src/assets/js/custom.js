@@ -1,6 +1,5 @@
 "use strict";
 $(document).ready(function() {
-    $("select").niceSelect();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         AOS Animation Activation
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -17,7 +16,7 @@ $(document).ready(function() {
         });
     }
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Bootstrap Mobile Megamenu Support
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -41,7 +40,7 @@ $(document).ready(function() {
         return false;
     });
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Sticky Header
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     window.onscroll = function() {
@@ -67,7 +66,7 @@ $(document).ready(function() {
         }
     }
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Input Count Up Button
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     $(".count-btn").on("click", function() {
@@ -90,7 +89,7 @@ $(document).ready(function() {
         $button.parent(".count-input-btns").parent().find("input").val(newVal);
     });
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Prcing Dynamic Script
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     $("[data-pricing-trigger]").on("click", function(e) {
@@ -104,7 +103,7 @@ $(document).ready(function() {
         }
     });
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Smooth Scroll
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -158,7 +157,7 @@ $('.product-view-mode a').on('click', function(e) {
 })
 
 
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       Preloader Activation
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 

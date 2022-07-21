@@ -39,7 +39,8 @@ export class AddRecruitmentComponent implements OnInit {
   constructor(private recruimentNewsService: RecruitmentNewsService,
               private vacancyService: VacancyService,
               private fieldService: FieldService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.getVacancy();

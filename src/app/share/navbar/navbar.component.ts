@@ -19,14 +19,9 @@ export class NavbarComponent implements OnInit {
   checkRoleAdmin;
   checkRoleUser;
   checkRoleCompany;
+  city: any[] = [];
 
-
-  // noEmail = {
-  //   message: "email_existed"
-  // }
-  // createSuccess = {
-  //   message: "yes"
-  // }
+  image: any;
 
   companyForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
@@ -34,13 +29,13 @@ export class NavbarComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required]),
     avatar: new FormControl(),
-    address: new FormControl('', [Validators.required]),
+    address: new FormControl('-1'),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
     introduction: new FormControl('', [Validators.required]),
     roles: new FormControl(),
   });
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   })
 
@@ -49,7 +44,9 @@ export class NavbarComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    this.getAllCity();
     const role = localStorage.getItem('ROLE');
     this.idCompany = localStorage.getItem('COMPANYID')
     if (role == null) {
@@ -64,19 +61,32 @@ export class NavbarComponent implements OnInit {
     if (role == "USER") {
       this.checkRoleUser = true;
     }
+
+  }
+  getAllCity() {
+    this.authenticationService.findAllCity().subscribe(result => {
+      this.city = result
+      document.getElementById('address').style.display = 'block';
+    }, error => {
+      console.log(error);
+    });
   }
 
   register() {
     const company = this.companyForm.value;
 
-
-    console.log(company)
-    this.authenticationService.register(company).subscribe((data) => {
+    console.log("image: ", this.image)
+    this.authenticationService.register(company, this.image).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
+      this.companyForm.reset();
     }, error => {
       alert('Lỗi');
     });
+  }
+
+  handleChangeImage(e){
+    this.image= e.target.files[0];
   }
 
   messageRegister() {
@@ -98,6 +108,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
+            console.log(data.status)
             // @ts-ignore
             this.messageLoginFail();
           }
@@ -162,27 +173,27 @@ export class NavbarComponent implements OnInit {
     return this.companyForm.get('name');
   }
 
-  get address(){
+  get address() {
     return this.companyForm.get('address');
   }
 
-  get phoneNumber(){
+  get phoneNumber() {
     return this.companyForm.get('phoneNumber');
   }
 
-  get introduction(){
+  get introduction() {
     return this.companyForm.get('introduction');
   }
 
-  get emailLogin(){
+  get emailLogin() {
     return this.loginForm.get('email');
   }
 
-  get passwordLogin(){
+  get passwordLogin() {
     return this.loginForm.get('password')
   }
 
-  get confirmPassword(){
+  get confirmPassword() {
     return this.companyForm.get('confirmPassword');
   }
 
