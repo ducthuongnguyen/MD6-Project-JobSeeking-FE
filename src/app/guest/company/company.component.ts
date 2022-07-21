@@ -19,9 +19,7 @@ export class CompanyComponent implements OnInit {
 
   getAll() {
     this.companyService.findAll().subscribe(result => {
-
       this.company = result;
-
     }, error => {
       console.log(error);
     });
