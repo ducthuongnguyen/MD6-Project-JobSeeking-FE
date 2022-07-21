@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+// @ts-ignore
 import {CommonModule} from '@angular/common';
 
 import {CompanyRoutingModule} from './company-routing.module';
