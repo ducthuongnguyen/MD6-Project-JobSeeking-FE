@@ -6,6 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import Swal from 'sweetalert2';
 import {first} from "rxjs/operators";
 import {$} from "protractor";
+import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
+import { RecruitmentNews } from 'src/app/model/recruitment-news';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +15,8 @@ import {$} from "protractor";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  recruitmentNews: RecruitmentNews[] = [];
+  idCompany: any;
   checkRole;
   checkRoleAdmin;
   checkRoleUser;
@@ -49,6 +53,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     const role = localStorage.getItem('ROLE');
+    this.idCompany = localStorage.getItem('COMPANYID')
     if (role == null) {
       this.checkRole = true;
     }
@@ -136,6 +141,7 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
+
   messageLoginFail() {
     Swal.fire({
       position: 'center',

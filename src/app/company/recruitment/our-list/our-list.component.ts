@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecruitmentNews } from 'src/app/model/recruitment-news';
+import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
 
 @Component({
   selector: 'app-our-list',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./our-list.component.css']
 })
 export class OurListComponent implements OnInit {
+  recruitmentNews: RecruitmentNews[] = [];
 
-  constructor() { }
+  constructor(private recruitmentService: RecruitmentNewsService) { }
 
   ngOnInit() {
+    this.findAll()
   }
 
+  findAll() {
+    this.recruitmentService.findAllByCompanyId().subscribe((result: RecruitmentNews[]) => {
+      console.log(result);
+      this.recruitmentNews = result;
+    }, error => {
+      console.log(error);
+    });
+  }
 }

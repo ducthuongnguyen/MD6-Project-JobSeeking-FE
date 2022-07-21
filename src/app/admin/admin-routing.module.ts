@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'recruitment',
     children: [
       {
-        path: 'listJob',
+        path: 'list-job',
         component: ListJobComponent
       },
       {

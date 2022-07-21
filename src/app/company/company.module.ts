@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CompanyListComponent} from './company/company-list/company-list.component';
 import {OurListComponent} from './recruitment/our-list/our-list.component';
 import { BlockListComponent } from './recruitment/block-list/block-list.component';
+import { AddRecruitmentComponent } from './recruitment/add-recruitment/add-recruitment.component';
+import { EditRecruitmentComponent } from './recruitment/edit-recruitment/edit-recruitment.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { BlockListComponent } from './recruitment/block-list/block-list.componen
     CompanyListComponent,
     OurListComponent,
     BlockListComponent,
-
+    AddRecruitmentComponent,
+    EditRecruitmentComponent
   ],
   imports: [
     CommonModule,
