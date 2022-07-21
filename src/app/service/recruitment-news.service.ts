@@ -22,4 +22,7 @@ export class RecruitmentNewsService {
     console.log(`${environment.apiUrl}/recruiment-news/find-by-company/${id}`);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
+  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]>{
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);
+  }
 }

@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CompanyService} from '../../../service/company.service';
