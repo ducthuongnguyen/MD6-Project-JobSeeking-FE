@@ -5,6 +5,7 @@ import { RecruitmentNews } from 'src/app/model/recruitment-news';
 import { FieldService } from 'src/app/service/field.service';
 import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
 import { VacancyService } from 'src/app/service/vacancy.service';
+import {Vacancy} from '../../../model/vacancy';
 
 const idCompany = localStorage.getItem('COMPANYID');
 
@@ -18,7 +19,6 @@ const idCompany = localStorage.getItem('COMPANYID');
 export class AddRecruitmentComponent implements OnInit {
   recruitmentForm: FormGroup = new FormGroup({
     title: new FormControl(),
-    company: new FormControl(),
     vacancyId: new FormControl(),
     fieldId: new FormControl(),
     salaryForm: new FormControl(),
@@ -34,7 +34,7 @@ export class AddRecruitmentComponent implements OnInit {
 
   obj: any;
 
-  listRecruitment: RecruitmentNews[] = [];
+  listVacancy: Vacancy[] = [];
 
   constructor(private recruimentNewsService: RecruitmentNewsService,
               private vacancyService: VacancyService,
@@ -42,6 +42,16 @@ export class AddRecruitmentComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.getVacancy();
+  }
+
+  getVacancy() {
+    this.vacancyService.findAll().subscribe((data) => {
+      console.log(data);
+      this.listVacancy = data;
+    }, error => {
+      console.log(error);
+    });
   }
 
   submit() {
@@ -68,14 +78,12 @@ export class AddRecruitmentComponent implements OnInit {
         id: this.recruitmentForm.value.workingTypeId
       }
     };
+
     this.recruimentNewsService.save(this.obj).subscribe(() => {
       alert('Save recruitment successfully');
+      this.router.navigate(['/company/recruitment/our-list/', idCompany]);
     }, error => {
       console.log('Error: ', error);
     });
-  }
-
-  goBack() {
-    this.router.navigate(['/company/recruitment/our-list/', idCompany]);
   }
 }
