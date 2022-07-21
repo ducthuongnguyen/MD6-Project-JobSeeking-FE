@@ -25,6 +25,9 @@ export class CompanyService {
     return this.httpClient.get<Company>(API_URL + `/companies/${id}`);
   }
 
+  findAll(): Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.API_COMPANY);
+  }
 
   update(id: any, company: Company): Observable<Company> {
     return this.httpClient.put<Company>(`${API_URL}/companies/${id}`, company);
