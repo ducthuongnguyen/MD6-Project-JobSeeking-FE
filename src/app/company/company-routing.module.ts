@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.component";
-import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
-import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
-import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
+import { CompanyListComponent } from './company/company-list/company-list.component';
+import { CompanyUpdateComponent } from './company/company-update/company-update.component';
+import { AddRecruitmentComponent } from './recruitment/add-recruitment/add-recruitment.component';
+import { BlockListComponent } from './recruitment/block-list/block-list.component';
+import { ListJobComponent } from './recruitment/list-job/list-job.component';
+import { OurListComponent } from './recruitment/our-list/our-list.component';
 
 
 const routes: Routes = [
@@ -28,12 +30,16 @@ const routes: Routes = [
         component: ListJobComponent
       },
       {
-        path: 'our-list',
+        path: 'our-list/:id',
         component: OurListComponent
       },
       {
         path: 'block-list',
         component: BlockListComponent
+      },
+      {
+        path: 'add',
+        component: AddRecruitmentComponent
       }
     ]
   },
