@@ -19,6 +19,8 @@ export class NavbarComponent implements OnInit {
   checkRoleCompany;
   city: any[] = [];
 
+  image: any;
+
   companyForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -69,12 +71,17 @@ export class NavbarComponent implements OnInit {
 
   register() {
     const company = this.companyForm.value;
-    this.authenticationService.register(company).subscribe((data) => {
+    this.authenticationService.register(company, this.image).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
     }, error => {
       alert('Lỗi');
     });
+  }
+
+  handleChangeImage(e){
+    this.image= e.target.files[0];
+    console.log("image: ", this.image)
   }
 
   messageRegister() {

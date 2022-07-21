@@ -44,8 +44,24 @@ export class AuthenticationService {
     // this.currentUserSubject.next(null);
   }
 
-  register(company: any): Observable<Company> {
-    return this.http.post<User>("http://localhost:8080/sign-up-company", company);
+  register(company: any, image: any): Observable<Company> {
+    // return this.http.post<User>("http://localhost:8080/sign-up-company", company);
+
+    const formData=new FormData();
+    formData.append(
+      "image",
+      new Blob([image], {type: image.type}),
+      image.name
+    );
+    formData.append(
+      "company",
+      new Blob([JSON.stringify(company)], {type:"application/json"})
+    );
+    return this.http.post<User>("http://localhost:8080/sign-up-company", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      }
+    });
   }
 
   findAllCity(): Observable<any> {
