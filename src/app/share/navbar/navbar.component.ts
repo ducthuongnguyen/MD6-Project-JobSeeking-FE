@@ -5,9 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 // @ts-ignore
 import Swal from 'sweetalert2';
 import {first} from "rxjs/operators";
-import {$} from "protractor";
-import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
-import { RecruitmentNews } from 'src/app/model/recruitment-news';
+import {RecruitmentNews} from 'src/app/model/recruitment-news';
 
 @Component({
   selector: 'app-navbar',

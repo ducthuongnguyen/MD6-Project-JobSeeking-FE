@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Company} from '../../../model/company';
 import {CompanyService} from '../../../service/company.service';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {FormBuilder} from '@angular/forms';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-pending-approval-list',
@@ -35,9 +34,19 @@ export class PendingApprovalListComponent implements OnInit {
     // @ts-ignore
     this.companyService.approveCompany(id).subscribe(() => {
       this.listPendingCompany();
-      alert("Duyệt thành công")
+      this.messageApprove();
     }, error => {
       alert("Lỗi");
+    })
+  }
+
+  messageApprove() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Đã duyệt',
+      showConfirmButton: false,
+      timer: 2000
     })
   }
 }
