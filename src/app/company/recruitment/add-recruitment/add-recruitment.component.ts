@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { RecruitmentNews } from 'src/app/model/recruitment-news';
-import { FieldService } from 'src/app/service/field.service';
-import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
-import { VacancyService } from 'src/app/service/vacancy.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {RecruitmentNews} from 'src/app/model/recruitment-news';
+import {FieldService} from 'src/app/service/field.service';
+import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
+import {VacancyService} from 'src/app/service/vacancy.service';
 
 const idCompany = localStorage.getItem('COMPANYID');
 
@@ -17,19 +17,19 @@ const idCompany = localStorage.getItem('COMPANYID');
 
 export class AddRecruitmentComponent implements OnInit {
   recruitmentForm: FormGroup = new FormGroup({
-    title:new FormControl(),
+    title: new FormControl(),
     company: new FormControl(),
-    vacancyId:new FormControl(),
-    fieldId:new FormControl(),
-    salaryForm:new FormControl(),
-    salaryTo:new FormControl(),
-    expiredDate:new FormControl(),
-    employeeQuantity:new FormControl(),
-    requiredExperience:new FormControl(),
-    gender:new FormControl(),
-    workingPlace:new FormControl(),
-    description:new FormControl(),
-    workingTypeId:new FormControl()
+    vacancyId: new FormControl(),
+    fieldId: new FormControl(),
+    salaryForm: new FormControl(),
+    salaryTo: new FormControl(),
+    expiredDate: new FormControl(),
+    employeeQuantity: new FormControl(),
+    requiredExperience: new FormControl(),
+    gender: new FormControl(),
+    workingPlace: new FormControl(),
+    description: new FormControl(),
+    workingTypeId: new FormControl()
   });
 
   obj: any;
@@ -39,16 +39,13 @@ export class AddRecruitmentComponent implements OnInit {
   constructor(private recruimentNewsService: RecruitmentNewsService,
               private vacancyService: VacancyService,
               private fieldService: FieldService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  getVacancy(){
-    this.vacancyService.
-  }
-
-  submit(){
+  submit() {
     this.obj = {
       title: this.recruitmentForm.value.title,
       company: {
@@ -74,12 +71,12 @@ export class AddRecruitmentComponent implements OnInit {
     };
     this.recruimentNewsService.save(this.obj).subscribe(() => {
       alert("Save recruitment successfully");
-    },error => {
+    }, error => {
       console.log("Error: ", error);
     });
   }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['/company/recruitment/our-list/', idCompany]);
   }
 }
