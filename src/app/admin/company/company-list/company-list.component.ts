@@ -26,7 +26,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   getListCompany() {
-    this.companyService.findAll().subscribe((listCompany:Company[]) => {
+    this.companyService.findAllApprovedCompany().subscribe((listCompany:Company[]) => {
       console.log(listCompany)
       this.companies = listCompany;
     }, error => {
