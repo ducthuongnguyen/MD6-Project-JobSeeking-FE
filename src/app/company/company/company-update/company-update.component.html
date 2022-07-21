@@ -1,0 +1,72 @@
+
+
+<div class="dashboard-sidebar-wrapper pt-11" id="sidebar">
+  <div class="my-15 px-11">
+    <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
+  </div>
+  <ul class="list-unstyled dashboard-layout-sidebar">
+    <li class="active"><a routerLink="/company/company/main" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fa-solid fa-table mr-7" style="font-size: 20px"></i> Danh sách công ty</a></li>
+    <li class=""><a routerLink="/company/company/posterJob" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>Danh sách tin tuyển dụng</a></li>
+    <li class=""><a routerLink="/company/company/postedApplicant" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>Danh sách ứng tuyển <span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
+    <li class=""><a routerLink="/company/company/update" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>Chỉnh sửa thông tin</a></li>
+  </ul>
+</div>
+<a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
+  <i class="icon icon-sidebar-2"></i>
+</a>
+<div class="dashboard-main-container mt-24 mt-lg-31" id="dashboard-body">
+  <div class="container">
+    <div class="mb-15 mb-lg-23">
+      <div class="row">
+        <div class="col-xxxl-9 px-lg-13 px-6">
+          <h2 style="text-align: center" class="font-size-8 font-weight-semibold mb-11">Chỉnh sửa thông tin</h2>
+          <div class="contact-form bg-white shadow-8 rounded-4 pl-sm-10 pl-4 pr-sm-11 pr-4 pt-15 pb-13">
+            <form [formGroup]="editForm" (ngSubmit)="update()">
+              <fieldset>
+                <div class="row mb-xl-1 mb-9">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="namedash" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Tên doanh nghiệp</label>
+                      <input formControlName="name" type="text" class="form-control h-px-48" id="namedash" >
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="namedash1" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Địa chỉ</label>
+                      <input formControlName="address" type="text" class="form-control h-px-48" id="namedash1">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="namedash2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Ảnh</label>
+                      <input formControlName="avatar" type="text" class="form-control h-px-48" id="namedash2" >
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="namedash3" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Số điện thoại</label>
+                      <input formControlName="phoneNumber" type="text" class="form-control h-px-48" id="namedash3">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Thông tin chi tiết</label>
+                      <textarea formControlName="introduction" name="textarea" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+
+                    <button  class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">Chỉnh sửa</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

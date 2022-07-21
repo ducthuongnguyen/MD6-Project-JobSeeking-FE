@@ -4,7 +4,6 @@ import {DashboardMainComponent} from "./company/dashboard-main/dashboard-main.co
 import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashboard-posted-job.component";
 import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
 import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
-import { ListJobComponent } from './recruitment/list-job/list-job.component';
 
 
 const routes: Routes = [
@@ -12,20 +11,12 @@ const routes: Routes = [
     path: 'company',
     children: [
       {
-        path: 'main',
-        component: DashboardMainComponent
+        path: 'update',
+        component: CompanyUpdateComponent
       },
       {
-        path: 'posterJob',
-        component: DashboardPostedJobComponent
-      },
-      {
-        path: 'postedApplicant',
-        component: DashboardPostedApplicantComponent
-      },
-      {
-        path: 'setting',
-        component: DashboardPostedSettingComponent
+        path: 'list',
+        component: CompanyListComponent
       }
     ]
   },
@@ -33,11 +24,19 @@ const routes: Routes = [
     path: 'recruitment',
     children: [
       {
-        path: 'list-job',
+        path: 'list',
         component: ListJobComponent
+      },
+      {
+        path: 'our-list',
+        component: OurListComponent
+      },
+      {
+        path: 'block-list',
+        component: BlockListComponent
       }
     ]
-  }
+  },
 ];
 
 @NgModule({
