@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required]),
-    avatar: new FormControl(),
+    avatar: new FormControl('', [Validators.required]),
     address: new FormControl('-1'),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
     introduction: new FormControl('', [Validators.required]),
@@ -183,6 +183,10 @@ export class NavbarComponent implements OnInit {
 
   get introduction() {
     return this.companyForm.get('introduction');
+  }
+
+  get avatar(){
+    return this.companyForm.get('avatar');
   }
 
   get emailLogin() {
