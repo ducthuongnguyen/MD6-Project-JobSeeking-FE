@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Company} from '../../../model/company';
 import {CompanyService} from '../../../service/company.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-pending-approval-list',
@@ -13,8 +13,8 @@ export class PendingApprovalListComponent implements OnInit {
   companies: Company[] = [];
 
 
-
-  constructor(private companyService: CompanyService) {
+  constructor(private companyService: CompanyService,
+              private actRouter: ActivatedRoute) {
 
   }
 
@@ -30,6 +30,7 @@ export class PendingApprovalListComponent implements OnInit {
       alert("loi")
     });
   }
+
   findById() {
     this.actRouter.paramMap.subscribe(comId => {
       const id = comId.get('id');
@@ -49,6 +50,7 @@ export class PendingApprovalListComponent implements OnInit {
       alert("Lỗi");
     })
   }
+
   ngSubmit() {
     // @ts-ignore
     this.companyService.updateStatus(this.companies.id, this.companies);
