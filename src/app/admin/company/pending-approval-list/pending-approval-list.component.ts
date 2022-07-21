@@ -21,7 +21,7 @@ export class PendingApprovalListComponent implements OnInit {
 
   ngOnInit() {
     this.listPendingCompany();
-
+this.findById();
   }
 
   listPendingCompany() {
@@ -32,6 +32,19 @@ export class PendingApprovalListComponent implements OnInit {
       alert("loi")
     });
   }
+  findById() {
+    this.actRouter.paramMap.subscribe(comId => {
+      const id = comId.get('id');
+      this.companyService.findCompanyById(id).subscribe(result => {
+        // @ts-ignore
+        this.companies = result;
+      });
+    })
+  }
 
+  ngSubmit() {
+    // @ts-ignore
+    this.companyService.updateStatus(this.companies.id, this.companies);
+  }
 
 }

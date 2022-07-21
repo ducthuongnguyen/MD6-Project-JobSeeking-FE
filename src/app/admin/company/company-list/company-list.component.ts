@@ -21,8 +21,7 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit() {
     this.getListCompany();
-    this.findById();
-    this.ngSubmit();
+
   }
 
   getListCompany() {
@@ -34,18 +33,5 @@ export class CompanyListComponent implements OnInit {
     });
   }
 
-  findById() {
-    this.actRouter.paramMap.subscribe(comId => {
-      const id = comId.get('id');
-      this.companyService.findCompanyById(id).subscribe(result => {
-        // @ts-ignore
-        this.companies = result;
-      });
-    })
-  }
 
-  ngSubmit() {
-    // @ts-ignore
-    this.companyService.updateStatus(this.company.id, this.company);
-  }
 }
