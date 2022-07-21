@@ -45,7 +45,6 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
   }
 
-
   updateStatus(id: string, company: Company): Observable<Company> {
     return this.httpClient.put<Company>(`${this.API_COMPANY + '/update-status'}/${id}`, company)
   }
@@ -56,6 +55,11 @@ export class CompanyService {
 
   findAllRecruiment(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST);
+  }
+
+  approveCompany(id: string): Observable<Company> {
+    // @ts-ignore
+    return this.httpClient.put<Company>(`${this.API_COMPANY + '/approve'}/${id}`)
   }
 }
 
