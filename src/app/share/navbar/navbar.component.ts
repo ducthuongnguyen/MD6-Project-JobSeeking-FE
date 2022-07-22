@@ -204,7 +204,8 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.checkRole = true;
-    this.router.navigate(['/']);
+    // this.router.navigate(['home']);
+    window.location.replace("http://localhost:4200/home")
     // location.reload();
   }
 
