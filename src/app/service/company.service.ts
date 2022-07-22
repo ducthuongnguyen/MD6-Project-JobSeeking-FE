@@ -41,6 +41,7 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PENDING);
   }
 
+
   findAllBlockCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
   }

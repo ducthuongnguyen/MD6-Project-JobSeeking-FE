@@ -14,13 +14,13 @@ export class CompanyListComponent implements OnInit {
   companies: Company[] = [];
   totalElements: number = 0;
   loading: boolean;
-
+  sizeSearch:number;
   constructor(private companyService: CompanyService,
              ) {
   }
 
   ngOnInit() {
- this.getListRequest({page: 0, size: 5});
+ this.getListRequest({page: 0, size: 3});
 
   }
   nextPage(event: PageEvent) {
@@ -30,8 +30,7 @@ export class CompanyListComponent implements OnInit {
     request['size'] = event.pageSize.toString();
     console.log('request[size]=====', request['size']);
     this.getListRequest(request);
-
-    // this.getSearchRequest(request,this.name);
+    this.sizeSearch=this.totalElements;
   }
   private getListRequest(request) {
     this.loading = true;
@@ -39,19 +38,20 @@ export class CompanyListComponent implements OnInit {
       this.companies = data['content'];
       console.log('data[content]--------', data['content']);
       this.totalElements = data['totalElements'];
+
       this.loading = false;
     }, error => {
       this.loading = false;
     });
   }
-  getListCompany() {
-    this.companyService.findAllApprovedCompany().subscribe((listCompany:Company[]) => {
-      console.log(listCompany)
-      this.companies = listCompany;
-    }, error => {
-      alert("loi")
-    });
-  }
+  // getListCompany() {
+  //   this.companyService.findAllApprovedCompany().subscribe((listCompany:Company[]) => {
+  //     console.log(listCompany)
+  //     this.companies = listCompany;
+  //   }, error => {
+  //     alert("loi")
+  //   });
+  // }
 
 
 }

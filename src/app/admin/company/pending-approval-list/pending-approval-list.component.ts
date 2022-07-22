@@ -11,7 +11,8 @@ import {FormBuilder} from '@angular/forms';
 })
 export class PendingApprovalListComponent implements OnInit {
   companies: Company[] = [];
-
+  totalElements: number = 0;
+  loading: boolean;
 
   constructor(private companyService: CompanyService,
               private router: Router,
@@ -21,7 +22,6 @@ export class PendingApprovalListComponent implements OnInit {
 
   ngOnInit() {
     this.listPendingCompany();
-this.findById();
   }
 
   listPendingCompany() {
@@ -32,19 +32,19 @@ this.findById();
       alert("loi")
     });
   }
-  findById() {
-    this.actRouter.paramMap.subscribe(comId => {
-      const id = comId.get('id');
-      this.companyService.findCompanyById(id).subscribe(result => {
-        // @ts-ignore
-        this.companies = result;
-      });
-    })
-  }
-
-  ngSubmit() {
-    // @ts-ignore
-    this.companyService.updateStatus(this.companies.id, this.companies);
-  }
+  // findById() {
+  //   this.actRouter.paramMap.subscribe(comId => {
+  //     const id = comId.get('id');
+  //     this.companyService.findCompanyById(id).subscribe(result => {
+  //       // @ts-ignore
+  //       this.companies = result;
+  //     });
+  //   })
+  // }
+  //
+  // ngSubmit() {
+  //   // @ts-ignore
+  //   this.companyService.updateStatus(this.companies.id, this.companies);
+  // }
 
 }
