@@ -67,7 +67,13 @@ export class CompanyService {
 
   approveCompany(id: string): Observable<Company> {
     // @ts-ignore
-    return this.httpClient.put<Company>(`${this.API_COMPANY + '/approve'}/${id}`)
+    return this.httpClient.put<Company>(`${this.API_COMPANY + '/approve'}/${id}`);
+  }
+
+//khoa cong ty
+  lockCompany(id: string): Observable<Company> {
+    // @ts-ignore
+    return this.httpClient.put<Company>(`${this.API_COMPANY + '/update-status'}/${id}`);
   }
 }
 
