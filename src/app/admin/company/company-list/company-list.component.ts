@@ -3,6 +3,7 @@ import {Company} from "../../../model/company";
 import {CompanyService} from "../../../service/company.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
+// @ts-ignore
 import {PageEvent} from "@angular/material/paginator";
 
 @Component({
