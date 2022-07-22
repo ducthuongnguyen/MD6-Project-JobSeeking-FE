@@ -32,15 +32,15 @@ export class CompanyService {
   update(id: any, company: Company): Observable<Company> {
     return this.httpClient.put<Company>(`${API_URL}/companies/${id}`, company);
   }
-
+//đã đc duyệt
   findAllApprovedCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_APPROVED);
   }
-
+//chờ duyệt
   findAllPendingCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PENDING);
   }
-
+//bị khóa
   findAllBlockCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
   }
