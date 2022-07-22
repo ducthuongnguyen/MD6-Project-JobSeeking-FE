@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
 // @ts-ignore
 import {PageEvent} from "@angular/material/paginator";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-company-list',
@@ -21,22 +22,21 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit() {
     this.getListRequest({page: 0, size: 5});
-
-
   }
+
   private getListRequest(request) {
     this.loading = true;
     this.companyService.pageCompany(request).subscribe(data => {
+      console.log(data.content)
       this.companies = data['content'];
-      console.log('data[content]--------', data['content']);
       this.totalElements = data['totalElements'];
       this.loading = false;
     }, error => {
       this.loading = false;
     });
   }
+
   nextPage(event: PageEvent) {
-    console.log('event=====', event);
     const request = {};
     request['page'] = event.pageIndex.toString();
     request['size'] = event.pageSize.toString();
@@ -44,6 +44,26 @@ export class CompanyListComponent implements OnInit {
     this.getListRequest(request);
   }
 
+  updateStatus(id: string) {
+    // let status = document.getElementById("status").innerHTML;
+    this.companyService.updateStatus(id).subscribe(() => {
+      // if (status.trim() == "Khóa") {
+      //   document.getElementById("status").innerHTML = "Không khóa";
+      // } else document.getElementById("status").innerHTML = "Khóa";
+      this.messageStatus();
+    }, error => {
+      alert("Lỗi");
+    })
+  }
 
+  messageStatus() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Đã chuyển trạng thái',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
 
 }

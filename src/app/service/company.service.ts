@@ -31,7 +31,7 @@ export class CompanyService {
 
   pageCompany(request) {
     const params = request;
-    return this.httpClient.get(this.API_COMPANY, {params});
+    return this.httpClient.get(API_URL + '/unlock-company', {params});
   }
 
   update(id: any, company: Company): Observable<Company> {
@@ -53,10 +53,6 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
   }
 
-  updateStatus(id: string, company: Company): Observable<Company> {
-    return this.httpClient.put<Company>(`${this.API_COMPANY + '/update-status'}/${id}`, company)
-  }
-
   findCompanyById(id: string): Observable<Company> {
     return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`)
   }
@@ -71,7 +67,7 @@ export class CompanyService {
   }
 
 //khoa cong ty
-  lockCompany(id: string): Observable<Company> {
+  updateStatus(id: string): Observable<Company> {
     // @ts-ignore
     return this.httpClient.put<Company>(`${this.API_COMPANY + '/update-status'}/${id}`);
   }
