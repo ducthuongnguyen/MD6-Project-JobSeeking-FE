@@ -27,7 +27,12 @@ export class RecruitmentNewsService {
     //@ts-ignore
     return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST);
   }
+
   findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]>{
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);
+  }
+
+  findById(id:number): Observable<RecruitmentNews>{
+    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST+`/${id}`);
   }
 }

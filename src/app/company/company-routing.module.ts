@@ -4,6 +4,7 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
 import { CompanyUpdateComponent } from './company/company-update/company-update.component';
 import { AddRecruitmentComponent } from './recruitment/add-recruitment/add-recruitment.component';
 import { BlockListComponent } from './recruitment/block-list/block-list.component';
+import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/detail-recruitment.component';
 import { ListJobComponent } from './recruitment/list-job/list-job.component';
 import { OurListComponent } from './recruitment/our-list/our-list.component';
 
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'add',
         component: AddRecruitmentComponent
+      },
+      {
+        path: 'detail/:id',
+        component: DetailRecruitmentComponent
       }
     ]
   },

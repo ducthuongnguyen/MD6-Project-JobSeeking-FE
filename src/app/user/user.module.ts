@@ -8,6 +8,7 @@ import {DashboardPostedJobComponent} from "./company/dashboard-posted-job/dashbo
 import {DashboardPostedSettingComponent} from "./company/dashboard-posted-setting/dashboard-posted-setting.component";
 import {DashboardPostedApplicantComponent} from "./company/dashboard-posted-applicant/dashboard-posted-applicant.component";
 import {ListJobComponent} from "./recruitment/list-job/list-job.component";
+import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/detail-recruitment.component';
 
 
 // @ts-ignore
@@ -17,8 +18,8 @@ import {ListJobComponent} from "./recruitment/list-job/list-job.component";
     DashboardPostedJobComponent,
     DashboardPostedSettingComponent,
     DashboardPostedApplicantComponent,
-    ListJobComponent
-
+    ListJobComponent,
+    DetailRecruitmentComponent
   ],
   imports: [
     CommonModule,
