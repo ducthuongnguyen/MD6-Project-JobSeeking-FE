@@ -49,17 +49,13 @@
           <td class="table-y-middle py-7 min-width-px-170 pr-0">
             <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.expiredDate}}</h3>
           </td>
-          <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <div class=""><a href="javacript:" class="font-size-3 font-weight-bold text-black-2 text-uppercase" data-toggle="modal" data-target="#employe-profile">View Application</a></div>
+          <td class="table-y-middle py-7 min-width-px-110 pr-0">
+            <div class=""><button class="font-size-3 font-weight-bold text-green text-uppercase" (click)="updateStatus(recuitment.id)">Không khóa</button></div>
           </td>
           <td class="table-y-middle py-7 min-width-px-110 pr-0">
-            <div class=""><a href="contact.html" class="font-size-3 font-weight-bold text-green text-uppercase">Contact</a></div>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-100 pr-0">
-            <div class=""><a href="" class="font-size-3 font-weight-bold text-red-2 text-uppercase">Reject</a></div>
+            <div class=""><button class="font-size-3 font-weight-bold text-green text-uppercase" (click)="showEditForm()">Cập nhật</button></div>
           </td>
         </tr>
-
         </tbody>
       </table>
     </div>

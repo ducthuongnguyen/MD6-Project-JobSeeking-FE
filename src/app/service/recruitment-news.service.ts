@@ -10,7 +10,8 @@ import {Observable} from 'rxjs';
 export class RecruitmentNewsService {
   private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
 
   findAll(): Observable<RecruitmentNews[]> {
@@ -19,7 +20,6 @@ export class RecruitmentNewsService {
 
   findAllByCompanyId(): Observable<RecruitmentNews[]> {
     const id = localStorage.getItem('COMPANYID');
-    console.log(`${environment.apiUrl}/recruiment-news/find-by-company/${id}`);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 
@@ -27,7 +27,14 @@ export class RecruitmentNewsService {
     //@ts-ignore
     return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST);
   }
-  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]>{
+
+  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);
+  }
+
+  //chuyen trang thai
+  updateStatus(id: string): Observable<RecruitmentNews> {
+    // @ts-ignore
+    return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/update-status/${id}`);
   }
 }

@@ -27,7 +27,6 @@ export class CompanyListComponent implements OnInit {
   private getListRequest(request) {
     this.loading = true;
     this.companyService.pageCompany(request).subscribe(data => {
-      console.log(data.content)
       this.companies = data['content'];
       this.totalElements = data['totalElements'];
       this.loading = false;

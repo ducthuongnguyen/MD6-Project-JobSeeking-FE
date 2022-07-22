@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { RecruitmentNews } from 'src/app/model/recruitment-news';
-import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
+import {Component, OnInit} from '@angular/core';
+import {RecruitmentNews} from 'src/app/model/recruitment-news';
+import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 
 @Component({
   selector: 'app-our-list',
@@ -10,7 +10,8 @@ import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service
 export class OurListComponent implements OnInit {
   recruitmentNews: RecruitmentNews[] = [];
 
-  constructor(private recruitmentService: RecruitmentNewsService) { }
+  constructor(private recruitmentService: RecruitmentNewsService) {
+  }
 
   ngOnInit() {
     this.findAll()
@@ -18,10 +19,21 @@ export class OurListComponent implements OnInit {
 
   findAll() {
     this.recruitmentService.findAllByCompanyId().subscribe((result: RecruitmentNews[]) => {
-      console.log(result);
       this.recruitmentNews = result;
     }, error => {
       console.log(error);
+    });
+  }
+
+  showEditForm() {
+
+  }
+
+  updateStatus(id: string) {
+    this.recruitmentService.updateStatus(id).subscribe(() => {
+      alert("ok");
+    }, error => {
+      alert("Lỗi");
     });
   }
 }
