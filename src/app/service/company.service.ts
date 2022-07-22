@@ -25,25 +25,29 @@ export class CompanyService {
     return this.httpClient.get<Company>(API_URL + `/companies/${id}`);
   }
 
-  // findAll(): Observable<Company[]> {
-  //   return this.httpClient.get<Company[]>(this.API_COMPANY);
-  // }
-  pageCompany(request){
+  findAll(): Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.API_COMPANY);
+  }
+
+  pageCompany(request) {
     const params = request;
-    return  this.httpClient.get(this.API_COMPANY,{params});
+    return this.httpClient.get(this.API_COMPANY, {params});
   }
 
   update(id: any, company: Company): Observable<Company> {
     return this.httpClient.put<Company>(`${API_URL}/companies/${id}`, company);
   }
+
 //đã đc duyệt
   findAllApprovedCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_APPROVED);
   }
+
 //chờ duyệt
   findAllPendingCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PENDING);
   }
+
 //bị khóa
   findAllBlockCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
