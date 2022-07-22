@@ -3,9 +3,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
-import {UserToken} from "../model/user-token";
-import {User} from "../model/user";
-import {Company} from "../model/company";
+import {UserToken} from '../model/user-token';
+import {Company} from '../model/company';
 
 const API_URL = environment.apiUrl;
 
@@ -18,7 +17,7 @@ export class AuthenticationService {
   update = new EventEmitter<string>();
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<UserToken>(JSON.parse(<string>localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<UserToken>(JSON.parse(localStorage.getItem('currentUser') as string));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -43,18 +42,18 @@ export class AuthenticationService {
   }
 
   register(company: any, image: any): Observable<Company> {
-    const formData=new FormData();
+    const formData = new FormData();
     formData.append(
-      "image",
+      'image',
       new Blob([image], {type: image.type}),
       image.name
     );
     formData.append(
-      "company",
-      new Blob([JSON.stringify(company)], {type:"application/json"})
+      'company',
+      new Blob([JSON.stringify(company)], {type: 'application/json'})
     );
-    console.log("form data", formData)
-    return this.http.post<any>("http://localhost:8080/sign-up-company", formData
+    console.log('form data', formData);
+    return this.http.post<any>('http://localhost:8080/sign-up-company', formData
     );
   }
 
