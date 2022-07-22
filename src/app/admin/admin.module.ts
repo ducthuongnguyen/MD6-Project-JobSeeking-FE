@@ -9,6 +9,7 @@ import {UpdateStatusComponent} from './company/update-status/update-status.compo
 import {PendingApprovalListComponent} from './company/pending-approval-list/pending-approval-list.component';
 import {CompanyBlockComponent} from './company/company-block/company-block.component';
 import {RecruitmentBlockComponent} from './recruitment/recruitment-block/recruitment-block.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {RecruitmentBlockComponent} from './recruitment/recruitment-block/recruit
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MatPaginatorModule
   ]
 })
 export class AdminModule {

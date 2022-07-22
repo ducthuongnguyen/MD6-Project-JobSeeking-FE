@@ -62,17 +62,11 @@
                   </div>
                 </div>
                 <!-- End Feature One -->
-
-
               </div>
             </div>
           </div>
-<!--          <div class="text-center pt-5 pt-lg-13">-->
-<!--            <a-->
-<!--              class="text-green font-weight-bold text-uppercase font-size-3 d-flex align-items-center justify-content-center"-->
-<!--              href="#">Load More <i class="fas fa-sort-down ml-3 mt-n2 font-size-4"></i>-->
-<!--            </a>-->
-<!--          </div>-->
+          <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements"
+                         (page)="nextPage($event)"></mat-paginator>
         </div>
         <!-- form end -->
       </div>
