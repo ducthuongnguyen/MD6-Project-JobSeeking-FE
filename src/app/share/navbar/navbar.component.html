@@ -232,7 +232,7 @@
               <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
-                  <a routerLink="/admin/recruitment/listJob">
+                  <a routerLink="/admin/recruitment/list-job">
                     Danh sách tin tuyển dụng
                   </a>
                 </li>
@@ -269,9 +269,9 @@
               <i class="fas fa-chevron-down heading-default-color ml-6"></i>
             </a>
             <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Log Out</a>
+<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
+<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
+              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Đăng xuất</a>
             </div>
           </div>
         </div>
@@ -363,9 +363,9 @@
               <i class="fas fa-chevron-down heading-default-color ml-6"></i>
             </a>
             <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Log Out</a>
+<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
+<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
+              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Đăng xuất</a>
             </div>
           </div>
         </div>
@@ -395,8 +395,7 @@
               <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
                 Welcome Back
               </h3>
-              <p class="mb-0 font-size-4 text-white">Log in to continue your account
-                and explore new jobs.</p>
+              <p class="mb-0 font-size-4 text-white">Đăng nhập để tiếp tục và xem các công việc mới.</p>
             </div>
             <div class="border-top border-default-color-2 mt-auto">
               <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -411,8 +410,7 @@
                   <h3 class="font-size-7 text-white">
                     14
                   </h3>
-                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies
-                    registered</p>
+                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">Công ty mới đăng ký</p>
                 </div>
               </div>
             </div>
@@ -581,10 +579,9 @@
           <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
             <div class="pb-9">
               <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
-                Create a free account today
+               Tạo tài khoản miễn phí ngay hôm nay
               </h3>
-              <p class="mb-0 font-size-4 text-white">Create your account to continue
-                and explore new jobs.</p>
+              <p class="mb-0 font-size-4 text-white">Đăng nhập để tiếp tục và xem các công việc mới.</p>
             </div>
             <div class="border-top border-default-color-2 mt-auto">
               <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -599,8 +596,7 @@
                   <h3 class="font-size-7 text-white">
                     14
                   </h3>
-                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies
-                    registered</p>
+                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">Công ty vừa đăng ký</p>
                 </div>
               </div>
             </div>
@@ -688,13 +684,14 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="avatar"
-                       class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại
-                  diện</label>
-                <input formControlName="avatar" type="text" class="form-control"
-                       placeholder="Nhập ảnh đại diện"
-                       id="avatar">
+                <p for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</p>
+                <input formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"
+                       (change)="handleChangeImage($event)">
               </div>
+<!--              <div *ngIf="!avatar.valid && avatar.touched">-->
+<!--                <div [hidden]="!avatar.errors.required">-->
+<!--                  <p style="color: red">Vui lòng chọn ảnh đại diện</p>-->
+<!--                </div>-->
               <div class="form-group">
                 <label for="address"
                        class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>

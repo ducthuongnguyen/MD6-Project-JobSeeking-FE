@@ -19,7 +19,8 @@ export class CompanyComponent implements OnInit {
 
   getAll() {
     this.companyService.findAll().subscribe(result => {
-      this.company = result;
+      // @ts-ignore
+      this.company = result.content;
     }, error => {
       console.log(error);
     });

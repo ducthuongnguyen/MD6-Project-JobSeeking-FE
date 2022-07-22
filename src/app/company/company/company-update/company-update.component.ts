@@ -12,7 +12,8 @@ import {CompanyService} from "../../../service/company.service";
 export class CompanyUpdateComponent implements OnInit {
   // const data = localStorage.getItem('USERID');
   // conts id = localStorage.getItem('COMPANYID');
-
+  city: any[] = [];
+  image: any;
   editForm: FormGroup = new FormGroup({
     name: new FormControl(),
     address: new FormControl(),
@@ -29,6 +30,7 @@ export class CompanyUpdateComponent implements OnInit {
 
     this.getCompany();
     this.update();
+    this.getAllCity()
   }
 
   getCompany() {
@@ -63,6 +65,17 @@ export class CompanyUpdateComponent implements OnInit {
       showConfirmButton: false,
       timer: 3000
     })
+  }
+  getAllCity() {
+    this.authenticationService.findAllCity().subscribe(result => {
+      this.city = result
+      document.getElementById('address').style.display = 'block';
+    }, error => {
+      console.log(error);
+    });
+  }
+  handleChangeImage(e){
+    this.image= e.target.files[0];
   }
 
 }
