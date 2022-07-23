@@ -4,7 +4,8 @@
 <br>
 <div class="mb-14">
   <div class="my-15 px-11">
-    <a routerLink="/company/recruitment/add" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
+    <a routerLink="/company/recruitment/add" class="btn btn-primary btn-xl w-100 text-uppercase"><span
+      class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
   </div>
   <div class="row mb-11 align-items-center">
     <div class="col-lg-12 mb-lg-0 mb-4">
@@ -21,9 +22,8 @@
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Cấp bậc</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Kinh Nghiệm</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Ngày đăng tin</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Trạng thái</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Thao tác</th>
         </tr>
         </thead>
         <tbody>
@@ -32,7 +32,8 @@
           <th scope="row" class="pl-6 border-0 py-7 pr-0">
             <a href="candidate-profile.html" class="media min-width-px-235 align-items-center">
               <div class="circle-36 mr-6">
-                <img src="https://finestdevs.com/demos/jobcamp/./image/table-one-profile-image-1.png" alt="" class="w-100" />
+                <img src="https://finestdevs.com/demos/jobcamp/./image/table-one-profile-image-1.png" alt=""
+                     class="w-100"/>
               </div>
               <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2">{{recuitment.title}}</h4>
             </a>
@@ -49,39 +50,43 @@
           <td class="table-y-middle py-7 min-width-px-170 pr-0">
             <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.expiredDate}}</h3>
           </td>
-          <div>
-            <td class="table-y-middle py-7 min-width-px-110 pr-0">
-              <div class=""><button class="font-size-3 font-weight-bold text-green text-uppercase" (click)="updateStatus(recuitment.id)" id="status">Không khóa</button></div>
-            </td>
-          </div>
-
           <td class="table-y-middle py-7 min-width-px-110 pr-0">
-            <div class=""><button class="font-size-3 font-weight-bold text-green text-uppercase" (click)="showEditForm()">Cập nhật</button></div>
+            <div>
+              <button class="font-size-3 font-weight-bold text-green text-uppercase" id="status"
+                      (click)="updateStatus(recuitment.id)">{{recuitment.status}}</button>
+            </div>
+          </td>
+          <td class="table-y-middle py-7 min-width-px-110 pr-0">
+            <div class="">
+              <button class="font-size-3 font-weight-bold text-green text-uppercase" (click)="showEditForm()">Cập nhật
+              </button>
+            </div>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <div class="pt-2">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination pagination-hover-primary rounded-0 ml-n2">
-          <li class="page-item rounded-0 flex-all-center">
-            <a class="page-link rounded-0 border-0 px-3active" href="#" aria-label="Previous">
-              <i class="fas fa-chevron-left"></i>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">1</a></li>
-          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">2</a></li>
-          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">3</a></li>
-          <li class="page-item disabled"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">...</a></li>
-          <li class="page-item "><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">7</a></li>
-          <li class="page-item rounded-0 flex-all-center">
-            <a class="page-link rounded-0 border-0 px-3" href="#" aria-label="Next">
-              <i class="fas fa-chevron-right"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+<!--    <div class="pt-2">-->
+<!--      <nav aria-label="Page navigation example">-->
+<!--        <ul class="pagination pagination-hover-primary rounded-0 ml-n2">-->
+<!--          <li class="page-item rounded-0 flex-all-center">-->
+<!--            <a class="page-link rounded-0 border-0 px-3active" href="#" aria-label="Previous">-->
+<!--              <i class="fas fa-chevron-left"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">1</a></li>-->
+<!--          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">2</a></li>-->
+<!--          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">3</a></li>-->
+<!--          <li class="page-item disabled"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">...</a>-->
+<!--          </li>-->
+<!--          <li class="page-item "><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">7</a></li>-->
+<!--          <li class="page-item rounded-0 flex-all-center">-->
+<!--            <a class="page-link rounded-0 border-0 px-3" href="#" aria-label="Next">-->
+<!--              <i class="fas fa-chevron-right"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </nav>-->
+<!--    </div>-->
   </div>
 </div>

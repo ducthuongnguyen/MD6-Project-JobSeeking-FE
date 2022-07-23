@@ -1,12 +1,14 @@
 <!-- Header home  -->
-<header *ngIf="checkRole" class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
+<header *ngIf="checkRole"
+        class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
   <div class="container">
     <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
       <!-- Brand Logo-->
       <div class="brand-logo">
         <a routerLink="/home">
           <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt="" class="light-version-logo default-logo">
+          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
+               class="light-version-logo default-logo">
           <!-- Dark version logo (logo must be White)-->
           <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
         </a>
@@ -14,10 +16,6 @@
       <div class="collapse navbar-collapse" id="mobile-menu">
         <div class="navbar-nav-wrapper">
           <ul class="navbar-nav main-menu">
-            <!--                            <li class="nav-item dropdown active">-->
-            <!--                                <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="index.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>-->
-            <!--                            </li>-->
-
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" routerLink="/home">Trang chủ</a>
             </li>
@@ -27,31 +25,35 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" routerLink="/guest/recruitment">Tin tuyển dụng</a>
             </li>
-
-
           </ul>
         </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
+                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
+                aria-label="Toggle navigation">
           <i class="gr-cross-icon"></i>
         </button>
       </div>
       <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
-        <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#login">
+        <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:"
+           data-toggle="modal" data-target="#login">
           Đăng nhập
         </a>
 
         <div class="dropdown">
-          <button class="btn dropdown-toggle" data-toggle="dropdown" type="button" id="signup" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn dropdown-toggle" data-toggle="dropdown" type="button" id="signup" data-bs-toggle="dropdown"
+                  aria-expanded="false">
             ĐĂNG KÝ
           </button>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
             <li>
-              <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#signupForUser">
+              <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"
+                 href="javacript:" data-toggle="modal" data-target="#signupForUser">
                 NGƯỜI TÌM VIỆC
               </a>
             </li>
             <li>
-              <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#signupForCompany">
+              <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"
+                 href="javacript:" data-toggle="modal" data-target="#signupForCompany">
                 DOANH NGHIỆP
               </a>
             </li>
@@ -60,7 +62,9 @@
 
       </div>
       <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
+              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
+              aria-label="Toggle navigation">
         <!-- <i class="icon icon-simple-remove icon-close"></i> -->
         <span class="hamburger hamburger--squeeze js-hamburger">
           <span class="hamburger-box">
@@ -73,14 +77,16 @@
   </div>
 </header>
 <!-- Header Company -->
-<header *ngIf="checkRoleCompany" class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
+<header *ngIf="checkRoleCompany"
+        class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
   <div class="container-fluid-fluid px-10">
     <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
       <!-- Brand Logo-->
       <div class="brand-logo">
         <a href="./index.html">
           <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt="" class="light-version-logo default-logo">
+          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
+               class="light-version-logo default-logo">
           <!-- Dark version logo (logo must be White)-->
           <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
         </a>
@@ -97,7 +103,9 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i
+                class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/company/company/list">
@@ -118,7 +126,9 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i
+                class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/company/recruitment/list">
@@ -139,16 +149,18 @@
             </li>
           </ul>
         </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
+                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
+                aria-label="Toggle navigation">
           <i class="gr-cross-icon"></i>
         </button>
       </div>
       <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
         <div>
-<!--          <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">-->
-<!--            <i class="fas fa-bell heading-default-color"></i>-->
-<!--            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>-->
-<!--          </a>-->
+          <!--          <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">-->
+          <!--            <i class="fas fa-bell heading-default-color"></i>-->
+          <!--            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>-->
+          <!--          </a>-->
         </div>
 
 
@@ -156,22 +168,27 @@
 
 
           <div class="dropdown show-gr-dropdown py-5">
-            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="circle-40">
                 <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
               </div>
               <i class="fas fa-chevron-down heading-default-color ml-6"></i>
             </a>
-            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
-<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Đăng xuất</a>
+            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
+                 aria-labelledby="dropdownMenuLink">
+              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
+              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
+              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+                 (click)="logout()">Đăng xuất</a>
             </div>
           </div>
         </div>
       </div>
       <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
+              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
+              aria-label="Toggle navigation">
         <!-- <i class="icon icon-simple-remove icon-close"></i> -->
         <span class="hamburger hamburger--squeeze js-hamburger">
           <span class="hamburger-box">
@@ -184,14 +201,16 @@
   </div>
 </header>
 <!-- Header Admin -->
-<header *ngIf="checkRoleAdmin" class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
+<header *ngIf="checkRoleAdmin"
+        class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
   <div class="container-fluid-fluid px-10">
     <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
       <!-- Brand Logo-->
       <div class="brand-logo">
         <a href="./index.html">
           <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt="" class="light-version-logo default-logo">
+          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
+               class="light-version-logo default-logo">
           <!-- Dark version logo (logo must be White)-->
           <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
         </a>
@@ -208,7 +227,9 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i
+                class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/admin/company/main">
@@ -228,7 +249,9 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i
+                class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/admin/recruitment/list-job">
@@ -244,7 +267,9 @@
             </li>
           </ul>
         </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
+                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
+                aria-label="Toggle navigation">
           <i class="gr-cross-icon"></i>
         </button>
       </div>
@@ -252,7 +277,8 @@
         <div>
           <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
             <i class="fas fa-bell heading-default-color"></i>
-            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+            <span
+              class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
           </a>
         </div>
 
@@ -261,22 +287,27 @@
 
 
           <div class="dropdown show-gr-dropdown py-5">
-            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="circle-40">
                 <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
               </div>
               <i class="fas fa-chevron-down heading-default-color ml-6"></i>
             </a>
-            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
-<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Đăng xuất</a>
+            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
+                 aria-labelledby="dropdownMenuLink">
+              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
+              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
+              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+                 (click)="logout()">Đăng xuất</a>
             </div>
           </div>
         </div>
       </div>
       <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
+              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
+              aria-label="Toggle navigation">
         <!-- <i class="icon icon-simple-remove icon-close"></i> -->
         <span class="hamburger hamburger--squeeze js-hamburger">
           <span class="hamburger-box">
@@ -289,14 +320,16 @@
   </div>
 </header>
 <!-- Header User -->
-<header *ngIf="checkRoleUser" class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
+<header *ngIf="checkRoleUser"
+        class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
   <div class="container-fluid-fluid px-10">
     <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
       <!-- Brand Logo-->
       <div class="brand-logo">
         <a href="./index.html">
           <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt="" class="light-version-logo default-logo">
+          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
+               class="light-version-logo default-logo">
           <!-- Dark version logo (logo must be White)-->
           <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
         </a>
@@ -313,7 +346,9 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Công ty <i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Công ty <i
+                class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/company/main">
@@ -322,7 +357,9 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Việc làm<i class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Việc làm<i
+                class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
                   <a routerLink="/recruitment">
@@ -338,7 +375,9 @@
             </li>
           </ul>
         </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
+                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
+                aria-label="Toggle navigation">
           <i class="gr-cross-icon"></i>
         </button>
       </div>
@@ -346,7 +385,8 @@
         <div>
           <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
             <i class="fas fa-bell heading-default-color"></i>
-            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+            <span
+              class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
           </a>
         </div>
 
@@ -355,22 +395,27 @@
 
 
           <div class="dropdown show-gr-dropdown py-5">
-            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="circle-40">
                 <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
               </div>
               <i class="fas fa-chevron-down heading-default-color ml-6"></i>
             </a>
-            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
-<!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" (click)="logout()">Đăng xuất</a>
+            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
+                 aria-labelledby="dropdownMenuLink">
+              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
+              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
+              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+                 (click)="logout()">Đăng xuất</a>
             </div>
           </div>
         </div>
       </div>
       <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
+              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
+              aria-label="Toggle navigation">
         <!-- <i class="icon icon-simple-remove icon-close"></i> -->
         <span class="hamburger hamburger--squeeze js-hamburger">
           <span class="hamburger-box">
@@ -385,7 +430,8 @@
 <!-- Login Modal -->
 <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
+    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper"
+            data-dismiss="modal"><i class="fas fa-times"></i></button>
     <div class="login-modal-main bg-white rounded-8 overflow-hidden">
       <div class="row no-gutters">
         <div class="col-lg-5 col-md-6">
@@ -482,7 +528,8 @@
 <!-- Sign Up Modal For User-->
 <div class="modal fade form-modal" id="signupForUser" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10"
+            data-dismiss="modal"><i class="fas fa-times"></i></button>
     <div class="login-modal-main bg-white rounded-8 overflow-hidden">
       <div class="row no-gutters">
         <div class="col-lg-5 col-md-6">
@@ -518,13 +565,19 @@
           <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
             <div class="row">
               <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from LinkedIn</span></a>
+                <a href=""
+                   class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i
+                  class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from LinkedIn</span></a>
               </div>
               <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Google</span></a>
+                <a href=""
+                   class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i
+                  class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Google</span></a>
               </div>
               <div class="col-4 col-xs-12">
-                <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Facebook</span></a>
+                <a href=""
+                   class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i
+                  class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Facebook</span></a>
               </div>
             </div>
             <div class="or-devider">
@@ -543,7 +596,8 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="password234" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
+                <label for="password234" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm
+                  Password</label>
                 <div class="position-relative">
                   <input type="password" class="form-control" id="password234" placeholder="Enter password">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password234"></a>
@@ -558,9 +612,11 @@
                 <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
               </div>
               <div class="form-group mb-8">
-                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Sign Up </button>
+                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Sign Up</button>
               </div>
-              <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
+              <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href=""
+                                                                                                 class="text-primary">Create
+                a free account</a></p>
             </form>
           </div>
         </div>
@@ -571,14 +627,15 @@
 <!-- Sign Up Modal For Company-->
 <div class="modal fade form-modal" id="signupForCompany" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10"
+            data-dismiss="modal"><i class="fas fa-times"></i></button>
     <div class="login-modal-main bg-white rounded-8 overflow-hidden">
       <div class="row no-gutters">
         <div class="col-lg-5 col-md-6">
           <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
             <div class="pb-9">
               <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
-               Tạo tài khoản miễn phí ngay hôm nay
+                Tạo tài khoản miễn phí ngay hôm nay
               </h3>
               <p class="mb-0 font-size-4 text-white">Đăng nhập để tiếp tục và xem các công việc mới.</p>
             </div>
@@ -684,19 +741,19 @@
               </div>
               <div class="form-group">
                 <p for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</p>
-                <input formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"
+                <input formControlName="avatar" type="file" placeholder="Nhập ảnh đại diện" id="avatar"
                        (change)="handleChangeImage($event)">
               </div>
-<!--              <div *ngIf="!avatar.valid && avatar.touched">-->
-<!--                <div [hidden]="!avatar.errors.required">-->
-<!--                  <p style="color: red">Vui lòng chọn ảnh đại diện</p>-->
-<!--                </div>-->
+              <!--              <div *ngIf="!avatar.valid && avatar.touched">-->
+              <!--                <div [hidden]="!avatar.errors.required">-->
+              <!--                  <p style="color: red">Vui lòng chọn ảnh đại diện</p>-->
+              <!--                </div>-->
               <div class="form-group">
                 <label for="address"
                        class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
                 <select formControlName="address" id="address" class="form-control">
                   <option value="-1" selected="selected">-Chọn địa chỉ-</option>
-                  <option *ngFor="let c of city" >{{c.name}}</option>
+                  <option *ngFor="let c of city">{{c.name}}</option>
                 </select>
               </div>
               <div *ngIf="!address.valid && address.touched">
