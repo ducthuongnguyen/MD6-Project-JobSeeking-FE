@@ -42,7 +42,6 @@ export class CompanyUpdateComponent implements OnInit {
     return this.companyService.getById(id).subscribe(company => {
       this.imagePreview=company.avatar;
       this.preview = company;
-      console.log("company", company.introduction)
       this.company = company;
       this.editForm = new FormGroup({
         name: new FormControl(company.name),
@@ -51,7 +50,6 @@ export class CompanyUpdateComponent implements OnInit {
         phoneNumber: new FormControl(company.phoneNumber),
         introduction: new FormControl(company.introduction),
       });
-      console.log(this.editForm.value)
     });
   }
 

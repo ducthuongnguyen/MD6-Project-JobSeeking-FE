@@ -103,6 +103,7 @@ export class NavbarComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
+
     this.authenticationService.login(email, password)
       .pipe(first())
       .subscribe(
