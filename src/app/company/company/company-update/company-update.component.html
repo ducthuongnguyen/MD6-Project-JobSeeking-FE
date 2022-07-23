@@ -6,10 +6,10 @@
     <img  src={{imagePreview}} alt="" style=" width: 100%; height: 100%; border-radius:50%;"/>
   </div>
   <ul class="list-unstyled dashboard-layout-sidebar">
-    <li class="active"><a routerLink="/company/company/main" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fa-solid fa-table mr-7" style="font-size: 20px"></i> Danh sách công ty</a></li>
-    <li class=""><a routerLink="/company/company/posterJob" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>Danh sách tin tuyển dụng</a></li>
-    <li class=""><a routerLink="/company/company/postedApplicant" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>Danh sách ứng tuyển <span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
-    <li class=""><a routerLink="/company/company/update" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>Chỉnh sửa thông tin</a></li>
+    <li class="active"><a  class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fa-solid fa-table mr-7" style="font-size: 20px"></i> {{preview.name}}</a></li>
+    <li class=""><a routerLink="/company/company/posterJob" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>{{preview.phoneNumber}}</a></li>
+    <li class=""><a routerLink="/company/company/postedApplicant" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>{{preview.email}} <span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center"></span></a></li>
+    <li class=""><a routerLink="/company/company/update" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-location-dot mr-7"></i>{{preview.address}}</a></li>
   </ul>
 </div>
 <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">

@@ -15,6 +15,7 @@ export class CompanyUpdateComponent implements OnInit {
   // conts id = localStorage.getItem('COMPANYID');
   city: any[] = [];
   imagePreview: any;
+  preview: any;
   image: any;
   company: Company;
   editForm: FormGroup = new FormGroup({
@@ -30,16 +31,17 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.getCompany();
-    this.update();
     this.getAllCity()
+    this.getCompany();
+    // this.update();
+
   }
 
   getCompany() {
     const id = localStorage.getItem('COMPANYID');
     return this.companyService.getById(id).subscribe(company => {
       this.imagePreview=company.avatar;
+      this.preview = company;
       console.log("company", company.introduction)
       this.company = company;
       this.editForm = new FormGroup({
@@ -56,9 +58,8 @@ export class CompanyUpdateComponent implements OnInit {
   update() {
     const id = localStorage.getItem('COMPANYID');
     const company = this.editForm.value
-    this.companyService.update(id, company).subscribe(() => {
 
-      // this.router.navigate(['/student']);
+    this.companyService.update(id, company, this.image).subscribe(() => {
       this.messageUpdate();
     }, e => {
       console.log(e);
