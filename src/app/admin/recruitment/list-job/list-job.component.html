@@ -1,170 +1,53 @@
-<!-- Main Content Start -->
-<div class="bg-default-1 pt-26 pt-lg-28 pb-13 pb-lg-25">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-4 col-md-5 col-xs-8">
-        <!-- Sidebar Start -->
-        <div class="widgets mb-11">
-          <h4 class="font-size-6 font-weight-semibold mb-6">Loại Hình làm Việc</h4>
-          <ul class="list-unstyled filter-check-list">
-            <li class="mb-2"><a href="#" class="toggle-item">Toàn Thời Gian</a></li>
-            <li class="mb-2"><a href="#" class="toggle-item">Bán Thời Gian</a></li>
-          </ul>
-        </div>
-        <div class="widgets mb-11 ">
-          <div class="d-flex align-items-center pr-15 pr-xs-0 pr-md-0 pr-xl-22">
-            <h4 class="font-size-6 font-weight-semibold mb-6 w-75">Khoảng Lương</h4>
-            <!-- Range Slider -->
-            <div class="slider-price w-25 text-right mr-7">
-              <p class="font-weight-bold">
-                <input class="text-primary font-weight-semibold font-size-4 focus-reset" type="text" id="amount"
-                       readonly="">
-              </p>
-            </div>
-          </div>
-          <div class="graph text-center mx-0 mt-5 position-relative chart-postion">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="range-slider">
-            <div class="pm-range-slider"></div>
-          </div>
-        </div>
-        <div class="widgets mb-11">
-          <h4 class="font-size-6 font-weight-semibold mb-6">Kinh Nghiệm </h4>
-          <ul class="list-unstyled filter-check-list">
-            <li class="mb-2"><a href="#" class="toggle-item">Dưới 1 Năm</a></li>
-            <li class="mb-2"><a href="#" class="toggle-item">1-2 Năm</a></li>
-            <li class="mb-2"><a href="#" class="toggle-item">2-5 Năm</a></li>
-            <li class="mb-2"><a href="#" class="toggle-item">5-10 Năm</a></li>
-          </ul>
-        </div>
-        <!-- Sidebar End -->
-      </div>
-      <!-- Main Body -->
-      <div class="col-12 col-xl-8 col-lg-8">
-        <!-- form -->
-        <form action="/" class="search-form">
-          <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
-            <div class="filter-inputs">
-              <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Tên">
-                <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
-                                        <i class="fa-solid fa-magnifying-glass" style="color: #62AE77"></i>
-                  </span>
-              </div>
-              <!-- .select-city starts -->
-              <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
-                <select name="country" id="country" class="nice-select font-size-4 pl-13 h-100 arrow-3">
-                  <option data-display="City, state, zip code or (Remote)">Thành Phố</option>
-                  <option value="">Hà Nội</option>
-                  <option value="">Hồ Chí Minh</option>
-                  <option value="">Đà Nẵng</option>
-                  <option value="">Tây Nguyên</option>
-                </select>
-                <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
-                                        <i class="fa-solid fa-location-dot" style="color: #62AE77"></i>
-                  </span>
-              </div>
-              <!-- ./select-city ends -->
-            </div>
-            <div class="button-block">
-              <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">Tìm Kiếm</button>
-            </div>
-          </div>
-        </form>
-        <div class="pt-12">
-<!--          <div class="d-flex align-items-center justify-content-between mb-6">-->
-<!--            <h5 class="font-size-4 font-weight-normal text-gray">-->
-<!--              <span class="heading-default-color">120</span>-->
-<!--              results for <span class="heading-default-color">UI Designer</span>-->
-<!--            </h5>-->
-<!--          </div>-->
-          <div class="mb-8">
-            <!-- Single Featured Job -->
-            <div *ngFor="let crui of cruimentnews"
-                 class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 ">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="media align-items-center">
-                    <div class="square-72 d-block mr-8">
-                      <img src="https://finestdevs.com/demos/jobcamp/./image/l2/png/featured-job-logo-1.png" alt="">
-                    </div>
-                    <div>
-                      <h3 class="mb-0"><a class="font-size-6 heading-default-color" href="#">{{crui.title}}</a></h3>
-                      <a href="#" class="font-size-3 text-default-color line-height-2">Số
-                        lượng: {{crui.employeeQuantity}}</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pt-7 pt-md-5">
-                  <div class="media justify-content-md-end">
-                    <div class="image mr-5 mt-2">
-                      <img src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-fire-rounded.svg" alt="">
-                    </div>
-                    <p class="font-weight-bold font-size-7 text-hit-gray mb-0"><span
-                      class="text-black-2">{{crui.salaryFrom}}-{{crui.salaryTo}}</span> Triệu VNĐ</p>
-                  </div>
-                </div>
-              </div>
-              <div class="row pt-8">
-                <div class="col-md-7">
-                  <ul class="d-flex list-unstyled mr-n3 flex-wrap">
-                    <li>
-                      <a
-                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
-                        href="#">Kinh nghiệm:{{crui.requiredExperience}} năm</a>
-                    </li>
-                    <li>
-                      <a
-                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
-                        href="#">Tuyển: {{crui.gender}}</a>
-                    </li>
-                    <br>
-                    <li>
-                      <a
-                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
-                        href="#">Lĩnh Vực:{{crui.field.name}}</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-5">
-                  <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
-                    <li class="mt-1 mr-8 font-size-small text-black-2 d-flex">
-                      <span class="mr-4" style="margin-top: -2px"><img
-                        src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-loaction-pin-black.svg"
-                        alt=""></span>
-                      <span class="font-weight-semibold">{{crui.workingPlace}}</span>
-                    </li>
-                    <li class="mt-1 mr-8 font-size-small text-black-2 d-flex">
-                      <span class="mr-4" style="margin-top: -2px"><img
-                        src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-clock.svg" alt=""></span>
-                      <span class="font-weight-semibold">Hết Hạn: {{crui.expiredDate}}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- End Single Featured Job -->
-
-          <!-- form end -->
-        </div>
-      </div>
+<br>
+<br>
+<br>
+<br>
+<div class="mb-14">
+  <div class="row mb-11 align-items-center">
+    <div class="col-lg-12 mb-lg-0 mb-4">
+      <h3 style="text-align: center" class="font-size-4 mb-0">DANH SÁCH DOANH NGHIỆP ĐANG HOẠT ĐỘNG</h3>
     </div>
   </div>
-  <!-- Main Content end -->
-  <!-- footer area function start -->
-  <!-- cta section -->
+  <div class="bg-white shadow-8 pt-7 rounded pb-8 px-11">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr style="collapse: 0">
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">#</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Tiêu đề</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Công ty</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Lĩnh vực</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Nơi làm việc</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Đề xuất</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let r of recruimentNews; index as i" class="border border-color-2">
+          <td class="table-y-middle py-7 min-width-px-50 pr-0">
+            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{i+1}}</h3>
+          </td>
+          <td scope="row" class="pl-6 border-0 py-7 pr-0"><a>
+            <h3 class="font-size-4 mb-0 font-weight-semibold text-black-2">{{r.title}}</h3>
+          </a>
+          </td>
+          <td class="table-y-middle py-7 min-width-px-235 pr-0">
+            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{r.company.name}}</h3>
+          </td>
+          <td class="table-y-middle py-7 min-width-px-170 pr-0">
+            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{r.field.name}}</h3>
+          </td>
+          <td class="table-y-middle py-7 min-width-px-170 pr-0">
+            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{r.workingPlace}}</h3>
+          </td>
+          <td class="table-y-middle py-7 min-width-px-110 pr-0">
+            <button class=""><a class="font-size-3 font-weight-bold text-green text-uppercase"
+                                (click)="proposed(r.id)">{{r.proposed}}</a></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pt-2">
+    </div>
   </div>
 </div>
