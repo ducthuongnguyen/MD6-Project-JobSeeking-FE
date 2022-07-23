@@ -20,6 +20,7 @@ import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/det
     DashboardPostedApplicantComponent,
     ListJobComponent,
     DetailRecruitmentComponent
+    ListJobComponent
   ],
   imports: [
     CommonModule,

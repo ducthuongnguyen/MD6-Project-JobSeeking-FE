@@ -5,6 +5,8 @@ import { RecruitmentNews } from 'src/app/model/recruitment-news';
 import { FieldService } from 'src/app/service/field.service';
 import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
 import { VacancyService } from 'src/app/service/vacancy.service';
+import {Vacancy} from '../../../model/vacancy';
+import {Field} from '../../../model/field';
 
 const idCompany = localStorage.getItem('COMPANYID');
 
@@ -18,7 +20,6 @@ const idCompany = localStorage.getItem('COMPANYID');
 export class AddRecruitmentComponent implements OnInit {
   recruitmentForm: FormGroup = new FormGroup({
     title: new FormControl(),
-    company: new FormControl(),
     vacancyId: new FormControl(),
     fieldId: new FormControl(),
     salaryForm: new FormControl(),
@@ -34,7 +35,8 @@ export class AddRecruitmentComponent implements OnInit {
 
   obj: any;
 
-  listRecruitment: RecruitmentNews[] = [];
+  listVacancy: Vacancy[] = [];
+  listField: Field[] = [];
 
   constructor(private recruimentNewsService: RecruitmentNewsService,
               private vacancyService: VacancyService,
@@ -43,6 +45,26 @@ export class AddRecruitmentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getVacancy();
+    this.getField();
+  }
+
+  getVacancy() {
+    this.vacancyService.findAll().subscribe((data) => {
+      console.log(data);
+      this.listVacancy = data;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getField() {
+    this.fieldService.findAll().subscribe((data) => {
+      console.log(data);
+      this.listField = data;
+    }, error => {
+      console.log(error);
+    });
   }
 
   submit() {
@@ -65,18 +87,15 @@ export class AddRecruitmentComponent implements OnInit {
       gender: this.recruitmentForm.value.gender,
       workingPlace: this.recruitmentForm.value.workingPlace,
       description: this.recruitmentForm.value.description,
-      workingType: {
-        id: this.recruitmentForm.value.workingTypeId
-      }
+      workingType: this.recruitmentForm.value.workingTypeId
     };
+    console.log('nnnnnnnnnnn');
+    console.log(this.obj);
     this.recruimentNewsService.save(this.obj).subscribe(() => {
       alert('Save recruitment successfully');
+      this.router.navigate(['/company/recruitment/our-list/', idCompany]);
     }, error => {
       console.log('Error: ', error);
     });
-  }
-
-  goBack() {
-    this.router.navigate(['/company/recruitment/our-list/', idCompany]);
   }
 }
