@@ -13,7 +13,6 @@ export class RecruitmentNewsService {
   constructor(private httpClient: HttpClient) {
   }
 
-
   findAll(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(environment.apiUrl + `/recruitment-news`);
   }
