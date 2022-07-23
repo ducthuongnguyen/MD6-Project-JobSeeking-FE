@@ -99,9 +99,16 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
-  findByEmail(email: string) {
+
+  findByEmail() {
+    const email = this.loginForm.value.email;
     this.authenticationService.findByEmail(email).subscribe(result => {
       this.company = result
+      if (this.company.status == "LOCK") {
+        this.messageLoginEmailLock();
+      } else {
+        this.login();
+      }
     }, error => {
       console.log(error);
     });
@@ -110,10 +117,6 @@ export class NavbarComponent implements OnInit {
   login() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-    this.findByEmail(email);
-    if (this.company.status === "LOCK") {
-      this.messageLoginEmailLock();
-    }
     this.authenticationService.login(email, password)
       .pipe(first())
       .subscribe(
