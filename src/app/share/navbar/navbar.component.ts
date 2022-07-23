@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   company: Company = {};
   image: any;
 
-  companyForm: FormGroup = new FormGroup({
+  registerCompanyForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -35,6 +35,15 @@ export class NavbarComponent implements OnInit {
     introduction: new FormControl('', [Validators.required]),
     roles: new FormControl(),
   });
+  registerUserForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    email: new FormControl(),
+    password: new FormControl(),
+    confirmPassword: new FormControl(),
+    phoneNumber: new FormControl(),
+    roles: new FormControl(),
+  });
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -64,6 +73,7 @@ export class NavbarComponent implements OnInit {
     }
 
   }
+
   getAllCity() {
     this.authenticationService.findAllCity().subscribe(result => {
       this.city = result
@@ -74,20 +84,39 @@ export class NavbarComponent implements OnInit {
   }
 
   register() {
-    const company = this.companyForm.value;
-
-    console.log("image: ", this.image)
+    const company = this.registerCompanyForm.value;
     this.authenticationService.register(company, this.image).subscribe((data) => {
       document.getElementById("signupForCompany").click();
       this.messageRegister();
-      this.companyForm.reset();
+      this.registerCompanyForm.reset();
     }, error => {
-      alert('Lỗi');
+      this.messageRegisterFail()
     });
   }
 
-  handleChangeImage(e){
-    this.image= e.target.files[0];
+  messageRegisterFail() {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Email đã tồn tại! Vui lòng nhập email khác',
+      showConfirmButton: false,
+      timer: 3000
+    })
+  }
+
+  registerUser() {
+    const company = this.registerUserForm.value;
+    this.authenticationService.registerUser(company).subscribe((data) => {
+      document.getElementById("signupForUser").click();
+      this.messageRegister();
+      this.registerCompanyForm.reset();
+    }, error => {
+      this.messageRegisterFail();
+    });
+  }
+
+  handleChangeImage(e) {
+    this.image = e.target.files[0];
   }
 
   messageRegister() {
@@ -104,11 +133,15 @@ export class NavbarComponent implements OnInit {
     const email = this.loginForm.value.email;
     this.authenticationService.findByEmail(email).subscribe(result => {
       this.company = result
+      if (this.company === null) {
+        this.login();
+      }
       if (this.company.status == "LOCK") {
         this.messageLoginEmailLock();
       } else {
         this.login();
       }
+
     }, error => {
       console.log(error);
     });
@@ -164,6 +197,7 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
+
   messageLoginEmailLock() {
     Swal.fire({
       position: 'center',
@@ -185,31 +219,31 @@ export class NavbarComponent implements OnInit {
   }
 
   get email() {
-    return this.companyForm.get('email');
+    return this.registerCompanyForm.get('email');
   }
 
   get password() {
-    return this.companyForm.get('password');
+    return this.registerCompanyForm.get('password');
   }
 
   get name() {
-    return this.companyForm.get('name');
+    return this.registerCompanyForm.get('name');
   }
 
   get address() {
-    return this.companyForm.get('address');
+    return this.registerCompanyForm.get('address');
   }
 
   get phoneNumber() {
-    return this.companyForm.get('phoneNumber');
+    return this.registerCompanyForm.get('phoneNumber');
   }
 
   get introduction() {
-    return this.companyForm.get('introduction');
+    return this.registerCompanyForm.get('introduction');
   }
 
-  get avatar(){
-    return this.companyForm.get('avatar');
+  get avatar() {
+    return this.registerCompanyForm.get('avatar');
   }
 
   get emailLogin() {
@@ -221,15 +255,13 @@ export class NavbarComponent implements OnInit {
   }
 
   get confirmPassword() {
-    return this.companyForm.get('confirmPassword');
+    return this.registerCompanyForm.get('confirmPassword');
   }
 
   logout() {
     this.authenticationService.logout();
     this.checkRole = true;
-    // this.router.navigate(['home']);
     window.location.replace("http://localhost:4200/home")
-    // location.reload();
   }
 
 }
