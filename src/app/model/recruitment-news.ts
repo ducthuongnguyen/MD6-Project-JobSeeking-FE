@@ -3,20 +3,20 @@ import {Vacancy} from "./vacancy";
 import {Field} from "./field";
 
 export interface RecruitmentNews {
-  id?: String;
-  title?: String;
+  id?: string;
+  title?: string;
   company?: Company;
   vacancy?: Vacancy;
   field?: Field;
-  salaryFrom?: String;
-  salaryTo?: String;
-  expiredDate?: String;
-  employeeQuantity?: String;
-  requiredExperience?: String;
-  gender?: String;
-  workingPlace?: String;
-  description?: String;
-  status?: String;
-  proposed?: String;
-  workingType?: String;
+  salaryFrom?: string;
+  salaryTo?: string;
+  expiredDate?: Date;
+  employeeQuantity?: string;
+  requiredExperience?: string;
+  gender?: string;
+  workingPlace?: string;
+  description?: string;
+  status?: string;
+  proposed?: string;
+  workingType?: string;
 }

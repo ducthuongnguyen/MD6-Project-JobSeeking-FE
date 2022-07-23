@@ -1,4 +1,4 @@
 export interface Field {
-  id?: String;
-  name?: String;
+  id?: string;
+  name?: string;
 }
