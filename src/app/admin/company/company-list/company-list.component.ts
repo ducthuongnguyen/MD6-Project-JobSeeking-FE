@@ -21,35 +21,30 @@ export class CompanyListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getListRequest({page: 0, size: 5});
+    this.findAllUnlockCompany();
   }
 
-  private getListRequest(request) {
-    this.loading = true;
-    this.companyService.pageCompany(request).subscribe(data => {
-      this.companies = data['content'];
-      this.totalElements = data['totalElements'];
-      this.loading = false;
+  findAllUnlockCompany() {
+    this.companyService.findAllUnlockCompany().subscribe((result: Company[]) => {
+      this.companies = result;
     }, error => {
-      this.loading = false;
-    });
-  }
-
-  nextPage(event: PageEvent) {
-    const request = {};
-    request['page'] = event.pageIndex.toString();
-    request['size'] = event.pageSize.toString();
-    console.log('request[size]=====', request['size']);
-    this.getListRequest(request);
+      alert("Lỗi");
+    })
   }
 
   updateStatus(id: string) {
-    // let status = document.getElementById("status").innerHTML;
     this.companyService.updateStatus(id).subscribe(() => {
-      // if (status.trim() == "Khóa") {
-      //   document.getElementById("status").innerHTML = "Không khóa";
-      // } else document.getElementById("status").innerHTML = "Khóa";
       this.messageStatus();
+      this.findAllUnlockCompany();
+    }, error => {
+      alert("Lỗi");
+    })
+  }
+
+  proposeCompany(id: string) {
+    this.companyService.proposeCompany(id).subscribe(() => {
+      this.messagePropose();
+      this.findAllUnlockCompany();
     }, error => {
       alert("Lỗi");
     })
@@ -59,7 +54,17 @@ export class CompanyListComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Đã chuyển trạng thái',
+      title: 'Đã khóa doanh nghiệp',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+
+  messagePropose() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Thành công',
       showConfirmButton: false,
       timer: 2000
     })

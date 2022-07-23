@@ -15,7 +15,7 @@ export class OurListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findAll()
+    this.findAll();
   }
 
   findAll() {
@@ -31,12 +31,8 @@ export class OurListComponent implements OnInit {
   }
 
   updateStatus(id: string) {
-    let status = document.getElementById("status").innerHTML;
     this.recruitmentService.updateStatus(id).subscribe(() => {
-      if (status.trim() === "KHÓA") {
-        document.getElementById("status").innerHTML = "KHÔNG KHÓA";
-      } else
-        document.getElementById("status").innerHTML = 'KHÓA';
+      this.findAll();
       this.messageStatus();
     }, error => {
       alert("Lỗi");
