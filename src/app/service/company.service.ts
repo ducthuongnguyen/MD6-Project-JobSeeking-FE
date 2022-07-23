@@ -32,8 +32,8 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
-  findUnlockCompany() {
-    return this.httpClient.get(this.API_COMPANY_UNBLOCK);
+  findUnlockCompany():Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
   }
 
   update(id: any, company: Company): Observable<Company> {

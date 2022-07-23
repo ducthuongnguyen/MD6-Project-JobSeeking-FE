@@ -264,13 +264,13 @@
       <!-- Section Title -->
       <div class="col-12 col-xl-6 col-lg-6">
         <div class="text-center text-lg-left mb-13 mb-lg-0">
-          <h2 class="font-size-9 font-weight-bold">Công ty đề xuất</h2>
+          <h2 class="font-size-9 font-weight-bold">Công ty được đề xuất</h2>
         </div>
       </div>
       <!-- Section Button -->
       <div class="col-12 col-xl-6 col-lg-6">
         <div class="text-center text-lg-right">
-          <a class="btn btn-outline-white text-uppercase" href="#">Tất cả</a>
+          <a class="btn btn-outline-white text-uppercase" routerLink="/guest/company">Tất cả</a>
         </div>
       </div>
       <!-- Section Button End -->
@@ -292,7 +292,8 @@
           </ul>
           <p class="mb-7 font-size-4 text-gray">{{c.introduction}}</p>
           <div class="card-btn-group">
-            <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Xem chi tiết</a>
+            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/company/detail/{{c.id}}">Xem
+              chi tiết</a>
           </div>
         </div>
         <!-- End Feature One -->
@@ -318,47 +319,48 @@
       <!-- Section Button -->
       <div class="col-12 col-lg-6">
         <div class="text-center text-lg-right">
-          <a class="btn btn-outline-green text-uppercase" href="#">Tất cả</a>
+          <a class="btn btn-outline-green text-uppercase" routerLink="/guest/recruitment">Tất cả</a>
         </div>
       </div>
       <!-- Section Button End -->
     </div>
     <!-- End Section Top -->
-      <!-- Single Category -->
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true"
-             *ngFor="let re of recruitmentNews">
-          <!-- Start Feature One -->
-          <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-            <div class="d-block mb-7">
-              <a href="#"><img style="height: 50px;width: 50px"
-                               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAn1BMVEX///8tPlAddbgZMEWzt70VLULGys8mOEtkbnoKJz719vf8/P0qPE5PXGrp6uzt7vA6SlqnrbMwQlQAbLQAcLYvfLvi7faCqtGQtthNj8XF2Oq0zOPp8fgbd7lEh8F1ptAAZ7Lf4eSepKuMlJy/w8hCUWCBiZNud4KWnaUAGjVdaHTP09Z2f4o/Tl7CxsuZn6dknMtbk8YAY7HO3+7B1umOz8F6AAAEuklEQVR4nO3da2OaMBiG4bKAkYOKh3Zt19nisdN23db9/9823bCaCAmvgCbsub8GgWsyCWL16gohhBCyr7B36T2ot+SZ9y+9DzUWuCvGPPfSu1Fb6xeHccdhDRV2JwOfR47TUGEwa3vsL6+ZwvUi9rjzUdOEvf6c8chxGioMWkufCbxmCZPp6+HR2TRh4HbY0dPXHGHYevFZxtPXFGHyFvt5vAYI/07MMo/OZgjXCyf36GyAsDuJfa58+qwWBrOl5ui0W5hM46xT367o8Km1ULiZmHmqo5MzvuhE1gqD7alPwYsYW7nB1YpbKsyZmO2fPj9+TrYL2ikMNac+zvxlK/y3rIXCcK2YmP07Ojv94GNx64TJZK6amDnci6fJ4QPsEgazNle/uPjLWSA+xiahZmIWbZ6+yfF7vtYIu/25cmLGvcFinfVAO4TBd/XELGJe2w2yH2uDUDsx8wdv3dxHGy8MXO3EbJl5dO4yWxi2Xjz1qc9buZobSiYLk+e5bmImnvoyM1eon5i1vxdZj6HC9cJXv7iweb/g7U4ThV3txGwwVb64CBknDLcTM+WLi9+WJ2bKDBMm0+iEiZkyk4S9fkc3MXspfnTuMkYYtpbao1N36svMFGGgPPVtjs7oOX9ipswYYZR/eG4nZq2T12yM0MkRbidmRU99mRku3J769BMzZSYL+eaqb1Z6zcYKKRMzZYYKc9+ToGekkPkr0sRMmYlCfuqpLzMThX6lHwM1UljlUwjh2YLw9CA8VxCeHoTnKl8Y3hx1pR5/EMbNFz6MhiOh4XV4OP77aSSNPwprtkD49ZPUWBDeD6XhEYSXCUIIIYSw/iCE8D8WBp6zF17y74DrEzIIzxSEjRZu9llMEsrXh/YJ7+R+CML3sTQ8vhVWbL6w7IohPFcQnr5iCMuuv1ewZHAO4aTw/mjb3YV3+aBg+/2oT+g4RfdGG99dprheVLDzCIvujbaPL/NxhfUXrEZhZbFywiSgZKEwil+LF3fURCOFpP8tPLZRSCmCEMLTgrDCTBJyv9K8E4Ss3CazvhjtQMhXvW6VJR5ZyN5K7UIv6+3zQ2FbuSfkej5dWPLqqQ1hudXLQZgGISUIISQGYRqElCCEkBiEaRBSghBCYhCmQUgJQgiJQZgGISWiMDy6XR1qxmsTavbkVOGt/KnJpy/C+N1QHhf/7rA64Y388c3RuBrhSPrk61ASHo3XJpQ/oju6a5pQ3hKEEEIIIYQQQgghhBBCCKFJwq/XYp9E4c9rebw2obyl65+VCMtm/vs0ZYMwDUJKEEJIDMI0CClBCCExCNMgpEQUfvks9fgujN8ejYvfS1qd8EHe0ufbzOXI14dHd0AvdodU3lLz7pDiXQwIIYQQQgghhBBCCCGE0GTh01BMuj4cS8PDX/VdH8pVc314cy/1W7yGfz8aFynVCUN5S/fvmcvhfRoIqUGYBiElCCEkBmEahJQghJAYhGkQUoIQQmIQpkFICUIIiUGYBiElvTCssL2wp1yvJCy1SY3QGXSqbffDLQUX2/5rvJbb4sGP4WR/6zyvtI89j4otpl9U28Gazvi9+hcKQvuD0P4gtD8I7W8v/OY1s287YbfV1Kr8fT+EEEJN7g9tXz38ZxEHjAAAAABJRU5ErkJggg=="
-                               alt=""></a>
-            </div>
-            <a href="#" class="font-size-3 d-block mb-0 text-gray">{{re.company.name}}</a>
-            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4">{{re.title}}</a></h2>
-            <ul class="list-unstyled mb-1 card-tag-list">
-              <li><a class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{re.workingPlace}}
-              </a></li>
-              <li><a class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                <i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{re.workingType}}
-              </a></li>
-              <li><a class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>
-                <span>{{re.salaryFrom}}</span>-<span>{{re.salaryTo}}</span>
-              </a></li>
-            </ul>
-            <p class="mb-7 font-size-4 text-gray">{{re.description}}</p>
-            <div class="card-btn-group">
-              <a class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</a>
-              <a class="btn btn-green text-uppercase btn-medium rounded-3">Xem chi tiết</a>
-            </div>
+    <!-- Single Category -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true"
+           *ngFor="let re of recruitmentNews">
+        <!-- Start Feature One -->
+        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+          <div class="d-block mb-7">
+            <a href="#"><img style="height: 50px;width: 50px"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAn1BMVEX///8tPlAddbgZMEWzt70VLULGys8mOEtkbnoKJz719vf8/P0qPE5PXGrp6uzt7vA6SlqnrbMwQlQAbLQAcLYvfLvi7faCqtGQtthNj8XF2Oq0zOPp8fgbd7lEh8F1ptAAZ7Lf4eSepKuMlJy/w8hCUWCBiZNud4KWnaUAGjVdaHTP09Z2f4o/Tl7CxsuZn6dknMtbk8YAY7HO3+7B1umOz8F6AAAEuklEQVR4nO3da2OaMBiG4bKAkYOKh3Zt19nisdN23db9/9823bCaCAmvgCbsub8GgWsyCWL16gohhBCyr7B36T2ot+SZ9y+9DzUWuCvGPPfSu1Fb6xeHccdhDRV2JwOfR47TUGEwa3vsL6+ZwvUi9rjzUdOEvf6c8chxGioMWkufCbxmCZPp6+HR2TRh4HbY0dPXHGHYevFZxtPXFGHyFvt5vAYI/07MMo/OZgjXCyf36GyAsDuJfa58+qwWBrOl5ui0W5hM46xT367o8Km1ULiZmHmqo5MzvuhE1gqD7alPwYsYW7nB1YpbKsyZmO2fPj9+TrYL2ikMNac+zvxlK/y3rIXCcK2YmP07Ojv94GNx64TJZK6amDnci6fJ4QPsEgazNle/uPjLWSA+xiahZmIWbZ6+yfF7vtYIu/25cmLGvcFinfVAO4TBd/XELGJe2w2yH2uDUDsx8wdv3dxHGy8MXO3EbJl5dO4yWxi2Xjz1qc9buZobSiYLk+e5bmImnvoyM1eon5i1vxdZj6HC9cJXv7iweb/g7U4ThV3txGwwVb64CBknDLcTM+WLi9+WJ2bKDBMm0+iEiZkyk4S9fkc3MXspfnTuMkYYtpbao1N36svMFGGgPPVtjs7oOX9ipswYYZR/eG4nZq2T12yM0MkRbidmRU99mRku3J769BMzZSYL+eaqb1Z6zcYKKRMzZYYKc9+ToGekkPkr0sRMmYlCfuqpLzMThX6lHwM1UljlUwjh2YLw9CA8VxCeHoTnKl8Y3hx1pR5/EMbNFz6MhiOh4XV4OP77aSSNPwprtkD49ZPUWBDeD6XhEYSXCUIIIYSw/iCE8D8WBp6zF17y74DrEzIIzxSEjRZu9llMEsrXh/YJ7+R+CML3sTQ8vhVWbL6w7IohPFcQnr5iCMuuv1ewZHAO4aTw/mjb3YV3+aBg+/2oT+g4RfdGG99dprheVLDzCIvujbaPL/NxhfUXrEZhZbFywiSgZKEwil+LF3fURCOFpP8tPLZRSCmCEMLTgrDCTBJyv9K8E4Ss3CazvhjtQMhXvW6VJR5ZyN5K7UIv6+3zQ2FbuSfkej5dWPLqqQ1hudXLQZgGISUIISQGYRqElCCEkBiEaRBSghBCYhCmQUgJQgiJQZgGISWiMDy6XR1qxmsTavbkVOGt/KnJpy/C+N1QHhf/7rA64Y388c3RuBrhSPrk61ASHo3XJpQ/oju6a5pQ3hKEEEIIIYQQQgghhBBCCKFJwq/XYp9E4c9rebw2obyl65+VCMtm/vs0ZYMwDUJKEEJIDMI0CClBCCExCNMgpEQUfvks9fgujN8ejYvfS1qd8EHe0ufbzOXI14dHd0AvdodU3lLz7pDiXQwIIYQQQgghhBBCCCGE0GTh01BMuj4cS8PDX/VdH8pVc314cy/1W7yGfz8aFynVCUN5S/fvmcvhfRoIqUGYBiElCCEkBmEahJQghJAYhGkQUoIQQmIQpkFICUIIiUGYBiElvTCssL2wp1yvJCy1SY3QGXSqbffDLQUX2/5rvJbb4sGP4WR/6zyvtI89j4otpl9U28Gazvi9+hcKQvuD0P4gtD8I7W8v/OY1s287YbfV1Kr8fT+EEEJN7g9tXz38ZxEHjAAAAABJRU5ErkJggg=="
+                             alt=""></a>
           </div>
-          <!-- End Feature One -->
+          <a href="#" class="font-size-3 d-block mb-0 text-gray">{{re.company.name}}</a>
+          <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4">{{re.title}}</a></h2>
+          <ul class="list-unstyled mb-1 card-tag-list">
+            <li><a class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+              <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{re.workingPlace}}
+            </a></li>
+            <li><a class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+              <i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{re.workingType}}
+            </a></li>
+            <li><a class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+              <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>
+              <span>{{re.salaryFrom}}</span>-<span>{{re.salaryTo}}</span>
+            </a></li>
+          </ul>
+          <p class="mb-7 font-size-4 text-gray">{{re.description}}</p>
+          <div class="card-btn-group">
+            <a class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</a>
+            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/company/detail/{{re.id}}">Xem
+              chi tiết</a>
+          </div>
         </div>
+        <!-- End Feature One -->
       </div>
-      <!-- End Single Category -->
+    </div>
+    <!-- End Single Category -->
   </div>
 </div>
 <!-- featuredJobOne Area -->

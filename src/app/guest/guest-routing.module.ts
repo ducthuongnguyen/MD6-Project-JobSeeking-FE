@@ -1,17 +1,37 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {CompanyComponent} from "./company/company.component";
-import {RecruitmentComponent} from "./recruitment/recruitment.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
+import {CompanyComponent} from './company/company-unlock/company.component';
+import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
+import { RecruitmentComponent } from './recruitment/recruitment-unlock/recruitment.component';
 
 
 const routes: Routes = [
   {
     path: 'company',
-    component: CompanyComponent
+    children: [
+      {
+        path: '',
+        component: CompanyComponent,
+      },
+      {
+        path: 'detail',
+        component: CompanyDetailComponent,
+      }
+    ]
   },
   {
     path: 'recruitment',
-    component: RecruitmentComponent
+    children: [
+      {
+        path: '',
+        component: RecruitmentComponent,
+      },
+      {
+        path: 'detail/:id',
+        component: RecruitmentDetailComponent,
+      }
+    ]
   }
 ];
 
@@ -19,4 +39,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class GuestRoutingModule { }
+export class GuestRoutingModule {
+}

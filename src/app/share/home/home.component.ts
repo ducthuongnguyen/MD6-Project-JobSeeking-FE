@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   findAllProposedCompany() {
-    this.companyService.findAllProposedCompany().subscribe((result: Company[]) => {
+    this.companyService.findProposedCompany().subscribe((result: Company[]) => {
       this.companies = result;
     }, error => {
       alert("Lỗi");

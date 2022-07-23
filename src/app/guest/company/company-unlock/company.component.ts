@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CompanyService} from '../../service/company.service';
-import {Company} from '../../model/company';
+import {CompanyService} from '../../../service/company.service';
+import {Company} from '../../../model/company';
 
 @Component({
   selector: 'app-company',
@@ -8,7 +8,7 @@ import {Company} from '../../model/company';
   styleUrls: ['./company.component.css']
 })
 export class CompanyComponent implements OnInit {
-  company: Company[] = [];
+  companies: Company[] = [];
 
   constructor(private companyService: CompanyService) {
   }
@@ -18,9 +18,8 @@ export class CompanyComponent implements OnInit {
   }
 
   findUnlockCompany() {
-    this.companyService.findAllUnlockCompany().subscribe(result => {
-      // @ts-ignore
-      this.company = result.content;
+    this.companyService.findUnlockCompany().subscribe(result => {
+      this.companies = result;
     }, error => {
       alert("Lỗi");
     });
