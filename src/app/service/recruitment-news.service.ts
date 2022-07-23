@@ -9,8 +9,11 @@ import {Observable} from 'rxjs';
 })
 export class RecruitmentNewsService {
   private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
+  private API_RECRUIMENT_SETPROPOSE = environment.apiUrl + '/recruitment-news/set-propose';
+  private API_RECRUIMENT_PROPOSE = environment.apiUrl + '/recruitment-news/proposal-news';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
 
   findAll(): Observable<RecruitmentNews[]> {
@@ -37,7 +40,19 @@ export class RecruitmentNewsService {
     return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/update-status/${id}`);
   }
 
-  findById(id:number): Observable<RecruitmentNews>{
-    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST+`/${id}`);
+  //tim tin tuyen dung theo ID
+  findById(id: string): Observable<RecruitmentNews> {
+    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/${id}`);
+  }
+
+  //set tin tuyen dung la de xuat
+  propose(id: string): Observable<RecruitmentNews> {
+    // @ts-ignore
+    return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE`${id}`);
+  }
+
+  //danh sach tin duoc de xuat
+  findAllProposedNews(): Observable<RecruitmentNews[]> {
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_PROPOSE);
   }
 }

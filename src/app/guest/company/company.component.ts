@@ -14,15 +14,15 @@ export class CompanyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAll();
+    this.findUnlockCompany();
   }
 
-  getAll() {
-    this.companyService.findAll().subscribe(result => {
+  findUnlockCompany() {
+    this.companyService.findAllUnlockCompany().subscribe(result => {
       // @ts-ignore
       this.company = result.content;
     }, error => {
-      console.log(error);
+      alert("Lỗi");
     });
   }
 

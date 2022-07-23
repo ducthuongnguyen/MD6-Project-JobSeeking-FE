@@ -32,7 +32,7 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
-  findAllUnlockCompany() {
+  findUnlockCompany() {
     return this.httpClient.get(this.API_COMPANY_UNBLOCK);
   }
 
@@ -41,17 +41,17 @@ export class CompanyService {
   }
 
 //đã đc duyệt
-  findAllApprovedCompany(): Observable<Company[]> {
+  findApprovedCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_APPROVED);
   }
 
 //chờ duyệt
-  findAllPendingCompany(): Observable<Company[]> {
+  findPendingCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PENDING);
   }
 
 //bị khóa
-  findAllBlockCompany(): Observable<Company[]> {
+  findBlockCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
   }
 
@@ -78,7 +78,7 @@ export class CompanyService {
   }
 
   //danh sach tin de xuat
-  findAllProposedCompany(): Observable<Company[]> {
+  findProposedCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PROPOSED);
   }
 
