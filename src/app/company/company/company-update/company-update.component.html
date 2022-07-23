@@ -1,8 +1,9 @@
 
 
-<div class="dashboard-sidebar-wrapper pt-11" id="sidebar">
-  <div class="my-15 px-11">
-    <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
+
+<div class="dashboard-sidebar-wrapper pt-30" id="sidebar">
+  <div  >
+    <img  src={{imagePreview}} alt="" style=" width: 100%; height: 100%; border-radius:50%;"/>
   </div>
   <ul class="list-unstyled dashboard-layout-sidebar">
     <li class="active"><a routerLink="/company/company/main" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fa-solid fa-table mr-7" style="font-size: 20px"></i> Danh sách công ty</a></li>
@@ -14,29 +15,25 @@
 <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
   <i class="icon icon-sidebar-2"></i>
 </a>
+
 <div class="dashboard-main-container mt-24 mt-lg-31" id="dashboard-body">
   <div class="container">
     <div class="mb-15 mb-lg-23">
       <div class="row">
+
         <div class="col-xxxl-9 px-lg-13 px-6">
           <h2 style="text-align: center" class="font-size-8 font-weight-semibold mb-11">Chỉnh sửa thông tin</h2>
           <div class="contact-form bg-white shadow-8 rounded-4 pl-sm-10 pl-4 pr-sm-11 pr-4 pt-15 pb-13">
             <form [formGroup]="editForm" (ngSubmit)="update()">
               <fieldset>
                 <div class="row mb-xl-1 mb-9">
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                     <div class="form-group">
                       <label for="namedash" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Tên doanh nghiệp</label>
                       <input formControlName="name" type="text" class="form-control h-px-48" id="namedash" >
                     </div>
                   </div>
-<!--                  <div class="col-lg-6">-->
-<!--                    <div class="form-group">-->
-<!--                      <label for="namedash1" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Địa chỉ</label>-->
-<!--                      <input formControlName="address" type="text" class="form-control h-px-48" id="namedash1">-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                   <div class="form-group">
                     <label for="address"
                            class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>
@@ -45,43 +42,70 @@
                     </select>
                   </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                     <div class="form-group">
                       <label for="namedash3" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Số điện thoại</label>
                       <input formControlName="phoneNumber" type="text" class="form-control h-px-48" id="namedash3">
                     </div>
                   </div>
-                  <div class="col-lg-6">
-<!--                    <div class="form-group">-->
-<!--                      <label for="namedash2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Ảnh</label>-->
-<!--                      <input formControlName="avatar" type="file" class="form-control h-px-48" id="namedash2" >-->
-<!--                    </div>-->
+
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Thông tin chi tiết</label>
+                        <textarea formControlName="introduction" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" ></textarea>
+<!--                        <input formControlName="introduction" type="text" id="aboutTextarea" class="border border-mercury text-gray w-100 pt-4 pl-6">-->
+                      </div>
+                    </div>
+                  <div class="col-lg-12">
                     <div class="form-group">
                       <p for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</p>
-                      <input formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"
-                             (change)="handleChangeImage($event)">
+                      <div class="row mb-xl-1 mb-9">
+<!--                      <div class="col-lg-3">-->
+<!--                      <img src={{imagePreview}} alt="" style="background-color: #0b402e; width: 100px; height: 100px"/></div>-->
+<!--                      <input type="file" accept="image/*">-->
+                      <div class="col-lg-9">
+                      <input accept="image/*" formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"
+                             (change)="handleChangeImage($event)"> </div>
                     </div>
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                      <p for="avatar" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Ảnh đại diện</p>-->
+<!--                      <input accept="image/*" formControlName="avatar" type="file"  placeholder="Nhập ảnh đại diện" id="avatar"-->
+<!--                             (change)="handleChangeImage($event)">-->
+<!--                    </div>-->
                   </div>
+                    <div class="col-md-12">
+
+                      <button  class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">Chỉnh sửa</button>
+                    </div>
+
+
 
                 </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Thông tin chi tiết</label>
-                      <textarea formControlName="introduction" name="textarea" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" ></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
+<!--                <div class="row">-->
+<!--                  <div class="col-md-12">-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">Thông tin chi tiết</label>-->
+<!--&lt;!&ndash;                      <textarea formControlName="introduction" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" ></textarea>&ndash;&gt;-->
+<!--                      <input formControlName="introduction" type="text" id="aboutTextarea" class="border border-mercury text-gray w-100 pt-4 pl-6">-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-md-12">-->
 
-                    <button  class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">Chỉnh sửa</button>
-                  </div>
-                </div>
+<!--                    <button  class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">Chỉnh sửa</button>-->
+<!--                  </div>-->
+<!--                </div>-->
               </fieldset>
             </form>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </div>
+
+
+
 

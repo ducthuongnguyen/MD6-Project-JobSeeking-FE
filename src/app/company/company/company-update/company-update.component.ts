@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import Swal from 'sweetalert2';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {CompanyService} from "../../../service/company.service";
+import {Company} from "../../../model/company";
 
 @Component({
   selector: 'app-company-update',
@@ -13,7 +14,9 @@ export class CompanyUpdateComponent implements OnInit {
   // const data = localStorage.getItem('USERID');
   // conts id = localStorage.getItem('COMPANYID');
   city: any[] = [];
+  imagePreview: any;
   image: any;
+  company: Company;
   editForm: FormGroup = new FormGroup({
     name: new FormControl(),
     address: new FormControl(),
@@ -36,6 +39,9 @@ export class CompanyUpdateComponent implements OnInit {
   getCompany() {
     const id = localStorage.getItem('COMPANYID');
     return this.companyService.getById(id).subscribe(company => {
+      this.imagePreview=company.avatar;
+      console.log("company", company.introduction)
+      this.company = company;
       this.editForm = new FormGroup({
         name: new FormControl(company.name),
         address: new FormControl(company.address),
@@ -43,6 +49,7 @@ export class CompanyUpdateComponent implements OnInit {
         phoneNumber: new FormControl(company.phoneNumber),
         introduction: new FormControl(company.introduction),
       });
+      console.log(this.editForm.value)
     });
   }
 
@@ -50,6 +57,7 @@ export class CompanyUpdateComponent implements OnInit {
     const id = localStorage.getItem('COMPANYID');
     const company = this.editForm.value
     this.companyService.update(id, company).subscribe(() => {
+
       // this.router.navigate(['/student']);
       this.messageUpdate();
     }, e => {
