@@ -100,7 +100,7 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-  findByEmail() {
+  checkStatusByEmailLogin() {
     const email = this.loginForm.value.email;
     this.authenticationService.findByEmail(email).subscribe(result => {
       this.company = result
