@@ -32,6 +32,7 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
+
   findAllUnlockCompany() {
     return this.httpClient.get(this.API_COMPANY_UNBLOCK);
   }

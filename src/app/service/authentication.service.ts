@@ -60,4 +60,7 @@ export class AuthenticationService {
   findAllCity(): Observable<any> {
     return this.http.get<any>('https://provinces.open-api.vn/api/');
   }
+  findByEmail(email: string): Observable<Company> {
+    return this.http.get<Company>(API_URL+`/search?email=${email}`);
+  }
 }

@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import Swal from 'sweetalert2';
 import {first} from "rxjs/operators";
 import {RecruitmentNews} from 'src/app/model/recruitment-news';
+import {Company} from "../../model/company";
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
   checkRoleUser;
   checkRoleCompany;
   city: any[] = [];
-
+  company: Company = {};
   image: any;
 
   companyForm: FormGroup = new FormGroup({
@@ -98,11 +99,21 @@ export class NavbarComponent implements OnInit {
       timer: 3000
     })
   }
+  findByEmail(email: string) {
+    this.authenticationService.findByEmail(email).subscribe(result => {
+      this.company = result
+    }, error => {
+      console.log(error);
+    });
+  }
 
   login() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-
+    this.findByEmail(email);
+    if (this.company.status === "LOCK") {
+      this.messageLoginEmailLock();
+    }
     this.authenticationService.login(email, password)
       .pipe(first())
       .subscribe(
@@ -146,6 +157,15 @@ export class NavbarComponent implements OnInit {
       position: 'center',
       icon: 'success',
       title: 'Đăng nhập thành công',
+      showConfirmButton: false,
+      timer: 3000
+    })
+  }
+  messageLoginEmailLock() {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Tài khoản của bạn bị khóa',
       showConfirmButton: false,
       timer: 3000
     })
