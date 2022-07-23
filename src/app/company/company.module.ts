@@ -12,6 +12,7 @@ import { BlockListComponent } from './recruitment/block-list/block-list.componen
 import { AddRecruitmentComponent } from './recruitment/add-recruitment/add-recruitment.component';
 import { EditRecruitmentComponent } from './recruitment/edit-recruitment/edit-recruitment.component';
 import {HomeComponent} from "../share/home/home.component";
+import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/detail-recruitment.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {HomeComponent} from "../share/home/home.component";
     BlockListComponent,
     AddRecruitmentComponent,
     EditRecruitmentComponent,
+    DetailRecruitmentComponent
   ],
   imports: [
     CommonModule,

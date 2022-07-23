@@ -10,8 +10,8 @@ import {Observable} from 'rxjs';
 export class RecruitmentNewsService {
   private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) { }
+
 
   findAll(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(environment.apiUrl + `/recruitment-news`);
@@ -35,5 +35,9 @@ export class RecruitmentNewsService {
   updateStatus(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
     return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/update-status/${id}`);
+  }
+
+  findById(id:number): Observable<RecruitmentNews>{
+    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST+`/${id}`);
   }
 }
