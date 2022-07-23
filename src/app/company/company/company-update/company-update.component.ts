@@ -58,8 +58,8 @@ export class CompanyUpdateComponent implements OnInit {
   update() {
     const id = localStorage.getItem('COMPANYID');
     const company = this.editForm.value
-
     this.companyService.update(id, company, this.image).subscribe(() => {
+
       this.messageUpdate();
     }, e => {
       console.log(e);

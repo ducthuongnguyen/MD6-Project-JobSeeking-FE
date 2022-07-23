@@ -29,7 +29,7 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
-  update(id: any, company: any,image: any): Observable<any> {
+  update(id: any, company: any,image: any): Observable<Company> {
     const formData=new FormData();
     formData.append(
       "image",
@@ -41,7 +41,7 @@ export class CompanyService {
       new Blob([JSON.stringify(company)], {type:"application/json"})
     );
     console.log("form data", formData)
-    return this.httpClient.put<any>(`${API_URL}/companies/${id}`,formData);
+    return this.httpClient.put<Company>(`${API_URL}/companies/${id}`,formData);
   }
 //đã đc duyệt
   findAllApprovedCompany(): Observable<Company[]> {
