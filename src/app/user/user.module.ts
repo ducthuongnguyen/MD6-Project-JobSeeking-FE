@@ -19,7 +19,7 @@ import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/det
     DashboardPostedSettingComponent,
     DashboardPostedApplicantComponent,
     ListJobComponent,
-    DetailRecruitmentComponent
+    DetailRecruitmentComponent,
     ListJobComponent
   ],
   imports: [

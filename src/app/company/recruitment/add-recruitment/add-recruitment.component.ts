@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { RecruitmentNews } from 'src/app/model/recruitment-news';
-import { FieldService } from 'src/app/service/field.service';
-import { RecruitmentNewsService } from 'src/app/service/recruitment-news.service';
-import { VacancyService } from 'src/app/service/vacancy.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {RecruitmentNews} from 'src/app/model/recruitment-news';
+import {FieldService} from 'src/app/service/field.service';
+import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
+import {VacancyService} from 'src/app/service/vacancy.service';
 import {Vacancy} from '../../../model/vacancy';
 import {Field} from '../../../model/field';
 
@@ -34,7 +34,6 @@ export class AddRecruitmentComponent implements OnInit {
   });
 
   obj: any;
-
   listVacancy: Vacancy[] = [];
   listField: Field[] = [];
 
