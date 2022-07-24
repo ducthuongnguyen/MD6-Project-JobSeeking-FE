@@ -40,7 +40,7 @@ export class CompanyUpdateComponent implements OnInit {
   getCompany() {
     const id = localStorage.getItem('COMPANYID');
     return this.companyService.getById(id).subscribe(company => {
-      this.imagePreview=company.avatar;
+      this.imagePreview = company.avatar;
       this.preview = company;
       this.company = company;
       this.editForm = new FormGroup({
@@ -55,24 +55,23 @@ export class CompanyUpdateComponent implements OnInit {
 
   update() {
     const id = localStorage.getItem('COMPANYID');
-    const company = this.editForm.value
-    this.companyService.update(id, company, this.image).subscribe(() => {
-      this.messageUpdate();
-      location.reload();
+    this.companyService.update(id, this.editForm.value, this.image).subscribe((company: Company) => {
+      this.imagePreview = company.avatar;
+      this.preview = company;
+      this.company = company;
+      this.editForm.patchValue(company);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Chỉnh sửa thành công',
+        showConfirmButton: false,
+        timer: 3000
+      });
     }, e => {
       console.log(e);
     });
   }
 
-  messageUpdate() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Chỉnh sửa thành công',
-      showConfirmButton: false,
-      timer: 3000
-    })
-  }
   getAllCity() {
     this.authenticationService.findAllCity().subscribe(result => {
       this.city = result
@@ -81,8 +80,9 @@ export class CompanyUpdateComponent implements OnInit {
       console.log(error);
     });
   }
-  handleChangeImage(e){
-    this.image= e.target.files[0];
+
+  handleChangeImage(e) {
+    this.image = e.target.files[0];
   }
 
 }
