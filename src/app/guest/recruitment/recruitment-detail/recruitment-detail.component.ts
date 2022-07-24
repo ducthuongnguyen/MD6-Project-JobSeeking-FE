@@ -27,6 +27,7 @@ export class RecruitmentDetailComponent implements OnInit {
   getDetail(id: string) {
     this.recruitmentNewsService.findById(id).subscribe(data => {
       this.recruitmentNews = data;
+      console.log(data)
     }, error => {
       alert("Lỗi!")
     })
