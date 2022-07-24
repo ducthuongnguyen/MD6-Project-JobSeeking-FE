@@ -10,6 +10,7 @@ import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 })
 export class RecruitmentDetailComponent implements OnInit {
   recruitmentNews: RecruitmentNews = {};
+  checkRole;
 
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute) {
@@ -21,13 +22,15 @@ export class RecruitmentDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    const role = localStorage.getItem('ROLE');
+    if (role == null) {
+      this.checkRole = true;
+    }
   }
 
   getDetail(id: string) {
     this.recruitmentNewsService.findById(id).subscribe(data => {
       this.recruitmentNews = data;
-      console.log(data)
     }, error => {
       alert("Lỗi!")
     })

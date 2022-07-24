@@ -25,7 +25,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   findAllUnlockCompany() {
-    this.companyService.findAllUnlockCompany().subscribe((result: Company[]) => {
+    this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
       this.companies = result;
     }, error => {
       alert("Lỗi");
