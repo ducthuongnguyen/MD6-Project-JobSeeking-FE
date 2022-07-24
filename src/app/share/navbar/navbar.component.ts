@@ -17,8 +17,6 @@ export class NavbarComponent implements OnInit {
   recruitmentNews: RecruitmentNews[] = [];
   idCompany: any;
   checkRole;
-  checkRoleAdmin;
-  checkRoleUser;
   checkRoleCompany;
   city: any[] = [];
   company: Company = {};
