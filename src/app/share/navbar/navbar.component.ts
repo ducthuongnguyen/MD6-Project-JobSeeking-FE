@@ -37,11 +37,11 @@ export class NavbarComponent implements OnInit {
     roles: new FormControl(),
   });
   registerUserForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    email: new FormControl(),
-    password: new FormControl(),
-    confirmPassword: new FormControl(),
-    phoneNumber: new FormControl(),
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
     roles: new FormControl(),
   });
 
@@ -242,4 +242,23 @@ export class NavbarComponent implements OnInit {
     // window.location.replace("http://localhost:4200")
   }
 
+  get nameUser() {
+    return this.registerUserForm.get('name');
+  }
+
+  get emailUser() {
+    return this.registerUserForm.get('email');
+  }
+
+  get passwordUser() {
+    return this.registerUserForm.get('password');
+  }
+
+  get confirmPasswordUser() {
+    return this.registerUserForm.get('confirmPassword')
+  }
+
+  get phoneNumberUser() {
+    return this.registerUserForm.get('phoneNumber');
+  }
 }
