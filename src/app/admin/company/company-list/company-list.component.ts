@@ -21,10 +21,10 @@ export class CompanyListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findAllUnlockCompany();
+    this.findUnlockCompany();
   }
 
-  findAllUnlockCompany() {
+  findUnlockCompany() {
     this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
       this.companies = result;
     }, error => {
@@ -35,7 +35,7 @@ export class CompanyListComponent implements OnInit {
   updateStatus(id: string) {
     this.companyService.updateStatus(id).subscribe(() => {
       this.messageStatus();
-      this.findAllUnlockCompany();
+      this.findUnlockCompany();
     }, error => {
       alert("Lỗi");
     })
@@ -44,7 +44,7 @@ export class CompanyListComponent implements OnInit {
   proposeCompany(id: string) {
     this.companyService.proposeCompany(id).subscribe(() => {
       this.messagePropose();
-      this.findAllUnlockCompany();
+      this.findUnlockCompany();
     }, error => {
       alert("Lỗi");
     })
