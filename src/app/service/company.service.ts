@@ -32,9 +32,8 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
-
-  findAllUnlockCompany() {
-    return this.httpClient.get(this.API_COMPANY_UNBLOCK);
+  findUnlockCompany():Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
   }
 
   update(id: any, company: Company): Observable<Company> {
@@ -42,17 +41,17 @@ export class CompanyService {
   }
 
 //đã đc duyệt
-  findAllApprovedCompany(): Observable<Company[]> {
+  findApprovedCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_APPROVED);
   }
 
 //chờ duyệt
-  findAllPendingCompany(): Observable<Company[]> {
+  findPendingCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PENDING);
   }
 
 //bị khóa
-  findAllBlockCompany(): Observable<Company[]> {
+  findBlockCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_BLOCK);
   }
 
@@ -79,7 +78,7 @@ export class CompanyService {
   }
 
   //danh sach tin de xuat
-  findAllProposedCompany(): Observable<Company[]> {
+  findProposedCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_PROPOSED);
   }
 

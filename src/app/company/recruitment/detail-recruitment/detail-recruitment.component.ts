@@ -14,8 +14,9 @@ export class DetailRecruitmentComponent implements OnInit {
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe((pramMap: ParamMap) => {
-        const id = Number(pramMap.get('id'));
-        this.getDetail(id);
+        const id = +pramMap.get('id');
+        // @ts-ignore
+      this.getDetail(id);
       }
     )
   }
@@ -23,9 +24,8 @@ export class DetailRecruitmentComponent implements OnInit {
   ngOnInit() {
   }
 
-  getDetail(id: number) {
+  getDetail(id: string) {
     this.recruitmentNewsService.findById(id).subscribe(data => {
-      console.log(data);
       this.recruitmentNews = data;
     }, error => {
       console.log(error)

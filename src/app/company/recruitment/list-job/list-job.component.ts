@@ -18,7 +18,6 @@ export class ListJobComponent implements OnInit {
 
   findAll() {
     this.recruitmentNewService.findAll().subscribe((result: RecruitmentNews[]) => {
-      console.log(result);
       this.recruitmentNews = result;
     }, error => {
       console.log(error);

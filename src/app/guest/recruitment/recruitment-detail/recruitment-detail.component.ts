@@ -4,12 +4,13 @@ import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 
 @Component({
-  selector: 'app-detail-recruitment',
-  templateUrl: './detail-recruitment.component.html',
-  styleUrls: ['./detail-recruitment.component.css']
+  selector: 'app-recruitment-detail',
+  templateUrl: './recruitment-detail.component.html',
+  styleUrls: ['./recruitment-detail.component.css']
 })
-export class DetailRecruitmentComponent implements OnInit {
+export class RecruitmentDetailComponent implements OnInit {
   recruitmentNews: RecruitmentNews = {};
+  checkRole;
 
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute) {
@@ -21,13 +22,17 @@ export class DetailRecruitmentComponent implements OnInit {
   }
 
   ngOnInit() {
+    const role = localStorage.getItem('ROLE');
+    if (role == null) {
+      this.checkRole = true;
+    }
   }
 
   getDetail(id: string) {
     this.recruitmentNewsService.findById(id).subscribe(data => {
       this.recruitmentNews = data;
     }, error => {
-      alert("Lỗi");
+      alert("Lỗi!")
     })
   }
 }

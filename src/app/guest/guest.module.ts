@@ -1,16 +1,20 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 // @ts-ignore
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 
-import { GuestRoutingModule } from './guest-routing.module';
-import {RecruitmentComponent} from "./recruitment/recruitment.component";
-import {CompanyComponent} from "./company/company.component";
+import {GuestRoutingModule} from './guest-routing.module';
+import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
+import {RecruitmentDetailComponent} from './recruitment/recruitment-detail/recruitment-detail.component';
+import { RecruitmentComponent } from './recruitment/recruitment-unlock/recruitment.component';
+import { CompanyComponent } from './company/company-unlock/company.component';
 
 
 @NgModule({
   declarations: [
     CompanyComponent,
-    RecruitmentComponent
+    RecruitmentComponent,
+    CompanyDetailComponent,
+    RecruitmentDetailComponent
   ],
   imports: [
     CommonModule,

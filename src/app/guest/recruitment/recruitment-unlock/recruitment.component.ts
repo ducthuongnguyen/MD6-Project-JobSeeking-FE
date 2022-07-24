@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RecruitmentNews} from 'src/app/model/recruitment-news';
-import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
+import {RecruitmentNews} from '../../../model/recruitment-news';
+import {RecruitmentNewsService} from '../../../service/recruitment-news.service';
 
 @Component({
   selector: 'app-recruitment',
@@ -14,15 +14,15 @@ export class RecruitmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findAllNews();
+    this.findUnlockRecruitmentNews();
   }
 
-  findAllNews() {
-    this.recruitmentNewService.findAll().subscribe((result: RecruitmentNews[]) => {
+  findUnlockRecruitmentNews() {
+    this.recruitmentNewService.findUnlockRecruitmentNews().subscribe((result: RecruitmentNews[]) => {
       // @ts-ignore
       this.list = result;
     }, error => {
-      console.log(error);
+      alert(error);
     });
   }
 }

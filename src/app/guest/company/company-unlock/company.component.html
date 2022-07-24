@@ -35,28 +35,18 @@
           </div>
         </form>
         <div class="pt-12 ml-lg-0 ml-md-15">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="font-size-4 font-weight-normal text-default-color">
-              <span class="heading-default-color">120</span>
-              results for <span class="heading-default-color">UI Designer</span>
-            </h5>
-          </div>
           <div class="pt-6">
             <div class="row justify-content-center">
-              <div class="col-12 col-lg-6" *ngFor="let companies of company">
+              <div class="col-12 col-lg-6" *ngFor="let companies of companies">
                 <!-- Start Feature One -->
                 <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
                   <div class="d-block mb-7">
-                    <a href="#"><img width="550p" height="400px" src="{{companies.avatar}}" alt=""></a>
+                    <a href="#"><img width="550p" height="400px" src="{{companies.avatar}}" alt="" style="height: 337px;width: 562.5px"></a>
                   </div>
-<!--                  <a href="#" class="font-size-3 d-block mb-0 text-gray">Google INC</a>-->
                   <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">{{companies.name}}</a></h2>
                   <ul class="list-unstyled mb-1 card-tag-list">
                     <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
                       <i class="fa-solid fa-location-dot mr-3"></i>{{companies.address}}
-                    </a></li>
-                    <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                      <i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{companies.email}}
                     </a></li>
                     <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
                       <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> {{companies.phoneNumber}}
@@ -64,18 +54,16 @@
                   </ul>
                   <div class="card-btn-group">
                     <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Xem chi tiết</a>
-                    <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                      class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
                   </div>
                 </div>
                 <!-- End Feature One -->
               </div>
             </div>
           </div>
-          <div class="text-center pt-5 pt-lg-13">
-            <a class="text-green font-weight-bold text-uppercase font-size-3 d-flex align-items-center justify-content-center" href="#">Load More <i class="fas fa-sort-down ml-3 mt-n2 font-size-4"></i>
-            </a>
-          </div>
+<!--          <div class="text-center pt-5 pt-lg-13">-->
+<!--            <a class="text-green font-weight-bold text-uppercase font-size-3 d-flex align-items-center justify-content-center" href="#">Load More <i class="fas fa-sort-down ml-3 mt-n2 font-size-4"></i>-->
+<!--            </a>-->
+<!--          </div>-->
         </div>
         <!-- form end -->
       </div>

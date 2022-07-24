@@ -24,7 +24,7 @@ export class PendingApprovalListComponent implements OnInit {
   }
 
   listPendingCompany() {
-    this.companyService.findAllPendingCompany().subscribe((listCompany: Company[]) => {
+    this.companyService.findPendingCompany().subscribe((listCompany: Company[]) => {
       this.companies = listCompany;
     }, error => {
       alert("loi")
