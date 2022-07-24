@@ -24,10 +24,11 @@ export class RecruitmentNewsService {
   }
 
   save(recruitment: RecruitmentNews): Observable<RecruitmentNews> {
-    //@ts-ignore
+    // @ts-ignore
     return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST);
   }
-  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]>{
+
+  findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);
   }
 }

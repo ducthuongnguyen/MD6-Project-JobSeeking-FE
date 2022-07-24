@@ -93,9 +93,12 @@ export class AddRecruitmentComponent implements OnInit {
     console.log(this.obj);
     this.recruimentNewsService.save(this.obj).subscribe(() => {
       alert('Save recruitment successfully');
-      this.router.navigate(['/company/recruitment/our-list/', idCompany]);
     }, error => {
       console.log('Error: ', error);
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/company/recruitment/our-list/']);
   }
 }
