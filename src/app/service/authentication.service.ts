@@ -13,7 +13,7 @@ const API_URL = environment.apiUrl;
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private currentUserSubject: BehaviorSubject<UserToken>;
+  public currentUserSubject: BehaviorSubject<UserToken>;
   public currentUser: Observable<UserToken>;
   update = new EventEmitter<string>();
 

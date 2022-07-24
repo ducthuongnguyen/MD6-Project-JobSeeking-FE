@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../service/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
   city: any[] = [];
   company: Company = {};
   image: any;
+  @ViewChild('closeModal', {static: false}) closeModal: ElementRef<HTMLButtonElement>;
 
   registerCompanyForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
@@ -49,7 +50,7 @@ export class NavbarComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   })
 
-  constructor(private authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
   }
@@ -61,15 +62,6 @@ export class NavbarComponent implements OnInit {
     this.idCompany = localStorage.getItem('COMPANYID')
     if (role == null) {
       this.checkRole = true;
-    }
-    if (role == "COMPANY") {
-      this.checkRoleCompany = true;
-    }
-    if (role == "ADMIN") {
-      this.checkRoleAdmin = true;
-    }
-    if (role == "USER") {
-      this.checkRoleUser = true;
     }
 
   }
@@ -163,25 +155,9 @@ export class NavbarComponent implements OnInit {
           localStorage.setItem('ROLE', data.roles[0].authority);
           localStorage.setItem('EMAIL', data.email);
           localStorage.setItem('COMPANYID', data.id);
-          if (data.roles[0].authority == "COMPANY") {
-            this.messageLogin();
-            document.getElementById("login").click();
-            this.router.navigate(['/company/company/list']);
-            location.reload();
-          }
-          if (data.roles[0].authority == "ADMIN") {
-            this.messageLogin();
-            document.getElementById("login").click();
-            this.router.navigate(['/admin/company/main']);
-            location.reload();
-          }
-          if (data.roles[0].authority == "USER") {
-            this.messageLogin();
-            document.getElementById("login").click();
-            this.router.navigate(['/user/company/main']);
-            location.reload();
-          }
-
+          this.closeModal.nativeElement.click();
+          this.messageLogin();
+          this.router.navigate(['']);
         },
         error => {
           alert("Tài khoản của bạn sai mật khẩu!");
@@ -261,7 +237,9 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.checkRole = true;
-    window.location.replace("http://localhost:4200/home")
+    this.router.navigate(["/"]);
+    this.authenticationService.currentUserSubject.next(null);
+    // window.location.replace("http://localhost:4200")
   }
 
 }
