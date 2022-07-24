@@ -5,6 +5,7 @@ import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 import {UserToken} from '../model/user-token';
 import {Company} from '../model/company';
+import {User} from "../model/user";
 
 const API_URL = environment.apiUrl;
 
@@ -55,6 +56,9 @@ export class AuthenticationService {
     console.log('form data', formData);
     return this.http.post<any>('http://localhost:8080/sign-up-company', formData
     );
+  }
+  registerUser(user: any): Observable<User> {
+    return this.http.post<any>('http://localhost:8080/sign-up',user);
   }
 
   findAllCity(): Observable<any> {

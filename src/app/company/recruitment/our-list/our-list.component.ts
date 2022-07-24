@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 })
 export class OurListComponent implements OnInit {
   recruitmentNews: RecruitmentNews[] = [];
+  checkList;
 
   constructor(private recruitmentService: RecruitmentNewsService) {
   }
@@ -21,6 +22,9 @@ export class OurListComponent implements OnInit {
   findAll() {
     this.recruitmentService.findAllByCompanyId().subscribe((result: RecruitmentNews[]) => {
       this.recruitmentNews = result;
+      if (this.recruitmentNews.length==0){
+        this.checkList = true;
+      }
     }, error => {
       console.log(error);
     });

@@ -9,6 +9,7 @@ import {RecruitmentNewsService} from "../../../service/recruitment-news.service"
 })
 export class BlockListComponent implements OnInit {
   cruimentnews:RecruitmentNews[]=[];
+  checkList;
   constructor(private recruimentService: RecruitmentNewsService) { }
 
   ngOnInit() {
@@ -17,7 +18,11 @@ export class BlockListComponent implements OnInit {
   listRecruiment(){
     this.recruimentService.findAllLockedRecruitmentNews().subscribe(data=>{
       this.cruimentnews=data;
+      if (this.cruimentnews.length==0){
+        this.checkList = true;
+      }
     })
   }
+
 
 }
