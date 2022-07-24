@@ -479,7 +479,7 @@
                      data-show-pass="password"></a>
                   <div *ngIf="!passwordLogin.valid && passwordLogin.touched">
                     <div [hidden]="!passwordLogin.errors.required">
-                      <p style="color: red">Vui lòng nhập nhập mật khẩu</p>
+                      <p style="color: red">Vui lòng nhập mật khẩu</p>
                     </div>
                   </div>
                 </div>
@@ -531,18 +531,39 @@
             <div class="or-devider">
               <span  class="font-size-3 line-height-reset"><h4 style="color: green">Tài khoản</h4></span>
             </div>
-            <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
+            <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()" novalidate>
               <div class="form-group">
                 <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Họ và tên</label>
                 <input formControlName="name" type="text" class="form-control" placeholder="Nhập tên">
               </div>
+              <div *ngIf="!nameUser.valid && nameUser.touched">
+                <div [hidden]="!nameUser.errors.required">
+                  <p style="color: red">Vui lòng nhập tên của bạn</p>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Số điện thoại</label>
-                <input formControlName="phoneNumber" type="number" class="form-control" placeholder="Nhập số điện thoại">
+                <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Nhập số điện thoại +84...">
+              </div>
+              <div *ngIf="!phoneNumberUser.valid && phoneNumberUser.touched">
+                <div [hidden]="!phoneNumberUser.errors.required">
+                  <p style="color: red">Vui lòng nhập số điện thoại của bạn</p>
+                </div>
+                <div [hidden]="!phoneNumberUser.errors.pattern">
+                  <p style="color: red">Nhập số điện thoại không đúng định dạng </p>
+                </div>
               </div>
               <div class="form-group">
                 <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
                 <input formControlName="email" type="email" class="form-control" placeholder="Nhập email">
+              </div>
+              <div *ngIf="!emailUser.valid && emailUser.touched">
+                <div [hidden]="!emailUser.errors.required">
+                  <p style="color: red">Vui lòng nhập email của bạn</p>
+                </div>
+                <div [hidden]="!emailUser.errors.email">
+                  <p style="color: red"> Email không đúng định dạng</p>
+                </div>
               </div>
               <div class="form-group">
                 <label class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Mật khẩu</label>
@@ -551,18 +572,34 @@
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
+              <div *ngIf="!passwordUser.valid && passwordUser.touched">
+                <div [hidden]="!passwordUser.errors.required">
+                  <p style="color: red">Vui lòng nhập mật khẩu của bạn</p>
+                </div>
+                <div [hidden]="!passwordUser.errors.minlength">
+                  <p style="color: red"> Mật khẩu phải có ít nhất 6 ký tự</p>
+                </div>
+              </div>
               <div class="form-group">
                 <label for="password234" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nhập lại mật khẩu</label>
                 <div class="position-relative">
-                  <input formControlName="confirmPassword" type="password" class="form-control" id="password234" placeholder="Nhập lại mật khẩu">
+                  <input formControlName="confirmPassword" type="password" class="form-control" id="password234" placeholder="Nhập lại mật khẩu" pattern="{{passwordUser.value}}">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password234"></a>
+                </div>
+              </div>
+              <div *ngIf="!confirmPasswordUser.valid && confirmPasswordUser.touched">
+                <div [hidden]="!confirmPasswordUser.errors.required">
+                  <p style="color: red">Vui lòng nhập lại mật khẩu của bạn</p>
+                </div>
+                <div [hidden]="!confirmPasswordUser.errors?.pattern">
+                  <p style="color: red"> Mật khẩu nhập lại không khớp</p>
                 </div>
               </div>
               <div class="form-group d-flex flex-wrap justify-content-between mb-1">
                 <a href="" class="font-size-3 text-dodger line-height-reset">Quên mật khẩu</a>
               </div>
               <div class="form-group mb-8">
-                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Đăng ký</button>
+                <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase" [disabled]="registerUserForm.invalid">Đăng ký</button>
               </div>
             </form>
           </div>
@@ -639,7 +676,7 @@
               </div>
               <div *ngIf="!password.valid && password.touched">
                 <div [hidden]="!password.errors.required">
-                  <p style="color: red">Vui lòng nhập nhập mật khẩu</p>
+                  <p style="color: red">Vui lòng nhập mật khẩu</p>
                 </div>
                 <div [hidden]="!password.errors.minlength">
                   <p style="color: red"> Mật khẩu phải có ít nhất 6 ký tự</p>
@@ -662,7 +699,7 @@
                   <p style="color: red">Vui lòng nhập nhập mật khẩu</p>
                 </div>
                 <div [hidden]="!confirmPassword.errors.pattern">
-                  <p style="color: red"> Nhập sai mật khẩu</p>
+                  <p style="color: red"> Mật khẩu nhập lại không khớp</p>
                 </div>
               </div>
               <div class="or-devider">
@@ -691,10 +728,6 @@
                 <input formControlName="avatar" type="file" placeholder="Nhập ảnh đại diện" id="avatar"
                        (change)="handleChangeImage($event)">
               </div>
-              <!--              <div *ngIf="!avatar.valid && avatar.touched">-->
-              <!--                <div [hidden]="!avatar.errors.required">-->
-              <!--                  <p style="color: red">Vui lòng chọn ảnh đại diện</p>-->
-              <!--                </div>-->
               <div class="form-group">
                 <label for="address"
                        class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Địa chỉ</label>

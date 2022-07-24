@@ -50,7 +50,6 @@ export class AddRecruitmentComponent implements OnInit {
 
   getVacancy() {
     this.vacancyService.findAll().subscribe((data) => {
-      console.log(data);
       this.listVacancy = data;
     }, error => {
       console.log(error);
@@ -88,8 +87,6 @@ export class AddRecruitmentComponent implements OnInit {
       description: this.recruitmentForm.value.description,
       workingType: this.recruitmentForm.value.workingTypeId
     };
-    console.log('nnnnnnnnnnn');
-    console.log(this.obj);
     this.recruimentNewsService.save(this.obj).subscribe(() => {
       alert('Save recruitment successfully');
       this.router.navigate(['/company/recruitment/our-list/', idCompany]);
