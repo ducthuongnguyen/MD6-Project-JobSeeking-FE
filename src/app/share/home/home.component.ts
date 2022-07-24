@@ -42,13 +42,11 @@ export class HomeComponent implements OnInit {
 
   messageLogin() {
     Swal.fire({
-      title: 'Đăng nhập để ứng tuyển',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
+      position: 'center',
+      icon: 'info',
+      title: 'Bạn cần đăng nhập để ứng tuyển',
+      showConfirmButton: false,
+      timer: 2000
     })
   }
   //

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-recruitment-detail',
@@ -33,6 +34,16 @@ export class RecruitmentDetailComponent implements OnInit {
       this.recruitmentNews = data;
     }, error => {
       alert("Lỗi!")
+    })
+  }
+
+  alertLogin() {
+    Swal.fire({
+      position: 'center',
+      icon: 'info',
+      title: 'Bạn cần đăng nhập để ứng tuyển',
+      showConfirmButton: false,
+      timer: 2000
     })
   }
 }
