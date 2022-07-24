@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {FieldService} from 'src/app/service/field.service';
@@ -19,18 +19,18 @@ const idCompany = localStorage.getItem('COMPANYID');
 
 export class AddRecruitmentComponent implements OnInit {
   recruitmentForm: FormGroup = new FormGroup({
-    title: new FormControl(),
-    vacancyId: new FormControl(),
-    fieldId: new FormControl(),
-    salaryForm: new FormControl(),
-    salaryTo: new FormControl(),
-    expiredDate: new FormControl(),
-    employeeQuantity: new FormControl(),
-    requiredExperience: new FormControl(),
-    gender: new FormControl(),
-    workingPlace: new FormControl(),
-    description: new FormControl(),
-    workingTypeId: new FormControl()
+    title: new FormControl('', [Validators.required]),
+    vacancyId: new FormControl('', [Validators.required]),
+    fieldId: new FormControl('', [Validators.required]),
+    salaryForm: new FormControl('', [Validators.required]),
+    salaryTo: new FormControl('', [Validators.required]),
+    expiredDate: new FormControl('', [Validators.required]),
+    employeeQuantity: new FormControl('', [Validators.required]),
+    requiredExperience: new FormControl('', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    workingPlace: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    workingTypeId: new FormControl('', [Validators.required])
   });
 
   obj: any;
@@ -93,5 +93,53 @@ export class AddRecruitmentComponent implements OnInit {
     }, error => {
       console.log('Error: ', error);
     });
+  }
+
+  get title() {
+    return this.recruitmentForm.get('title');
+  }
+
+  get vacancyId() {
+    return this.recruitmentForm.get('vacancyId');
+  }
+
+  get fieldId() {
+    return this.recruitmentForm.get('fieldId');
+  }
+
+  get salaryForm() {
+    return this.recruitmentForm.get('salaryForm');
+  }
+
+  get salaryTo() {
+    return this.recruitmentForm.get('salaryTo');
+  }
+
+  get expiredDate() {
+    return this.recruitmentForm.get('expiredDate');
+  }
+
+  get employeeQuantity() {
+    return this.recruitmentForm.get('employeeQuantity');
+  }
+
+  get requiredExperience() {
+    return this.recruitmentForm.get('requiredExperience');
+  }
+
+  get gender() {
+    return this.recruitmentForm.get('gender');
+  }
+
+  get workingPlace() {
+    return this.recruitmentForm.get('workingPlace');
+  }
+
+  get description() {
+    return this.recruitmentForm.get('description');
+  }
+
+  get workingTypeId() {
+    return this.recruitmentForm.get('workingTypeId');
   }
 }

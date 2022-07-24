@@ -3,7 +3,7 @@
 <br>
 <br>
 <div class="container" style="width: 750px">
-  <form [formGroup]="recruitmentForm" (ngSubmit)="submit()">
+  <form [formGroup]="recruitmentForm" (ngSubmit)="submit()" novalidate>
     <h3 style="text-align: center">Thêm mới tin tuyển dụng</h3>
     <!-- Wrapper container -->
     <div class="container py-4">
@@ -12,50 +12,82 @@
         <label class="form-label" for="name">Tiêu đề</label>
         <input class="form-control" id="name" type="text" placeholder="Tiêu đề..." formControlName="title"/>
       </div>
-
+      <div *ngIf="!title.valid && title.touched">
+        <div [hidden]="!title.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- vacancy input -->
       <div class="mb-3">
         <label class="form-label">Vị trí cần tuyển</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px" formControlName="vacancyId">
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+                formControlName="vacancyId">
           <option selected>Vui lòng chọn vị trí cần tuyển...</option>
           <option *ngFor="let vacancy of listVacancy" [value]="vacancy.id">{{vacancy.name}}</option>
         </select>
       </div>
-
+      <div *ngIf="!vacancyId.valid && vacancyId.touched">
+        <div [hidden]="!vacancyId.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Field input -->
       <div class="mb-3">
         <label class="form-label">Lĩnh vực</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px" formControlName="fieldId">
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+                formControlName="fieldId">
           <option selected>Vui lòng chọn lĩnh vực...</option>
           <option *ngFor="let field of listField" [value]="field.id">{{field.name}}</option>
         </select>
       </div>
-
+      <div *ngIf="!fieldId.valid && fieldId.touched">
+        <div [hidden]="!fieldId.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Working Type input -->
       <div class="mb-3">
         <label class="form-label">Hình thức làm việc</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px" formControlName="workingTypeId" >
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+                formControlName="workingTypeId">
           <option selected>Vui lòng chọn hình thức làm việc...</option>
           <option value="0">FULL-TIME</option>
           <option value="1">PART-TIME</option>
         </select>
       </div>
-
+      <div *ngIf="!workingTypeId.valid && workingTypeId.touched">
+        <div [hidden]="!workingTypeId.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- salary input -->
       <div class="row mb-4">
         <div class="col">
           <div class="form-outline">
             <label class="form-label" for="form6Example1">Mức lương từ</label>
-            <input type="number" id="form6Example1" class="form-control" placeholder="từ..." formControlName="salaryForm"/>
+            <input type="number" id="form6Example1" class="form-control" placeholder="từ..."
+                   formControlName="salaryForm"/>
+          </div>
+          <div *ngIf="!salaryForm.valid && salaryForm.touched">
+            <div [hidden]="!salaryForm.errors.required">
+              <p style="color: red">Vui lòng nhập!</p>
+            </div>
           </div>
         </div>
+
         <div class="col">
           <div class="form-outline">
             <label class="form-label" for="form6Example2">đến</label>
-            <input type="number" id="form6Example2" class="form-control" placeholder="đến..." formControlName="salaryTo"/>
+            <input type="number" id="form6Example2" class="form-control" placeholder="đến..."
+                   formControlName="salaryTo"/>
+          </div>
+          <div *ngIf="!salaryTo.valid && salaryTo.touched">
+            <div [hidden]="!salaryTo.errors.required">
+              <p style="color: red">Vui lòng nhập!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -65,31 +97,38 @@
         <label class="form-label" for="expriedDate">Ngày hết hạn</label>
         <input class="form-control" id="expriedDate" type="date" formControlName="expiredDate"/>
       </div>
-
+      <div *ngIf="!expiredDate.valid && expiredDate.touched">
+        <div [hidden]="!expiredDate.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Employee Quantity input -->
       <div class="mb-3">
         <label class="form-label" for="employeeQuantity">Số lượng nhân viên</label>
-        <input class="form-control" id="employeeQuantity" type="number" placeholder="Vui lòng chọn số lượng nhân viên..." formControlName="employeeQuantity"/>
+        <input class="form-control" id="employeeQuantity" type="number"
+               placeholder="Vui lòng chọn số lượng nhân viên..." formControlName="employeeQuantity"/>
       </div>
-
+      <div *ngIf="!employeeQuantity.valid && employeeQuantity.touched">
+        <div [hidden]="!employeeQuantity.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Required Experience input -->
       <div class="mb-3">
         <label class="form-label" for="requiredExperience">Số năm kinh nghiệm</label>
-        <input class="form-control" id="requiredExperience" type="number" placeholder="Vui lòng chọn năm kinh nghiệm..." formControlName="requiredExperience"/>
+        <input class="form-control" id="requiredExperience" type="number" placeholder="Vui lòng chọn năm kinh nghiệm..."
+               formControlName="requiredExperience"/>
       </div>
-
-      <!-- Gender input -->
-<!--      <div class="mb-3" formControlName="gender">-->
-<!--        <label class="form-label">Giới tính</label> <br>-->
-<!--        <input type="radio" class="mr-3" name="radio-choice" value="0" required>Nam-->
-<!--        <input type="radio" class="mr-3" name="radio-choice" value="1" required>Nữ-->
-<!--        <input type="radio" class="mr-3" name="radio-choice" value="2" required>Khác-->
-<!--        <input type="radio" class="mr-3" name="radio-choice" value="3" required>Mọi giới tính-->
-<!--      </div>-->
+      <div *ngIf="!requiredExperience.valid && requiredExperience.touched">
+        <div [hidden]="!requiredExperience.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <div class="mb-3">
         <label class="form-label">Giới tính</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px" formControlName="gender" >
+        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+                formControlName="gender">
           <option selected>Vui lòng chọn giới tính...</option>
           <option value="0">Nam</option>
           <option value="1">Nữ</option>
@@ -97,22 +136,36 @@
           <option value="3">Mọi giới tính</option>
         </select>
       </div>
-
+      <div *ngIf="!gender.valid && gender.touched">
+        <div [hidden]="!gender.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Working Place input -->
       <div class="mb-3">
         <label class="form-label" for="workingPalace">Nơi làm việc</label>
-        <input class="form-control" id="workingPalace" type="email" placeholder="Vui lòng chọn nơi làm việc..." formControlName="workingPlace"/>
+        <input class="form-control" id="workingPalace" type="email" placeholder="Vui lòng chọn nơi làm việc..."
+               formControlName="workingPlace"/>
       </div>
-
+      <div *ngIf="!workingPlace.valid && workingPlace.touched">
+        <div [hidden]="!workingPlace.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Description input -->
       <div class="mb-3">
         <label class="form-label" for="description">Miêu tả công việc</label>
-        <textarea class="form-control" id="description" type="text" placeholder="Miêu tả công việc..." style="height: 7rem;" formControlName="description"></textarea>
+        <textarea class="form-control" id="description" type="text" placeholder="Miêu tả công việc..."
+                  style="height: 7rem;" formControlName="description"></textarea>
       </div>
-
+      <div *ngIf="!description.valid && description.touched">
+        <div [hidden]="!description.errors.required">
+          <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
+        </div>
+      </div>
       <!-- Form submit button -->
       <div class="d-grid" style="margin-left: 22%">
-        <button class="btn btn-primary btn-lg mr-3" type="submit">Submit</button>
+        <button class="btn btn-primary btn-lg mr-3" type="submit" [disabled]="recruitmentForm.invalid">Submit</button>
         <button class="btn btn-primary btn-lg" type="reset">Reset</button>
       </div>
     </div>
