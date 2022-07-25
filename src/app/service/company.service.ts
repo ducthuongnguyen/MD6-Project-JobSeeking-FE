@@ -16,6 +16,7 @@ export class CompanyService {
   private API_COMPANY_PENDING = environment.apiUrl + '/companies' + '/pending-company';
   private API_COMPANY_BLOCK = environment.apiUrl + '/companies' + '/locked-company';
   private API_COMPANY_UNBLOCK = environment.apiUrl + '/companies' + '/unlock-company';
+  private API_COMPANY_UNBLOCK_PAGE = environment.apiUrl + '/companies' + '/unlock-company-page';
   private API_COMPANY_PROPOSED = environment.apiUrl + '/companies' + '/proposal-company';
   private API_COMPANY_SETPROPOSE = environment.apiUrl + '/companies' + '/set-propose';
 
@@ -33,11 +34,12 @@ export class CompanyService {
 
   findPageUnlockCompany(request){
     const params = request;
-    return  this.httpClient.get(this.API_COMPANY_UNBLOCK,{params});
+    return  this.httpClient.get(this.API_COMPANY_UNBLOCK_PAGE,{params});
   }
-  // findUnlockCompany():Observable<Company[]> {
-  //   return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
-  // }
+
+  findUnlockCompany(): Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
+  }
 
 
   update(id: any, company: Company): Observable<Company> {
