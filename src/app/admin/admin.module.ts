@@ -10,6 +10,7 @@ import {CompanyBlockComponent} from './company/company-block/company-block.compo
 import {RecruitmentBlockComponent} from './recruitment/recruitment-block/recruitment-block.component';
 // @ts-ignore
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -20,11 +21,12 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     CompanyBlockComponent,
     RecruitmentBlockComponent
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MatPaginatorModule
-  ]
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        MatPaginatorModule,
+        NgxPaginationModule
+    ]
 })
 export class AdminModule {
 }

@@ -35,7 +35,7 @@ export class CompanyService {
     const params = request;
     return  this.httpClient.get(this.API_COMPANY_UNBLOCK,{params});
   }
-  
+
   findUnlockCompany():Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
   }

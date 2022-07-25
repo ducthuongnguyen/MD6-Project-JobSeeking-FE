@@ -17,6 +17,7 @@ export class CompanyListComponent implements OnInit {
   totalElements: number = 0;
   loading: boolean;
 
+
   constructor(private companyService: CompanyService) {
   }
 
@@ -25,13 +26,14 @@ export class CompanyListComponent implements OnInit {
     this.getListRequest({page: 0, size: 5});
   }
 
-  // findUnlockCompany() {
-  //   this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
-  //     this.companies = result;
-  //   }, error => {
-  //     alert("Lỗi");
-  //   })
-  // }
+
+  findUnlockCompany() {
+    this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
+      this.companies = result;
+    }, error => {
+      alert("Lỗi");
+    })
+  }
   private getListRequest(request) {
     this.loading = true;
     this.companyService.findPageUnlockCompany(request).subscribe(data => {
@@ -43,7 +45,6 @@ export class CompanyListComponent implements OnInit {
       this.loading = false;
     });
   }
-
   nextPage(event: PageEvent) {
     console.log('event=====', event);
     const request = {};
@@ -58,7 +59,8 @@ export class CompanyListComponent implements OnInit {
   updateStatus(id: string) {
     this.companyService.updateStatus(id).subscribe(() => {
       this.messageStatus();
-      this.getListRequest({page: 0, size: 5});
+      // this.getListRequest({page: 0, size: 5});
+      this.findUnlockCompany();
     }, error => {
       alert("Lỗi");
     })
@@ -67,7 +69,8 @@ export class CompanyListComponent implements OnInit {
   proposeCompany(id: string) {
     this.companyService.proposeCompany(id).subscribe(() => {
       this.messagePropose();
-      this.getListRequest({page: 0, size: 5});
+      // this.getListRequest({page: 0, size: 5});
+      this.findUnlockCompany();
     }, error => {
       alert("Lỗi");
     })

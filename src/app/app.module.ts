@@ -10,8 +10,12 @@ import {HomeComponent} from './share/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+
+
 // import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 // import {AngularFireModule} from "@angular/fire/compat";
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import {RouterModule} from "@angular/router";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
