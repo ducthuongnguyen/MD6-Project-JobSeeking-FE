@@ -57,7 +57,7 @@ export class NavbarComponent implements OnInit {
 
     this.getAllCity();
     const role = localStorage.getItem('ROLE');
-    this.idCompany = localStorage.getItem('COMPANYID')
+    this.idCompany = localStorage.getItem('COMPANYID');
     if (role == null) {
       this.checkRole = true;
     }
@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit {
 
   getAllCity() {
     this.authenticationService.findAllCity().subscribe(result => {
-      this.city = result
+      this.city = result;
       document.getElementById('address').style.display = 'block';
     }, error => {
       console.log(error);
@@ -97,7 +97,7 @@ export class NavbarComponent implements OnInit {
   registerUser() {
     const company = this.registerUserForm.value;
     this.authenticationService.registerUser(company).subscribe((data) => {
-      document.getElementById("signupForUser").click();
+      document.getElementById('signupForUser').click();
       this.messageRegister();
       this.registerCompanyForm.reset();
     }, error => {

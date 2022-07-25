@@ -58,13 +58,13 @@ export class AuthenticationService {
     );
   }
   registerUser(user: any): Observable<User> {
-    return this.http.post<any>('http://localhost:8080/sign-up',user);
+    return this.http.post<any>('http://localhost:8080/sign-up', user);
   }
 
   findAllCity(): Observable<any> {
     return this.http.get<any>('https://provinces.open-api.vn/api/');
   }
   findByEmail(email: string): Observable<Company> {
-    return this.http.get<Company>(API_URL+`/search?email=${email}`);
+    return this.http.get<Company>(API_URL + `/search?email=${email}`);
   }
 }

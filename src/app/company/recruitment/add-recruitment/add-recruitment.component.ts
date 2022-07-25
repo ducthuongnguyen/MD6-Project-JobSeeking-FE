@@ -8,6 +8,7 @@ import {VacancyService} from 'src/app/service/vacancy.service';
 import {Vacancy} from '../../../model/vacancy';
 import {Field} from '../../../model/field';
 import Swal from 'sweetalert2';
+import {AuthenticationService} from '../../../service/authentication.service';
 
 const idCompany = localStorage.getItem('COMPANYID');
 
@@ -37,16 +38,27 @@ export class AddRecruitmentComponent implements OnInit {
   obj: any;
   listVacancy: Vacancy[] = [];
   listField: Field[] = [];
+  city: any[] = [];
 
   constructor(private recruimentNewsService: RecruitmentNewsService,
               private vacancyService: VacancyService,
               private fieldService: FieldService,
-              private router: Router) {
+              private router: Router,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
     this.getVacancy();
     this.getField();
+    this.getAllCity();
+  }
+
+  getAllCity() {
+    this.authenticationService.findAllCity().subscribe(result => {
+      this.city = result;
+    }, error => {
+      console.log(error);
+    });
   }
 
   getVacancy() {
@@ -59,7 +71,6 @@ export class AddRecruitmentComponent implements OnInit {
 
   getField() {
     this.fieldService.findAll().subscribe((data) => {
-      console.log(data);
       this.listField = data;
     }, error => {
       console.log(error);

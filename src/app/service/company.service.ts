@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Company} from '../model/company';
@@ -31,10 +31,11 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
-  findPageUnlockCompany(request){
+  findPageUnlockCompany(request) {
     const params = request;
-    return  this.httpClient.get(this.API_COMPANY_UNBLOCK,{params});
+    return this.httpClient.get(this.API_COMPANY_UNBLOCK, {params});
   }
+
   // findUnlockCompany():Observable<Company[]> {
   //   return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
   // }
@@ -61,7 +62,7 @@ export class CompanyService {
 
 //tim cong ty theo ID
   findCompanyById(id: string): Observable<Company> {
-    return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`)
+    return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`);
   }
 
 
@@ -85,7 +86,7 @@ export class CompanyService {
   //set cong ty la de xuat
   proposeCompany(id: string): Observable<Company> {
     // @ts-ignore
-    return this.httpClient.put<Company>(`${this.API_COMPANY_SETPROPOSE}/${id}`)
+    return this.httpClient.put<Company>(`${this.API_COMPANY_SETPROPOSE}/${id}`);
   }
 }
 
