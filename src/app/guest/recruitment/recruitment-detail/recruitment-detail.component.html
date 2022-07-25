@@ -60,7 +60,8 @@
               <div class="col-12">
                 <!-- card-btn-group start -->
                 <div class="card-btn-group">
-                  <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="alertLogin()">Ứng tuyển</a>
+                  <a *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="alertLogin()">Ứng tuyển</a>
+                  <a *ngIf="checkRole" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="applyRecruitment(recruitmentNews.id)">Ứng tuyển</a>
                 </div>
                 <!-- card-btn-group end -->
               </div>
@@ -75,9 +76,9 @@
                   <div class="image mr-5">
                     <img src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-dolor.svg" alt="">
                   </div>
-                  <p *ngIf="checkRole" class="font-weight-bold font-size-4 mb-0" style="color: red; font-style: italic">
+                  <p *ngIf="checkRoleNo" class="font-weight-bold font-size-4 mb-0" style="color: red; font-style: italic">
                     Đăng nhập để xem lương</p>
-                  <p *ngIf="!checkRole" class="font-weight-bold font-size-4 mb-0 text-black-2">
+                  <p *ngIf="!checkRoleNo" class="font-weight-bold font-size-4 mb-0 text-black-2">
                     <span>{{recruitmentNews.salaryFrom}}</span> - <span>{{recruitmentNews.salaryTo}}</span> triệu VNĐ
                   </p>
                 </div>
@@ -117,7 +118,7 @@
               </div>
               <div class="col-md-4 pl-lg-0">
                 <div class="">
-                  <span class="font-size-4 d-block mb-4 text-gray">Quy mô công ty</span>
+                  <span class="font-size-4 d-block mb-4 text-gray">Số lượng cần tuyển</span>
                   <h6 class="font-size-5 text-black-2 font-weight-semibold mb-0">~ {{recruitmentNews.employeeQuantity}}
                     nhân viên</h6>
                 </div>
