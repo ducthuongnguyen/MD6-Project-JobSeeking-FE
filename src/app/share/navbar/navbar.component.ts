@@ -275,4 +275,11 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  delete(id: any) {
+    this.recruitmentNewsService.deleteMessage(id).subscribe(() => {
+      this.getAllMessageByCompany();
+    }, e => {
+      console.log(e);
+    });
+  }
 }

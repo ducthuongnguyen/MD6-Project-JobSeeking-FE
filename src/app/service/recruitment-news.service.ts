@@ -74,4 +74,7 @@ export class RecruitmentNewsService {
   findAllMessageByCompany(id: any): Observable<Message[]> {
     return this.httpClient.get<Message[]>(`http://localhost:8080/message/findByCompany/${id}`);
   }
+  deleteMessage(id: number): Observable<Message> {
+    return this.httpClient.delete<Message>("http://localhost:8080/message"+`/${id}`);
+  }
 }
