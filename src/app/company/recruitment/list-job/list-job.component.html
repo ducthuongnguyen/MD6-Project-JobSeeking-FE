@@ -19,9 +19,11 @@
               </div>
               <!-- .select-city starts -->
               <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
-                <select name="country" id="country" class="nice-select font-size-4 pl-13 h-100 arrow-3">
-                  <!--                  <option data-display="City, state, zip code or (Remote)">Thành Phố</option>-->
-                  <option id=city value="" *ngFor="let city of cities">{{city.name}} </option>
+                <select name="country" id="country" class="nice-select font-size-4 pl-13 h-100 arrow-3"
+                        formControlName="cities">
+                  <option data-display="City, state, zip code or (Remote)">Chọn Thành Phố...</option>
+                  <option data-display="City, state, zip code or (Remote)"
+                          *ngFor="let city of cities">{{city.name}} </option>
                 </select>
                 <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                                         <i class="fa-solid fa-location-dot" style="color: #62AE77"></i>

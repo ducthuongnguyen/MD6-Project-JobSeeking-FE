@@ -52,9 +52,11 @@ export class RecruitmentNewsService {
     return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/${id}`);
   }
 
-  findByTitleWorkingPlaceExperience(title: string): Observable<RecruitmentNews> {
-    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/search-by-title-working-place-experience?title=` + title);
+  findByTitleWorkingPlaceExperience(title: string,cities:string): Observable<RecruitmentNews> {
+    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/find-by-title-place?title=` + title+`&place=`+cities);
   }
+
+
 
   //set tin tuyen dung la de xuat
   propose(id: string): Observable<RecruitmentNews> {

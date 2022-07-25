@@ -17,7 +17,7 @@ export class ListJobComponent implements OnInit {
 
   searchForm: FormGroup = new FormGroup({
     title: new FormControl(''),
-    // city:new FormControl('')
+    cities:new FormControl('')
   });
 
   constructor(private recruitmentNewService: RecruitmentNewsService,
@@ -47,7 +47,7 @@ export class ListJobComponent implements OnInit {
   }
 
   findByTitleWorkingPlaceExperience() {
-    this.recruitmentService.findByTitleWorkingPlaceExperience(this.searchForm.value.title).subscribe(result => {
+    this.recruitmentService.findByTitleWorkingPlaceExperience(this.searchForm.value.title,this.searchForm.value.cities).subscribe(result => {
       // @ts-ignore
       this.recruitmentNews = result;
     }, error => {
