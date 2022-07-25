@@ -40,6 +40,12 @@ export class RecruitmentNewsService {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
 
+  // danh sach tin khong khoa phan trang
+  findPageUnlockRecruitmentNews(request): Observable <RecruitmentNews[]> {
+    const params = request;
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list-page`,{params});
+  }
+
   // chuyen trang thai
   updateStatus(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
