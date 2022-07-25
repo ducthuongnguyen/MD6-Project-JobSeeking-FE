@@ -34,6 +34,9 @@ export class HomeComponent implements OnInit {
     if (role == null) {
       this.checkRoleNo = true;
     }
+    if (role == "USER"){
+      this.checkRole = true;
+    }
   }
 
   findAllProposedCompany() {

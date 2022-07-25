@@ -13,11 +13,12 @@ export class RecruitmentListComponent implements OnInit {
   constructor(private recruitmentNewService: RecruitmentNewsService) { }
 
   ngOnInit() {
-    this.findAll();
+    this.findUnlockRecruitmentNews();
   }
 
-  findAll() {
-    this.recruitmentNewService.findAll().subscribe((result: RecruitmentNews[]) => {
+  findUnlockRecruitmentNews() {
+    this.recruitmentNewService.findUnlockRecruitmentNews().subscribe((result: RecruitmentNews[]) => {
+      // @ts-ignore
       this.recruitmentNews = result;
     }, error => {
       console.log(error);

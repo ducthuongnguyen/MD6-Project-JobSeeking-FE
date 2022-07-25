@@ -8,7 +8,7 @@ import {RecruitmentNewsService} from '../../../service/recruitment-news.service'
   styleUrls: ['./recruitment.component.css']
 })
 export class RecruitmentComponent implements OnInit {
-  list: RecruitmentComponent[] = [];
+  recruitmentNews: RecruitmentComponent[] = [];
 
   constructor(private recruitmentNewService: RecruitmentNewsService) {
   }
@@ -20,7 +20,7 @@ export class RecruitmentComponent implements OnInit {
   findUnlockRecruitmentNews() {
     this.recruitmentNewService.findUnlockRecruitmentNews().subscribe((result: RecruitmentNews[]) => {
       // @ts-ignore
-      this.list = result;
+      this.recruitmentNews = result;
     }, error => {
       alert(error);
     });

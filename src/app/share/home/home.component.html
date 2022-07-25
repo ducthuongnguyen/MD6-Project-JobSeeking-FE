@@ -282,17 +282,20 @@
         <!-- Start Feature One -->
         <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
           <div class="d-block mb-7">
-            <a href="#"><img src="{{c.avatar}}" alt="" style="width: 337px; height: 300px"></a>
+            <a href="#"><img src="{{c.avatar}}" alt="" style="width: 337px; height: 270px"></a>
           </div>
           <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4">{{c.name}}</a></h2>
           <ul class="list-unstyled mb-1 card-tag-list">
             <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
               <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{c.address}}
             </a></li>
+            <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+              <i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{c.email}}
+            </a></li>
           </ul>
-          <p class="mb-7 font-size-4 text-gray">{{c.introduction}}</p>
-          <div class="card-btn-group">
-            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/company/detail/{{c.id}}">Xem
+<!--          <p class="mb-7 font-size-4 text-gray">{{c.introduction}}</p>-->
+          <div  class="card-btn" style="text-align: center">
+            <a class="btn btn-green text-uppercase rounded-3" routerLink="/guest/company/detail/{{c.id}}">Xem
               chi tiết</a>
           </div>
         </div>
@@ -350,14 +353,9 @@
               <span>{{re.salaryFrom}}</span>-<span>{{re.salaryTo}}</span>
             </a></li>
           </ul>
-          <p class="mb-7 font-size-4 text-gray">{{re.description}}</p>
-          <div *ngIf="!checkRoleNo" class="card-btn-group">
-            <button class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>
-            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem
-              chi tiết</a>
-          </div>
-          <div *ngIf="checkRoleNo" class="card-btn-group">
-            <button class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>
+          <div  class="card-btn-group">
+            <button *ngIf="checkRole" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>
+            <button *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>
             <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem
               chi tiết</a>
           </div>
