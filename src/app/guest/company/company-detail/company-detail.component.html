@@ -5,9 +5,6 @@
       <!-- back Button -->
       <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
         <div class="mb-9">
-          <a class="d-flex align-items-center ml-4" routerLink="/company/recruitment/list">
-            <i class="fa-solid fa-circle-chevron-left" style="font-size: 22px"></i> &nbsp;
-            <span class="text-uppercase font-size-3 font-weight-bold text-gray">Back to job board</span></a>
         </div>
       </div>
       <!-- back Button End -->
@@ -22,14 +19,11 @@
                 <div class="media align-items-center">
                   <!-- media logo start -->
                   <div class="square-72 d-block mr-8">
-                    <img src="https://finestdevs.com/demos/jobcamp/./image/l2/png/featured-job-logo-1.png" alt="">
+                    <img width="100px" height="100px" src="{{company.avatar}}" alt="">
                   </div>
                   <!-- media logo end -->
                   <!-- media texts start -->
-                  <div>
-                    <h3 class="font-size-6 mb-0">{{recruitmentNews.title}}</h3>
-                    <span class="font-size-3 text-gray line-height-2">{{recruitmentNews.company.name}}</span>
-                  </div>
+
                   <!-- media texts end -->
                 </div>
                 <!-- media end -->
@@ -37,30 +31,14 @@
               <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
                 <!-- media date start -->
                 <div class="media justify-content-md-end">
-                  <span class="font-weight-semibold">Hết Hạn: {{recruitmentNews.expiredDate}}</span>
-                </div>
-                <div class="media justify-content-md-end">
-                  <ul class="d-flex list-unstyled mr-n3 flex-wrap">
-                    <li>
-                      <span class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#">Lĩnh Vực: {{recruitmentNews.field.name}}</span>
-                    </li>
-                    <li>
-                      <span class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#">Kinh Nghiệm: {{recruitmentNews.requiredExperience}} Năm</span>
-                    </li>
-                  </ul>
-                </div>
+                  <div>
+                    <h3 class="font-size-6 mb-0">{{company.name}}</h3>
+                  </div>
                 <!-- media date end -->
               </div>
             </div>
             <div class="row pt-9">
-              <div class="col-12">
-                <!-- card-btn-group start -->
-                <div class="card-btn-group">
-                  <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this
-                    job</a>
-                  <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
-                    <i class="fa-solid fa-bookmark" style="font-size: 22px"></i> &nbsp; Save job</a>
-                </div>
+
                 <!-- card-btn-group end -->
               </div>
             </div>
