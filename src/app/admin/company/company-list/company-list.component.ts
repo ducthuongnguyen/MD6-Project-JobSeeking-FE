@@ -25,13 +25,6 @@ export class CompanyListComponent implements OnInit {
     this.getListRequest({page: 0, size: 5});
   }
 
-  // findUnlockCompany() {
-  //   this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
-  //     this.companies = result;
-  //   }, error => {
-  //     alert("Lỗi");
-  //   })
-  // }
   private getListRequest(request) {
     this.loading = true;
     this.companyService.findPageUnlockCompany(request).subscribe(data => {

@@ -36,11 +36,9 @@ export class ListJobComponent implements OnInit {
   }
 
   nextPage(event: PageEvent) {
-    console.log('event=====', event);
     const request = {};
     request['page'] = event.pageIndex.toString();
     request['size'] = event.pageSize.toString();
-    console.log('request[size]=====', request['size']);
     this.getListRequest(request);
   }
 
