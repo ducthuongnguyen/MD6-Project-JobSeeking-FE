@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 })
 export class CompanyBlockComponent implements OnInit {
   companies: Company[] = [];
-
+  checkList;
 
   constructor(private companyService: CompanyService,
               private router: Router,
@@ -29,6 +29,9 @@ export class CompanyBlockComponent implements OnInit {
     this.companyService.findBlockCompany().subscribe((listCompany: Company[]) => {
       console.log(listCompany)
       this.companies = listCompany;
+      if (this.companies.length==0){
+        this.checkList = true;
+      }
     }, error => {
       alert("loi")
     });

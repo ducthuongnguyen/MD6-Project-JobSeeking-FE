@@ -88,11 +88,14 @@ export class AddRecruitmentComponent implements OnInit {
       workingType: this.recruitmentForm.value.workingTypeId
     };
     this.recruimentNewsService.save(this.obj).subscribe(() => {
-      alert('Save recruitment successfully');
-      this.router.navigate(['/company/recruitment/our-list/', idCompany]);
+      alert('Thêm tin tuyển dụng thành công');
     }, error => {
       console.log('Error: ', error);
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/company/recruitment/our-list/']);
   }
 
   get title() {

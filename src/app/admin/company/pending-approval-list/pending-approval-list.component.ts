@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 })
 export class PendingApprovalListComponent implements OnInit {
   companies: Company[] = [];
-
+  checkList;
 
   constructor(private companyService: CompanyService,
               private actRouter: ActivatedRoute) {
@@ -26,6 +26,9 @@ export class PendingApprovalListComponent implements OnInit {
   listPendingCompany() {
     this.companyService.findPendingCompany().subscribe((listCompany: Company[]) => {
       this.companies = listCompany;
+      if (this.companies.length==0){
+        this.checkList = true;
+      }
     }, error => {
       alert("loi")
     });

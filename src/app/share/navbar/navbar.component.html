@@ -1,5 +1,5 @@
 <!-- Header home  -->
-<header *ngIf="checkRole"
+<header
         class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
   <div class="container">
     <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
@@ -14,94 +14,13 @@
         </a>
       </div>
       <div class="collapse navbar-collapse" id="mobile-menu">
-        <div class="navbar-nav-wrapper">
-          <ul class="navbar-nav main-menu">
+
+        <div class="navbar-nav-wrapper" *ngIf="authenticationService.currentUserSubject | async as profile">
+         <!--          company list-->
+          <ul class="navbar-nav main-menu" *ngIf="profile.roles[0].authority === 'COMPANY'">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/guest/company">Doanh nghiệp</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/guest/recruitment">Tin tuyển dụng</a>
-            </li>
-          </ul>
-        </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
-                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
-                aria-label="Toggle navigation">
-          <i class="gr-cross-icon"></i>
-        </button>
-      </div>
-      <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
-        <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:"
-           data-toggle="modal" data-target="#login">
-          Đăng nhập
-        </a>
-
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" data-toggle="dropdown" type="button" id="signup" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-            ĐĂNG KÝ
-          </button>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-            <li>
-              <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"
-                 href="javacript:" data-toggle="modal" data-target="#signupForUser">
-                NGƯỜI TÌM VIỆC
-              </a>
-            </li>
-            <li>
-              <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"
-                 href="javacript:" data-toggle="modal" data-target="#signupForCompany">
-                DOANH NGHIỆP
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-      <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
-              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
-              aria-label="Toggle navigation">
-        <!-- <i class="icon icon-simple-remove icon-close"></i> -->
-        <span class="hamburger hamburger--squeeze js-hamburger">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-            </span>
-            </span>
-      </button>
-      <!--/.Mobile Menu Hamburger Ends-->
-    </nav>
-  </div>
-</header>
-<!-- Header Company -->
-<header *ngIf="checkRoleCompany"
-        class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
-  <div class="container-fluid-fluid px-10">
-    <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
-      <!-- Brand Logo-->
-      <div class="brand-logo">
-        <a href="./index.html">
-          <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
-               class="light-version-logo default-logo">
-          <!-- Dark version logo (logo must be White)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="mobile-menu">
-        <div class="navbar-nav-wrapper">
-          <ul class="navbar-nav main-menu">
-            <!--                            <li class="nav-item dropdown active">-->
-            <!--                                <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="index.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>-->
-            <!--                            </li>-->
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ</a>
-            </li>
-
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i
@@ -126,7 +45,7 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown3" href="#features" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i
                 class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -143,86 +62,13 @@
               </ul>
             </li>
           </ul>
-        </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
-                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
-                aria-label="Toggle navigation">
-          <i class="gr-cross-icon"></i>
-        </button>
-      </div>
-      <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-        <div>
-          <!--          <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">-->
-          <!--            <i class="fas fa-bell heading-default-color"></i>-->
-          <!--            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>-->
-          <!--          </a>-->
-        </div>
-
-
-        <div>
-
-
-          <div class="dropdown show-gr-dropdown py-5">
-            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <div class="circle-40">
-                <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
-              </div>
-              <i class="fas fa-chevron-down heading-default-color ml-6"></i>
-            </a>
-            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
-                 aria-labelledby="dropdownMenuLink">
-              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
-              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
-                 (click)="logout()">Đăng xuất</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
-              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
-              aria-label="Toggle navigation">
-        <!-- <i class="icon icon-simple-remove icon-close"></i> -->
-        <span class="hamburger hamburger--squeeze js-hamburger">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-            </span>
-            </span>
-      </button>
-      <!--/.Mobile Menu Hamburger Ends-->
-    </nav>
-  </div>
-</header>
-<!-- Header Admin -->
-<header *ngIf="checkRoleAdmin"
-        class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
-  <div class="container-fluid-fluid px-10">
-    <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
-      <!-- Brand Logo-->
-      <div class="brand-logo">
-        <a href="./index.html">
-          <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
-               class="light-version-logo default-logo">
-          <!-- Dark version logo (logo must be White)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="mobile-menu">
-        <div class="navbar-nav-wrapper">
-          <ul class="navbar-nav main-menu">
-            <!--                            <li class="nav-item dropdown active">-->
-            <!--                                <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="index.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>-->
-            <!--                            </li>-->
-
+          <!--          admin list-->
+          <ul class="navbar-nav main-menu" *ngIf="profile.roles[0].authority === 'ADMIN'">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ</a>
+              <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ admin</a>
             </li>
-
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown4" href="#features" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doanh nghiệp <i
                 class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -244,7 +90,7 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown5" href="#features" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tuyển dụng<i
                 class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -261,87 +107,13 @@
               </ul>
             </li>
           </ul>
-        </div>
-        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
-                data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
-                aria-label="Toggle navigation">
-          <i class="gr-cross-icon"></i>
-        </button>
-      </div>
-      <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-        <div>
-          <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
-            <i class="fas fa-bell heading-default-color"></i>
-            <span
-              class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
-          </a>
-        </div>
-
-
-        <div>
-
-
-          <div class="dropdown show-gr-dropdown py-5">
-            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <div class="circle-40">
-                <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
-              </div>
-              <i class="fas fa-chevron-down heading-default-color ml-6"></i>
-            </a>
-            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
-                 aria-labelledby="dropdownMenuLink">
-              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
-              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
-                 (click)="logout()">Đăng xuất</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Mobile Menu Hamburger-->
-      <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
-              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
-              aria-label="Toggle navigation">
-        <!-- <i class="icon icon-simple-remove icon-close"></i> -->
-        <span class="hamburger hamburger--squeeze js-hamburger">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-            </span>
-            </span>
-      </button>
-      <!--/.Mobile Menu Hamburger Ends-->
-    </nav>
-  </div>
-</header>
-<!-- Header User -->
-<header *ngIf="checkRoleUser"
-        class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
-  <div class="container-fluid-fluid px-10">
-    <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
-      <!-- Brand Logo-->
-      <div class="brand-logo">
-        <a href="./index.html">
-          <!-- light version logo (logo must be black)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-black.png" alt=""
-               class="light-version-logo default-logo">
-          <!-- Dark version logo (logo must be White)-->
-          <img src="https://finestdevs.com/demos/jobcamp/image/logo-main-white.png" alt="" class="dark-version-logo">
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="mobile-menu">
-        <div class="navbar-nav-wrapper">
-          <ul class="navbar-nav main-menu">
-            <!--                            <li class="nav-item dropdown active">-->
-            <!--                                <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="index.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>-->
-            <!--                            </li>-->
-
+          <!--          user list-->
+          <ul class="navbar-nav main-menu" *ngIf="profile.roles[0].authority === 'USER'">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ</a>
+              <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ uuu</a>
             </li>
-
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown6" href="#features" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Công ty <i
                 class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -352,7 +124,7 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button"
+              <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown7" href="#features" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Việc làm<i
                 class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -369,49 +141,85 @@
               </ul>
             </li>
           </ul>
+
         </div>
+
         <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
                 data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
                 aria-label="Toggle navigation">
           <i class="gr-cross-icon"></i>
         </button>
       </div>
-      <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-        <div>
-          <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
-            <i class="fas fa-bell heading-default-color"></i>
-            <span
-              class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+      <!--          guest list-->
+      <div class="collapse navbar-collapse" id="mobile-menu2" *ngIf="(authenticationService.currentUserSubject | async) === null">
+        <div class="navbar-nav-wrapper">
+        <ul class="navbar-nav main-menu">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/guest/company">Doanh nghiệp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/guest/recruitment">Tin tuyển dụng</a>
+          </li>
+        </ul>
+      </div>
+      <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse"
+              data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true"
+              aria-label="Toggle navigation">
+        <i class="gr-cross-icon"></i>
+      </button>
+        <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
+          <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:"
+             data-toggle="modal" data-target="#login">
+            Đăng nhập
           </a>
-        </div>
 
-
-        <div>
-
-
-          <div class="dropdown show-gr-dropdown py-5">
-            <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <div class="circle-40">
-                <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
-              </div>
-              <i class="fas fa-chevron-down heading-default-color ml-6"></i>
-            </a>
-            <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
-                 aria-labelledby="dropdownMenuLink">
-              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>-->
-              <!--              <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>-->
-              <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
-                 (click)="logout()">Đăng xuất</a>
-            </div>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" data-toggle="dropdown" type="button" id="signup" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+              ĐĂNG KÝ
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li>
+                <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"
+                   href="javacript:" data-toggle="modal" data-target="#signupForUser">
+                  NGƯỜI TÌM VIỆC
+                </a>
+              </li>
+              <li>
+                <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"
+                   href="javacript:" data-toggle="modal" data-target="#signupForCompany">
+                  DOANH NGHIỆP
+                </a>
+              </li>
+            </ul>
           </div>
+
+        </div>
+      </div>
+
+
+<!--      </div>-->
+      <div class="dropdown show-gr-dropdown py-5" *ngIf="(authenticationService.currentUserSubject | async) !== null">
+        <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="circle-40">
+            <img src="https://finestdevs.com/demos/jobcamp/./image/header-profile.png" alt="">
+          </div>
+          <i class="fas fa-chevron-down heading-default-color ml-6"></i>
+        </a>
+        <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
+             aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+             (click)="logout()">Đăng xuất</a>
         </div>
       </div>
       <!-- Mobile Menu Hamburger-->
       <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse"
               data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false"
               aria-label="Toggle navigation">
-        <!-- <i class="icon icon-simple-remove icon-close"></i> -->
         <span class="hamburger hamburger--squeeze js-hamburger">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -425,7 +233,7 @@
 <!-- Login Modal -->
 <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper"
+    <button #closeModal type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper"
             data-dismiss="modal"><i class="fas fa-times"></i></button>
     <div class="login-modal-main bg-white rounded-8 overflow-hidden">
       <div class="row no-gutters">
