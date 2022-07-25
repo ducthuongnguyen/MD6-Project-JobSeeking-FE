@@ -38,14 +38,14 @@ export class RecruitmentNewsService {
   }
 
   // danh sach tin khong khoa
-  findUnlockRecruitmentNews(): Observable <RecruitmentNews[]> {
+  findUnlockRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
 
   // danh sach tin khong khoa phan trang
-  findPageUnlockRecruitmentNews(request): Observable <RecruitmentNews[]> {
+  findPageUnlockRecruitmentNews(request): Observable<RecruitmentNews[]> {
     const params = request;
-    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list-page`,{params});
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list-page`, {params});
   }
 
   // chuyen trang thai
@@ -59,9 +59,9 @@ export class RecruitmentNewsService {
     return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/${id}`);
   }
 
-  // set tin tuyen dung la de xuat
-  findByTitleWorkingPlaceExperience(title: string,cities:string): Observable<RecruitmentNews> {
-    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/find-by-title-place?title=` + title+`&place=`+cities);
+  // tim theo title va place
+  findByTitleWorkingPlace(title: string, cities: string): Observable<RecruitmentNews[]> {
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/find-by-title-place?title=` + title + `&place=` + cities);
   }
 
   //set tin tuyen dung la de xuat
@@ -74,8 +74,9 @@ export class RecruitmentNewsService {
   findAllProposedNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_PROPOSE);
   }
+
   applyRecruitment(id: string, user: User): Observable<RecruitmentNews> {
     // @ts-ignore
-    return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/apply/${id}`,user);
+    return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/apply/${id}`, user);
   }
 }

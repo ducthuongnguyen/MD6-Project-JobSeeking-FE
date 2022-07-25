@@ -26,12 +26,12 @@ export class ListJobComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findAll();
+    this.findUnlockRecruitmentNews();
     this.findAllCity();
   }
 
-  findAll() {
-    this.recruitmentNewService.findAll().subscribe((result: RecruitmentNews[]) => {
+  findUnlockRecruitmentNews() {
+    this.recruitmentNewService.findUnlockRecruitmentNews().subscribe((result: RecruitmentNews[]) => {
       this.recruitmentNews = result;
     }, error => {
       console.log(error);
@@ -46,8 +46,8 @@ export class ListJobComponent implements OnInit {
     });
   }
 
-  findByTitleWorkingPlaceExperience() {
-    this.recruitmentService.findByTitleWorkingPlaceExperience(this.searchForm.value.title,this.searchForm.value.cities).subscribe(result => {
+  findByTitleWorkingPlace() {
+    this.recruitmentService.findByTitleWorkingPlace(this.searchForm.value.title,this.searchForm.value.cities).subscribe(result => {
       // @ts-ignore
       this.recruitmentNews = result;
     }, error => {
