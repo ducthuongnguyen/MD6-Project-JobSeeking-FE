@@ -156,6 +156,7 @@ export class NavbarComponent implements OnInit {
           this.closeModal.nativeElement.click();
           this.messageLogin();
           this.router.navigate(['']);
+          location.reload();
         },
         error => {
           alert("Tài khoản của bạn sai mật khẩu!");
