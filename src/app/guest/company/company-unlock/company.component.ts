@@ -14,15 +14,16 @@ export class CompanyComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.findUnlockCompany();
+    this.findUnlockCompany();
   }
 
-  // findUnlockCompany() {
-  //   this.companyService.findUnlockCompany().subscribe(result => {
-  //     this.companies = result;
-  //   }, error => {
-  //     alert("Lỗi");
-  //   });
-  // }
+  findUnlockCompany() {
+    this.companyService.findUnlockCompany().subscribe(result => {
+      console.log(result)
+      this.companies = result;
+    }, error => {
+      alert("Lỗi");
+    });
+  }
 
 }

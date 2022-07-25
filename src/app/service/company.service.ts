@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient} from "@angular/common/http";
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Company} from '../model/company';
@@ -16,6 +16,7 @@ export class CompanyService {
   private API_COMPANY_PENDING = environment.apiUrl + '/companies' + '/pending-company';
   private API_COMPANY_BLOCK = environment.apiUrl + '/companies' + '/locked-company';
   private API_COMPANY_UNBLOCK = environment.apiUrl + '/companies' + '/unlock-company';
+  private API_COMPANY_UNBLOCK_PAGE = environment.apiUrl + '/companies' + '/unlock-company-page';
   private API_COMPANY_PROPOSED = environment.apiUrl + '/companies' + '/proposal-company';
   private API_COMPANY_SETPROPOSE = environment.apiUrl + '/companies' + '/set-propose';
 
@@ -31,14 +32,14 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
-  findPageUnlockCompany(request) {
+  findPageUnlockCompany(request){
     const params = request;
-    return this.httpClient.get(this.API_COMPANY_UNBLOCK, {params});
+    return  this.httpClient.get(this.API_COMPANY_UNBLOCK_PAGE,{params});
   }
 
-  // findUnlockCompany():Observable<Company[]> {
-  //   return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
-  // }
+  findUnlockCompany(): Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
+  }
 
 
   update(id: any, company: Company): Observable<Company> {
@@ -62,7 +63,7 @@ export class CompanyService {
 
 //tim cong ty theo ID
   findCompanyById(id: string): Observable<Company> {
-    return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`);
+    return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`)
   }
 
 
@@ -86,7 +87,7 @@ export class CompanyService {
   //set cong ty la de xuat
   proposeCompany(id: string): Observable<Company> {
     // @ts-ignore
-    return this.httpClient.put<Company>(`${this.API_COMPANY_SETPROPOSE}/${id}`);
+    return this.httpClient.put<Company>(`${this.API_COMPANY_SETPROPOSE}/${id}`)
   }
 }
 
