@@ -37,9 +37,14 @@ export class RecruitmentNewsService {
   }
 
   //danh sach tin khong khoa
-  findUnlockRecruitmentNews(): Observable<RecruitmentNews[]> {
-    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
+  // findUnlockRecruitmentNews(): Observable<RecruitmentNews[]> {
+  //   return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
+  // }
+  findPageUnlockRecruitmentNews(request) {
+    const params = request;
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`,{params});
   }
+
 
   //chuyen trang thai
   updateStatus(id: string): Observable<RecruitmentNews> {

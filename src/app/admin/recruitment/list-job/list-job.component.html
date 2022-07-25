@@ -51,6 +51,8 @@
         </tr>
         </tbody>
       </table>
+      <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements"
+                     (page)="nextPage($event)"></mat-paginator>
     </div>
     <div class="pt-2">
     </div>
