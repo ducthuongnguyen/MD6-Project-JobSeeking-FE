@@ -15,6 +15,7 @@ export class OurListComponent implements OnInit {
   constructor(private recruitmentService: RecruitmentNewsService) {
   }
 
+
   ngOnInit() {
     this.findAll();
   }
