@@ -22,7 +22,6 @@ export class RecruitmentNewsService {
 
   findAllByCompanyId(): Observable<RecruitmentNews[]> {
     const id = localStorage.getItem('COMPANYID');
-    console.log(id);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 
@@ -39,6 +38,12 @@ export class RecruitmentNewsService {
   findUnlockRecruitmentNews(): Observable <RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
+  //danh sach tin khong khoa phan trang
+  findPageUnlockRecruitmentNews(request) {
+    const params = request;
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list-page`,{params});
+  }
+
 
   // chuyen trang thai
   updateStatus(id: string): Observable<RecruitmentNews> {
@@ -54,7 +59,7 @@ export class RecruitmentNewsService {
   // set tin tuyen dung la de xuat
   propose(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
-    return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE`${id}`);
+    return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE + `/${id}`);
   }
 
   // danh sach tin duoc de xuat

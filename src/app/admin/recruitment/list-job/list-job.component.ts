@@ -3,6 +3,7 @@ import {RecruitmentNews} from '../../../model/recruitment-news';
 import {CompanyService} from '../../../service/company.service';
 import Swal from "sweetalert2";
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-list-job',
@@ -11,27 +12,42 @@ import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 })
 export class ListJobComponent implements OnInit {
   recruimentNews: RecruitmentNews[] = [];
+  totalElements: number = 0;
+  loading: boolean;
 
   constructor(private companyService: CompanyService,
               private recruitmentService: RecruitmentNewsService) {
   }
 
   ngOnInit() {
-    this.listRecruiment();
+    this.getListRequest({page: 0, size: 5});
   }
 
-  listRecruiment() {
-    this.recruitmentService.findUnlockRecruitmentNews().subscribe((data: RecruitmentNews[]) => {
-      this.recruimentNews = data;
+  private getListRequest(request) {
+    this.loading = true;
+    this.recruitmentService.findPageUnlockRecruitmentNews(request).subscribe(data => {
+      this.recruimentNews = data['content'];
+      console.log('data[content]--------', data['content']);
+      this.totalElements = data['totalElements'];
+      this.loading = false;
     }, error => {
-      console.log("Lỗi");
-    })
+      this.loading = false;
+    });
+  }
+
+  nextPage(event: PageEvent) {
+    console.log('event=====', event);
+    const request = {};
+    request['page'] = event.pageIndex.toString();
+    request['size'] = event.pageSize.toString();
+    console.log('request[size]=====', request['size']);
+    this.getListRequest(request);
   }
 
   proposed(id: string) {
     this.recruitmentService.propose(id).subscribe(() => {
       this.messagePropose();
-      this.listRecruiment();
+      this.getListRequest({page: 0, size: 5});
     }, error => {
       alert("Lỗi");
     })
@@ -50,7 +66,7 @@ export class ListJobComponent implements OnInit {
   updateStatus(id: string) {
     this.recruitmentService.updateStatus(id).subscribe(() => {
       this.messageStatus();
-      this.listRecruiment();
+      this.getListRequest({page: 0, size: 5});
     }, error => {
       alert("Lỗi!");
     })
