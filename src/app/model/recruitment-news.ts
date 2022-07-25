@@ -1,6 +1,8 @@
 import {Company} from "./company";
 import {Vacancy} from "./vacancy";
 import {Field} from "./field";
+import {Role} from "./role";
+import {User} from "./user";
 
 export interface RecruitmentNews {
   id?: string;
@@ -19,4 +21,5 @@ export interface RecruitmentNews {
   status?: string;
   proposed?: string;
   workingType?: string;
+  users?: [User]
 }

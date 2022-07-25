@@ -13,6 +13,7 @@ import { AddRecruitmentComponent } from './recruitment/add-recruitment/add-recru
 import { EditRecruitmentComponent } from './recruitment/edit-recruitment/edit-recruitment.component';
 import {HomeComponent} from "../share/home/home.component";
 import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/detail-recruitment.component';
+import { ApplyUsersComponent } from './recruitment/apply-users/apply-users.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/det
     BlockListComponent,
     AddRecruitmentComponent,
     EditRecruitmentComponent,
-    DetailRecruitmentComponent
+    DetailRecruitmentComponent,
+    ApplyUsersComponent
   ],
   imports: [
     CommonModule,

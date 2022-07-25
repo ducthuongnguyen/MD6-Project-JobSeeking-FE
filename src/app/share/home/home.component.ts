@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   recruitment: RecruitmentNews;
   id: any;
   user:User;
+  checkRoleNo;
+  checkRole;
 
   constructor(private companyService: CompanyService,
               private recruitmentNewsService: RecruitmentNewsService,
@@ -28,6 +30,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.findAllProposedCompany();
     this.findAllProposedNews();
+    const role = localStorage.getItem('ROLE');
+    if (role == null) {
+      this.checkRoleNo = true;
+    }
   }
 
   findAllProposedCompany() {
@@ -74,6 +80,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  messageApply() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Ứng tuyển thành công',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
 
   messageLogin() {
     Swal.fire({
@@ -84,13 +99,5 @@ export class HomeComponent implements OnInit {
       timer: 2000
     })
   }
-  messageApply() {
-    Swal.fire({
-      position: 'center',
-      icon: 'info',
-      title: 'Ứng tuyển thành công',
-      showConfirmButton: false,
-      timer: 2000
-    })
-  }
+
 }

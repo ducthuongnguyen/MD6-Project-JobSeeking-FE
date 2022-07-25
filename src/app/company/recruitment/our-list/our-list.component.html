@@ -17,10 +17,10 @@
         <thead>
         <tr>
           <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Tiêu đề</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số vị trí cần tuyển</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số lượng</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Cấp bậc</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Kinh Nghiệm</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Ngày đăng tin</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số người ứng tuyển</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Trạng thái</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Thao tác</th>
         </tr>
@@ -44,10 +44,10 @@
             <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.vacancy.name}}</h3>
           </td>
           <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.requiredExperience}}</h3>
+            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.expiredDate}}</h3>
           </td>
           <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.expiredDate}}</h3>
+            <h3 class="font-size-4 font-weight-normal text-red-2 mb-0"><a [routerLink]="['/company/recruitment/apply-users', recuitment.id]">{{recuitment?.users?.length}}</a></h3>
           </td>
           <td class="table-y-middle py-7 min-width-px-110 pr-0">
             <div>
@@ -65,28 +65,6 @@
         </tbody>
       </table>
     </div>
-<!--    <div class="pt-2">-->
-<!--      <nav aria-label="Page navigation example">-->
-<!--        <ul class="pagination pagination-hover-primary rounded-0 ml-n2">-->
-<!--          <li class="page-item rounded-0 flex-all-center">-->
-<!--            <a class="page-link rounded-0 border-0 px-3active" href="#" aria-label="Previous">-->
-<!--              <i class="fas fa-chevron-left"></i>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">1</a></li>-->
-<!--          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">2</a></li>-->
-<!--          <li class="page-item"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">3</a></li>-->
-<!--          <li class="page-item disabled"><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">...</a>-->
-<!--          </li>-->
-<!--          <li class="page-item "><a class="page-link border-0 font-size-4 font-weight-semibold px-3" href="#">7</a></li>-->
-<!--          <li class="page-item rounded-0 flex-all-center">-->
-<!--            <a class="page-link rounded-0 border-0 px-3" href="#" aria-label="Next">-->
-<!--              <i class="fas fa-chevron-right"></i>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </nav>-->
-<!--    </div>-->
   </div>
   <br>
   <div *ngIf="checkList"  class="row mb-11 align-items-center">
