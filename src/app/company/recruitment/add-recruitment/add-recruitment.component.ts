@@ -23,7 +23,7 @@ export class AddRecruitmentComponent implements OnInit {
     title: new FormControl('', [Validators.required]),
     vacancyId: new FormControl('', [Validators.required]),
     fieldId: new FormControl('', [Validators.required]),
-    salaryForm: new FormControl('', [Validators.required]),
+    salaryFrom: new FormControl('', [Validators.required]),
     salaryTo: new FormControl('', [Validators.required]),
     expiredDate: new FormControl('', [Validators.required]),
     employeeQuantity: new FormControl('', [Validators.required]),
@@ -78,7 +78,7 @@ export class AddRecruitmentComponent implements OnInit {
       field: {
         id: this.recruitmentForm.value.fieldId
       },
-      salaryFrom: this.recruitmentForm.value.salaryForm,
+      salaryFrom: this.recruitmentForm.value.salaryFrom,
       salaryTo: this.recruitmentForm.value.salaryTo,
       expiredDate: this.recruitmentForm.value.expiredDate,
       employeeQuantity: this.recruitmentForm.value.employeeQuantity,
