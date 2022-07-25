@@ -7,11 +7,12 @@
       <div class="col-12 col-xl-2 col-lg-2"></div>
       <div class="col-12 col-xl-8 col-lg-8">
         <!-- form -->
-        <form action="/" class="search-form">
+        <form action="/" class="search-form" [formGroup]="searchForm" (ngSubmit)="findByTitleWorkingPlaceExperience()">
           <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
             <div class="filter-inputs">
               <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Tên tiêu đề">
+                <input class="form-control focus-reset pl-13" type="text" id="title" placeholder="Tên tiêu đề"
+                       formControlName="title">
                 <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                                         <i class="fa-solid fa-magnifying-glass" style="color: #62AE77"></i>
                   </span>
@@ -19,11 +20,8 @@
               <!-- .select-city starts -->
               <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
                 <select name="country" id="country" class="nice-select font-size-4 pl-13 h-100 arrow-3">
-                  <option data-display="City, state, zip code or (Remote)">Thành Phố</option>
-                  <option value="">Hà Nội </option>
-                  <option value="">Đà Nẵng</option>
-                  <option value="">Hồ Chí Minh</option>
-                  <option value="">Tây Nguyên</option>
+                  <!--                  <option data-display="City, state, zip code or (Remote)">Thành Phố</option>-->
+                  <option id=city value="" *ngFor="let city of cities">{{city.name}} </option>
                 </select>
                 <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                                         <i class="fa-solid fa-location-dot" style="color: #62AE77"></i>
@@ -37,10 +35,10 @@
           </div>
         </form>
 
-        <div  class="pt-12" >
-          <div  class="d-flex align-items-center justify-content-between mb-6">
+        <div class="pt-12">
+          <div class="d-flex align-items-center justify-content-between mb-6">
             <h5 style="text-align: center" class="font-size-4 font-weight-normal text-gray">
-             <h3 style="text-align: center" class="heading-default-color">Danh Sách Tin Tuyển Dụng</h3>
+              <h3 style="text-align: center" class="heading-default-color">Danh Sách Tin Tuyển Dụng</h3>
             </h5>
           </div>
 
@@ -54,7 +52,9 @@
                       <img src="https://finestdevs.com/demos/jobcamp/./image/l2/png/featured-job-logo-1.png" alt="">
                     </div>
                     <div>
-                      <h3 class="mb-0"><a class="font-size-6 heading-default-color" routerLink="/company/recruitment/detail/{{recruitment.id}}">{{recruitment.title}}</a></h3>
+                      <h3 class="mb-0"><a class="font-size-6 heading-default-color"
+                                          routerLink="/company/recruitment/detail/{{recruitment.id}}">{{recruitment.title}}</a>
+                      </h3>
                       <a href="#" class="font-size-3 text-default-color line-height-2">{{recruitment.company.name}}</a>
                     </div>
                   </div>
@@ -64,7 +64,8 @@
                     <div class="image mr-5 mt-2">
                     </div>
                     <p class="font-weight-bold font-size-7 text-hit-gray mb-0">
-                      <span class="text-black-2">{{recruitment.salaryFrom}}-{{recruitment.salaryTo}}</span> Triệu VNĐ</p>
+                      <span class="text-black-2">{{recruitment.salaryFrom}}-{{recruitment.salaryTo}}</span> Triệu VNĐ
+                    </p>
                   </div>
                 </div>
               </div>
@@ -72,25 +73,32 @@
                 <div class="col-md-7">
                   <ul class="d-flex list-unstyled mr-n3 flex-wrap">
                     <li>
-                      <span class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#">Lĩnh Vực: {{recruitment.field.name}}</span>
+                      <span
+                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
+                        href="#">Lĩnh Vực: {{recruitment.field.name}}</span>
                     </li>
                     <li>
-                      <span class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#">Kinh Nghiệm: {{recruitment.requiredExperience}} Năm</span>
+                      <span
+                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
+                        href="#">Kinh Nghiệm: {{recruitment.requiredExperience}} Năm</span>
                     </li>
                   </ul>
                 </div>
                 <div class="col-md-5">
                   <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
                     <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
-                      <span class="mr-4" style="margin-top: -2px"><img src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-loaction-pin-black.svg" alt=""></span>
+                      <span class="mr-4" style="margin-top: -2px"><img
+                        src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-loaction-pin-black.svg"
+                        alt=""></span>
                       <span class="font-weight-semibold">{{recruitment.workingPlace}}</span>
                     </li>
-<!--                    <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">-->
-<!--                      <span class="mr-4" style="margin-top: -2px"><img src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-suitecase.svg" alt=""></span>-->
-<!--                      <span class="font-weight-semibold">{{recruitment.workingType}}</span>-->
-<!--                    </li>-->
+                    <!--                    <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">-->
+                    <!--                      <span class="mr-4" style="margin-top: -2px"><img src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-suitecase.svg" alt=""></span>-->
+                    <!--                      <span class="font-weight-semibold">{{recruitment.workingType}}</span>-->
+                    <!--                    </li>-->
                     <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
-                      <span class="mr-4" style="margin-top: -2px"><img src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-clock.svg" alt=""></span>
+                      <span class="mr-4" style="margin-top: -2px"><img
+                        src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-clock.svg" alt=""></span>
                       <span class="font-weight-semibold">Hết Hạn: {{recruitment.expiredDate}}</span>
                     </li>
                   </ul>
@@ -99,10 +107,10 @@
             </div>
             <!-- End Single Featured Job -->
           </div>
+        </div>
       </div>
-    </div>
       <div class="col-12 col-xl-2 col-lg-2"></div>
+    </div>
   </div>
-</div>
-<!-- Main Content end -->
+  <!-- Main Content end -->
 </div>

@@ -37,7 +37,7 @@ export class RecruitmentNewsService {
   }
 
   //danh sach tin khong khoa
-  findUnlockRecruitmentNews():Observable<RecruitmentNews[]>{
+  findUnlockRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
 
@@ -50,6 +50,10 @@ export class RecruitmentNewsService {
   //tim tin tuyen dung theo ID
   findById(id: string): Observable<RecruitmentNews> {
     return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/${id}`);
+  }
+
+  findByTitleWorkingPlaceExperience(title: string): Observable<RecruitmentNews> {
+    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/search-by-title-working-place-experience?title=` + title);
   }
 
   //set tin tuyen dung la de xuat
