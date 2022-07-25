@@ -156,7 +156,7 @@
           <option *ngFor="let c of city">{{c.name}}</option>
         </select>
       </div>
-      <div *ngIf="!workingPlace.valid && workingPlace.touched">
+      <div *ngIf="!workingPlace?.valid && workingPlace?.touched">
         <div [hidden]="!workingPlace.errors.required">
           <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
         </div>
