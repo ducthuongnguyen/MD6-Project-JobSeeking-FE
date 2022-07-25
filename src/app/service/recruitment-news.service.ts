@@ -60,6 +60,11 @@ export class RecruitmentNewsService {
   }
 
   // set tin tuyen dung la de xuat
+  findByTitleWorkingPlaceExperience(title: string,cities:string): Observable<RecruitmentNews> {
+    return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/find-by-title-place?title=` + title+`&place=`+cities);
+  }
+
+  //set tin tuyen dung la de xuat
   propose(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
     return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE + `/${id}`);
