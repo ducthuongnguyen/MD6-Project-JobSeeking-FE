@@ -13,6 +13,7 @@ import {UserService} from "../../../service/user.service";
 })
 export class RecruitmentDetailComponent implements OnInit {
   recruitmentNews: RecruitmentNews = {};
+  recruitmentNewsApply: RecruitmentNews = {};
   checkRole;
   checkRoleNo;
   user: User;
@@ -57,6 +58,7 @@ export class RecruitmentDetailComponent implements OnInit {
 
   applyRe(id: any,user: User){
     this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
+      this.recruitmentNewsApply =result;
       this.messageApply();
     }, error => {
       alert("Lỗi");

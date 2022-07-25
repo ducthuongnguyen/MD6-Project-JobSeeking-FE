@@ -4,6 +4,7 @@ import {RecruitmentNews} from '../model/recruitment-news';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {User} from "../model/user";
+import {Message} from "../model/message";
 
 @Injectable({
   providedIn: 'root'
@@ -66,5 +67,11 @@ export class RecruitmentNewsService {
   applyRecruitment(id: string, user: User): Observable<RecruitmentNews> {
     // @ts-ignore
     return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/apply/${id}`,user);
+  }
+  saveMessage(message: Message): Observable<Message> {
+    return this.httpClient.post<Message>("http://localhost:8080/message",message);
+  }
+  findAllMessageByCompany(id: any): Observable<Message[]> {
+    return this.httpClient.get<Message[]>(`http://localhost:8080/message/findByCompany/${id}`);
   }
 }
