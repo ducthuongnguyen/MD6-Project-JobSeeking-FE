@@ -31,9 +31,14 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
+  // findPageUnlockCompany(request){
+  //   const params = request;
+  //   return  this.httpClient.get(this.API_COMPANY_UNBLOCK,{params});
+  // }
   findUnlockCompany():Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
   }
+
 
   update(id: any, company: Company): Observable<Company> {
     return this.httpClient.put<Company>(`${API_URL}/companies/${id}`, company);
