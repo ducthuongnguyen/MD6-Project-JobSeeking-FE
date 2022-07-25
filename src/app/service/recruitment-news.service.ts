@@ -35,13 +35,14 @@ export class RecruitmentNewsService {
   }
 
   // danh sach tin khong khoa
-  findUnlockRecruitmentNews(): Observable <RecruitmentNews[]> {
+  findUnlockRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
+
   //danh sach tin khong khoa phan trang
   findPageUnlockRecruitmentNews(request) {
     const params = request;
-    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list-page`,{params});
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list-page`, {params});
   }
 
 
