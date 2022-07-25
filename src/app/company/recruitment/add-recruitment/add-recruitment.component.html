@@ -165,8 +165,9 @@
       </div>
       <!-- Form submit button -->
       <div class="d-grid" style="margin-left: 22%">
-        <button class="btn btn-primary btn-lg mr-3" type="submit" [disabled]="recruitmentForm.invalid">Submit</button>
-        <button class="btn btn-primary btn-lg" type="reset">Reset</button>
+        <button class="btn btn-primary btn-lg mr-3" type="submit" [disabled]="recruitmentForm.invalid">Lưu</button>
+        <button class="btn btn-primary btn-lg" type="reset">Làm mới</button>
+        <button class="btn btn-primary btn-lg" type="button" (click)="goBack()">Trở về</button>
       </div>
     </div>
   </form>
