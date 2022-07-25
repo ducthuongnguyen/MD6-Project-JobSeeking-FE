@@ -23,13 +23,6 @@ export class ListJobComponent implements OnInit {
     this.getListRequest({page: 0, size: 5});
   }
 
-  // listRecruiment() {
-  //   this.recruitmentService.findUnlockRecruitmentNews().subscribe((data: RecruitmentNews[]) => {
-  //     this.recruimentNews = data;
-  //   }, error => {
-  //     console.log("Lỗi");
-  //   })
-  // }
   private getListRequest(request) {
     this.loading = true;
     this.recruitmentService.findPageUnlockRecruitmentNews(request).subscribe(data => {
@@ -49,8 +42,6 @@ export class ListJobComponent implements OnInit {
     request['size'] = event.pageSize.toString();
     console.log('request[size]=====', request['size']);
     this.getListRequest(request);
-
-    // this.getSearchRequest(request,this.name);
   }
 
   proposed(id: string) {
