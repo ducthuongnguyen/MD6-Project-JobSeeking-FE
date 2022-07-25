@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RecruitmentNews} from '../../../model/recruitment-news';
 import {CompanyService} from '../../../service/company.service';
 import Swal from "sweetalert2";
+import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 
 @Component({
   selector: 'app-list-job',
@@ -11,7 +12,8 @@ import Swal from "sweetalert2";
 export class ListJobComponent implements OnInit {
   recruimentNews: RecruitmentNews[] = [];
 
-  constructor(private companyService: CompanyService) {
+  constructor(private companyService: CompanyService,
+              private recruitmentService: RecruitmentNewsService) {
   }
 
   ngOnInit() {
@@ -19,13 +21,15 @@ export class ListJobComponent implements OnInit {
   }
 
   listRecruiment() {
-    this.companyService.findAllRecruiment().subscribe(data => {
+    this.recruitmentService.findUnlockRecruitmentNews().subscribe((data: RecruitmentNews[]) => {
       this.recruimentNews = data;
+    }, error => {
+      console.log("Lỗi");
     })
   }
 
   proposed(id: string) {
-    this.companyService.proposeCompany(id).subscribe(() => {
+    this.recruitmentService.propose(id).subscribe(() => {
       this.messagePropose();
       this.listRecruiment();
     }, error => {
@@ -37,7 +41,26 @@ export class ListJobComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Đã khóa doanh nghiệp',
+      title: 'Thành công!',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+
+  updateStatus(id: string) {
+    this.recruitmentService.updateStatus(id).subscribe(() => {
+      this.messageStatus();
+      this.listRecruiment();
+    }, error => {
+      alert("Lỗi!");
+    })
+  }
+
+  messageStatus() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Chuyển trạng thái thành công!',
       showConfirmButton: false,
       timer: 2000
     })

@@ -12,7 +12,6 @@ const API_URL = environment.apiUrl;
 })
 export class CompanyService {
   private API_COMPANY = environment.apiUrl + '/companies';
-  private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
   private API_COMPANY_APPROVED = environment.apiUrl + '/companies' + '/approved-company';
   private API_COMPANY_PENDING = environment.apiUrl + '/companies' + '/pending-company';
   private API_COMPANY_BLOCK = environment.apiUrl + '/companies' + '/locked-company';
@@ -60,10 +59,6 @@ export class CompanyService {
     return this.httpClient.get<Company>(`${this.API_COMPANY}/${id}`)
   }
 
-//tin tat ca tin tuyen dung
-  findAllRecruiment(): Observable<RecruitmentNews[]> {
-    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST);
-  }
 
 //duyet cong ty
   approveCompany(id: string): Observable<Company> {

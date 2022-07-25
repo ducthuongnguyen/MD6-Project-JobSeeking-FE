@@ -37,7 +37,7 @@ export class RecruitmentNewsService {
   }
 
   //danh sach tin khong khoa
-  findUnlockRecruitmentNews():Observable<RecruitmentNews[]>{
+  findUnlockRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
 
@@ -55,7 +55,7 @@ export class RecruitmentNewsService {
   //set tin tuyen dung la de xuat
   propose(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
-    return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE`${id}`);
+    return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE + `/${id}`);
   }
 
   //danh sach tin duoc de xuat
