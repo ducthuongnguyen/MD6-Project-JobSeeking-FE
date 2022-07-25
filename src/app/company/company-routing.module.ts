@@ -7,6 +7,7 @@ import { BlockListComponent } from './recruitment/block-list/block-list.componen
 import { DetailRecruitmentComponent } from './recruitment/detail-recruitment/detail-recruitment.component';
 import { ListJobComponent } from './recruitment/list-job/list-job.component';
 import { OurListComponent } from './recruitment/our-list/our-list.component';
+import {ApplyUsersComponent} from "./recruitment/apply-users/apply-users.component";
 import {EditRecruitmentComponent} from './recruitment/edit-recruitment/edit-recruitment.component';
 
 
@@ -50,6 +51,10 @@ const routes: Routes = [
       {
         path: 'detail/:id',
         component: DetailRecruitmentComponent
+      },
+      {
+        path: 'apply-users/:id',
+        component: ApplyUsersComponent
       }
     ]
   },

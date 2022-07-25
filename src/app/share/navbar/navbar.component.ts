@@ -57,7 +57,7 @@ export class NavbarComponent implements OnInit {
 
     this.getAllCity();
     const role = localStorage.getItem('ROLE');
-    this.idCompany = localStorage.getItem('COMPANYID');
+    this.idCompany = localStorage.getItem('ID')
     if (role == null) {
       this.checkRole = true;
     }
@@ -145,14 +145,13 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
-            console.log(data.status);
             // @ts-ignore
             this.messageLoginFail();
           }
           localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);
           localStorage.setItem('EMAIL', data.email);
-          localStorage.setItem('COMPANYID', data.id);
+          localStorage.setItem('ID', data.id);
           this.closeModal.nativeElement.click();
           this.messageLogin();
           this.router.navigate(['']);

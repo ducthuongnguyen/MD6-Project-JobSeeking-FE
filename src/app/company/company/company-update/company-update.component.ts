@@ -10,8 +10,6 @@ import {CompanyService} from "../../../service/company.service";
   styleUrls: ['./company-update.component.css']
 })
 export class CompanyUpdateComponent implements OnInit {
-  // const data = localStorage.getItem('USERID');
-  // conts id = localStorage.getItem('COMPANYID');
   city: any[] = [];
   image: any;
   editForm: FormGroup = new FormGroup({
@@ -34,7 +32,7 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   getCompany() {
-    const id = localStorage.getItem('COMPANYID');
+    const id = localStorage.getItem('ID');
     return this.companyService.getById(id).subscribe(company => {
       this.editForm = new FormGroup({
         name: new FormControl(company.name),
@@ -47,7 +45,7 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   update() {
-    const id = localStorage.getItem('COMPANYID');
+    const id = localStorage.getItem('ID');
     const company = this.editForm.value
     this.companyService.update(id, company).subscribe(() => {
       // this.router.navigate(['/student']);
@@ -66,6 +64,7 @@ export class CompanyUpdateComponent implements OnInit {
       timer: 3000
     })
   }
+
   getAllCity() {
     this.authenticationService.findAllCity().subscribe(result => {
       this.city = result
@@ -74,8 +73,8 @@ export class CompanyUpdateComponent implements OnInit {
       console.log(error);
     });
   }
-  handleChangeImage(e){
-    this.image= e.target.files[0];
-  }
 
+  handleChangeImage(e) {
+    this.image = e.target.files[0];
+  }
 }

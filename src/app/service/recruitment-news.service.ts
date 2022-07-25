@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {RecruitmentNews} from '../model/recruitment-news';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
+import {User} from "../model/user";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,8 @@ export class RecruitmentNewsService {
   }
 
   findAllByCompanyId(): Observable<RecruitmentNews[]> {
-    const id = localStorage.getItem('COMPANYID');
+    const id = localStorage.getItem('ID');
+    console.log(id)
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 
@@ -66,5 +68,9 @@ export class RecruitmentNewsService {
   // danh sach tin duoc de xuat
   findAllProposedNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_PROPOSE);
+  }
+  applyRecruitment(id: string, user: User): Observable<RecruitmentNews> {
+    // @ts-ignore
+    return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/apply/${id}`,user);
   }
 }

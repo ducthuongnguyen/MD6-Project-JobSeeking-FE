@@ -351,8 +351,13 @@
             </a></li>
           </ul>
           <p class="mb-7 font-size-4 text-gray">{{re.description}}</p>
-          <div class="card-btn-group">
-            <a class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</a>
+          <div *ngIf="!checkRoleNo" class="card-btn-group">
+            <button class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>
+            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem
+              chi tiết</a>
+          </div>
+          <div *ngIf="checkRoleNo" class="card-btn-group">
+            <button class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>
             <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem
               chi tiết</a>
           </div>

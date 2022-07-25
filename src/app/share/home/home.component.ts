@@ -4,6 +4,9 @@ import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {CompanyService} from 'src/app/service/company.service';
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 import Swal from "sweetalert2";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {User} from "../../model/user";
+import {UserService} from "../../service/user.service";
 
 @Component({
   selector: 'app-home',
@@ -14,14 +17,23 @@ export class HomeComponent implements OnInit {
   companies: Company[] = [];
   recruitmentNews: RecruitmentNews[] = [];
   recruitment: RecruitmentNews;
+  id: any;
+  user:User;
+  checkRoleNo;
+  checkRole;
 
   constructor(private companyService: CompanyService,
-              private recruitmentNewsService: RecruitmentNewsService) {
+              private recruitmentNewsService: RecruitmentNewsService,
+              public userService: UserService) {
   }
 
   ngOnInit() {
     this.findAllProposedCompany();
     this.findAllProposedNews();
+    const role = localStorage.getItem('ROLE');
+    if (role == null) {
+      this.checkRoleNo = true;
+    }
   }
 
   findAllProposedCompany() {
@@ -39,6 +51,44 @@ export class HomeComponent implements OnInit {
       alert("Lỗi");
     })
   }
+  applyRecruitment(id: any) {
+    // console.log("/////////")
+    const idUser = localStorage.getItem('ID');
+    // this.userService.getById(idUser).subscribe(result => {
+    //
+    //   this.user = result;
+    //   console.log("/////////")
+    //   console.log(this.user)
+    //   this.applyRe(id,this.user);
+    // }, error => {
+    //   alert("Lỗi");
+    // })
+
+    this.userService.getById(idUser).subscribe((result) => {
+      this.user = result;
+      this.applyRe(id,this.user);
+    }, e => {
+      console.log(e);
+    });
+  }
+
+  applyRe(id: any,user: User){
+    this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
+      this.messageApply();
+    }, error => {
+      alert("Lỗi");
+    })
+  }
+
+  messageApply() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Ứng tuyển thành công',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
 
   messageLogin() {
     Swal.fire({
@@ -49,12 +99,5 @@ export class HomeComponent implements OnInit {
       timer: 2000
     })
   }
-  //
-  // seeDetail(id: string) {
-  //   this.recruitmentNewsService.findById(id).subscribe((data: RecruitmentNews) => {
-  //     this.recruitment = data;
-  //   }, error => {
-  //     alert("Lỗi");
-  //   })
-  // }
+
 }
