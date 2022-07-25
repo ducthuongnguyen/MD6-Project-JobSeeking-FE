@@ -19,7 +19,6 @@ export class CompanyComponent implements OnInit {
 
   findUnlockCompany() {
     this.companyService.findUnlockCompany().subscribe(result => {
-      console.log(result)
       this.companies = result;
     }, error => {
       alert("Lỗi");
