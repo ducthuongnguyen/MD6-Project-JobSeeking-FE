@@ -18,6 +18,7 @@
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Công ty</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Lĩnh vực</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Nơi làm việc</th>
+          <th scope="col" class="border-0 font-size-4 font-weight-normal">Trạng thái</th>
           <th scope="col" class="border-0 font-size-4 font-weight-normal">Đề xuất</th>
         </tr>
         </thead>
@@ -38,6 +39,10 @@
           </td>
           <td class="table-y-middle py-7 min-width-px-170 pr-0">
             <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{r.workingPlace}}</h3>
+          </td>
+          <td class="table-y-middle py-7 min-width-px-110 pr-0">
+            <button class=""><a class="font-size-3 font-weight-bold text-green text-uppercase"
+                                (click)="updateStatus(r.id)">{{r.status}}</a></button>
           </td>
           <td class="table-y-middle py-7 min-width-px-110 pr-0">
             <button class=""><a class="font-size-3 font-weight-bold text-green text-uppercase"
