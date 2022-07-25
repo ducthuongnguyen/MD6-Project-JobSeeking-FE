@@ -22,7 +22,7 @@ export class CompanyComponent implements OnInit {
       console.log(result)
       this.companies = result;
     }, error => {
-      alert("Lỗi");
+      alert('Lỗi');
     });
   }
 

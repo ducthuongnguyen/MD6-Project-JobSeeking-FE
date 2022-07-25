@@ -31,6 +31,11 @@ export class RecruitmentNewsService {
     return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST, recruitment);
   }
 
+  // Sửa tin tuyển dụng
+  update(id: string, recruitment: RecruitmentNews): Observable<RecruitmentNews> {
+    return this.httpClient.put<RecruitmentNews>(`${this.API_RECRUIMENT_LIST}/${id}`, recruitment);
+  }
+
   // danh sach tin bi khoa
   findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);

@@ -14,7 +14,7 @@ export interface RecruitmentNews {
   employeeQuantity?: string;
   requiredExperience?: string;
   gender?: string;
-  workingPlace?: string;
+  workingPlace?: any;
   description?: string;
   status?: string;
   proposed?: string;
