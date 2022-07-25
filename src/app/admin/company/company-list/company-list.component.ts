@@ -21,43 +21,44 @@ export class CompanyListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findUnlockCompany();
+    // this.findUnlockCompany();
+    this.getListRequest({page: 0, size: 5});
   }
 
-  findUnlockCompany() {
-    this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
-      this.companies = result;
-    }, error => {
-      alert("Lỗi");
-    })
-  }
-  // private getListRequest(request) {
-  //   this.loading = true;
-  //   this.companyService.findPageUnlockCompany(request).subscribe(data => {
-  //     this.companies = data['content'];
-  //     console.log('data[content]--------', data['content']);
-  //     this.totalElements = data['totalElements'];
-  //     this.loading = false;
+  // findUnlockCompany() {
+  //   this.companyService.findUnlockCompany().subscribe((result: Company[]) => {
+  //     this.companies = result;
   //   }, error => {
-  //     this.loading = false;
-  //   });
+  //     alert("Lỗi");
+  //   })
   // }
+  private getListRequest(request) {
+    this.loading = true;
+    this.companyService.findPageUnlockCompany(request).subscribe(data => {
+      this.companies = data['content'];
+      console.log('data[content]--------', data['content']);
+      this.totalElements = data['totalElements'];
+      this.loading = false;
+    }, error => {
+      this.loading = false;
+    });
+  }
 
-  // nextPage(event: PageEvent) {
-  //   console.log('event=====', event);
-  //   const request = {};
-  //   request['page'] = event.pageIndex.toString();
-  //   request['size'] = event.pageSize.toString();
-  //   console.log('request[size]=====', request['size']);
-  //   this.getListRequest(request);
-  //
-  //   // this.getSearchRequest(request,this.name);
-  // }
+  nextPage(event: PageEvent) {
+    console.log('event=====', event);
+    const request = {};
+    request['page'] = event.pageIndex.toString();
+    request['size'] = event.pageSize.toString();
+    console.log('request[size]=====', request['size']);
+    this.getListRequest(request);
+
+    // this.getSearchRequest(request,this.name);
+  }
 
   updateStatus(id: string) {
     this.companyService.updateStatus(id).subscribe(() => {
       this.messageStatus();
-      this.findUnlockCompany();
+      this.getListRequest({page: 0, size: 5});
     }, error => {
       alert("Lỗi");
     })
@@ -66,7 +67,7 @@ export class CompanyListComponent implements OnInit {
   proposeCompany(id: string) {
     this.companyService.proposeCompany(id).subscribe(() => {
       this.messagePropose();
-      this.findUnlockCompany();
+      this.getListRequest({page: 0, size: 5});
     }, error => {
       alert("Lỗi");
     })
