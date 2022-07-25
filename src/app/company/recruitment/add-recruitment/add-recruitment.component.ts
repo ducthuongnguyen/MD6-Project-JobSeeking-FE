@@ -7,6 +7,7 @@ import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 import {VacancyService} from 'src/app/service/vacancy.service';
 import {Vacancy} from '../../../model/vacancy';
 import {Field} from '../../../model/field';
+import Swal from 'sweetalert2';
 
 const idCompany = localStorage.getItem('COMPANYID');
 
@@ -77,7 +78,7 @@ export class AddRecruitmentComponent implements OnInit {
       field: {
         id: this.recruitmentForm.value.fieldId
       },
-      salaryForm: this.recruitmentForm.value.salaryForm,
+      salaryFrom: this.recruitmentForm.value.salaryForm,
       salaryTo: this.recruitmentForm.value.salaryTo,
       expiredDate: this.recruitmentForm.value.expiredDate,
       employeeQuantity: this.recruitmentForm.value.employeeQuantity,
@@ -87,10 +88,21 @@ export class AddRecruitmentComponent implements OnInit {
       description: this.recruitmentForm.value.description,
       workingType: this.recruitmentForm.value.workingTypeId
     };
+    console.log('j', this.obj);
     this.recruimentNewsService.save(this.obj).subscribe(() => {
-      alert('Thêm tin tuyển dụng thành công');
+      this.messageSave();
     }, error => {
       console.log('Error: ', error);
+    });
+  }
+
+  messageSave() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Thêm mới tin tuyển dụng thành công',
+      showConfirmButton: false,
+      timer: 3000
     });
   }
 

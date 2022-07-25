@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-  })
+  });
 
   constructor(public authenticationService: AuthenticationService,
               private router: Router,
@@ -91,7 +91,7 @@ export class NavbarComponent implements OnInit {
       title: 'Email đã tồn tại! Vui lòng nhập email khác',
       showConfirmButton: false,
       timer: 3000
-    })
+    });
   }
 
   registerUser() {
@@ -116,7 +116,7 @@ export class NavbarComponent implements OnInit {
       title: 'Đăng ký thành công',
       showConfirmButton: false,
       timer: 3000
-    })
+    });
   }
 
   checkStatusByEmailLogin() {
@@ -126,7 +126,7 @@ export class NavbarComponent implements OnInit {
       if (this.company === null) {
         this.login();
       }
-      if (this.company.status == "LOCK") {
+      if (this.company.status == 'LOCK') {
         this.messageLoginEmailLock();
       } else {
         this.login();
@@ -145,7 +145,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
-            console.log(data.status)
+            console.log(data.status);
             // @ts-ignore
             this.messageLoginFail();
           }

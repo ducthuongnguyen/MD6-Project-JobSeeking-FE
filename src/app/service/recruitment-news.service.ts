@@ -22,43 +22,42 @@ export class RecruitmentNewsService {
 
   findAllByCompanyId(): Observable<RecruitmentNews[]> {
     const id = localStorage.getItem('COMPANYID');
-    console.log(id)
+    console.log(id);
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 
   save(recruitment: RecruitmentNews): Observable<RecruitmentNews> {
-    //@ts-ignore
-    return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST);
+    return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST, recruitment);
   }
 
-  //danh sach tin bi khoa
+  // danh sach tin bi khoa
   findAllLockedRecruitmentNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/locked-list`);
   }
 
-  //danh sach tin khong khoa
-  findUnlockRecruitmentNews():Observable<RecruitmentNews[]>{
+  // danh sach tin khong khoa
+  findUnlockRecruitmentNews(): Observable <RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/unlocked-list`);
   }
 
-  //chuyen trang thai
+  // chuyen trang thai
   updateStatus(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
     return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/update-status/${id}`);
   }
 
-  //tim tin tuyen dung theo ID
+  // tim tin tuyen dung theo ID
   findById(id: string): Observable<RecruitmentNews> {
     return this.httpClient.get<RecruitmentNews>(this.API_RECRUIMENT_LIST + `/${id}`);
   }
 
-  //set tin tuyen dung la de xuat
+  // set tin tuyen dung la de xuat
   propose(id: string): Observable<RecruitmentNews> {
     // @ts-ignore
     return this.httpClient.put<RecruitmentNews>(this.API_RECRUIMENT_SETPROPOSE`${id}`);
   }
 
-  //danh sach tin duoc de xuat
+  // danh sach tin duoc de xuat
   findAllProposedNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_PROPOSE);
   }
