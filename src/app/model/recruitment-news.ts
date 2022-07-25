@@ -1,6 +1,6 @@
-import {Company} from "./company";
-import {Vacancy} from "./vacancy";
-import {Field} from "./field";
+import {Company} from './company';
+import {Vacancy} from './vacancy';
+import {Field} from './field';
 
 export interface RecruitmentNews {
   id?: string;

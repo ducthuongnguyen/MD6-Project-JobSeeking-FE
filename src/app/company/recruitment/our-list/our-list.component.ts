@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-our-list',
@@ -21,9 +21,9 @@ export class OurListComponent implements OnInit {
 
   findAll() {
     this.recruitmentService.findAllByCompanyId().subscribe((result: RecruitmentNews[]) => {
-      console.log(result)
+      console.log(result);
       this.recruitmentNews = result;
-      if (this.recruitmentNews.length==0){
+      if (this.recruitmentNews.length == 0) {
         this.checkList = true;
       }
     }, error => {
@@ -40,7 +40,7 @@ export class OurListComponent implements OnInit {
       this.findAll();
       this.messageStatus();
     }, error => {
-      alert("Lỗi");
+      alert('Lỗi');
     });
   }
 
@@ -51,6 +51,6 @@ export class OurListComponent implements OnInit {
       title: 'Chuyển trạng thái thành công',
       showConfirmButton: false,
       timer: 2000
-    })
+    });
   }
 }
