@@ -205,25 +205,25 @@
         <h2 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Hãy biến đam mê của bạn thành thu nhập.</h2>
         <div class="">
           <!-- .search-form -->
-          <form action="/" class="search-form shadow-6">
+          <form action="/" class="search-form shadow-6" [formGroup]="searchForm" (ngSubmit)="findByTitleWorkingPlace()">
             <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
               <div class="filter-inputs">
                 <div class="form-group position-relative">
-                  <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Tiêu đề">
+                  <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Tiêu đề" formControlName="title">
                   <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><i
                     class="fa-solid fa-magnifying-glass" style="color: #62AE77"></i></span>
                 </div>
                 <!-- .select-city starts -->
-                <div class="form-group position-relative">
-                  <select name="country" id="country" class="nice-select pl-13 h-100 arrow-3 font-size-4">
-                    <option value="" data-display="Địa điểm" class="text-uppercase">Địa điểm</option>
-                    <option value="">United States of America</option>
-                    <option value="">United Arab Emirates</option>
-                    <option value="">Bangladesh</option>
-                    <option value="">Pakistan</option>
+                <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
+                  <select name="country" id="country" class="nice-select font-size-4 pl-13 h-100 arrow-3"
+                          formControlName="cities">
+                    <option data-display="City, state, zip code or (Remote)">Chọn Thành Phố...</option>
+                    <option data-display="City, state, zip code or (Remote)"
+                            *ngFor="let city of cities">{{city.name}} </option>
                   </select>
-                  <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><i
-                    class="fa-solid fa-location-dot" style="color: #62AE77"></i></span>
+                  <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
+                                        <i class="fa-solid fa-location-dot" style="color: #62AE77"></i>
+                  </span>
                 </div>
                 <!-- ./select-city ends -->
               </div>
@@ -241,6 +241,48 @@
         </div>
       </div>
       <!-- Hero Right Image -->
+
+      <!-- Section Button -->
+
+      <!-- Section Button End -->
+    </div>
+    <!-- End Section Top -->
+    <!-- Single Category -->
+<!--    <div class="row justify-content-center">-->
+<!--      <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true"-->
+<!--           *ngFor="let re of recruitmentNews1">-->
+<!--        &lt;!&ndash; Start Feature One &ndash;&gt;-->
+<!--        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">-->
+<!--          <div class="d-block mb-7">-->
+<!--            <a href="#"><img style="height: 50px;width: 50px"-->
+<!--                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAn1BMVEX///8tPlAddbgZMEWzt70VLULGys8mOEtkbnoKJz719vf8/P0qPE5PXGrp6uzt7vA6SlqnrbMwQlQAbLQAcLYvfLvi7faCqtGQtthNj8XF2Oq0zOPp8fgbd7lEh8F1ptAAZ7Lf4eSepKuMlJy/w8hCUWCBiZNud4KWnaUAGjVdaHTP09Z2f4o/Tl7CxsuZn6dknMtbk8YAY7HO3+7B1umOz8F6AAAEuklEQVR4nO3da2OaMBiG4bKAkYOKh3Zt19nisdN23db9/9823bCaCAmvgCbsub8GgWsyCWL16gohhBCyr7B36T2ot+SZ9y+9DzUWuCvGPPfSu1Fb6xeHccdhDRV2JwOfR47TUGEwa3vsL6+ZwvUi9rjzUdOEvf6c8chxGioMWkufCbxmCZPp6+HR2TRh4HbY0dPXHGHYevFZxtPXFGHyFvt5vAYI/07MMo/OZgjXCyf36GyAsDuJfa58+qwWBrOl5ui0W5hM46xT367o8Km1ULiZmHmqo5MzvuhE1gqD7alPwYsYW7nB1YpbKsyZmO2fPj9+TrYL2ikMNac+zvxlK/y3rIXCcK2YmP07Ojv94GNx64TJZK6amDnci6fJ4QPsEgazNle/uPjLWSA+xiahZmIWbZ6+yfF7vtYIu/25cmLGvcFinfVAO4TBd/XELGJe2w2yH2uDUDsx8wdv3dxHGy8MXO3EbJl5dO4yWxi2Xjz1qc9buZobSiYLk+e5bmImnvoyM1eon5i1vxdZj6HC9cJXv7iweb/g7U4ThV3txGwwVb64CBknDLcTM+WLi9+WJ2bKDBMm0+iEiZkyk4S9fkc3MXspfnTuMkYYtpbao1N36svMFGGgPPVtjs7oOX9ipswYYZR/eG4nZq2T12yM0MkRbidmRU99mRku3J769BMzZSYL+eaqb1Z6zcYKKRMzZYYKc9+ToGekkPkr0sRMmYlCfuqpLzMThX6lHwM1UljlUwjh2YLw9CA8VxCeHoTnKl8Y3hx1pR5/EMbNFz6MhiOh4XV4OP77aSSNPwprtkD49ZPUWBDeD6XhEYSXCUIIIYSw/iCE8D8WBp6zF17y74DrEzIIzxSEjRZu9llMEsrXh/YJ7+R+CML3sTQ8vhVWbL6w7IohPFcQnr5iCMuuv1ewZHAO4aTw/mjb3YV3+aBg+/2oT+g4RfdGG99dprheVLDzCIvujbaPL/NxhfUXrEZhZbFywiSgZKEwil+LF3fURCOFpP8tPLZRSCmCEMLTgrDCTBJyv9K8E4Ss3CazvhjtQMhXvW6VJR5ZyN5K7UIv6+3zQ2FbuSfkej5dWPLqqQ1hudXLQZgGISUIISQGYRqElCCEkBiEaRBSghBCYhCmQUgJQgiJQZgGISWiMDy6XR1qxmsTavbkVOGt/KnJpy/C+N1QHhf/7rA64Y388c3RuBrhSPrk61ASHo3XJpQ/oju6a5pQ3hKEEEIIIYQQQgghhBBCCKFJwq/XYp9E4c9rebw2obyl65+VCMtm/vs0ZYMwDUJKEEJIDMI0CClBCCExCNMgpEQUfvks9fgujN8ejYvfS1qd8EHe0ufbzOXI14dHd0AvdodU3lLz7pDiXQwIIYQQQgghhBBCCCGE0GTh01BMuj4cS8PDX/VdH8pVc314cy/1W7yGfz8aFynVCUN5S/fvmcvhfRoIqUGYBiElCCEkBmEahJQghJAYhGkQUoIQQmIQpkFICUIIiUGYBiElvTCssL2wp1yvJCy1SY3QGXSqbffDLQUX2/5rvJbb4sGP4WR/6zyvtI89j4otpl9U28Gazvi9+hcKQvuD0P4gtD8I7W8v/OY1s287YbfV1Kr8fT+EEEJN7g9tXz38ZxEHjAAAAABJRU5ErkJggg=="-->
+<!--                             alt=""></a>-->
+<!--          </div>-->
+<!--          <a href="#" class="font-size-3 d-block mb-0 text-gray">{{re.company.name}}</a>-->
+<!--          <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4">{{re.title}}</a></h2>-->
+<!--          <ul class="list-unstyled mb-1 card-tag-list">-->
+<!--            <li><a class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">-->
+<!--              <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{re.workingPlace}}-->
+<!--            </a></li>-->
+<!--            <li><a class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">-->
+<!--              <i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{re.workingType}}-->
+<!--            </a></li>-->
+<!--            <li><a class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">-->
+<!--              <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>-->
+<!--              <span>{{re.salaryFrom}}</span>-<span>{{re.salaryTo}}</span>-->
+<!--            </a></li>-->
+<!--          </ul>-->
+<!--          <div  class="card-btn-group">-->
+<!--            <button *ngIf="checkRole" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>-->
+<!--            <button *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>-->
+<!--            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem-->
+<!--              chi tiết</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; End Feature One &ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+
       <div
         class="col-lg-6 col-md-4 col-sm-6 col-xs-6 col-8 pos-abs-br z-index-n1 position-static position-md-absolute mx-auto ml-md-auto"
         data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
@@ -251,12 +293,51 @@
       <!-- ./Hero Right Image -->
     </div>
   </div>
-</div>
+<!--</div>-->
+
 <!-- Hero Area -->
 <!-- Brand1Section Area -->
 <!-- Brand1Section Area -->
 <!-- category Area -->
 <!-- featuredCompany Area -->
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true"
+       *ngFor="let re of recruitmentNews1">
+    <!-- Start Feature One -->
+    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+      <div class="d-block mb-7">
+        <a href="#"><img style="height: 50px;width: 50px"
+                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAn1BMVEX///8tPlAddbgZMEWzt70VLULGys8mOEtkbnoKJz719vf8/P0qPE5PXGrp6uzt7vA6SlqnrbMwQlQAbLQAcLYvfLvi7faCqtGQtthNj8XF2Oq0zOPp8fgbd7lEh8F1ptAAZ7Lf4eSepKuMlJy/w8hCUWCBiZNud4KWnaUAGjVdaHTP09Z2f4o/Tl7CxsuZn6dknMtbk8YAY7HO3+7B1umOz8F6AAAEuklEQVR4nO3da2OaMBiG4bKAkYOKh3Zt19nisdN23db9/9823bCaCAmvgCbsub8GgWsyCWL16gohhBCyr7B36T2ot+SZ9y+9DzUWuCvGPPfSu1Fb6xeHccdhDRV2JwOfR47TUGEwa3vsL6+ZwvUi9rjzUdOEvf6c8chxGioMWkufCbxmCZPp6+HR2TRh4HbY0dPXHGHYevFZxtPXFGHyFvt5vAYI/07MMo/OZgjXCyf36GyAsDuJfa58+qwWBrOl5ui0W5hM46xT367o8Km1ULiZmHmqo5MzvuhE1gqD7alPwYsYW7nB1YpbKsyZmO2fPj9+TrYL2ikMNac+zvxlK/y3rIXCcK2YmP07Ojv94GNx64TJZK6amDnci6fJ4QPsEgazNle/uPjLWSA+xiahZmIWbZ6+yfF7vtYIu/25cmLGvcFinfVAO4TBd/XELGJe2w2yH2uDUDsx8wdv3dxHGy8MXO3EbJl5dO4yWxi2Xjz1qc9buZobSiYLk+e5bmImnvoyM1eon5i1vxdZj6HC9cJXv7iweb/g7U4ThV3txGwwVb64CBknDLcTM+WLi9+WJ2bKDBMm0+iEiZkyk4S9fkc3MXspfnTuMkYYtpbao1N36svMFGGgPPVtjs7oOX9ipswYYZR/eG4nZq2T12yM0MkRbidmRU99mRku3J769BMzZSYL+eaqb1Z6zcYKKRMzZYYKc9+ToGekkPkr0sRMmYlCfuqpLzMThX6lHwM1UljlUwjh2YLw9CA8VxCeHoTnKl8Y3hx1pR5/EMbNFz6MhiOh4XV4OP77aSSNPwprtkD49ZPUWBDeD6XhEYSXCUIIIYSw/iCE8D8WBp6zF17y74DrEzIIzxSEjRZu9llMEsrXh/YJ7+R+CML3sTQ8vhVWbL6w7IohPFcQnr5iCMuuv1ewZHAO4aTw/mjb3YV3+aBg+/2oT+g4RfdGG99dprheVLDzCIvujbaPL/NxhfUXrEZhZbFywiSgZKEwil+LF3fURCOFpP8tPLZRSCmCEMLTgrDCTBJyv9K8E4Ss3CazvhjtQMhXvW6VJR5ZyN5K7UIv6+3zQ2FbuSfkej5dWPLqqQ1hudXLQZgGISUIISQGYRqElCCEkBiEaRBSghBCYhCmQUgJQgiJQZgGISWiMDy6XR1qxmsTavbkVOGt/KnJpy/C+N1QHhf/7rA64Y388c3RuBrhSPrk61ASHo3XJpQ/oju6a5pQ3hKEEEIIIYQQQgghhBBCCKFJwq/XYp9E4c9rebw2obyl65+VCMtm/vs0ZYMwDUJKEEJIDMI0CClBCCExCNMgpEQUfvks9fgujN8ejYvfS1qd8EHe0ufbzOXI14dHd0AvdodU3lLz7pDiXQwIIYQQQgghhBBCCCGE0GTh01BMuj4cS8PDX/VdH8pVc314cy/1W7yGfz8aFynVCUN5S/fvmcvhfRoIqUGYBiElCCEkBmEahJQghJAYhGkQUoIQQmIQpkFICUIIiUGYBiElvTCssL2wp1yvJCy1SY3QGXSqbffDLQUX2/5rvJbb4sGP4WR/6zyvtI89j4otpl9U28Gazvi9+hcKQvuD0P4gtD8I7W8v/OY1s287YbfV1Kr8fT+EEEJN7g9tXz38ZxEHjAAAAABJRU5ErkJggg=="
+                         alt=""></a>
+      </div>
+      <a href="#" class="font-size-3 d-block mb-0 text-gray">{{re.company.name}}</a>
+      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4">{{re.title}}</a></h2>
+      <ul class="list-unstyled mb-1 card-tag-list">
+        <li><a class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+          <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{re.workingPlace}}
+        </a></li>
+        <li><a class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+          <i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{re.workingType}}
+        </a></li>
+        <li><a class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+          <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>
+          <span>{{re.salaryFrom}}</span>-<span>{{re.salaryTo}}</span>
+        </a></li>
+      </ul>
+      <div  class="card-btn-group">
+        <button *ngIf="checkRole" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>
+        <button *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>
+        <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem
+          chi tiết</a>
+      </div>
+    </div>
+    <!-- End Feature One -->
+  </div>
+</div>
+
+
+
 <div class="pt-11 pt-lg-27 pb-7 pb-lg-26 bg-black-2 dark-mode-texts">
   <div class="container">
     <!-- Section Top -->

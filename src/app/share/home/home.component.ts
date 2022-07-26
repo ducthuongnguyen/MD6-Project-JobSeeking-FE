@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
+import {FormControl, FormGroup } from '@angular/forms';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -16,18 +18,29 @@ import {UserService} from "../../service/user.service";
 export class HomeComponent implements OnInit {
   companies: Company[] = [];
   recruitmentNews: RecruitmentNews[] = [];
+  recruitmentNews1: RecruitmentNews[] = [];
   recruitment: RecruitmentNews;
   id: any;
   user:User;
   checkRoleNo;
   checkRole;
+  cities: any[] = [];
+  title: string;
+
+  searchForm: FormGroup = new FormGroup({
+    title: new FormControl(''),
+    cities:new FormControl('')
+  });
 
   constructor(private companyService: CompanyService,
               private recruitmentNewsService: RecruitmentNewsService,
-              public userService: UserService) {
+              public userService: UserService,
+              private authenticationService:AuthenticationService,
+              private recruitmentService: RecruitmentNewsService) {
   }
 
   ngOnInit() {
+    this.findAllCity();
     this.findAllProposedCompany();
     this.findAllProposedNews();
     const role = localStorage.getItem('ROLE');
@@ -37,6 +50,22 @@ export class HomeComponent implements OnInit {
     if (role == "USER"){
       this.checkRole = true;
     }
+  }
+
+  findAllCity() {
+    this.authenticationService.findAllCity().subscribe(result => {
+      this.cities = result;
+    }, error => {
+      alert("Loi !!!");
+    });
+  }
+  findByTitleWorkingPlace() {
+    this.recruitmentService.findByTitleWorkingPlace(this.searchForm.value.title,this.searchForm.value.cities).subscribe(result => {
+      // @ts-ignore
+      this.recruitmentNews1 = result;
+    }, error => {
+      alert("Loi !!!")
+    });
   }
 
   findAllProposedCompany() {
