@@ -53,7 +53,6 @@ export class AuthenticationService {
       'company',
       new Blob([JSON.stringify(company)], {type: 'application/json'})
     );
-    console.log('form data', formData);
     return this.http.post<any>('http://localhost:8080/sign-up-company', formData
     );
   }
