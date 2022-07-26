@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {RecruitmentListComponent} from './recruitment/recruitment-list/recruitment-list.component';
 import {UserRecruitmentDetailComponent} from './recruitment/user-recruitment-detail/user-recruitment-detail.component';
+import {UserEditComponent} from "./user-edit/user-edit.component";
+import {CompanyListComponent} from "./company/company-list/company-list.component";
+import {RecruitmentByCompanyComponent} from "./recruitment/recruitment-by-company/recruitment-by-company.component";
 
 
 
