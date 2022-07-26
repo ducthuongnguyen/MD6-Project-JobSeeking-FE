@@ -62,24 +62,24 @@ export class UserRecruitmentDetailComponent implements OnInit {
       console.log(e);
     });
   }
-
   applyRe(id: any,user: User){
     const idUser = localStorage.getItem('ID');
     this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
       this.recruitmentNewsApply = result;
+      this.messageApply();
       this.obj = {
         user: {
           id: idUser
         },
         company: {
-          id: result.company.id
+          id: this.recruitmentNews.company.id
         },
         recruitmentNews: {
-          id: result.id
+          id: this.recruitmentNews.id
         }
       };
       this.saveMessage(this.obj);
-      this.messageApply();
+
     }, error => {
       alert("Lỗi");
     })
