@@ -286,7 +286,7 @@
                   <div [hidden]="!emailLogin.errors.required">
                     <p style="color: red">Vui lòng nhập địa chỉ email</p>
                   </div>
-                  <div [hidden]="!emailLogin.errors.email">
+                  <div [hidden]="!emailLogin.errors.pattern">
                     <p style="color: red">Email sai định dạng</p>
                   </div>
                 </div>
@@ -385,7 +385,7 @@
                 <div [hidden]="!emailUser.errors.required">
                   <p style="color: red">Vui lòng nhập email của bạn</p>
                 </div>
-                <div [hidden]="!emailUser.errors.email">
+                <div [hidden]="!emailUser.errors.pattern">
                   <p style="color: red"> Email không đúng định dạng</p>
                 </div>
               </div>
@@ -447,23 +447,6 @@
               </h3>
               <p class="mb-0 font-size-4 text-white">Đăng nhập để tiếp tục và xem các công việc mới.</p>
             </div>
-            <div class="border-top border-default-color-2 mt-auto">
-              <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-                <div class="pt-5 px-9">
-                  <h3 class="font-size-7 text-white">
-                    295
-                  </h3>
-                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New jobs
-                    posted today</p>
-                </div>
-                <div class="pt-5 px-9">
-                  <h3 class="font-size-7 text-white">
-                    14
-                  </h3>
-                  <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">Công ty vừa đăng ký</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="col-lg-7 col-md-6">
@@ -482,7 +465,7 @@
                 <div [hidden]="!email.errors.required">
                   <p style="color: red">Vui lòng nhập email doanh nghiệp bạn</p>
                 </div>
-                <div [hidden]="!email.errors?.email">
+                <div [hidden]="!email.errors?.pattern">
                   <p style="color: red"> Email không đúng định dạng</p>
                 </div>
               </div>

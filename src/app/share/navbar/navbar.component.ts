@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
 
   registerCompanyForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required]),
     avatar: new FormControl('', [Validators.required]),
@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
   });
   registerUserForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   });
 
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
     password: new FormControl('', [Validators.required]),
   });
 
@@ -63,11 +63,12 @@ export class NavbarComponent implements OnInit {
     this.getAllMessageByCompany();
     this.getAllCity();
     const role = localStorage.getItem('ROLE');
-    this.idCompany = localStorage.getItem('ID')
+    this.idCompany = localStorage.getItem('ID');
     if (role == null) {
       this.checkRole = true;
     }
-    if (role == "USER") {
+    // tslint:disable-next-line:triple-equals
+    if (role == 'USER') {
       this.checkRoleUser = true;
     }
 
@@ -85,11 +86,11 @@ export class NavbarComponent implements OnInit {
   register() {
     const company = this.registerCompanyForm.value;
     this.authenticationService.register(company, this.image).subscribe((data) => {
-      document.getElementById("signupForCompany").click();
+      document.getElementById('signupForCompany').click();
       this.messageRegister();
       this.registerCompanyForm.reset();
     }, error => {
-      this.messageRegisterFail()
+      this.messageRegisterFail();
     });
   }
 
@@ -106,7 +107,7 @@ export class NavbarComponent implements OnInit {
   registerUser() {
     const company = this.registerUserForm.value;
     this.authenticationService.registerUser(company).subscribe((data) => {
-      document.getElementById("signupForUser").click();
+      document.getElementById('signupForUser').click();
       this.messageRegister();
       this.registerCompanyForm.reset();
     }, error => {
@@ -135,6 +136,7 @@ export class NavbarComponent implements OnInit {
       if (this.company === null) {
         this.login();
       }
+      // tslint:disable-next-line:triple-equals
       if (this.company.status == 'LOCK') {
         this.messageLoginEmailLock();
       } else {
@@ -169,7 +171,7 @@ export class NavbarComponent implements OnInit {
           location.reload();
         },
         error => {
-          alert("Tài khoản của bạn sai mật khẩu!");
+          alert('Tài khoản của bạn sai mật khẩu!');
         });
   }
 
@@ -180,7 +182,7 @@ export class NavbarComponent implements OnInit {
       title: 'Đăng nhập thành công',
       showConfirmButton: false,
       timer: 3000
-    })
+    });
   }
 
   messageLoginEmailLock() {
@@ -190,7 +192,7 @@ export class NavbarComponent implements OnInit {
       title: 'Tài khoản của bạn bị khóa',
       showConfirmButton: false,
       timer: 3000
-    })
+    });
   }
 
   messageLoginFail() {
@@ -200,7 +202,7 @@ export class NavbarComponent implements OnInit {
       title: 'Tài khoản của bạn sai email hoặc mật khẩu!',
       showConfirmButton: false,
       timer: 3000
-    })
+    });
   }
 
   get email() {
@@ -246,7 +248,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.checkRole = true;
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
     this.authenticationService.currentUserSubject.next(null);
     // window.location.replace("http://localhost:4200")
   }
@@ -272,8 +274,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getAllMessageByCompany() {
-    this.idCompany = localStorage.getItem('ID')
-    console.log(this.idCompany)
+    this.idCompany = localStorage.getItem('ID');
     this.recruitmentNewsService.findAllMessageByCompany(this.idCompany).subscribe(result => {
       this.message = result;
     }, error => {
