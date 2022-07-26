@@ -19,7 +19,9 @@ export class NavbarComponent implements OnInit {
   recruitmentNews: RecruitmentNews[] = [];
   idCompany: any;
   checkRole;
+  checkRoleUser;
   checkRoleCompany;
+  checkNull;
   city: any[] = [];
   message: Message[] = [];
   company: Company = {};
@@ -64,6 +66,9 @@ export class NavbarComponent implements OnInit {
     this.idCompany = localStorage.getItem('ID')
     if (role == null) {
       this.checkRole = true;
+    }
+    if (role == "USER") {
+      this.checkRoleUser = true;
     }
 
   }
@@ -149,9 +154,8 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
-            console.log(data.status)
-            // @ts-ignore
             this.messageLoginFail();
+            this.checkNull = true;
           }
           localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);

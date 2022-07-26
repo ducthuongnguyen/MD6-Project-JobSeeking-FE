@@ -219,6 +219,7 @@
       </div>
 
 
+
 <!--      </div>-->
       <div class="dropdown show-gr-dropdown py-5" *ngIf="(authenticationService.currentUserSubject | async) !== null">
         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
@@ -230,6 +231,8 @@
         </a>
         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
              aria-labelledby="dropdownMenuLink">
+          <a routerLink="/user/edit" *ngIf="checkRoleUser" class="dropdown-item py-2 text-black font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+             >Tài khoản</a>
           <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
              (click)="logout()">Đăng xuất</a>
         </div>

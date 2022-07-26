@@ -4,6 +4,7 @@ import {RecruitmentListComponent} from "./recruitment/recruitment-list/recruitme
 import {UserRecruitmentDetailComponent} from "./recruitment/user-recruitment-detail/user-recruitment-detail.component";
 import {CompanyListComponent} from "./company/company-list/company-list.component";
 import {RecruitmentByCompanyComponent} from "./recruitment/recruitment-by-company/recruitment-by-company.component";
+import {UserEditComponent} from "./user-edit/user-edit.component";
 
 
 
@@ -35,6 +36,10 @@ const routes: Routes = [
       },
 
     ]
+  },
+  {
+    path: 'edit',
+    component: UserEditComponent
   },
 
 ];
