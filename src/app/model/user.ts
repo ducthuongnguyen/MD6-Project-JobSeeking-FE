@@ -7,4 +7,6 @@ export interface User {
   password?: String;
   phoneNumber?: String;
   roles?: [Role];
+
+
 }
