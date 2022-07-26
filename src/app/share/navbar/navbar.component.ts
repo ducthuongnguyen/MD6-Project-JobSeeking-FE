@@ -155,7 +155,10 @@ export class NavbarComponent implements OnInit {
         data => {
           if (data.status == 202) {
             this.messageLoginFail();
-            this.checkNull = true;
+            // localStorage.removeItem('currentUser');
+            // localStorage.removeItem('ROLE');
+            // localStorage.removeItem('ACCESS_TOKEN');
+            // this.router.navigate(['']);
           }
           localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);
