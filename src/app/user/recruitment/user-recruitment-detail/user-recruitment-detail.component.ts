@@ -63,26 +63,36 @@ export class UserRecruitmentDetailComponent implements OnInit {
     });
   }
   applyRe(id: any,user: User){
-    const idUser = localStorage.getItem('ID');
-    this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
-      this.recruitmentNewsApply = result;
-      this.messageApply();
-      this.obj = {
-        user: {
-          id: idUser
-        },
-        company: {
-          id: this.recruitmentNews.company.id
-        },
-        recruitmentNews: {
-          id: this.recruitmentNews.id
-        }
-      };
-      this.saveMessage(this.obj);
-
+    // @ts-ignore
+    if (this.recruitmentNews.users.length === 0){
+      const idUser = localStorage.getItem('ID');
+      this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
+        this.recruitmentNews = result;
+        this.messageApply();
+        this.obj = {
+          user: {
+            id: idUser
+          },
+          company: {
+            id: this.recruitmentNews.company.id
+          },
+          recruitmentNews: {
+            id: this.recruitmentNews.id
+          }
+        };
+        this.saveMessage(this.obj);
     }, error => {
       alert("Lỗi");
     })
+    } else {
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Bạn đã ứng tuyển rồi',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    }
   }
 
   messageApply() {
