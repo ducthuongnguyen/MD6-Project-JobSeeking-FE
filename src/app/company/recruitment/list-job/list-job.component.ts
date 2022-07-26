@@ -74,6 +74,7 @@ export class ListJobComponent implements OnInit {
       if (this.recruitmentNews.length == 0) {
         this.checkList = true;
       }
+      this.searchForm.reset();
     }, error => {
       alert("Lỗi!");
     })

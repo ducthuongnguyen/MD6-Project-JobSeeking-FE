@@ -10,8 +10,8 @@ export interface RecruitmentNews {
   company?: Company;
   vacancy?: Vacancy;
   field?: Field;
-  salaryFrom?: string;
-  salaryTo?: string;
+  salaryFrom?: any;
+  salaryTo?: any;
   expiredDate?: Date;
   employeeQuantity?: string;
   requiredExperience?: string;
