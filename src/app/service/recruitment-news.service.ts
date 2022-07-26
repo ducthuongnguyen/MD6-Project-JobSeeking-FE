@@ -84,4 +84,5 @@ export class RecruitmentNewsService {
     // @ts-ignore
     return this.httpClient.put<RecruitmentNews>(`${environment.apiUrl}/recruitment-news/apply/${id}`, user);
   }
+  
 }
