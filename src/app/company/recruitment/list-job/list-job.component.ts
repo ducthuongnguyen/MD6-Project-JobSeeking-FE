@@ -54,7 +54,7 @@ export class ListJobComponent implements OnInit {
     this.authenticationService.findAllCity().subscribe(result => {
       this.cities = result;
     }, error => {
-      alert("Loi !!!");
+      alert('Loi !!!');
     });
   }
 
@@ -62,22 +62,29 @@ export class ListJobComponent implements OnInit {
     this.fieldService.findAll().subscribe((fields: Field[]) => {
       this.fields = fields;
     }, error => {
-      alert("Lỗi");
-    })
+      alert('Lỗi');
+    });
   }
 
 
   onSearch() {
     this.recruitmentService.findAllByTitleSalaryExperiencePlaceField(this.searchForm.value.title, this.searchForm.value.from, this.searchForm.value.to, this.searchForm.value.experience, this.searchForm.value.place, this.searchForm.value.fieldId).subscribe((result: RecruitmentNews[]) => {
-      console.log(this.searchForm.value);
       this.recruitmentNews = result;
       if (this.recruitmentNews.length == 0) {
         this.checkList = true;
       }
-      this.searchForm.reset();
+      this.searchForm = new FormGroup({
+        title: new FormControl(''),
+        from: new FormControl(''),
+        to: new FormControl(''),
+        experience: new FormControl(''),
+        place: new FormControl(''),
+        fieldId: new FormControl(''),
+      });
+
     }, error => {
-      alert("Lỗi!");
-    })
+      alert('Lỗi!');
+    });
 
   }
 }
