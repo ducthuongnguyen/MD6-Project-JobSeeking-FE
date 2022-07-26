@@ -86,7 +86,7 @@ export class RecruitmentNewsService {
   }
 
   //tìm theo job title, salary range, kinh nghiệm, thành phố, chuyen nganh (field)
-  findAllByTitleSalaryExperiencePlaceField(title: string, from: string, to: string, experience: string, place: string, fieldId: string): Observable<RecruitmentNews[]> {
+  findAllByTitleSalaryExperiencePlaceField(title: string, from: number, to: number, experience: string, place: string, fieldId: string): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/find-6-criteria?title=` + title + `&from=` + from + `&to=` + to + `&experience=` + experience + `&place=` + place + `&fieldId=` + fieldId);
   }
 }
