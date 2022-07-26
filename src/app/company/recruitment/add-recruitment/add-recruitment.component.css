@@ -1,0 +1,13 @@
+
+.btn {
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  height: 40px;
+  min-width: 120px;
+  line-height: 28px;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
