@@ -123,9 +123,9 @@ export class NavbarComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Đăng ký thành công',
+      title: 'Đăng ký thành công! Vui lòng kiểm tra email để biết thêm thông tin!',
       showConfirmButton: false,
-      timer: 3000
+      timer: 5000
     });
   }
 
