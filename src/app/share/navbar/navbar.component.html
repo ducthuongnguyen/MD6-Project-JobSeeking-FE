@@ -61,6 +61,24 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle gr-toggle-arrow px-3 ml-7 font-size-7 notification-block flex-y-center position-relative" id="navbarDropdown8" href="#features" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-bell heading-default-color"></i>
+                  <span style="top: 20px;right: -12px;" class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">{{message.length}}</span>
+                </a>
+
+                <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
+                  <li *ngFor="let m of message; index as i "  class="drop-menu-item">
+                    <a routerLink="/#">{{i+1}}
+                      <span style="color: green">.{{m.user.name}}</span>{{m.content}}<span style="color: green">{{m.recruitmentNews.title}}</span>
+                    </a>
+                    <button (click)="delete(m.id)" class="btn-success"> Đã xem
+                    </button>
+                  </li>
+                </ul>
+            </li>
           </ul>
           <!--          admin list-->
           <ul class="navbar-nav main-menu" *ngIf="profile.roles[0].authority === 'ADMIN'">
@@ -118,7 +136,7 @@
                 class="fa-solid fa-angle-down" style="font-size: 15px"></i></a>
               <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li class="drop-menu-item">
-                  <a routerLink="/company/main">
+                  <a routerLink="/user/company/list">
                     Danh sách công ty
                   </a>
               </ul>
@@ -201,6 +219,7 @@
       </div>
 
 
+
 <!--      </div>-->
       <div class="dropdown show-gr-dropdown py-5" *ngIf="(authenticationService.currentUserSubject | async) !== null">
         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink"
@@ -212,6 +231,8 @@
         </a>
         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
              aria-labelledby="dropdownMenuLink">
+          <a routerLink="/user/edit" *ngIf="checkRoleUser" class="dropdown-item py-2 text-black font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+             >Tài khoản</a>
           <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
              (click)="logout()">Đăng xuất</a>
         </div>

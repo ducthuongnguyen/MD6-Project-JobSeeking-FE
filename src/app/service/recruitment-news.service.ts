@@ -4,6 +4,7 @@ import {RecruitmentNews} from '../model/recruitment-news';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {User} from "../model/user";
+import {Message} from "../model/message";
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,7 @@ export class RecruitmentNewsService {
     return this.httpClient.get<RecruitmentNews[]>(environment.apiUrl + `/recruitment-news`);
   }
 
-  findAllByCompanyId(): Observable<RecruitmentNews[]> {
-    const id = localStorage.getItem('ID');
-    console.log(id)
+  findAllByCompanyId(id: any): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 
@@ -88,5 +87,14 @@ export class RecruitmentNewsService {
   //tìm theo job title, salary range, kinh nghiệm, thành phố, chuyen nganh (field)
   findAllByTitleSalaryExperiencePlaceField(title: string, from: number, to: number, experience: string, place: string, fieldId: string): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/find-6-criteria?title=` + title + `&from=` + from + `&to=` + to + `&experience=` + experience + `&place=` + place + `&fieldId=` + fieldId);
+  }
+  saveMessage(message: Message): Observable<Message> {
+    return this.httpClient.post<Message>("http://localhost:8080/message",message);
+  }
+  findAllMessageByCompany(id: any): Observable<Message[]> {
+    return this.httpClient.get<Message[]>(`http://localhost:8080/message/findByCompany/${id}`);
+  }
+  deleteMessage(id: number): Observable<Message> {
+    return this.httpClient.delete<Message>("http://localhost:8080/message"+`/${id}`);
   }
 }
