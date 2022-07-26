@@ -32,6 +32,21 @@ export class CompanyService {
     return this.httpClient.get<Company[]>(this.API_COMPANY);
   }
 
+  update(id: any, company: any,image: any): Observable<Company> {
+    const formData=new FormData();
+    formData.append(
+      "image",
+      new Blob([image], {type: image.type}),
+      image.name
+    );
+    formData.append(
+      "company",
+      new Blob([JSON.stringify(company)], {type:"application/json"})
+    );
+    console.log("form data", formData)
+    return this.httpClient.put<Company>(`${API_URL}/companies/${id}`,formData);
+  }
+
   findPageUnlockCompany(request){
     const params = request;
     return  this.httpClient.get(this.API_COMPANY_UNBLOCK_PAGE,{params});
@@ -39,11 +54,6 @@ export class CompanyService {
 
   findUnlockCompany(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API_COMPANY_UNBLOCK);
-  }
-
-
-  update(id: any, company: Company): Observable<Company> {
-    return this.httpClient.put<Company>(`${API_URL}/companies/${id}`, company);
   }
 
 //đã đc duyệt

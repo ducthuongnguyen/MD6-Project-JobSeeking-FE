@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import Swal from 'sweetalert2';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {CompanyService} from "../../../service/company.service";
+import {Company} from "../../../model/company";
 
 @Component({
   selector: 'app-company-update',
@@ -11,7 +12,10 @@ import {CompanyService} from "../../../service/company.service";
 })
 export class CompanyUpdateComponent implements OnInit {
   city: any[] = [];
+  imagePreview: any;
+  preview: any;
   image: any;
+  company: Company;
   editForm: FormGroup = new FormGroup({
     name: new FormControl(),
     address: new FormControl(),
@@ -25,15 +29,16 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.getCompany();
-    this.update();
     this.getAllCity()
+    this.getCompany();
   }
 
   getCompany() {
     const id = localStorage.getItem('ID');
     return this.companyService.getById(id).subscribe(company => {
+      this.imagePreview = company.avatar;
+      this.preview = company;
+      this.company = company;
       this.editForm = new FormGroup({
         name: new FormControl(company.name),
         address: new FormControl(company.address),
@@ -46,23 +51,21 @@ export class CompanyUpdateComponent implements OnInit {
 
   update() {
     const id = localStorage.getItem('ID');
-    const company = this.editForm.value
-    this.companyService.update(id, company).subscribe(() => {
-      // this.router.navigate(['/student']);
-      this.messageUpdate();
+    this.companyService.update(id, this.editForm.value, this.image).subscribe((company: Company) => {
+      this.imagePreview = company.avatar;
+      this.preview = company;
+      this.company = company;
+      this.editForm.patchValue(company);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Chỉnh sửa thành công',
+        showConfirmButton: false,
+        timer: 3000
+      });
     }, e => {
       console.log(e);
     });
-  }
-
-  messageUpdate() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Chỉnh sửa thành công',
-      showConfirmButton: false,
-      timer: 3000
-    })
   }
 
   getAllCity() {
