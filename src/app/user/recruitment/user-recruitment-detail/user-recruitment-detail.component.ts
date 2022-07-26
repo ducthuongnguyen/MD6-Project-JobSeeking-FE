@@ -14,8 +14,10 @@ import {UserService} from "../../../service/user.service";
 export class UserRecruitmentDetailComponent implements OnInit {
 
   recruitmentNews: RecruitmentNews = {};
+  recruitmentNewsApply: RecruitmentNews = {};
   checkRole;
   user: User;
+  obj: any;
 
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute,
@@ -62,7 +64,21 @@ export class UserRecruitmentDetailComponent implements OnInit {
   }
 
   applyRe(id: any,user: User){
+    const idUser = localStorage.getItem('ID');
     this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
+      this.recruitmentNewsApply = result;
+      this.obj = {
+        user: {
+          id: idUser
+        },
+        company: {
+          id: result.company.id
+        },
+        recruitmentNews: {
+          id: result.id
+        }
+      };
+      this.saveMessage(this.obj);
       this.messageApply();
     }, error => {
       alert("Lỗi");
@@ -77,6 +93,13 @@ export class UserRecruitmentDetailComponent implements OnInit {
       showConfirmButton: false,
       timer: 2000
     })
+  }
+
+  saveMessage(obj: any) {
+    this.recruitmentNewsService.saveMessage(obj).subscribe(() => {
+    }, error => {
+      alert('Lỗi message');
+    }) ;
   }
 
 }

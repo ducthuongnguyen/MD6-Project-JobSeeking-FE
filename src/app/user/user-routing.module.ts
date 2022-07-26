@@ -17,8 +17,26 @@ const routes: Routes = [
       {
         path: 'detail/:id',
         component: UserRecruitmentDetailComponent
+      },
+      {
+        path: 'list-by-company/:id',
+        component: RecruitmentByCompanyComponent
       }
     ]
+  },
+  {
+    path: 'company',
+    children: [
+      {
+        path: 'list',
+        component: CompanyListComponent
+      },
+
+    ]
+  },
+  {
+    path: 'edit',
+    component: UserEditComponent
   },
 
 ];

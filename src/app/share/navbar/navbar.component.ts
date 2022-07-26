@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import {first} from "rxjs/operators";
 import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {Company} from "../../model/company";
+import {RecruitmentNewsService} from "../../service/recruitment-news.service";
+import {Message} from "../../model/message";
 
 @Component({
   selector: 'app-navbar',
@@ -17,8 +19,11 @@ export class NavbarComponent implements OnInit {
   recruitmentNews: RecruitmentNews[] = [];
   idCompany: any;
   checkRole;
+  checkRoleUser;
   checkRoleCompany;
+  checkNull;
   city: any[] = [];
+  message: Message[] = [];
   company: Company = {};
   image: any;
   @ViewChild('closeModal', {static: false}) closeModal: ElementRef<HTMLButtonElement>;
@@ -49,17 +54,21 @@ export class NavbarComponent implements OnInit {
   });
 
   constructor(public authenticationService: AuthenticationService,
+              private recruitmentNewsService: RecruitmentNewsService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-
+    this.getAllMessageByCompany();
     this.getAllCity();
     const role = localStorage.getItem('ROLE');
     this.idCompany = localStorage.getItem('ID')
     if (role == null) {
       this.checkRole = true;
+    }
+    if (role == "USER") {
+      this.checkRoleUser = true;
     }
 
   }
@@ -97,7 +106,7 @@ export class NavbarComponent implements OnInit {
   registerUser() {
     const company = this.registerUserForm.value;
     this.authenticationService.registerUser(company).subscribe((data) => {
-      document.getElementById('signupForUser').click();
+      document.getElementById("signupForUser").click();
       this.messageRegister();
       this.registerCompanyForm.reset();
     }, error => {
@@ -145,8 +154,10 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
+            console.log(data.status)
             // @ts-ignore
             this.messageLoginFail();
+            this.checkNull = true;
           }
           localStorage.setItem('ACCESS_TOKEN', data.token);
           localStorage.setItem('ROLE', data.roles[0].authority);
@@ -258,5 +269,23 @@ export class NavbarComponent implements OnInit {
 
   get phoneNumberUser() {
     return this.registerUserForm.get('phoneNumber');
+  }
+
+  getAllMessageByCompany() {
+    this.idCompany = localStorage.getItem('ID')
+    console.log(this.idCompany)
+    this.recruitmentNewsService.findAllMessageByCompany(this.idCompany).subscribe(result => {
+      this.message = result;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  delete(id: number) {
+    this.recruitmentNewsService.deleteMessage(id).subscribe(() => {
+      this.getAllMessageByCompany();
+    }, e => {
+      console.log(e);
+    });
   }
 }
