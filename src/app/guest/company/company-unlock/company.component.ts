@@ -21,7 +21,7 @@ export class CompanyComponent implements OnInit {
     this.companyService.findUnlockCompany().subscribe(result => {
       this.companies = result;
     }, error => {
-      alert("Lỗi");
+      alert('Lỗi');
     });
   }
 

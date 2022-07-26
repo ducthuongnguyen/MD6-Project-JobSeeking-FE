@@ -45,7 +45,7 @@ const routes: Routes = [
         component: AddRecruitmentComponent
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         component: EditRecruitmentComponent
       },
       {
