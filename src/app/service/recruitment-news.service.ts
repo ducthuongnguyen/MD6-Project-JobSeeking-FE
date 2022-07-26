@@ -22,9 +22,7 @@ export class RecruitmentNewsService {
     return this.httpClient.get<RecruitmentNews[]>(environment.apiUrl + `/recruitment-news`);
   }
 
-  findAllByCompanyId(): Observable<RecruitmentNews[]> {
-    const id = localStorage.getItem('ID');
-    console.log(id)
+  findAllByCompanyId(id: any): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 

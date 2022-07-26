@@ -21,7 +21,8 @@ export class OurListComponent implements OnInit {
   }
 
   findAll() {
-    this.recruitmentService.findAllByCompanyId().subscribe((result: RecruitmentNews[]) => {
+    const id = localStorage.getItem('ID');
+    this.recruitmentService.findAllByCompanyId(id).subscribe((result: RecruitmentNews[]) => {
       console.log(result)
       this.recruitmentNews = result;
       if (this.recruitmentNews.length==0){

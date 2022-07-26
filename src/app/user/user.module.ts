@@ -6,6 +6,8 @@ import { UserRoutingModule } from './user-routing.module';
 import { RecruitmentListComponent } from './recruitment/recruitment-list/recruitment-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UserRecruitmentDetailComponent } from './recruitment/user-recruitment-detail/user-recruitment-detail.component';
+import { CompanyListComponent } from './company/company-list/company-list.component';
+import { RecruitmentByCompanyComponent } from './recruitment/recruitment-by-company/recruitment-by-company.component';
 
 
 // @ts-ignore
@@ -14,7 +16,11 @@ import { UserRecruitmentDetailComponent } from './recruitment/user-recruitment-d
 
   RecruitmentListComponent,
 
-  UserRecruitmentDetailComponent
+  UserRecruitmentDetailComponent,
+
+  CompanyListComponent,
+
+  RecruitmentByCompanyComponent
 
   ],
   imports: [

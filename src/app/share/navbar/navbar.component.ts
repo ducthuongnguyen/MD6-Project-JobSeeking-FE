@@ -275,7 +275,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  delete(id: any) {
+  delete(id: number) {
     this.recruitmentNewsService.deleteMessage(id).subscribe(() => {
       this.getAllMessageByCompany();
     }, e => {

@@ -3,7 +3,7 @@ import {Company} from "./company";
 import {RecruitmentNews} from "./recruitment-news";
 
 export interface Message {
-  id?: String;
+  id?: number;
   content?: String;
   user?: User;
   company?: Company;
