@@ -88,6 +88,7 @@ export class NavbarComponent implements OnInit {
     this.authenticationService.register(company, this.image).subscribe((data) => {
       document.getElementById('signupForCompany').click();
       this.messageRegister();
+
       this.registerCompanyForm.reset();
     }, error => {
       this.messageRegisterFail();
@@ -110,6 +111,7 @@ export class NavbarComponent implements OnInit {
       document.getElementById('signupForUser').click();
       this.messageRegister();
       this.registerCompanyForm.reset();
+
     }, error => {
       this.messageRegisterFail();
     });

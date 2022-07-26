@@ -2,7 +2,7 @@
 <br>
 <br>
 <br>
-<div class="container" style="width: 750px">
+<div class="container" style="width: 500px">
   <form [formGroup]="recruitmentForm" (ngSubmit)="submit()" novalidate>
     <h3 style="text-align: center">Thêm mới tin tuyển dụng</h3>
     <!-- Wrapper container -->
@@ -175,10 +175,11 @@
       </div>
 
       <!-- Form submit button -->
-      <div class="d-grid" style="margin-left: 12%">
-        <button class="btn btn-primary btn-lg mr-3" type="submit" [disabled]="recruitmentForm.invalid">Lưu</button>
-        <button class="btn btn-primary btn-lg mr-3" type="reset" (click)="reload()">Làm mới</button>
-        <button class="btn btn-primary btn-lg" type="button" (click)="goBack()">Trở về</button>
+      <div  class="d-grid" style="margin-left: 5%">
+          <button class="btn btn-primary " type="submit" [disabled]="recruitmentForm.invalid">Lưu</button>&nbsp;&nbsp;
+          <button  class="btn btn-primary " type="reset" (click)="reload()">Làm mới</button>&nbsp;&nbsp;
+          <button  class="btn btn-primary " type="button" (click)="goBack()">Trở về</button>
+
       </div>
     </div>
   </form>
