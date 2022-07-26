@@ -32,6 +32,7 @@ export class ListJobComponent implements OnInit {
 
   findUnlockRecruitmentNews() {
     this.recruitmentNewService.findUnlockRecruitmentNews().subscribe((result: RecruitmentNews[]) => {
+      console.log(result);
       this.recruitmentNews = result;
     }, error => {
       console.log(error);

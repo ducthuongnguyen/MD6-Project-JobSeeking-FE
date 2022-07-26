@@ -120,6 +120,7 @@ export class AddRecruitmentComponent implements OnInit {
     this.router.navigate(['/company/recruitment/our-list/']);
   }
 
+
   get title() {
     return this.recruitmentForm.get('title');
   }
@@ -166,5 +167,9 @@ export class AddRecruitmentComponent implements OnInit {
 
   get workingTypeId() {
     return this.recruitmentForm.get('workingTypeId');
+  }
+
+  reload() {
+    location.reload();
   }
 }
