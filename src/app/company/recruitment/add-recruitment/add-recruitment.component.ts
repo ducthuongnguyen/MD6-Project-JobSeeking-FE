@@ -10,7 +10,7 @@ import {Field} from '../../../model/field';
 import Swal from 'sweetalert2';
 import {AuthenticationService} from '../../../service/authentication.service';
 
-const idCompany = localStorage.getItem('COMPANYID');
+const idCompany = localStorage.getItem('ID');
 
 // @ts-ignore
 @Component({
