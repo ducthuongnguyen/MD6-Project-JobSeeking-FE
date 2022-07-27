@@ -299,7 +299,7 @@
                              alt=""></a>
           </div>
           <a href="#" class="font-size-3 d-block mb-0 text-gray">{{re.company.name}}</a>
-          <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4">{{re.title}}</a></h2>
+          <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" routerLink="/guest/recruitment/detail/{{re.id}}">{{re.title}}</a></h2>
           <ul class="list-unstyled mb-1 card-tag-list">
             <li><a class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
               <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{re.workingPlace}}
@@ -309,10 +309,10 @@
             </a></li>
           </ul>
           <div  class="card-btn-group">
-            <button *ngIf="checkRole" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>
-            <button *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>
-            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem
-              chi tiết</a>
+<!--            <button *ngIf="checkRole" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="applyRecruitment(re.id)">Ứng tuyển</button>-->
+<!--            <button *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3" (click)="messageLogin()">Ứng tuyển</button>-->
+<!--            <a class="btn btn-green text-uppercase btn-medium rounded-3" routerLink="/guest/recruitment/detail/{{re.id}}">Xem-->
+<!--              chi tiết</a>-->
           </div>
         </div>
         <!-- End Feature One -->

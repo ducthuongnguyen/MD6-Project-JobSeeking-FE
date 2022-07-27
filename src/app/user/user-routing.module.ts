@@ -5,6 +5,7 @@ import { RecruitmentByCompanyComponent } from './recruitment/recruitment-by-comp
 import {RecruitmentListComponent} from './recruitment/recruitment-list/recruitment-list.component';
 import {UserRecruitmentDetailComponent} from './recruitment/user-recruitment-detail/user-recruitment-detail.component';
 import {UserEditComponent} from './user-edit/user-edit.component';
+import {FindByUserComponent} from "./recruitment/find-by-user/find-by-user.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'list-by-company/:id',
         component: RecruitmentByCompanyComponent
+      },
+      {
+        path: 'list-by-user',
+        component: FindByUserComponent
       }
     ]
   },
