@@ -7,6 +7,7 @@ import {CompanyDetailComponent} from './company/company-detail/company-detail.co
 import {RecruitmentDetailComponent} from './recruitment/recruitment-detail/recruitment-detail.component';
 import { RecruitmentComponent } from './recruitment/recruitment-unlock/recruitment.component';
 import { CompanyComponent } from './company/company-unlock/company.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,9 +17,11 @@ import { CompanyComponent } from './company/company-unlock/company.component';
     CompanyDetailComponent,
     RecruitmentDetailComponent
   ],
-  imports: [
-    CommonModule,
-    GuestRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        GuestRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 export class GuestModule { }
