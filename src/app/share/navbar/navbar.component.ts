@@ -109,7 +109,7 @@ export class NavbarComponent implements OnInit {
     const company = this.registerUserForm.value;
     this.authenticationService.registerUser(company).subscribe((data) => {
       document.getElementById('signupForUser').click();
-      this.messageRegister();
+      this.messageRegisterUser();
       this.registerCompanyForm.reset();
 
     }, error => {
@@ -126,6 +126,15 @@ export class NavbarComponent implements OnInit {
       position: 'center',
       icon: 'success',
       title: 'Đăng ký thành công! Vui lòng kiểm tra email để biết thêm thông tin!',
+      showConfirmButton: false,
+      timer: 5000
+    });
+  }
+  messageRegisterUser() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Đăng ký thành công! Vui lòng đăng nhập để tiếp tục!',
       showConfirmButton: false,
       timer: 5000
     });
