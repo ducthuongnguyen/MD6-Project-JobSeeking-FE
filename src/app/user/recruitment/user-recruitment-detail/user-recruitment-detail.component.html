@@ -60,11 +60,11 @@
               <div class="col-12">
                 <!-- card-btn-group start -->
                 <div class="card-btn-group">
-                  <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="applyRecruitment(recruitmentNews.id)">Ứng tuyển</a>
+                  <a *ngIf="!checkApply" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="applyRecruitment(recruitmentNews.id)">Ứng tuyển</a>
                 </div>
-<!--                <div *ngIf="checkApply" class="card-btn-group">-->
-<!--                  <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" >Đã ứng tuyển</a>-->
-<!--                </div>-->
+                <div class="card-btn-group">
+                  <a *ngIf="checkApply" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" >Đã ứng tuyển</a>
+                </div>
                 <!-- card-btn-group end -->
               </div>
             </div>
