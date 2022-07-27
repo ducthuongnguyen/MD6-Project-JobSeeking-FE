@@ -22,7 +22,7 @@
                 <div class="media align-items-center">
                   <!-- media logo start -->
                   <div class="square-72 d-block mr-8">
-                    <img src="https://finestdevs.com/demos/jobcamp/./image/l2/png/featured-job-logo-1.png" alt="">
+                    <img style="height: 80px;width: 80px" src="{{recruitmentNews.company.avatar}}" alt="">
                   </div>
                   <!-- media logo end -->
                   <!-- media texts start -->
@@ -62,7 +62,7 @@
                 <div class="card-btn-group">
                   <a *ngIf="checkRoleNo" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="alertLogin()">Ứng tuyển</a>
                   <a *ngIf="checkRole&&check" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" (click)="applyRecruitment(recruitmentNews.id)">Ứng tuyển</a>
-                  <a *ngIf="checkApply" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" >Đã ứng tuyển</a>
+                  <a *ngIf="checkApply" class="btn btn-info text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" >Đã ứng tuyển</a>
                   <a *ngIf="checkDate" class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" >Đã hết hạn</a>
                 </div>
                 <!-- card-btn-group end -->
