@@ -8,6 +8,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {FieldService} from 'src/app/service/field.service';
 import {Field} from 'src/app/model/field';
 import {AuthenticationService} from 'src/app/service/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-job',
@@ -25,7 +26,8 @@ export class ListJobComponent implements OnInit {
   constructor(private companyService: CompanyService,
               private recruitmentService: RecruitmentNewsService,
               private fieldService: FieldService,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -101,11 +103,21 @@ export class ListJobComponent implements OnInit {
 
   onSearch(request) {
     this.loading = true;
+    const title = this.searchForm.value.title;
+    const from = this.searchForm.value.from;
+    const to = this.searchForm.value.to;
+    const experience = this.searchForm.value.experience;
+    const place = this.searchForm.value.place;
+    const fieldId = this.searchForm.value.fieldId;
     // tslint:disable-next-line:max-line-length
     this.recruitmentService.findAllByTitleSalaryExperiencePlaceFieldPage(request, this.searchForm.value.title, this.searchForm.value.from, this.searchForm.value.to, this.searchForm.value.experience, this.searchForm.value.place, this.searchForm.value.fieldId).subscribe((result: RecruitmentNews[]) => {
       this.recruimentNews = result['content'];
       this.totalElements = result['totalElements'];
       this.loading = false;
+      this.router.navigate(
+        ['/admin/recruitment/list-job'],
+        {queryParams: {title: this.searchForm.value.title, cities: this.searchForm.value.cities}}
+      );
       this.searchForm = new FormGroup({
         title: new FormControl(''),
         from: new FormControl(''),

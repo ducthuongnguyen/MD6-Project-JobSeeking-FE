@@ -6,6 +6,7 @@ import {Field} from "../../../model/field";
 import {FieldService} from "../../../service/field.service";
 import {error} from "protractor";
 import {FormControl, FormGroup} from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recruitment',
@@ -27,7 +28,8 @@ export class RecruitmentComponent implements OnInit {
 
   constructor(private recruitmentNewService: RecruitmentNewsService,
               private authenticationService: AuthenticationService,
-              private fieldService: FieldService) {
+              private fieldService: FieldService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -54,6 +56,9 @@ export class RecruitmentComponent implements OnInit {
 
   findUnlockRecruitmentNews() {
     this.recruitmentNewService.findUnlockRecruitmentNews().subscribe((result: RecruitmentNews[]) => {
+      this.router.navigate(
+        ['/guest/recruitment']
+      );
       // @ts-ignore
       this.recruitmentNews = result;
       if (this.recruitmentNews.length == 0) {
@@ -70,6 +75,10 @@ export class RecruitmentComponent implements OnInit {
       this.searchForm.value.cities).subscribe(result => {
       // @ts-ignore
       this.recruitmentNews = result;
+      this.router.navigate(
+        ['/guest/recruitment'],
+        { queryParams: { title: this.searchForm.value.title,cities: this.searchForm.value.cities } }
+      );
       if (this.recruitmentNews.length == 0) {
         this.checkList = true;
       }
