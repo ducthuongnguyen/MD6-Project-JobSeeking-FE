@@ -49,6 +49,7 @@ export class ListJobComponent implements OnInit {
       this.recruimentNews = data['content'];
       this.totalElements = data['totalElements'];
       this.loading = false;
+      // tslint:disable-next-line:triple-equals
       if (this.recruimentNews.length == 0) {
         this.checkList = true;
       }
@@ -69,8 +70,8 @@ export class ListJobComponent implements OnInit {
       this.messagePropose();
       this.getListRequest({page: 0, size: 5});
     }, error => {
-      alert("Lỗi");
-    })
+      alert('Lỗi');
+    });
   }
 
   updateStatus(id: string) {
@@ -78,8 +79,8 @@ export class ListJobComponent implements OnInit {
       this.messageStatus();
       this.getListRequest({page: 0, size: 5});
     }, error => {
-      alert("Lỗi!");
-    })
+      alert('Lỗi!');
+    });
   }
 
   findAllCity() {
@@ -100,7 +101,8 @@ export class ListJobComponent implements OnInit {
 
   onSearch(request) {
     this.loading = true;
-    this.recruitmentService.findAllByTitleSalaryExperiencePlaceFieldPage(request,this.searchForm.value.title, this.searchForm.value.from, this.searchForm.value.to, this.searchForm.value.experience, this.searchForm.value.place, this.searchForm.value.fieldId).subscribe((result: RecruitmentNews[]) => {
+    // tslint:disable-next-line:max-line-length
+    this.recruitmentService.findAllByTitleSalaryExperiencePlaceFieldPage(request, this.searchForm.value.title, this.searchForm.value.from, this.searchForm.value.to, this.searchForm.value.experience, this.searchForm.value.place, this.searchForm.value.fieldId).subscribe((result: RecruitmentNews[]) => {
       this.recruimentNews = result['content'];
       this.totalElements = result['totalElements'];
       this.loading = false;
@@ -112,11 +114,12 @@ export class ListJobComponent implements OnInit {
         place: new FormControl(''),
         fieldId: new FormControl(''),
       });
+      // tslint:disable-next-line:triple-equals
       if (this.recruimentNews.length == 0) {
         this.checkList = true;
       }
     }, error => {
-      this.loading = false
+      this.loading = false;
     });
     this.checkList = false;
   }
@@ -128,7 +131,7 @@ export class ListJobComponent implements OnInit {
       title: 'Chuyển trạng thái thành công!',
       showConfirmButton: false,
       timer: 2000
-    })
+    });
   }
 
   messagePropose() {
@@ -138,6 +141,6 @@ export class ListJobComponent implements OnInit {
       title: 'Thành công!',
       showConfirmButton: false,
       timer: 2000
-    })
+    });
   }
 }
