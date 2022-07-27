@@ -9,6 +9,7 @@ import { UserRecruitmentDetailComponent } from './recruitment/user-recruitment-d
 import { CompanyListComponent } from './company/company-list/company-list.component';
 import { RecruitmentByCompanyComponent } from './recruitment/recruitment-by-company/recruitment-by-company.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import {MatPaginatorModule} from '@angular/material';
 
 
 // @ts-ignore
@@ -26,11 +27,12 @@ import { UserEditComponent } from './user-edit/user-edit.component';
   UserEditComponent
 
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-  ]
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatPaginatorModule,
+    ]
 })
 export class UserModule { }
