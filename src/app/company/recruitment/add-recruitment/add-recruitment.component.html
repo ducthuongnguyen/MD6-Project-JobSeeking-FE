@@ -21,7 +21,7 @@
       <div class="mb-3">
         <label class="form-label">Vị trí cần tuyển</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+        <select class="form-control"
                 formControlName="vacancyId" id="vvvvv">
           <option selected>Vui lòng chọn vị trí cần tuyển...</option>
           <option *ngFor="let vacancy of listVacancy" [value]="vacancy.id">{{vacancy.name}}</option>
@@ -36,7 +36,7 @@
       <div class="mb-3">
         <label class="form-label">Lĩnh vực</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+        <select class="form-control"
                 formControlName="fieldId">
           <option selected>Vui lòng chọn lĩnh vực...</option>
           <option *ngFor="let field of listField" [value]="field.id">{{field.name}}</option>
@@ -52,7 +52,7 @@
       <div class="mb-3">
         <label class="form-label">Hình thức làm việc</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+        <select class="form-control"
                 formControlName="workingTypeId">
           <option selected>Vui lòng chọn hình thức làm việc...</option>
           <option value="0">FULL-TIME</option>
@@ -131,7 +131,7 @@
       <div class="mb-3">
         <label class="form-label">Giới tính</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+        <select class="form-control"
                 formControlName="gender">
           <option selected>Vui lòng chọn giới tính...</option>
           <option value="0">Nam</option>
@@ -150,7 +150,7 @@
       <div class="mb-3">
         <label class="form-label">Nơi làm việc</label>
         <br>
-        <select class="form-select" aria-label="Default select example" style="width: 100%; height: 30px"
+        <select class="form-control" 
                 formControlName="workingPlace">
           <option selected>Vui lòng chọn nơi làm việc</option>
           <option *ngFor="let c of city" [value]="c.name">{{c.name}}</option>
