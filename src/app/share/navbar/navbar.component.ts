@@ -283,11 +283,14 @@ export class NavbarComponent implements OnInit {
   get phoneNumberUser() {
     return this.registerUserForm.get('phoneNumber');
   }
-
+  checkMessage;
   getAllMessageByCompany() {
     this.idCompany = localStorage.getItem('ID');
     this.recruitmentNewsService.findAllMessageByCompany(this.idCompany).subscribe(result => {
       this.message = result;
+      if (this.message.length==0){
+        this.checkMessage = true;
+      }
     }, error => {
       console.log(error);
     });

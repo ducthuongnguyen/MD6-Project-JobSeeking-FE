@@ -74,9 +74,11 @@
                     <a routerLink="/#">{{i+1}}
                       <span style="color: green">.{{m.user.name}}</span>{{m.content}}<span style="color: green">{{m.recruitmentNews.title}}</span>
                     </a>
-                    <button (click)="delete(m.id)" class="btn-success"> Đã xem
+                    <button (click)="delete(m.id)" class="btn-success"> OK
                     </button>
                   </li>
+                  <li><p *ngIf="checkMessage"> Không có thông báo</p></li>
+
                 </ul>
             </li>
           </ul>
