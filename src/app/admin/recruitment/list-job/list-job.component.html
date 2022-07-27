@@ -213,8 +213,16 @@
                     </li>
                   </ul>
                 </div>
-                <div style="margin-left: 80%">
-                  <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30"
+                <div style="margin-left: 2%">
+                  <button class="btn btn-outline-success line-height-reset btn-submit text-uppercase w-30 mr-3" (click)="updateStatus(recruitment.id)"
+                         ><span>Trạng thái: </span><span> {{recruitment.status}}</span>
+                  </button>
+
+                  <button class="btn btn-outline-success line-height-reset btn-submit text-uppercase w-30  mr-30" (click)="proposed(recruitment.id)"
+                  ><span>Đề xuất: </span><span> {{recruitment.proposed}}</span>
+                  </button>
+
+                  <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30" style="margin-left: 210px"
                           routerLink="/company/recruitment/detail/{{recruitment.id}}">Xem chi tiết
                   </button>
                 </div>
