@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
   }
 
   findAllProposedNews() {
-    this.recruitmentNewsService.findAllProposedNews().subscribe((result: RecruitmentNews[]) => {
+    this.recruitmentNewsService.findAllProposedNewsAndStatus().subscribe((result: RecruitmentNews[]) => {
       this.recruitmentNews = result;
     }, error => {
       alert("Lỗi");

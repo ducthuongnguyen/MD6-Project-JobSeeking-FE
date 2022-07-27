@@ -13,6 +13,7 @@ export class RecruitmentNewsService {
   private API_RECRUIMENT_LIST = environment.apiUrl + '/recruitment-news';
   private API_RECRUIMENT_SETPROPOSE = environment.apiUrl + '/recruitment-news/set-propose';
   private API_RECRUIMENT_PROPOSE = environment.apiUrl + '/recruitment-news/proposal-news';
+  private API_RECRUIMENT_PROPOSE_AND_STATUS = environment.apiUrl + '/recruitment-news/proposal-news-status';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -77,6 +78,11 @@ export class RecruitmentNewsService {
   // danh sach tin duoc de xuat
   findAllProposedNews(): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_PROPOSE);
+  }
+
+  // danh sach tin duoc de xuat khong khoa
+  findAllProposedNewsAndStatus(): Observable<RecruitmentNews[]> {
+    return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_PROPOSE_AND_STATUS);
   }
 
   applyRecruitment(id: string, user: User): Observable<RecruitmentNews> {
