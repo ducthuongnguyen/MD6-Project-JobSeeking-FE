@@ -1,8 +1,9 @@
 .heading-default-color1 {
   color: red;
+  font-style: italic;
 }
-.font-size-6 {
-  font-size: 1.2rem;
+.font-size-61 {
+  font-size: 0.9rem;
   line-height: 1.62;
   letter-spacing: -0.21px;
 }
