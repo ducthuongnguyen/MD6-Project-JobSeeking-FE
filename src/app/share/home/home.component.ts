@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,10 @@ export class HomeComponent implements OnInit {
   user:User;
   checkRoleNo;
   checkRole;
+
+  searchForm:FormGroup=new FormGroup({
+
+  })
 
   constructor(private companyService: CompanyService,
               private recruitmentNewsService: RecruitmentNewsService,
