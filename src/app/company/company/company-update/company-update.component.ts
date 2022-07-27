@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import Swal from 'sweetalert2';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {CompanyService} from "../../../service/company.service";
@@ -17,11 +17,11 @@ export class CompanyUpdateComponent implements OnInit {
   image: any;
   company: Company;
   editForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    address: new FormControl(),
-    avatar: new FormControl(),
-    phoneNumber: new FormControl(),
-    introduction: new FormControl(),
+    name: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    avatar: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required]),
+    introduction: new FormControl('', [Validators.required]),
   });
 
   constructor(private authenticationService: AuthenticationService,
@@ -79,5 +79,17 @@ export class CompanyUpdateComponent implements OnInit {
 
   handleChangeImage(e) {
     this.image = e.target.files[0];
+  }
+  get name() {
+    return this.editForm.get('name');
+  }
+  get address() {
+    return this.editForm.get('address');
+  }
+  get phoneNumber() {
+    return this.editForm.get('phoneNumber');
+  }
+  get introduction() {
+    return this.editForm.get('introduction');
   }
 }
