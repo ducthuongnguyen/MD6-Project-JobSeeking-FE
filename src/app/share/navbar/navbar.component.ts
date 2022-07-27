@@ -143,15 +143,15 @@ export class NavbarComponent implements OnInit {
   checkStatusByEmailLogin() {
     const email = this.loginForm.value.email;
     this.authenticationService.findByEmail(email).subscribe(result => {
-      this.company = result
+      this.company = result;
       if (this.company === null) {
         this.login();
-      }
-      // tslint:disable-next-line:triple-equals
-      if (this.company.status == 'LOCK') {
-        this.messageLoginEmailLock();
       } else {
-        this.login();
+        if (this.company.status === 'Khóa') {
+          this.messageLoginEmailLock();
+        } else {
+          this.login();
+        }
       }
 
     }, error => {
@@ -167,19 +167,19 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         data => {
           if (data.status == 202) {
-            console.log(data.status)
-            // @ts-ignore
             this.messageLoginFail();
             this.checkNull = true;
+          } else {
+            localStorage.setItem('currentUser', JSON.stringify(data));
+            this.authenticationService.currentUserSubject.next(data);
+            localStorage.setItem('ACCESS_TOKEN', data.token);
+            localStorage.setItem('ROLE', data.roles[0].authority);
+            localStorage.setItem('EMAIL', data.email);
+            localStorage.setItem('ID', data.id);
+            this.closeModal.nativeElement.click();
+            this.messageLogin();
+            this.router.navigate(['']);
           }
-          localStorage.setItem('ACCESS_TOKEN', data.token);
-          localStorage.setItem('ROLE', data.roles[0].authority);
-          localStorage.setItem('EMAIL', data.email);
-          localStorage.setItem('ID', data.id);
-          this.closeModal.nativeElement.click();
-          this.messageLogin();
-          this.router.navigate(['']);
-          location.reload();
         },
         error => {
           alert('Tài khoản của bạn sai mật khẩu!');
