@@ -3,50 +3,54 @@
 <br>
 <br>
 <div class="mb-14">
-  <div class="my-15 px-11" style="width: 280px">
-    <a routerLink="/company/recruitment/add" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
-  </div>
   <div class="row mb-11 align-items-center">
     <div class="col-lg-12 mb-lg-0 mb-4">
       <h3 style="text-align: center" class="font-size-6 mb-0">Danh sách người ứng tuyển</h3>
     </div>
   </div>
-  <div class="bg-white shadow-8 pt-7 rounded pb-8 px-11">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Tên</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Email</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số điện thoại</th>
 
-        </tr>
-        </thead>
-        <tbody>
+  <div class="bg-default-1 pt-26 pt-lg-1 pb-13 pb-lg-25">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-12 col-xs-12 ">
 
-        <tr class="border border-color-2" *ngFor="let u of users">
-          <th scope="row" class="pl-6 border-0 py-7 pr-0">
-            <a href="candidate-profile.html" class="media min-width-px-235 align-items-center">
-              <div class="circle-36 mr-6">
-                <img src="https://finestdevs.com/demos/jobcamp/./image/table-one-profile-image-1.png" alt=""
-                     class="w-100"/>
+          <div class="pt-12 ml-lg-0 ml-md-15">
+            <div class="pt-6">
+              <div class="row justify-content-center">
+                <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true"
+                     *ngFor="let u of users">
+                  <!-- Start Feature One -->
+                  <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+
+                    <div class="d-block mb-7">
+                      <a href="#"><img src="../../../../assets/img/minions.jpeg" alt="" style="width: 337px; height: 270px"></a>
+                    </div>
+
+                    <h2 class="mt-n4" style="margin-left: 5px"><a class="font-size-7 text-black-2 font-weight-bold mb-4" >{{u.name}}</a></h2>
+
+                    <ul class="list-unstyled mb-1 card-tag-list">
+                      <li>
+                        <a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                        <i class="fa-solid fa-inbox"></i> &nbsp;{{u.email}}</a>
+                      </li>
+                      <li>
+                        <a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                          <i class="fa-solid fa-phone"></i> &nbsp; {{u.phoneNumber}}</a>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <!-- End Feature One -->
+                </div>
               </div>
-              <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2">{{u.name}}</h4>
-            </a>
-          </th>
-          <td class="table-y-middle py-7 min-width-px-235 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{u.email}}</h3>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{u.phoneNumber}}</h3>
-          </td>
+            </div>
+          </div>
 
-
-        </tr>
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   </div>
+
   <br>
   <div *ngIf="checkList"  class="row mb-11 align-items-center">
     <div class="col-lg-12 mb-lg-0 mb-4">

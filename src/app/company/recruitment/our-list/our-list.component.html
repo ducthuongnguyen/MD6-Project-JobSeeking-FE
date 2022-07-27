@@ -1,79 +1,117 @@
 <br>
 <br>
-<br>
-<br>
 <div class="mb-14">
   <div class="my-15 px-11" style="width: 280px">
-    <a routerLink="/company/recruitment/add" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
+    <a routerLink="/company/recruitment/add" class="btn btn-primary btn-xl w-100 text-uppercase"><span
+      class="mr-5 d-inline-block">+</span>Thêm tin tuyển dụng</a>
   </div>
-  <div class="row mb-11 align-items-center">
-    <div class="col-lg-12 mb-lg-0 mb-4">
-      <h3 style="text-align: center" class="font-size-6 mb-0">Danh sách tin tuyển dụng của doanh nghiệp</h3>
-    </div>
-  </div>
-  <div class="bg-white shadow-8 pt-7 rounded pb-8 px-11">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Tiêu đề</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số lượng</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Cấp bậc</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Ngày đăng tin</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Số người ứng tuyển</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Trạng thái</th>
-          <th scope="col" class="border-0 font-size-4 font-weight-normal">Thao tác</th>
-        </tr>
-        </thead>
-        <tbody>
 
-        <tr class="border border-color-2" *ngFor="let recuitment of recruitmentNews">
-          <th scope="row" class="pl-6 border-0 py-7 pr-0">
-            <a href="candidate-profile.html" class="media min-width-px-235 align-items-center">
-              <div class="circle-36 mr-6">
-                <img src="https://finestdevs.com/demos/jobcamp/./image/table-one-profile-image-1.png" alt=""
-                     class="w-100"/>
+  <div class="bg-default-1 pt-26 pt-lg-2 pb-13 pb-lg-25">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-2 col-md-5 col-xs-8">
+        </div>
+
+        <div class="col-12 col-xl-8 col-lg-8">
+          <!-- form -->
+          <div class="pt-12">
+            <div class="row mb-11 align-items-center">
+              <div class="col-lg-12 mb-lg-0 mb-4">
+                <h2 style="text-align: center" class="font-size-8 mb-5">Danh sách tin tuyển dụng của doanh nghiệp</h2>
               </div>
-              <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2">{{recuitment.title}}</h4>
-            </a>
-          </th>
-          <td class="table-y-middle py-7 min-width-px-235 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.employeeQuantity}}</h3>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.vacancy.name}}</h3>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">{{recuitment.expiredDate}}</h3>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-170 pr-0">
-            <h3 class="font-size-4 font-weight-normal text-red-2 mb-0"><a [routerLink]="['/company/recruitment/apply-users', recuitment.id]">{{recuitment?.users?.length}}</a></h3>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-110 pr-0">
-            <div>
-              <button class="font-size-3 font-weight-bold text-green text-uppercase" id="status"
-                      (click)="updateStatus(recuitment.id)">{{recuitment.status}}</button>
             </div>
-          </td>
-          <td class="table-y-middle py-7 min-width-px-110 pr-0">
-            <div class="">
-              <button class="font-size-3 font-weight-bold text-green text-uppercase" [routerLink]="['/company/recruitment/edit', recuitment.id]">Cập nhật
-              </button>
+            <div class="mb-8" *ngFor="let recruitment of recruitmentNews; index as i">
+              <!-- Single Featured Job -->
+              <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3"
+                   style="margin-top: -27px">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="media align-items-center">
+                      <div class="square-72 d-block mr-8">
+                        <img src="https://finestdevs.com/demos/jobcamp/./image/l2/png/featured-job-logo-1.png" alt="">
+                      </div>
+                      <div>
+                        <h3 class="mb-0"><a class="font-size-6 heading-default-color"
+                                            routerLink="/company/recruitment/detail/{{recruitment.id}}">{{recruitment.title}}</a>
+                        </h3>
+                        <a href="#"
+                           class="font-size-3 text-default-color line-height-2">{{recruitment.company.name}}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 text-right pt-7 pt-md-5">
+                    <div class="media justify-content-md-end">
+                      <div class="image mr-5 mt-2">
+                      </div>
+                      <p class="font-weight-bold font-size-7 text-hit-gray mb-0">
+                        <span class="text-black-2">{{recruitment.salaryFrom}}-{{recruitment.salaryTo}}</span> Triệu VNĐ
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row pt-8">
+                  <div class="col-md-6">
+                    <ul class="d-flex list-unstyled mr-n3 flex-wrap">
+                      <li>
+                      <span
+                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
+                        href="#">Lĩnh Vực: {{recruitment.field.name}}</span>
+                      </li>
+                      <li>
+                      <span
+                        class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2"
+                        href="#">Kinh Nghiệm: {{recruitment.requiredExperience}} Năm</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
+                      <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
+                      <span class="mr-4" style="margin-top: -2px"><img
+                        src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-loaction-pin-black.svg"
+                        alt=""></span>
+                        <span class="font-weight-semibold">{{recruitment.workingPlace}}</span>
+                      </li>
+                      <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
+                      <span class="mr-4" style="margin-top: -2px"><img
+                        src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-clock.svg" alt=""></span>
+                        <span class="font-weight-semibold">Ngày đăng tin: {{recruitment.expiredDate}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div style="margin-left: 2%" class="mr-32">
+                    <button class="btn btn-outline-success line-height-reset btn-submit text-uppercase w-30"
+                            [routerLink]="['/company/recruitment/apply-users', recruitment.id]">Số người ứng tuyển: {{recruitment?.users?.length}}
+                    </button>
+                  </div>
+                  <div style="margin-left: 18%" class="mr-3">
+                    <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30"
+                            (click)="updateStatus(recruitment.id)">Trạng thái: {{recruitment.status}}</button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30"
+                            [routerLink]="['/company/recruitment/edit', recruitment.id]">Cập nhật
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+              <br>
+              <!-- End Single Featured Job -->
             </div>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <br>
-  <div *ngIf="checkList"  class="row mb-11 align-items-center">
-    <div class="col-lg-12 mb-lg-0 mb-4">
-      <p style="text-align: center;color: red" class="font-size-6 mb-0">Không có dữ liệu hiển thị</p>
-      <br>
-      <br>
-      <br>
-      <br>
+            <div *ngIf="checkList" class="row mb-11 align-items-center">
+              <div class="col-lg-12 mb-lg-0 mb-4">
+                <p style="text-align: left;color: red" class="font-size-6 mb-0">Không có dữ liệu hiển thị</p>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-2 col-lg-2"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
