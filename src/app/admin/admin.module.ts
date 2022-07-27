@@ -10,6 +10,7 @@ import {CompanyBlockComponent} from './company/company-block/company-block.compo
 import {RecruitmentBlockComponent} from './recruitment/recruitment-block/recruitment-block.component';
 // @ts-ignore
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule {

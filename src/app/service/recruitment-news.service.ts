@@ -88,13 +88,24 @@ export class RecruitmentNewsService {
   findAllByTitleSalaryExperiencePlaceField(title: string, from: number, to: number, experience: string, place: string, fieldId: string): Observable<RecruitmentNews[]> {
     return this.httpClient.get<RecruitmentNews[]>(this.API_RECRUIMENT_LIST + `/find-6-criteria?title=` + title + `&from=` + from + `&to=` + to + `&experience=` + experience + `&place=` + place + `&fieldId=` + fieldId);
   }
+
   saveMessage(message: Message): Observable<Message> {
-    return this.httpClient.post<Message>("http://localhost:8080/message",message);
+    return this.httpClient.post<Message>("http://localhost:8080/message", message);
   }
+
   findAllMessageByCompany(id: any): Observable<Message[]> {
     return this.httpClient.get<Message[]>(`http://localhost:8080/message/findByCompany/${id}`);
   }
+
   deleteMessage(id: number): Observable<Message> {
-    return this.httpClient.delete<Message>("http://localhost:8080/message"+`/${id}`);
+    return this.httpClient.delete<Message>("http://localhost:8080/message" + `/${id}`);
+  }
+
+  //tìm theo job title, salary range, kinh nghiệm, thành phố, chuyen nganh (field) phan trang
+  findAllByTitleSalaryExperiencePlaceFieldPage(request, title, from, to, experience, place, fieldId) {
+    const params = request;
+    return this.httpClient.get(this.API_RECRUIMENT_LIST + `/find-6-criteria-page?title=` + title +
+      `&from=` + from + `&to=` + to + `&experience=` + experience + `&place=` + place
+      + `&fieldId=` + fieldId, {params});
   }
 }
