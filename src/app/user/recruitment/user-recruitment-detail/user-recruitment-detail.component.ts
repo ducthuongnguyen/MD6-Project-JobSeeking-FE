@@ -18,18 +18,19 @@ export class UserRecruitmentDetailComponent implements OnInit {
   checkRole;
   user: User;
   obj: any;
-
+  checkApply;
+  idRecruitment;
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute,
               private userService: UserService) {
     this.activatedRoute.paramMap.subscribe((pramMap: ParamMap) => {
-        const id = pramMap.get('id');
-        this.getDetail(id);
+         this.idRecruitment = pramMap.get('id');
       }
     )
   }
 
   ngOnInit() {
+    this.getDetail(this.idRecruitment);
     const role = localStorage.getItem('ROLE');
     if (role == null) {
       this.checkRole = true;
@@ -37,8 +38,14 @@ export class UserRecruitmentDetailComponent implements OnInit {
   }
 
   getDetail(id: string) {
+    const idUser = localStorage.getItem('ID');
     this.recruitmentNewsService.findById(id).subscribe(data => {
       this.recruitmentNews = data;
+      for (let i = 0; i < this.recruitmentNews.users.length; i++) {
+        if (this.recruitmentNews.users[i].id == idUser){
+          this.checkApply = true;
+        }
+      }
     }, error => {
       alert("Lỗi!")
     })
@@ -63,12 +70,11 @@ export class UserRecruitmentDetailComponent implements OnInit {
     });
   }
   applyRe(id: any,user: User){
-    // @ts-ignore
-    if (this.recruitmentNews.users.length === 0){
-      const idUser = localStorage.getItem('ID');
+    const idUser = localStorage.getItem('ID');
       this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
         this.recruitmentNews = result;
         this.messageApply();
+        this.getDetail(this.idRecruitment);
         this.obj = {
           user: {
             id: idUser
@@ -84,16 +90,16 @@ export class UserRecruitmentDetailComponent implements OnInit {
     }, error => {
       alert("Lỗi");
     })
-    } else {
-      Swal.fire({
-        position: 'center',
-        icon: 'info',
-        title: 'Bạn đã ứng tuyển rồi',
-        showConfirmButton: false,
-        timer: 2000
-      })
     }
-  }
+    // else {
+    //   Swal.fire({
+    //     position: 'center',
+    //     icon: 'info',
+    //     title: 'Bạn đã ứng tuyển rồi',
+    //     showConfirmButton: false,
+    //     timer: 2000
+    //   })
+    // }
 
   messageApply() {
     Swal.fire({
