@@ -6,6 +6,7 @@ import {AuthenticationService} from '../../../service/authentication.service';
 import {Field} from '../../../model/field';
 import {FieldService} from '../../../service/field.service';
 import {PageEvent} from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recruitment-list',
@@ -22,7 +23,8 @@ export class RecruitmentListComponent implements OnInit {
 
   constructor(private recruitmentNewService: RecruitmentNewsService,
               private authenticationService: AuthenticationService,
-              private fieldService: FieldService) { }
+              private fieldService: FieldService,
+              private router: Router) { }
 
   ngOnInit() {
     this.findUnlockRecruitmentNews();
@@ -72,6 +74,9 @@ export class RecruitmentListComponent implements OnInit {
       this.recruitmentNews = result['content'];
       this.totalElements = result['totalElements'];
       this.loading = false;
+      this.router.navigate(['/user/recruitment/list'],
+        { queryParams: { title: this.searchForm.value.title } }
+      );
       this.searchForm = new FormGroup({
         title: new FormControl(''),
         from: new FormControl(''),
@@ -80,6 +85,7 @@ export class RecruitmentListComponent implements OnInit {
         place: new FormControl(''),
         fieldId: new FormControl(''),
       });
+
       // tslint:disable-next-line:triple-equals
       if (this.recruitmentNews.length == 0) {
         this.checkList = true;

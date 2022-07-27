@@ -148,7 +148,7 @@ export class NavbarComponent implements OnInit {
         this.login();
       } else {
         if (this.company.status === 'Khóa') {
-          this.messageLoginEmailLock();
+          this.messageLoginEmailLock()
         } else {
           this.login();
         }
