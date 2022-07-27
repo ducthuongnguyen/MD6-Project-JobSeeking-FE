@@ -3,6 +3,8 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 
+
+
 @Component({
   selector: 'app-detail-recruitment',
   templateUrl: './detail-recruitment.component.html',
@@ -10,7 +12,7 @@ import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 })
 export class DetailRecruitmentComponent implements OnInit {
   recruitmentNews: RecruitmentNews = {};
-
+checkDate;
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe((pramMap: ParamMap) => {
@@ -23,10 +25,10 @@ export class DetailRecruitmentComponent implements OnInit {
 
   ngOnInit() {
   }
-
   getDetail(id: string) {
     this.recruitmentNewsService.findById(id).subscribe(data => {
       this.recruitmentNews = data;
+
     }, error => {
       console.log(error)
     })

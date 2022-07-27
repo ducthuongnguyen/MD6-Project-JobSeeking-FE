@@ -86,7 +86,7 @@
             <input type="number" id="form6Example2" class="form-control" placeholder="đến..."
                    formControlName="salaryTo"/>
           </div>
-          <div *ngIf="!salaryTo.valid && salaryTo.touched">
+          <div *ngIf="!salaryTo?.valid && salaryTo?.touched">
             <div [hidden]="!salaryTo.errors.required">
               <p style="color: red">Vui lòng nhập!</p>
             </div>
@@ -99,7 +99,7 @@
         <label class="form-label" for="expriedDate">Ngày hết hạn</label>
         <input class="form-control" id="expriedDate" type="date" formControlName="expiredDate"/>
       </div>
-      <div *ngIf="!expiredDate.valid && expiredDate.touched">
+      <div *ngIf="!expiredDate?.valid && expiredDate?.touched">
         <div [hidden]="!expiredDate.errors.required">
           <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
         </div>
@@ -111,7 +111,7 @@
         <input class="form-control" id="employeeQuantity" type="number"
                placeholder="Vui lòng chọn số lượng nhân viên..." formControlName="employeeQuantity"/>
       </div>
-      <div *ngIf="!employeeQuantity.valid && employeeQuantity.touched">
+      <div *ngIf="!employeeQuantity?.valid && employeeQuantity?.touched">
         <div [hidden]="!employeeQuantity.errors.required">
           <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
         </div>
@@ -123,7 +123,7 @@
         <input class="form-control" id="requiredExperience" type="number" placeholder="Vui lòng chọn năm kinh nghiệm..."
                formControlName="requiredExperience"/>
       </div>
-      <div *ngIf="!requiredExperience.valid && requiredExperience.touched">
+      <div *ngIf="!requiredExperience?.valid && requiredExperience?.touched">
         <div [hidden]="!requiredExperience.errors.required">
           <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
         </div>
@@ -140,7 +140,7 @@
           <option value="3">Mọi giới tính</option>
         </select>
       </div>
-      <div *ngIf="!gender.valid && gender.touched">
+      <div *ngIf="!gender?.valid && gender?.touched">
         <div [hidden]="!gender.errors.required">
           <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
         </div>
@@ -168,7 +168,7 @@
         <textarea class="form-control" id="description" type="text" placeholder="Miêu tả công việc..."
                   style="height: 7rem;" formControlName="description"></textarea>
       </div>
-      <div *ngIf="!description.valid && description.touched">
+      <div *ngIf="!description?.valid && description?.touched">
         <div [hidden]="!description.errors.required">
           <p style="color: red">Đây là trường bắt buộc, vui lòng nhập!</p>
         </div>
