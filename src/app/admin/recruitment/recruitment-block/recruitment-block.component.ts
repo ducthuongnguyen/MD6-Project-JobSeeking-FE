@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./recruitment-block.component.css']
 })
 export class RecruitmentBlockComponent implements OnInit {
-  cruimentnews: RecruitmentNews[] = [];
+  recruitmentNews: RecruitmentNews[] = [];
 
   constructor(private recruimentService: RecruitmentNewsService) {
   }
@@ -21,7 +21,7 @@ export class RecruitmentBlockComponent implements OnInit {
 
   listRecruiment() {
     this.recruimentService.findAllLockedRecruitmentNews().subscribe(data => {
-      this.cruimentnews = data;
+      this.recruitmentNews = data;
     })
   }
 
