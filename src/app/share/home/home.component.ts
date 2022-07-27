@@ -4,7 +4,7 @@ import {RecruitmentNews} from 'src/app/model/recruitment-news';
 import {CompanyService} from 'src/app/service/company.service';
 import {RecruitmentNewsService} from 'src/app/service/recruitment-news.service';
 import Swal from "sweetalert2";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
 import {FormControl, FormGroup } from '@angular/forms';
@@ -36,7 +36,8 @@ export class HomeComponent implements OnInit {
               private recruitmentNewsService: RecruitmentNewsService,
               public userService: UserService,
               private authenticationService:AuthenticationService,
-              private recruitmentService: RecruitmentNewsService) {
+              private recruitmentService: RecruitmentNewsService,
+              private router: Router) {
   }
 
   ngOnInit() {
