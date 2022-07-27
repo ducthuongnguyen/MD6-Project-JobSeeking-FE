@@ -46,6 +46,8 @@ export class ListJobComponent implements OnInit {
   });
 
   private getListRequest(request) {
+    this.router.navigate(
+      ['/admin/recruitment/list-job']);
     this.loading = true;
     this.recruitmentService.findPageUnlockRecruitmentNews(request).subscribe(data => {
       this.recruimentNews = data['content'];
@@ -110,29 +112,33 @@ export class ListJobComponent implements OnInit {
     const place = this.searchForm.value.place;
     const fieldId = this.searchForm.value.fieldId;
     // tslint:disable-next-line:max-line-length
-    this.recruitmentService.findAllByTitleSalaryExperiencePlaceFieldPage(request, this.searchForm.value.title, this.searchForm.value.from, this.searchForm.value.to, this.searchForm.value.experience, this.searchForm.value.place, this.searchForm.value.fieldId).subscribe((result: RecruitmentNews[]) => {
-      this.recruimentNews = result['content'];
-      this.totalElements = result['totalElements'];
-      this.loading = false;
-      this.router.navigate(
-        ['/admin/recruitment/list-job'],
-        {queryParams: {title: this.searchForm.value.title, cities: this.searchForm.value.cities}}
-      );
-      this.searchForm = new FormGroup({
-        title: new FormControl(''),
-        from: new FormControl(''),
-        to: new FormControl(''),
-        experience: new FormControl(''),
-        place: new FormControl(''),
-        fieldId: new FormControl(''),
-      });
-      // tslint:disable-next-line:triple-equals
-      if (this.recruimentNews.length == 0) {
-        this.checkList = true;
+    this.recruitmentService.findAllByTitleSalaryExperiencePlaceFieldPage(request, title, from, to, experience, place, fieldId).subscribe((result: RecruitmentNews[]) => {
+        this.recruimentNews = result['content'];
+        this.totalElements = result['totalElements'];
+        this.loading = false;
+        this.router.navigate(
+          ['/admin/recruitment/list-job'],
+          {
+            queryParams: {title: title, from: from, to: to, experience: experience, place: place, fieldId: fieldId}
+          });
+        // this.searchForm = new FormGroup({
+        //   title: new FormControl(''),
+        //   from: new FormControl(''),
+        //   to: new FormControl(''),
+        //   experience: new FormControl(''),
+        //   place: new FormControl(''),
+        //   fieldId: new FormControl(''),
+        // });
+        // tslint:disable-next-line:triple-equals
+        if (this.recruimentNews.length == 0) {
+          this.checkList = true;
+        }
+      },
+      error => {
+        this.loading = false;
       }
-    }, error => {
-      this.loading = false;
-    });
+    )
+    ;
     this.checkList = false;
   }
 

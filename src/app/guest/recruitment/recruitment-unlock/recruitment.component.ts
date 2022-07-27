@@ -73,7 +73,6 @@ export class RecruitmentComponent implements OnInit {
     this.recruitmentNewService.findByTitleWorkingPlace(
       this.searchForm.value.title,
       this.searchForm.value.cities).subscribe(result => {
-      // @ts-ignore
       this.recruitmentNews = result;
       this.router.navigate(
         ['/guest/recruitment'],
