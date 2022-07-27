@@ -100,6 +100,9 @@ export class RecruitmentNewsService {
   deleteMessage(id: number): Observable<Message> {
     return this.httpClient.delete<Message>("http://localhost:8080/message" + `/${id}`);
   }
+  findAllUser(id: any): Observable<RecruitmentNews[]> {
+    return this.httpClient.get<RecruitmentNews[]>(`http://localhost:8080/recruitment-news/apply-recruitment/${id}`);
+  }
 
   //tìm theo job title, salary range, kinh nghiệm, thành phố, chuyen nganh (field) phan trang
   findAllByTitleSalaryExperiencePlaceFieldPage(request, title, from, to, experience, place, fieldId) {

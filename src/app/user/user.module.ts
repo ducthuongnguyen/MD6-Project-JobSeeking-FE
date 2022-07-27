@@ -9,6 +9,7 @@ import { UserRecruitmentDetailComponent } from './recruitment/user-recruitment-d
 import { CompanyListComponent } from './company/company-list/company-list.component';
 import { RecruitmentByCompanyComponent } from './recruitment/recruitment-by-company/recruitment-by-company.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { FindByUserComponent } from './recruitment/find-by-user/find-by-user.component';
 
 
 // @ts-ignore
@@ -23,7 +24,9 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 
   RecruitmentByCompanyComponent,
 
-  UserEditComponent
+  UserEditComponent,
+
+  FindByUserComponent
 
   ],
   imports: [
