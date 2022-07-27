@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RecruitmentNews} from "../../../model/recruitment-news";
 import {RecruitmentNewsService} from "../../../service/recruitment-news.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import Swal from "sweetalert2";
 import {User} from "../../../model/user";
 import {UserService} from "../../../service/user.service";
+import * as moment from "moment/moment";
+
 
 @Component({
   selector: 'app-user-recruitment-detail',
@@ -14,17 +16,19 @@ import {UserService} from "../../../service/user.service";
 export class UserRecruitmentDetailComponent implements OnInit {
 
   recruitmentNews: RecruitmentNews = {};
-  recruitmentNewsApply: RecruitmentNews = {};
   checkRole;
   user: User;
   obj: any;
+  check;
   checkApply;
+  checkDate;
   idRecruitment;
+
   constructor(private recruitmentNewsService: RecruitmentNewsService,
               private activatedRoute: ActivatedRoute,
               private userService: UserService) {
     this.activatedRoute.paramMap.subscribe((pramMap: ParamMap) => {
-         this.idRecruitment = pramMap.get('id');
+        this.idRecruitment = pramMap.get('id');
       }
     )
   }
@@ -41,11 +45,18 @@ export class UserRecruitmentDetailComponent implements OnInit {
     const idUser = localStorage.getItem('ID');
     this.recruitmentNewsService.findById(id).subscribe(data => {
       this.recruitmentNews = data;
+      this.check = true;
       for (let i = 0; i < this.recruitmentNews.users.length; i++) {
-        if (this.recruitmentNews.users[i].id == idUser){
+        if (this.recruitmentNews.users[i].id == idUser) {
           this.checkApply = true;
+          this.check = false;
         }
       }
+      if (moment(this.recruitmentNews.expiredDate) < moment()) {
+        this.checkDate = true;
+        this.check = false;
+      }
+
     }, error => {
       alert("Lỗi!")
     })
@@ -60,46 +71,39 @@ export class UserRecruitmentDetailComponent implements OnInit {
       timer: 2000
     })
   }
+
   applyRecruitment(id: any) {
     const idUser = localStorage.getItem('ID');
     this.userService.getById(idUser).subscribe((result) => {
       this.user = result;
-      this.applyRe(id,this.user);
+      this.applyRe(id, this.user);
     }, e => {
       console.log(e);
     });
   }
-  applyRe(id: any,user: User){
+
+  applyRe(id: any, user: User) {
     const idUser = localStorage.getItem('ID');
-      this.recruitmentNewsService.applyRecruitment(id,user).subscribe((result) => {
-        this.recruitmentNews = result;
-        this.messageApply();
-        this.getDetail(this.idRecruitment);
-        this.obj = {
-          user: {
-            id: idUser
-          },
-          company: {
-            id: this.recruitmentNews.company.id
-          },
-          recruitmentNews: {
-            id: this.recruitmentNews.id
-          }
-        };
-        this.saveMessage(this.obj);
+    this.recruitmentNewsService.applyRecruitment(id, user).subscribe((result) => {
+      this.recruitmentNews = result;
+      this.messageApply();
+      this.getDetail(this.idRecruitment);
+      this.obj = {
+        user: {
+          id: idUser
+        },
+        company: {
+          id: this.recruitmentNews.company.id
+        },
+        recruitmentNews: {
+          id: this.recruitmentNews.id
+        }
+      };
+      this.saveMessage(this.obj);
     }, error => {
       alert("Lỗi");
     })
-    }
-    // else {
-    //   Swal.fire({
-    //     position: 'center',
-    //     icon: 'info',
-    //     title: 'Bạn đã ứng tuyển rồi',
-    //     showConfirmButton: false,
-    //     timer: 2000
-    //   })
-    // }
+  }
 
   messageApply() {
     Swal.fire({
@@ -115,7 +119,7 @@ export class UserRecruitmentDetailComponent implements OnInit {
     this.recruitmentNewsService.saveMessage(obj).subscribe(() => {
     }, error => {
       alert('Lỗi message');
-    }) ;
+    });
   }
 
 }
