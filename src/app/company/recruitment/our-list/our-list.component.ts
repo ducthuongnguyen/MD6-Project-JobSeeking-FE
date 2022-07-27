@@ -37,9 +37,13 @@ export class OurListComponent implements OnInit {
   }
 
   updateStatus(id: string) {
+    let status = document.getElementById("status").innerHTML;
     this.recruitmentService.updateStatus(id).subscribe(() => {
       this.findAll();
       this.messageStatus();
+      if (status.trim() == "Khóa") {
+        document.getElementById("status-btn").style.backgroundColor = "red";
+      }
     }, error => {
       alert('Lỗi');
     });

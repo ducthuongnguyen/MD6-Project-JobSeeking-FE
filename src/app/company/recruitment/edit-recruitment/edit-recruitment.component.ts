@@ -82,7 +82,6 @@ export class EditRecruitmentComponent implements OnInit {
 
   getRecruitment(id: string) {
     return this.recruimentNewsService.findById(id).subscribe(recruitment => {
-      console.log(recruitment.workingType);
       this.recruitmentForm = new FormGroup({
         title: new FormControl(recruitment.title),
         vacancyId: new FormControl(recruitment.vacancy.id),

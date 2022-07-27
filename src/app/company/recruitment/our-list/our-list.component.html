@@ -85,8 +85,8 @@
                     </button>
                   </div>
                   <div style="margin-left: 18%" class="mr-3">
-                    <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30"
-                            (click)="updateStatus(recruitment.id)">Trạng thái: {{recruitment.status}}</button>
+                    <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30" id="status-btn"
+                            (click)="updateStatus(recruitment.id)"><span>Trạng thái: </span><span id="status">{{recruitment.status}}</span></button>
                   </div>
                   <div>
                     <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30"

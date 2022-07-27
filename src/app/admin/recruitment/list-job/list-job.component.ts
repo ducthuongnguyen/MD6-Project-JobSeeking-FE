@@ -115,10 +115,10 @@ export class ListJobComponent implements OnInit {
       if (this.recruimentNews.length == 0) {
         this.checkList = true;
       }
-      console.log(this.recruimentNews.length)
     }, error => {
       this.loading = false
     });
+    this.checkList = false;
   }
 
   messageStatus() {

@@ -72,7 +72,8 @@
           <div class="widgets mb-11 ">
             <h4 class="font-size-6 font-weight-semibold">Tiêu đề</h4>
             <div class="form-group position-relative">
-              <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Tên tiêu đề" formControlName="title">
+              <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Tên tiêu đề"
+                     formControlName="title">
               <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                                         <i class="fa-solid fa-magnifying-glass" style="color: #62AE77"></i>
                   </span>
@@ -81,7 +82,8 @@
           <div class="widgets mb-11 ">
             <h4 class="font-size-6 font-weight-semibold">Thành phố</h4>
             <div class="form-group position-relative w-100">
-              <select name="country" id="country" class="nice-select font-size-4 " style="width: 100%" formControlName="place">
+              <select name="country" id="country" class="nice-select font-size-4 " style="width: 100%"
+                      formControlName="place">
                 <option data-display="City, state, zip code or (Remote)">Thành Phố</option>
                 <option *ngFor="let c of cities" [value]="c.name">{{c.name}}</option>
               </select>
@@ -92,7 +94,8 @@
           <div class="widgets mb-11 ">
             <h4 class="font-size-6 font-weight-semibold">Nghành nghề</h4>
             <div class="form-group position-relative w-100">
-              <select name="country" id="" class="nice-select font-size-4 " style="width: 100%" formControlName="fieldId" >
+              <select name="country" id="" class="nice-select font-size-4 " style="width: 100%"
+                      formControlName="fieldId">
                 <option data-display="City, state, zip code or (Remote)">Ngành nghề...</option>
                 <option *ngFor="let f of fields" [value]="f.id">{{f.name}}</option>
               </select>
@@ -107,13 +110,15 @@
               <div class="row mb-4">
                 <div class="col">
                   <div class="form-outline">
-                    <input type="number" id="form6Example1" class="form-control" formControlName="from" placeholder="từ..."/>
+                    <input type="number" id="form6Example1" class="form-control" formControlName="from"
+                           placeholder="từ..."/>
                   </div>
                 </div>
                 -
                 <div class="col">
                   <div class="form-outline">
-                    <input type="number" id="form6Example2" class="form-control"  formControlName="to" placeholder="đến..."/>
+                    <input type="number" id="form6Example2" class="form-control" formControlName="to"
+                           placeholder="đến..."/>
                   </div>
                 </div>
                 <label class="font-size-6 mb-6 w-15">Triệu VND</label>
@@ -124,14 +129,17 @@
             <h4 class="font-size-6 font-weight-semibold mb-6 w-75">Số năm kinh
               nghiệm</h4>
             <div class="mb-3">
-              <input class="form-control" id="requiredExperience"  formControlName="experience" type="number"
+              <input class="form-control" id="requiredExperience" formControlName="experience" type="number"
                      placeholder="Vui lòng chọn năm kinh nghiệm..."/>
             </div>
           </div>
           <br>
           <div>
-            <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-40 mr-18" type="submit">Tìm Kiếm</button>
-            <a class="btn btn-primary line-height-reset btn-submit text-uppercase w-40" (click)="getListRequest({page: 0, size: 5})" >Tất cả</a>
+            <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-40 mr-18" type="submit">Tìm
+              Kiếm
+            </button>
+            <a class="btn btn-primary line-height-reset btn-submit text-uppercase w-40"
+               (click)="getListRequest({page: 0, size: 5})">Tất cả</a>
           </div>
         </form>
         <!-- Sidebar End -->
@@ -142,13 +150,15 @@
         <div class="pt-12">
           <div class="d-flex align-items-center justify-content-between mb-6">
             <h5 style="text-align: center" class="font-size-4 font-weight-normal text-gray">
-              <h3 style="text-align: center; margin-top: -67px" class="heading-default-color">Danh Sách Tin Tuyển Dụng</h3>
+              <h3 style="text-align: center; margin-top: -67px" class="heading-default-color">Danh Sách Tin Tuyển
+                Dụng</h3>
             </h5>
           </div>
 
           <div class="mb-8" *ngFor="let recruitment of recruimentNews; index as i">
             <!-- Single Featured Job -->
-            <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3" style="margin-top: -27px">
+            <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3"
+                 style="margin-top: -27px">
               <div class="row">
                 <div class="col-md-6">
                   <div class="media align-items-center">
@@ -188,9 +198,9 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" style="margin-left:-41px; margin-top:9px">
                   <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
-                    <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
+                    <li class="mt-2 mr-8 font-size-small text-black-2 d-flex" style="margin-left: -45px">
                       <span class="mr-4" style="margin-top: -2px"><img
                         src="https://finestdevs.com/demos/jobcamp/./image/svg/icon-loaction-pin-black.svg"
                         alt=""></span>
@@ -204,7 +214,9 @@
                   </ul>
                 </div>
                 <div style="margin-left: 80%">
-                  <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30" routerLink="/company/recruitment/detail/{{recruitment.id}}">Xem chi tiết</button>
+                  <button class="btn btn-primary line-height-reset btn-submit text-uppercase w-30"
+                          routerLink="/company/recruitment/detail/{{recruitment.id}}">Xem chi tiết
+                  </button>
                 </div>
 
               </div>
@@ -213,22 +225,17 @@
             <br>
             <!-- End Single Featured Job -->
           </div>
-          <div *ngIf="checkList"  class="row mb-11 align-items-center">
+          <div *ngIf="checkList" class="row mb-11 align-items-center">
             <div class="col-lg-12 mb-lg-0 mb-4">
               <p style="text-align: left;color: red" class="font-size-6 mb-0">Không có dữ liệu hiển thị</p>
-              <br>
-              <br>
-              <br>
-              <br>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-2 col-lg-2"></div>
       </div>
     </div>
     <!-- Main Content end -->
-          <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements"
-                         (page)="nextPage($event)"  hidePageSize></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements"
+                   (page)="nextPage($event)" hidePageSize></mat-paginator>
   </div>
 
 </div>
