@@ -22,7 +22,7 @@ export class OurListComponent implements OnInit {
 
   findAll() {
     const id = localStorage.getItem('ID');
-    this.recruitmentService.findAllByCompanyOrderByIdDesc(id).subscribe((result: RecruitmentNews[]) => {
+    this.recruitmentService.findAllByCompanyId(id).subscribe((result: RecruitmentNews[]) => {
       this.recruitmentNews = result;
       if (this.recruitmentNews.length == 0) {
         this.checkList = true;
