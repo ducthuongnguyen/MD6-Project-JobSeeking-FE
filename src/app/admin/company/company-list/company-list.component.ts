@@ -29,7 +29,6 @@ export class CompanyListComponent implements OnInit {
     this.loading = true;
     this.companyService.findPageUnlockCompany(request).subscribe(data => {
       this.companies = data['content'];
-      console.log('data[content]--------', data['content']);
       this.totalElements = data['totalElements'];
       this.loading = false;
     }, error => {
@@ -38,11 +37,9 @@ export class CompanyListComponent implements OnInit {
   }
 
   nextPage(event: PageEvent) {
-    console.log('event=====', event);
     const request = {};
     request['page'] = event.pageIndex.toString();
     request['size'] = event.pageSize.toString();
-    console.log('request[size]=====', request['size']);
     this.getListRequest(request);
 
     // this.getSearchRequest(request,this.name);
@@ -80,7 +77,7 @@ export class CompanyListComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Thành công',
+      title: 'Thay đổi thành công',
       showConfirmButton: false,
       timer: 2000
     })

@@ -27,7 +27,6 @@ export class CompanyBlockComponent implements OnInit {
 
   listBlockCompany() {
     this.companyService.findBlockCompany().subscribe((listCompany: Company[]) => {
-      console.log(listCompany)
       this.companies = listCompany;
       if (this.companies.length==0){
         this.checkList = true;
