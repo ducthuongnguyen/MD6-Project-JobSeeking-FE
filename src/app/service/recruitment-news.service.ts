@@ -27,6 +27,10 @@ export class RecruitmentNewsService {
     return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company/${id}`);
   }
 
+  findAllByCompanyOrderByIdDesc(id: any): Observable<RecruitmentNews[]> {
+    return this.httpClient.get<RecruitmentNews[]>(`${environment.apiUrl}/recruitment-news/find-by-company-order-by/${id}`);
+  }
+
   // Thêm tin tuyển dụng
   save(recruitment: RecruitmentNews): Observable<RecruitmentNews> {
     return this.httpClient.post<RecruitmentNews>(this.API_RECRUIMENT_LIST, recruitment);
