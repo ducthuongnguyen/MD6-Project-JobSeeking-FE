@@ -60,18 +60,7 @@ export class HomeComponent implements OnInit {
     })
   }
   applyRecruitment(id: any) {
-    // console.log("/////////")
     const idUser = localStorage.getItem('ID');
-    // this.userService.getById(idUser).subscribe(result => {
-    //
-    //   this.user = result;
-    //   console.log("/////////")
-    //   console.log(this.user)
-    //   this.applyRe(id,this.user);
-    // }, error => {
-    //   alert("Lỗi");
-    // })
-
     this.userService.getById(idUser).subscribe((result) => {
       this.user = result;
       this.applyRe(id,this.user);
