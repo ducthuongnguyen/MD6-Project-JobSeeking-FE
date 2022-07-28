@@ -562,9 +562,9 @@
                 <label for="introduction"
                        class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Giới
                   thiệu doanh nghiệp</label>
-                <input formControlName="introduction" type="text" class="form-control"
+                <textarea formControlName="introduction" type="text" class="form-control"
                        placeholder="Nhập thông tin"
-                       id="introduction">
+                          id="introduction"></textarea>
               </div>
               <div *ngIf="!introduction.valid && introduction?.touched">
                 <div [hidden]="!introduction.errors.required">

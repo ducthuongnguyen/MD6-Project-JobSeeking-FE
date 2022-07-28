@@ -178,6 +178,7 @@ export class NavbarComponent implements OnInit {
             localStorage.setItem('ID', data.id);
             this.closeModal.nativeElement.click();
             this.messageLogin();
+            this.loginForm.reset();
             this.router.navigate(['']);
           }
         },
