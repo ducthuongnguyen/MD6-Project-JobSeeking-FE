@@ -121,15 +121,6 @@ export class ListJobComponent implements OnInit {
           {
             queryParams: {title: title, from: from, to: to, experience: experience, place: place, fieldId: fieldId}
           });
-        // this.searchForm = new FormGroup({
-        //   title: new FormControl(''),
-        //   from: new FormControl(''),
-        //   to: new FormControl(''),
-        //   experience: new FormControl(''),
-        //   place: new FormControl(''),
-        //   fieldId: new FormControl(''),
-        // });
-        // tslint:disable-next-line:triple-equals
         if (this.recruimentNews.length == 0) {
           this.checkList = true;
         }
